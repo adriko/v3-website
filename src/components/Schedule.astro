@@ -136,25 +136,25 @@ const fitnessDays = [
       </div>
 
       <!-- Przełącznik stref grafikowych -->
-      <div class="inline-flex items-center rounded-2xl border border-white/15 bg-zinc-900 p-1.5 self-start md:self-auto">
+      <div class="inline-flex items-center rounded-2xl border border-white/15 bg-zinc-900 p-1.5 self-start md:self-auto shadow-md">
         <button
           type="button"
           id="tab-fight-zone"
-          class="rounded-xl bg-v3-red px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white shadow-lg transition"
+          class="cursor-pointer rounded-xl bg-v3-red px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white shadow-lg transition"
         >
           Fight Zone
         </button>
         <button
           type="button"
           id="tab-fitness"
-          class="rounded-xl px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-zinc-300 transition hover:text-white"
+          class="cursor-pointer rounded-xl px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-zinc-300 transition hover:text-white"
         >
           Fitness &amp; Wellness
         </button>
       </div>
     </div>
 
-    <!-- Siatka 1: FIGHT ZONE -->
+    <!-- Siatka 1: FIGHT ZONE (grid na smartfonie, tablecie i PC) -->
     <div id="grid-fight-zone" class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
       {fightDays.map((item) => (
         <div class="flex flex-col justify-between rounded-2xl border border-white/10 bg-zinc-900/60 p-5 sm:p-6 transition hover:border-v3-red/40">
@@ -190,8 +190,8 @@ const fitnessDays = [
       ))}
     </div>
 
-    <!-- Siatka 2: FITNESS & WELLNESS (Domyślnie ukryta) -->
-    <div id="grid-fitness" class="mt-12 hidden grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+    <!-- Siatka 2: FITNESS & WELLNESS (Z zachowaną klasą grid przy ukryciu/pokazaniu) -->
+    <div id="grid-fitness" class="mt-12 hidden grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
       {fitnessDays.map((item) => (
         <div class="flex flex-col justify-between rounded-2xl border border-white/10 bg-zinc-900/60 p-5 sm:p-6 transition hover:border-v3-lime/40">
           <div>
@@ -251,17 +251,17 @@ const fitnessDays = [
 
     if (tab === 'fight') {
       tabFight.className =
-        'rounded-xl bg-v3-red px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white shadow-lg transition';
+        'cursor-pointer rounded-xl bg-v3-red px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white shadow-lg transition';
       tabFitness.className =
-        'rounded-xl px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-zinc-300 transition hover:text-white';
+        'cursor-pointer rounded-xl px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-zinc-300 transition hover:text-white';
       gridFight.classList.remove('hidden');
       gridFitness.classList.add('hidden');
       titleAccent.className = 'text-v3-red';
     } else {
       tabFitness.className =
-        'rounded-xl bg-v3-lime px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-black shadow-lg transition';
+        'cursor-pointer rounded-xl bg-v3-lime px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-black shadow-lg transition';
       tabFight.className =
-        'rounded-xl px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-zinc-300 transition hover:text-white';
+        'cursor-pointer rounded-xl px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-zinc-300 transition hover:text-white';
       gridFitness.classList.remove('hidden');
       gridFight.classList.add('hidden');
       titleAccent.className = 'text-v3-lime';
