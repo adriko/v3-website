@@ -63,22 +63,26 @@ const ageGroups = [
       ))}
     </div>
 
-    <!-- Grupy wiekowe: kompaktowe 2-kolumnowe kafelki -->
-    <div class="bg-v3-surface/60 border border-v3-border rounded-2xl sm:rounded-3xl p-5 sm:p-8">
-      <div class="mb-5">
-        <h3 class="font-['Teko'] text-2xl sm:text-4xl font-bold uppercase text-white leading-none">
+    <!-- Grupy wiekowe: dopracowane, czytelne i proporcjonalne na komputerze -->
+    <div class="bg-v3-surface/60 border border-v3-border rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10">
+      <div class="mb-6 sm:mb-8">
+        <h3 class="font-['Teko'] text-3xl sm:text-4xl lg:text-5xl font-bold uppercase text-white leading-none">
           Szkolenie dla każdego wieku
         </h3>
-        <p class="text-zinc-400 text-xs mt-1">Bezpieczne grupy zorganizowane pod kątem stopnia zaawansowania.</p>
+        <p class="text-zinc-400 text-xs sm:text-sm mt-1.5">
+          Bezpieczne grupy zorganizowane pod kątem stopnia zaawansowania[cite: 87].
+        </p>
       </div>
 
-      <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-4 lg:gap-5">
         {ageGroups.map((ag) => (
-          <div class="p-3 rounded-xl bg-v3-dark border border-v3-border flex flex-col justify-between">
-            <span class="font-bold text-white text-xs tracking-wide">{ag.group}</span>
-            <div class="mt-2 flex items-center justify-between text-[10px] text-v3-red font-mono">
-              <span>{ag.age}</span>
-              <span class="text-zinc-400">• {ag.time}</span>
+          <div class="p-3.5 sm:p-5 lg:p-6 rounded-xl sm:rounded-2xl bg-v3-dark border border-v3-border hover:border-v3-red/50 transition-all flex flex-col justify-between group">
+            <span class="font-['Teko'] text-xl sm:text-2xl lg:text-3xl font-bold tracking-wider text-white group-hover:text-v3-red transition-colors leading-tight">
+              {ag.group}[cite: 87]
+            </span>
+            <div class="mt-3 pt-3 border-t border-v3-border/60 flex flex-wrap items-center justify-between gap-1 text-xs sm:text-sm font-semibold">
+              <span class="text-v3-red font-mono font-bold">{ag.age}[cite: 87]</span>
+              <span class="text-zinc-400 font-mono text-[11px] sm:text-xs">• {ag.time}[cite: 87]</span>
             </div>
           </div>
         ))}
