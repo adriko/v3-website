@@ -1,60 +1,90 @@
 ---
 const combatSports = [
   { 
-    id: '01',
     name: 'Boks', 
-    tag: 'Szermierka na pięści',
+    tag: 'Klasyczna Stójka',
     desc: 'Precyzja ciosów, praca nóg, uniki, tarcze bokserskie i kontrolowane sparingi.', 
   },
   { 
-    id: '02',
     name: 'Kickboxing / K1', 
     tag: 'Stójka & Kopnięcia',
-    desc: 'Połączenie technik bokserskich z destrukcyjnymi kopnięciami. Eksplozywna dynamika.', 
+    desc: 'Połączenie technik bokserskich z mocnymi kopnięciami. Eksplozywna dynamika.', 
   },
   { 
-    id: '03',
     name: 'MMA & Grappling', 
-    tag: 'Wszechstylowa walka',
-    desc: 'Płynne przejścia ze stójki do obaleń, kontrola pozycji i walka na chwyty w parterze.', 
+    tag: 'Walka Wszechstylowa',
+    desc: 'Płynne przejścia ze stójki do obaleń, kontrola pozycji i techniki parterowe.', 
   },
   { 
-    id: '04',
     name: 'SSW Ju-Jitsu', 
-    tag: 'Sztuka obezwładniania',
+    tag: 'Sztuka Obezwładniania',
     desc: 'Tradycyjna japońska dyscyplina: dźwignie, rzuty, duszenia i skuteczna samoobrona.', 
   },
   { 
-    id: '05',
     name: 'Krav Maga', 
-    tag: 'Realne zagrożenie',
-    desc: 'Praktyczny system eliminacji niebezpieczeństwa w realnych sytuacjach ulicznych.', 
+    tag: 'Samoobrona Uliczna',
+    desc: 'Praktyczny system eliminacji realnego zagrożenia bez reguł ringowych.', 
   },
   { 
-    id: '06',
     name: 'Samoobrona Kobiet', 
-    tag: 'Pewność & Refleks',
-    desc: 'Dedykowana sekcja budująca odporność psychiczną, asertywność i odruchy obronne.', 
+    tag: 'Dedykowana Grupa',
+    desc: 'Pewność siebie, asertywność, bezpieczne odruchy i techniki obronne.', 
   },
 ];
 
 const ageGroups = [
-  { group: 'KIDS', category: 'DZIECI', age: '4–6 lat', time: '45 min', focus: 'Sprawność ogólna i dyscyplina przez zabawę' },
-  { group: 'START', category: 'DZIECI', age: '7–10 lat', time: '45 min', focus: 'Koordynacja ruchowa i podstawy uderzeń' },
-  { group: 'KADET', category: 'MŁODZIEŻ', age: '11–13 lat', time: '60 min', focus: 'Technika, gibkość i przygotowanie motoryczne' },
-  { group: 'JUNIOR', category: 'MŁODZIEŻ', age: '14–18 lat', time: '60 min', focus: 'Intensywny trening zadaniowy i taktyczny' },
-  { group: 'DOROŚLI REKREACJA', category: 'OPEN', age: 'Dorośli', time: '75 min', focus: 'Kondycja, redukcja wagi i czysta forma bez presji' },
-  { group: 'FIGHT TEAM', category: 'KADRA PRO', age: 'Zawodnicy', time: '75 min', focus: 'Twarde sparingi turniejowe i starty w zawodach' },
+  { 
+    group: 'KIDS', 
+    age: '4–6 lat', 
+    time: '45 min', 
+    category: 'Przedszkolaki', 
+    desc: 'Rozwój sprawności, koordynacja i dyscyplina przez sportowe zabawy.' 
+  },
+  { 
+    group: 'START', 
+    age: '7–10 lat', 
+    time: '45 min', 
+    category: 'Podstawy', 
+    desc: 'Nauka pozycji walki, podstawowych uderzeń i ogólnej zwinności.' 
+  },
+  { 
+    group: 'KADET', 
+    age: '11–13 lat', 
+    time: '60 min', 
+    category: 'Młodzież', 
+    desc: 'Szlifowanie techniki ciosów, gibkość i przygotowanie motoryczne.' 
+  },
+  { 
+    group: 'JUNIOR', 
+    age: '14–18 lat', 
+    time: '60 min', 
+    category: 'Zaawansowani', 
+    desc: 'Intensywny trening zadaniowy, sparingi i taktyka ringowa.' 
+  },
+  { 
+    group: 'DOROŚLI REKREACJA', 
+    age: 'Open', 
+    time: '75 min', 
+    category: 'Forma & Pasja', 
+    desc: 'Budowa kondycji, zrzucanie wagi i technika bez presji walk.' 
+  },
+  { 
+    group: 'FIGHT TEAM', 
+    age: 'Zawodnicy', 
+    time: '75 min', 
+    category: 'Kadra PRO', 
+    desc: 'Twarde sparingi turniejowe i przygotowanie do startów w zawodach.' 
+  },
 ];
 ---
 
 <section id="fight-zone" class="py-16 sm:py-24 bg-v3-dark border-b border-v3-border relative overflow-hidden">
-  <!-- Świetlna poświata w tle -->
-  <div class="absolute -right-20 top-1/4 w-[550px] h-[550px] bg-v3-red/10 blur-[170px] pointer-events-none"></div>
+  <!-- Świetlna czerwona poświata w tle -->
+  <div class="absolute -right-20 top-1/4 w-[500px] h-[500px] bg-v3-red/10 blur-[160px] pointer-events-none"></div>
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
     
-    <!-- Nagłówek strefy -->
+    <!-- 1. Nagłówek strefy -->
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 sm:mb-14">
       <div>
         <div class="inline-flex items-center gap-2 px-3 py-1 bg-v3-red/10 border border-v3-red/30 rounded-lg text-v3-red text-[11px] font-black uppercase tracking-widest mb-3">
@@ -76,31 +106,30 @@ const ageGroups = [
       </a>
     </div>
 
-    <!-- Siatka dyscyplin: 2 kolumny mobile, 3 kolumny desktop -->
+    <!-- 2. Siatka dyscyplin (bez numerów, z pełnymi plakietkami) -->
     <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 mb-12 sm:mb-16">
       {combatSports.map((sport) => (
-        <div class="bg-gradient-to-b from-[#1c0d10] via-v3-card to-v3-dark border-t-2 border-t-v3-red border-x border-b border-v3-border hover:border-v3-red/70 rounded-xl sm:rounded-2xl p-4 sm:p-6 transition-all duration-300 hover:-translate-y-1 group shadow-lg">
-          <div class="flex items-center justify-between mb-3">
-            <span class="font-mono text-xs font-bold text-v3-red/80 tracking-widest">
-              {sport.id} //
-            </span>
-            <span class="text-[9px] sm:text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded bg-v3-red/10 border border-v3-red/30 text-v3-red">
-              {sport.tag}
-            </span>
+        <div class="bg-gradient-to-b from-[#1c0d10] via-v3-card to-v3-dark border-t-2 border-t-v3-red border-x border-b border-v3-border hover:border-v3-red/70 rounded-xl sm:rounded-2xl p-4 sm:p-6 transition-all duration-300 hover:-translate-y-1 group shadow-lg flex flex-col justify-between">
+          <div>
+            <div class="mb-3">
+              <span class="text-[9px] sm:text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded bg-v3-red/15 border border-v3-red/30 text-v3-red inline-block">
+                {sport.tag}
+              </span>
+            </div>
+            
+            <h3 class="font-['Teko'] text-2xl sm:text-3xl font-black uppercase text-white group-hover:text-v3-red transition-colors leading-tight">
+              {sport.name}
+            </h3>
+            
+            <p class="text-zinc-400 text-[11px] sm:text-xs mt-2 leading-relaxed">
+              {sport.desc}
+            </p>
           </div>
-          
-          <h3 class="font-['Teko'] text-2xl sm:text-3xl font-black uppercase text-white group-hover:text-v3-red transition-colors leading-tight">
-            {sport.name}
-          </h3>
-          
-          <p class="text-zinc-400 text-[11px] sm:text-xs mt-2 leading-relaxed">
-            {sport.desc}
-          </p>
         </div>
       ))}
     </div>
 
-    <!-- Sekcja grup wiekowych: nowoczesny bento-grid -->
+    <!-- 3. Sekcja grup wiekowych (spójna stylistycznie z dyscyplinami) -->
     <div class="bg-gradient-to-br from-v3-card via-v3-surface to-v3-dark border border-v3-border rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10 shadow-xl">
       <div class="mb-6 sm:mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-v3-border/70 pb-4">
         <div>
@@ -108,34 +137,35 @@ const ageGroups = [
             Szkolenie dla każdego wieku
           </h3>
           <p class="text-zinc-400 text-xs sm:text-sm mt-1">
-            Programy treningowe dostosowane do etapu rozwoju motorycznego i wieku.
+            Zorganizowane grupy dostosowane do stopnia zaawansowania i etapu rozwoju.
           </p>
         </div>
         <span class="text-[11px] font-mono text-v3-red uppercase font-bold tracking-wider">
-          Bezpieczeństwo & Technika
+          Bezpieczeństwo • Technika • Rozwój
         </span>
       </div>
 
-      <div class="grid grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-4">
+      <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
         {ageGroups.map((ag) => (
-          <div class="p-3.5 sm:p-5 rounded-xl bg-v3-dark/90 border border-v3-border hover:border-v3-red/50 transition-all flex flex-col justify-between group">
+          <div class="p-4 sm:p-5 rounded-xl sm:rounded-2xl bg-gradient-to-b from-[#180a0c] via-v3-dark to-v3-dark border-t-2 border-t-v3-red/70 border-x border-b border-v3-border hover:border-v3-red/60 transition-all flex flex-col justify-between group shadow-md">
             <div>
-              <div class="flex items-center justify-between gap-1 mb-2">
-                <span class="font-['Teko'] text-xl sm:text-2xl font-bold tracking-wider text-white group-hover:text-v3-red transition-colors leading-tight">
+              <div class="flex flex-wrap items-center justify-between gap-1 mb-2">
+                <span class="font-['Teko'] text-xl sm:text-2xl font-black tracking-wider text-white group-hover:text-v3-red transition-colors leading-tight">
                   {ag.group}
                 </span>
-                <span class="text-[9px] font-mono font-bold uppercase px-1.5 py-0.5 rounded bg-v3-surface border border-v3-border text-zinc-400">
+                <span class="text-[9px] font-mono font-bold uppercase px-1.5 py-0.5 rounded bg-v3-red/10 border border-v3-red/25 text-v3-red">
                   {ag.category}
                 </span>
               </div>
-              <p class="text-[10px] sm:text-xs text-zinc-400 leading-snug line-clamp-2">
-                {ag.focus}
+              
+              <p class="text-[10px] sm:text-xs text-zinc-400 leading-snug">
+                {ag.desc}
               </p>
             </div>
 
-            <div class="mt-3 pt-2.5 border-t border-v3-border/50 flex items-center justify-between text-[11px] sm:text-xs font-mono font-bold">
-              <span class="text-v3-red">{ag.age}</span>
-              <span class="text-zinc-400">• {ag.time}</span>
+            <div class="mt-3.5 pt-2.5 border-t border-v3-border/60 flex items-center justify-between text-[11px] sm:text-xs font-mono font-bold">
+              <span class="text-white">{ag.age}</span>
+              <span class="text-v3-red">• {ag.time}</span>
             </div>
           </div>
         ))}
