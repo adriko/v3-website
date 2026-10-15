@@ -7,8 +7,9 @@ const plans = [
     price: '109',
     period: 'zł / miesiąc',
     subtitle: 'Miesięczny | Bez umowy',
-    borderColor: 'border-zinc-600',
-    tagColor: 'text-zinc-300',
+    borderColor: 'border-zinc-500',
+    tagColor: 'text-zinc-200',
+    btnClass: 'bg-white hover:bg-zinc-200 text-black shadow-[0_0_20px_rgba(255,255,255,0.25)]',
     popular: false,
     features: [
       'Wejście do klubu do godz. 12:00',
@@ -24,6 +25,7 @@ const plans = [
     subtitle: 'Miesięczny: 159 zł • Kwartalny: 139 zł',
     borderColor: 'border-v3-lime',
     tagColor: 'text-v3-lime',
+    btnClass: 'bg-v3-lime hover:bg-v3-lime-hover text-black shadow-[0_0_25px_rgba(200,255,0,0.4)]',
     popular: true,
     features: [
       'Wejście bez ograniczeń godzinowych',
@@ -39,6 +41,7 @@ const plans = [
     subtitle: 'Miesięczny: 169 zł • Kwartalny: 149 zł',
     borderColor: 'border-blue-500',
     tagColor: 'text-blue-400',
+    btnClass: 'bg-blue-500 hover:bg-blue-400 text-white shadow-[0_0_25px_rgba(59,130,246,0.35)]',
     popular: false,
     features: [
       'Pełen nielimitowany dostęp do siłowni',
@@ -54,6 +57,7 @@ const plans = [
     subtitle: 'Kwartalny / Półroczny',
     borderColor: 'border-amber-400',
     tagColor: 'text-amber-300',
+    btnClass: 'bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 text-black shadow-[0_0_25px_rgba(251,191,36,0.4)]',
     popular: false,
     badge: 'ALL INCLUSIVE',
     features: [
@@ -66,15 +70,15 @@ const plans = [
 ];
 ---
 
-<section id="cennik" class="py-24 bg-v3-dark border-b border-v3-border relative overflow-hidden">
+<section id="cennik" class="py-16 sm:py-24 bg-v3-dark border-b border-v3-border relative overflow-hidden">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    <div class="text-center max-w-2xl mx-auto mb-16">
+    <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
       <span class="text-v3-lime font-bold text-xs uppercase tracking-widest">Karnety V3</span>
       <h2 class="font-['Teko'] text-5xl sm:text-6xl font-black uppercase text-white mt-2 leading-none">
         Cennik Członkostwa
       </h2>
-      <p class="text-zinc-400 mt-3 text-sm sm:text-base">
+      <p class="text-zinc-400 mt-3 text-xs sm:text-base">
         Kup karnet bez kolejek – wybierz pakiet i aktywuj konto online w systemie klubowym.
       </p>
     </div>
@@ -82,52 +86,48 @@ const plans = [
     <!-- 4 Kolumny Cennika -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       {plans.map((plan) => (
-        <div class={`relative bg-v3-card rounded-3xl p-7 border-2 ${plan.borderColor} flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 shadow-lg`}>
+        <div class={`relative bg-v3-card rounded-3xl p-6 sm:p-7 border-2 ${plan.borderColor} flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 shadow-xl`}>
           
           {plan.popular && (
-            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-v3-lime text-black font-black text-[10px] tracking-widest uppercase px-3 py-1 rounded-full shadow-md">
+            <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-v3-lime text-black font-black text-[10px] tracking-widest uppercase px-3.5 py-1 rounded-full shadow-md whitespace-nowrap">
               Najczęściej wybierany
             </div>
           )}
 
           {plan.badge && (
-            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-amber-400 text-black font-black text-[10px] tracking-widest uppercase px-3 py-1 rounded-full shadow-md">
+            <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-amber-400 text-black font-black text-[10px] tracking-widest uppercase px-3.5 py-1 rounded-full shadow-md whitespace-nowrap">
               {plan.badge}
             </div>
           )}
 
           <div>
-            <span class={`font-['Teko'] text-3xl font-black uppercase tracking-wider block ${plan.tagColor}`}>
+            <span class={`font-['Teko'] text-3xl sm:text-4xl font-black uppercase tracking-wider block ${plan.tagColor}`}>
               {plan.name}
             </span>
             <p class="text-xs text-zinc-400 mt-1 min-h-[32px]">{plan.subtitle}</p>
 
             <div class="mt-4 mb-6">
-              <span class="font-['Teko'] text-5xl font-black text-white">{plan.price}</span>
+              <span class="font-['Teko'] text-5xl sm:text-6xl font-black text-white">{plan.price}</span>
               <span class="text-xs text-zinc-400 ml-1 font-semibold">{plan.period}</span>
             </div>
 
             <ul class="space-y-3 border-t border-v3-border pt-6 text-xs text-zinc-300">
               {plan.features.map((item) => (
                 <li class="flex items-start gap-2.5">
-                  <span class="text-v3-lime font-bold text-sm leading-none">✓</span>
+                  <span class="text-v3-lime font-bold text-sm leading-none shrink-0">✓</span>
                   <span>{item}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          <!-- Przycisk bezpośredniej rejestracji / zakupu -->
+          <!-- Wyrazisty, czytelny przycisk CTA dla każdego planu -->
           <div class="mt-8 pt-4">
             <a 
               href={gymManagerUrl} 
               target="_blank" 
               rel="noopener noreferrer"
-              class={`w-full block text-center font-bold text-xs uppercase tracking-wider py-3.5 rounded-xl transition-all ${
-                plan.popular 
-                  ? 'bg-v3-lime text-black hover:bg-v3-lime-hover shadow-[0_0_15px_rgba(200,255,0,0.3)]' 
-                  : 'bg-v3-surface text-white hover:bg-zinc-800 border border-v3-border hover:border-zinc-500'
-              }`}
+              class={`w-full block text-center font-black text-xs uppercase tracking-wider py-3.5 rounded-xl transition-all transform hover:scale-[1.02] ${plan.btnClass}`}
             >
               Kup karnet online &rarr;
             </a>
@@ -138,20 +138,20 @@ const plans = [
     </div>
 
     <!-- Pakiety partnerskie -->
-    <div class="mt-16 bg-v3-surface border border-v3-border rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+    <div class="mt-14 bg-v3-surface border border-v3-border rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
       <div>
         <h4 class="font-['Teko'] text-3xl font-bold uppercase text-white">Honorujemy pakiety sportowe</h4>
         <p class="text-xs text-zinc-400 mt-1">Trenuj w klubie V3 w ramach swojej karty firmowej bez dodatkowych dopłat.</p>
       </div>
 
-      <div class="flex flex-wrap items-center gap-3 text-xs font-bold text-zinc-200 tracking-wider">
-        <span class="px-4 py-2.5 bg-v3-dark rounded-xl border border-v3-border flex items-center gap-2">
+      <div class="flex flex-wrap items-center gap-2.5 sm:gap-3 text-xs font-bold text-zinc-200 tracking-wider">
+        <span class="px-3.5 py-2 bg-v3-dark rounded-xl border border-v3-border flex items-center gap-2">
           <span class="text-v3-lime">✓</span> MultiSport
         </span>
-        <span class="px-4 py-2.5 bg-v3-dark rounded-xl border border-v3-border flex items-center gap-2">
+        <span class="px-3.5 py-2 bg-v3-dark rounded-xl border border-v3-border flex items-center gap-2">
           <span class="text-v3-lime">✓</span> Medicover Sport
         </span>
-        <span class="px-4 py-2.5 bg-v3-dark rounded-xl border border-v3-border flex items-center gap-2">
+        <span class="px-3.5 py-2 bg-v3-dark rounded-xl border border-v3-border flex items-center gap-2">
           <span class="text-v3-lime">✓</span> Fit Profit
         </span>
       </div>
