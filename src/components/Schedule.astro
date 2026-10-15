@@ -1,103 +1,231 @@
-<section id="grafik" class="py-24 bg-v3-surface border-b border-v3-border">
+---
+// Grafik zajęć V3 Klub Jarosław - Obowiązuje od września 2026
+const fightDays = [
+  {
+    day: 'Poniedziałek',
+    classes: [
+      { time: '16:00 - 16:45', name: 'Kickboxing Kids (4–6 lat)', badge: 'Dzieci', color: 'text-amber-400 border-amber-400/30 bg-amber-400/10' },
+      { time: '17:00 - 17:45', name: 'Kickboxing Start (7–10 lat)', badge: 'Dzieci', color: 'text-amber-400 border-amber-400/30 bg-amber-400/10' },
+      { time: '17:45 - 18:45', name: 'Kickboxing Junior (14–18 lat)', badge: 'Młodzież', color: 'text-blue-400 border-blue-400/30 bg-blue-400/10' },
+      { time: '18:45 - 20:00', name: 'Kickboxing Fight Team', badge: 'Kadra', color: 'text-v3-red border-v3-red/30 bg-v3-red/10' },
+      { time: '20:00 - 21:15', name: 'Kickboxing Dorośli', badge: 'Open', color: 'text-zinc-300 border-zinc-600 bg-zinc-800/40' },
+    ],
+  },
+  {
+    day: 'Wtorek',
+    classes: [
+      { time: '16:00 - 17:00', name: 'Kickboxing Kadet (10–13 lat)', badge: 'Młodzież', color: 'text-blue-400 border-blue-400/30 bg-blue-400/10' },
+      { time: '17:00 - 19:00', name: 'SSW Cobra Ju-Jitsu (120 min)', badge: 'Ju-Jitsu', color: 'text-purple-400 border-purple-400/30 bg-purple-400/10' },
+      { time: '19:00 - 20:15', name: 'Boks', badge: 'Stójka', color: 'text-v3-red border-v3-red/30 bg-v3-red/10' },
+      { time: '20:15 - 21:15', name: 'Samoobrona / Krav Maga', badge: 'Obrona', color: 'text-emerald-400 border-emerald-400/30 bg-emerald-400/10' },
+    ],
+  },
+  {
+    day: 'Środa',
+    classes: [
+      { time: '16:00 - 16:45', name: 'Kickboxing Kids (4–6 lat)', badge: 'Dzieci', color: 'text-amber-400 border-amber-400/30 bg-amber-400/10' },
+      { time: '17:00 - 17:45', name: 'Kickboxing Start (7–10 lat)', badge: 'Dzieci', color: 'text-amber-400 border-amber-400/30 bg-amber-400/10' },
+      { time: '17:45 - 18:45', name: 'Kickboxing Junior (14–18 lat)', badge: 'Młodzież', color: 'text-blue-400 border-blue-400/30 bg-blue-400/10' },
+      { time: '18:45 - 20:00', name: 'Kickboxing Fight Team', badge: 'Kadra', color: 'text-v3-red border-v3-red/30 bg-v3-red/10' },
+      { time: '20:00 - 21:15', name: 'Kickboxing Dorośli', badge: 'Open', color: 'text-zinc-300 border-zinc-600 bg-zinc-800/40' },
+    ],
+  },
+  {
+    day: 'Czwartek',
+    classes: [
+      { time: '16:00 - 17:00', name: 'Kickboxing Kadet (10–13 lat)', badge: 'Młodzież', color: 'text-blue-400 border-blue-400/30 bg-blue-400/10' },
+      { time: '17:00 - 19:00', name: 'SSW Cobra Ju-Jitsu (120 min)', badge: 'Ju-Jitsu', color: 'text-purple-400 border-purple-400/30 bg-purple-400/10' },
+      { time: '19:00 - 20:15', name: 'Boks', badge: 'Stójka', color: 'text-v3-red border-v3-red/30 bg-v3-red/10' },
+      { time: '20:15 - 21:15', name: 'Samoobrona / Krav Maga', badge: 'Obrona', color: 'text-emerald-400 border-emerald-400/30 bg-emerald-400/10' },
+    ],
+  },
+  {
+    day: 'Piątek',
+    classes: [
+      { time: '17:30 - 18:30', name: 'Trening wprowadzający dla nowych', badge: 'Start', color: 'text-v3-lime border-v3-lime/30 bg-v3-lime/10' },
+      { time: '18:30 - 20:00', name: 'Kickboxing Fight Team (Sparingi)', badge: 'Sparingi', color: 'text-v3-red border-v3-red/30 bg-v3-red/10' },
+      { time: '20:00 - 21:00', name: 'MMA', badge: 'Klatka', color: 'text-cyan-400 border-cyan-400/30 bg-cyan-400/10' },
+    ],
+  },
+  {
+    day: 'Sobota',
+    classes: [
+      { time: '12:00 - 13:00', name: 'MMA Sobota', badge: 'Klatka', color: 'text-cyan-400 border-cyan-400/30 bg-cyan-400/10' },
+    ],
+  },
+];
+
+const fitnessDays = [
+  {
+    day: 'Poniedziałek',
+    classes: [
+      { time: '19:00', name: 'V3 Step Up!', badge: 'Cardio', color: 'text-pink-400 border-pink-400/30 bg-pink-400/10' },
+      { time: '20:00', name: 'Pilates', badge: 'Core & Balans', color: 'text-purple-400 border-purple-400/30 bg-purple-400/10' },
+    ],
+  },
+  {
+    day: 'Wtorek',
+    classes: [
+      { time: '17:00', name: 'Booty Project', badge: 'Pośladki & Nogi', color: 'text-pink-400 border-pink-400/30 bg-pink-400/10' },
+      { time: '18:15', name: 'Zdrowe Ciało', badge: 'Wzmocnienie', color: 'text-emerald-400 border-emerald-400/30 bg-emerald-400/10' },
+      { time: '19:15', name: 'Joga', badge: 'Mobilność', color: 'text-blue-400 border-blue-400/30 bg-blue-400/10' },
+    ],
+  },
+  {
+    day: 'Środa',
+    classes: [
+      { time: '18:15', name: 'V3 Mobility (45 min)', badge: 'Mobilność', color: 'text-amber-400 border-amber-400/30 bg-amber-400/10' },
+      { time: '19:00', name: 'V3 Step Up!', badge: 'Cardio', color: 'text-pink-400 border-pink-400/30 bg-pink-400/10' },
+      { time: '20:00', name: 'Pilates', badge: 'Core & Balans', color: 'text-purple-400 border-purple-400/30 bg-purple-400/10' },
+    ],
+  },
+  {
+    day: 'Czwartek',
+    classes: [
+      { time: '17:00', name: 'Full Body Project', badge: 'Całe Ciało', color: 'text-pink-400 border-pink-400/30 bg-pink-400/10' },
+      { time: '18:15', name: 'Zdrowy Kręgosłup', badge: 'Zdrowie', color: 'text-cyan-400 border-cyan-400/30 bg-cyan-400/10' },
+      { time: '19:00', name: 'CROSS z Rafałem (Nowa salka)', badge: 'W cenie siłowni', color: 'text-v3-lime border-v3-lime/30 bg-v3-lime/10' },
+      { time: '19:15', name: 'Joga', badge: 'Mobilność', color: 'text-blue-400 border-blue-400/30 bg-blue-400/10' },
+    ],
+  },
+  {
+    day: 'Piątek',
+    classes: [
+      { time: '18:00', name: 'Pilates', badge: 'Core & Balans', color: 'text-purple-400 border-purple-400/30 bg-purple-400/10' },
+      { time: '18:15', name: 'V3 Mobility (45 min • Fight Zone)', badge: 'Mobilność', color: 'text-amber-400 border-amber-400/30 bg-amber-400/10' },
+      { time: '19:00', name: 'V3 Step Up!', badge: 'Cardio', color: 'text-pink-400 border-pink-400/30 bg-pink-400/10' },
+    ],
+  },
+  {
+    day: 'Sobota',
+    classes: [
+      { time: '08:30 - 09:30', name: 'Joga Poranna', badge: 'Balans', color: 'text-blue-400 border-blue-400/30 bg-blue-400/10' },
+      { time: '09:30 - 10:30', name: 'Zdrowy Kręgosłup', badge: 'Zdrowie', color: 'text-cyan-400 border-cyan-400/30 bg-cyan-400/10' },
+    ],
+  },
+];
+---
+
+<section id="grafik" class="py-16 sm:py-24 bg-v3-surface border-b border-v3-border relative overflow-hidden">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
+    <!-- Nagłówek i przełącznik zakładek -->
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
       <div>
-        <span class="text-v3-lime font-bold text-xs uppercase tracking-widest">Plan treningowy</span>
-        <h2 class="font-['Teko'] text-5xl sm:text-6xl font-black uppercase text-white mt-2 leading-none">
-          Grafik Zajęć
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-v3-lime/10 border border-v3-lime/30 text-v3-lime text-[11px] font-bold uppercase tracking-widest mb-3">
+          Rozkład Treningów • Wrzesień 2026
+        </div>
+        <h2 class="font-['Teko'] text-4xl sm:text-6xl font-black uppercase text-white leading-none">
+          Grafik <span class="text-v3-lime">Zajęć</span>
         </h2>
-        <p class="text-zinc-400 text-sm mt-2">Aktualny rozkład zajęć prowadzonych w V3 Jarosław.</p>
+        <p class="text-zinc-400 text-xs sm:text-sm mt-2 max-w-lg">
+          Zapisuj się na zajęcia bezpośrednio w aplikacji klubowej GymManager.
+        </p>
       </div>
 
-      <!-- Przełącznik zakładek -->
-      <div class="inline-flex p-1.5 bg-v3-dark rounded-2xl border border-v3-border">
+      <!-- Przełącznik Fight Zone / Fitness -->
+      <div class="inline-flex p-1.5 bg-v3-dark rounded-2xl border border-v3-border self-start md:self-auto">
         <button 
           id="btn-fight" 
-          class="px-6 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all bg-v3-red text-white"
+          type="button"
+          class="px-5 sm:px-6 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all bg-v3-red text-white shadow-[0_0_15px_rgba(255,42,42,0.3)]"
         >
           Fight Zone
         </button>
         <button 
           id="btn-fitness" 
-          class="px-6 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all text-zinc-400 hover:text-white"
+          type="button"
+          class="px-5 sm:px-6 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all text-zinc-400 hover:text-white"
         >
           Fitness & Wellness
         </button>
       </div>
     </div>
 
-    <!-- Tabela Fight Zone -->
+    <!-- 1. Tabela Fight Zone -->
     <div id="tab-fight" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      <div class="p-5 rounded-2xl bg-v3-dark border border-v3-border">
-        <span class="text-v3-red font-bold text-xs uppercase tracking-wider block mb-2">Poniedziałek / Środa</span>
-        <div class="space-y-2 text-xs text-zinc-300">
-          <p><strong class="text-white">16:00 - 16:45:</strong> Kids 4-6 lat</p>
-          <p><strong class="text-white">16:45 - 17:30:</strong> Start 7-10 lat</p>
-          <p><strong class="text-white">17:30 - 18:30:</strong> Junior 14-18 lat</p>
-          <p><strong class="text-white">18:30 - 19:45:</strong> Fight Team</p>
-          <p><strong class="text-white">19:45 - 21:00:</strong> Dorośli Rekreacja</p>
-        </div>
-      </div>
+      {fightDays.map((d) => (
+        <div class="p-5 rounded-2xl bg-v3-dark border border-v3-border hover:border-v3-red/40 transition-all flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between pb-3 mb-3 border-b border-v3-border/70">
+              <span class="font-['Teko'] text-2xl font-bold uppercase text-white tracking-wider">
+                {d.day}
+              </span>
+              <span class="text-[10px] font-mono text-zinc-400 uppercase">
+                {d.classes.length} {d.classes.length === 1 ? 'trening' : 'treningi'}
+              </span>
+            </div>
 
-      <div class="p-5 rounded-2xl bg-v3-dark border border-v3-border">
-        <span class="text-v3-red font-bold text-xs uppercase tracking-wider block mb-2">Wtorek / Czwartek</span>
-        <div class="space-y-2 text-xs text-zinc-300">
-          <p><strong class="text-white">16:00 - 17:00:</strong> Kadet 11-13 lat</p>
-          <p><strong class="text-white">17:00 - 18:30:</strong> SSW Cobra Ju-Jitsu</p>
-          <p><strong class="text-white">19:00 - 20:15:</strong> Boks</p>
-          <p><strong class="text-white">20:00 (Wt):</strong> Krav Maga</p>
-          <p><strong class="text-white">20:15 (Czw):</strong> Samoobrona Kobiet</p>
+            <div class="space-y-2.5">
+              {d.classes.map((c) => (
+                <div class="p-2.5 rounded-xl bg-v3-surface/60 border border-v3-border/60 flex items-start justify-between gap-2">
+                  <div>
+                    <span class="block text-xs font-black text-white leading-tight">
+                      {c.name}
+                    </span>
+                    <span class="text-[11px] font-mono text-zinc-400 block mt-0.5">
+                      {c.time}
+                    </span>
+                  </div>
+                  <span class={`text-[9px] font-mono font-bold uppercase px-2 py-0.5 rounded border shrink-0 ${c.color}`}>
+                    {c.badge}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
-
-      <div class="p-5 rounded-2xl bg-v3-dark border border-v3-border">
-        <span class="text-v3-red font-bold text-xs uppercase tracking-wider block mb-2">Piątek & Sobota</span>
-        <div class="space-y-2 text-xs text-zinc-300">
-          <p><strong class="text-white">Pt 18:00 - 19:00:</strong> Trening wprowadzający + sparingi</p>
-          <p><strong class="text-white">Pt 19:00 - 20:00:</strong> Fight Team</p>
-          <p><strong class="text-white">Pt 20:00 - 21:00:</strong> MMA</p>
-          <p><strong class="text-white">Sb 12:00 - 13:00:</strong> MMA Sobota</p>
-        </div>
-      </div>
+      ))}
     </div>
 
-    <!-- Tabela Fitness (domyślnie ukryta) -->
+    <!-- 2. Tabela Fitness (domyślnie ukryta) -->
     <div id="tab-fitness" class="hidden grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      <div class="p-5 rounded-2xl bg-v3-dark border border-v3-border">
-        <span class="text-v3-lime font-bold text-xs uppercase tracking-wider block mb-2">Poniedziałek / Wtorek</span>
-        <div class="space-y-2 text-xs text-zinc-300">
-          <p><strong class="text-white">Pon 19:00:</strong> V3 Step Up!</p>
-          <p><strong class="text-white">Pon 19:15:</strong> V3 ABS</p>
-          <p><strong class="text-white">Pon 20:00:</strong> Pilates</p>
-          <p><strong class="text-white">Wt 17:00:</strong> Booty Project</p>
-          <p><strong class="text-white">Wt 18:15:</strong> Zdrowe Ciało</p>
-          <p><strong class="text-white">Wt 20:15:</strong> Zumba</p>
-        </div>
-      </div>
+      {fitnessDays.map((d) => (
+        <div class="p-5 rounded-2xl bg-v3-dark border border-v3-border hover:border-v3-lime/40 transition-all flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between pb-3 mb-3 border-b border-v3-border/70">
+              <span class="font-['Teko'] text-2xl font-bold uppercase text-white tracking-wider">
+                {d.day}
+              </span>
+              <span class="text-[10px] font-mono text-zinc-400 uppercase">
+                {d.classes.length} {d.classes.length === 1 ? 'zajęcia' : 'zajęć'}
+              </span>
+            </div>
 
-      <div class="p-5 rounded-2xl bg-v3-dark border border-v3-border">
-        <span class="text-v3-lime font-bold text-xs uppercase tracking-wider block mb-2">Środa / Czwartek</span>
-        <div class="space-y-2 text-xs text-zinc-300">
-          <p><strong class="text-white">Śr 18:15:</strong> V3 Mobility (45 min)</p>
-          <p><strong class="text-white">Śr 19:15:</strong> V3 ABS</p>
-          <p><strong class="text-white">Śr 20:00:</strong> Pilates</p>
-          <p><strong class="text-white">Czw 17:00:</strong> Full Body Project</p>
-          <p><strong class="text-white">Czw 18:15:</strong> Zdrowy Kręgosłup</p>
-          <p><strong class="text-white">Czw 19:00:</strong> CROSS z Rafałem (w cenie siłowni)</p>
+            <div class="space-y-2.5">
+              {d.classes.map((c) => (
+                <div class="p-2.5 rounded-xl bg-v3-surface/60 border border-v3-border/60 flex items-start justify-between gap-2">
+                  <div>
+                    <span class="block text-xs font-black text-white leading-tight">
+                      {c.name}
+                    </span>
+                    <span class="text-[11px] font-mono text-zinc-400 block mt-0.5">
+                      Godzina: {c.time}
+                    </span>
+                  </div>
+                  <span class={`text-[9px] font-mono font-bold uppercase px-2 py-0.5 rounded border shrink-0 ${c.color}`}>
+                    {c.badge}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
+      ))}
+    </div>
 
-      <div class="p-5 rounded-2xl bg-v3-dark border border-v3-border">
-        <span class="text-v3-lime font-bold text-xs uppercase tracking-wider block mb-2">Piątek / Sobota</span>
-        <div class="space-y-2 text-xs text-zinc-300">
-          <p><strong class="text-white">Pt 18:00:</strong> Pilates</p>
-          <p><strong class="text-white">Pt 19:00:</strong> V3 Step Up!</p>
-          <p><strong class="text-white">Pt 20:15:</strong> Zumba</p>
-          <p><strong class="text-white">Sb 08:30:</strong> Joga</p>
-          <p><strong class="text-white">Sb 09:30:</strong> Zdrowy Kręgosłup</p>
-        </div>
+    <!-- Pasek informacyjny pod grafikiem -->
+    <div class="mt-8 p-4 rounded-2xl bg-v3-dark border border-v3-border flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-zinc-400">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-v3-lime animate-pulse"></span>
+        <span>Rezerwacja miejsc na zajęcia w aplikacji: <strong>v3klub.gymmanager.io</strong></span>
       </div>
+      <a 
+        href="tel:788463717"
+        class="text-v3-lime font-bold uppercase tracking-wider hover:underline"
+      >
+        Pytania? Zadzwoń: 788 463 717 &rarr;
+      </a>
     </div>
 
   </div>
@@ -116,8 +244,8 @@
       tabFitness.classList.add('hidden');
       tabFitness.classList.remove('grid');
 
-      btnFight.className = 'px-6 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all bg-v3-red text-white';
-      btnFitness.className = 'px-6 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all text-zinc-400 hover:text-white';
+      btnFight.className = 'px-5 sm:px-6 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all bg-v3-red text-white shadow-[0_0_15px_rgba(255,42,42,0.3)]';
+      btnFitness.className = 'px-5 sm:px-6 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all text-zinc-400 hover:text-white';
     });
 
     btnFitness.addEventListener('click', () => {
@@ -126,8 +254,8 @@
       tabFight.classList.add('hidden');
       tabFight.classList.remove('grid');
 
-      btnFitness.className = 'px-6 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all bg-v3-lime text-black';
-      btnFight.className = 'px-6 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all text-zinc-400 hover:text-white';
+      btnFitness.className = 'px-5 sm:px-6 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all bg-v3-lime text-black shadow-[0_0_15px_rgba(200,255,0,0.3)]';
+      btnFight.className = 'px-5 sm:px-6 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all text-zinc-400 hover:text-white';
     });
   }
 </script>

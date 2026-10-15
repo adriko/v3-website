@@ -3,14 +3,24 @@ const googleMapsUrl = "https://maps.app.goo.gl/BUiRAiKCzPZr2aYN9";
 
 const galleryImages = [
   {
+    src: '/images/recepcja1.png',
+    title: 'Recepcja Klubu, Strefa Chillout & Odżywki',
+    tag: 'Strefa Wejścia',
+  },
+  {
     src: '/images/v3-gym-brick.jpeg',
     title: 'Strefa Cardio & Ceglana Ściana z Logo V3',
     tag: 'Park Maszyn',
   },
   {
-    src: '/images/silownia2.jpg',
-    title: 'Strefa Maszyn Siłowych Bodytone & Mural', // Poprawiona literówka
-    tag: 'Siłownia',
+    src: '/images/fight1.png',
+    title: 'Główna Mata Sportów Walki & Strefa Ciężkich Worków',
+    tag: 'Fight Zone',
+  },
+  {
+    src: '/images/boks2.jpg',
+    title: 'Profesjonalny Ring Bokserski & Kaski Sparingowe',
+    tag: 'Boks & K1',
   },
   {
     src: '/images/women-zone.jpg',
@@ -18,9 +28,14 @@ const galleryImages = [
     tag: 'Women Zone',
   },
   {
-    src: '/images/silownia3.jpg',
-    title: 'Strefa Wolnych Ciężarów, Hantle i Sztangi',
-    tag: 'Ciężary',
+    src: '/images/ciezary2.jpg',
+    title: 'Strefa Wolnych Ciężarów, Bramy & Suwnice',
+    tag: 'Siłownia',
+  },
+  {
+    src: '/images/lazienka1.png',
+    title: 'Komfortowe Szatnie & Designerskie Łazienki',
+    tag: 'Sanitariaty',
   },
 ];
 ---
@@ -30,7 +45,6 @@ const galleryImages = [
     
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 sm:mb-10">
       <div>
-        <!-- Badge z wektorem SVG -->
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-v3-lime/10 border border-v3-lime/30 text-v3-lime text-[11px] font-bold uppercase tracking-widest mb-3">
           <svg class="w-3.5 h-3.5 text-v3-lime" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
@@ -44,7 +58,6 @@ const galleryImages = [
         </h2>
       </div>
 
-      <!-- Przycisk z wektorem mapy -->
       <a 
         href={googleMapsUrl}
         target="_blank" 
@@ -59,7 +72,7 @@ const galleryImages = [
       </a>
     </div>
 
-    <!-- Główny kontener slidera -->
+    <!-- Główny slider ze zmianą co 3 sekundy -->
     <div 
       id="gallery-slider-container"
       class="relative w-full h-[300px] sm:h-[460px] md:h-[540px] rounded-2xl sm:rounded-3xl overflow-hidden border border-v3-border shadow-2xl group select-none"
@@ -79,7 +92,7 @@ const galleryImages = [
           
           <div class="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 flex items-end justify-between gap-4 z-20">
             <div>
-              <span class="px-2 py-0.5 rounded bg-v3-lime text-black font-black text-[9px] sm:text-[10px] tracking-wider uppercase mb-1.5 inline-block">
+              <span class="px-2.5 py-0.5 rounded bg-v3-lime text-black font-black text-[9px] sm:text-[10px] tracking-wider uppercase mb-1.5 inline-block">
                 {img.tag}
               </span>
               <h3 class="font-['Teko'] text-xl sm:text-3xl lg:text-4xl font-bold uppercase text-white leading-none">
@@ -96,6 +109,7 @@ const galleryImages = [
       <!-- Przyciski prawo / lewo -->
       <button 
         id="slider-prev"
+        type="button"
         aria-label="Poprzednie zdjęcie"
         class="absolute left-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-black/60 hover:bg-v3-lime hover:text-black border border-white/20 text-white flex items-center justify-center transition-all opacity-0 group-hover:opacity-100"
       >
@@ -104,14 +118,15 @@ const galleryImages = [
 
       <button 
         id="slider-next"
+        type="button"
         aria-label="Następne zdjęcie"
         class="absolute right-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-black/60 hover:bg-v3-lime hover:text-black border border-white/20 text-white flex items-center justify-center transition-all opacity-0 group-hover:opacity-100"
       >
         &#10095;
       </button>
 
-      <!-- Wskaźniki postępu -->
-      <div class="absolute top-3 left-4 right-4 sm:left-6 sm:right-6 z-30 flex gap-2">
+      <!-- Paski postępu -->
+      <div class="absolute top-3 left-4 right-4 sm:left-6 sm:right-6 z-30 flex gap-1.5 sm:gap-2">
         {galleryImages.map((_, i) => (
           <div class="flex-1 h-1 rounded-full bg-white/20 overflow-hidden">
             <div class={`slider-indicator h-full bg-v3-lime transition-all duration-300 ${i === 0 ? 'w-full' : 'w-0'}`} data-indicator={i}></div>
@@ -135,6 +150,7 @@ const galleryImages = [
   let timer: any = null;
 
   function goToSlide(index: number) {
+    if (total === 0) return;
     slides[currentIndex].classList.remove('opacity-100', 'z-10');
     slides[currentIndex].classList.add('opacity-0', 'z-0');
     indicators[currentIndex].classList.remove('w-full');
