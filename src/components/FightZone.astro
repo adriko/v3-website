@@ -23,7 +23,7 @@ const ageGroups = [
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
     
-    <!-- Nagłówek -->
+    <!-- Nagłówek strefy -->
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 sm:mb-14">
       <div>
         <div class="inline-flex items-center gap-2 px-2.5 py-0.5 bg-v3-red/10 border border-v3-red/30 rounded text-v3-red text-[11px] font-black uppercase tracking-widest mb-2">
@@ -45,7 +45,7 @@ const ageGroups = [
       </a>
     </div>
 
-    <!-- Siatka dyscyplin: 2 kolumny na mobile, 3 na desktopie -->
+    <!-- Siatka dyscyplin -->
     <div class="grid grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-6 mb-12 sm:mb-16">
       {combatSports.map((sport) => (
         <div class="bg-gradient-to-b from-v3-card to-v3-surface border border-v3-border hover:border-v3-red/60 rounded-xl sm:rounded-2xl p-3.5 sm:p-6 transition-all group">
@@ -63,14 +63,14 @@ const ageGroups = [
       ))}
     </div>
 
-    <!-- Grupy wiekowe: dopracowane, czytelne i proporcjonalne na komputerze -->
+    <!-- Grupy wiekowe -->
     <div class="bg-v3-surface/60 border border-v3-border rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10">
       <div class="mb-6 sm:mb-8">
         <h3 class="font-['Teko'] text-3xl sm:text-4xl lg:text-5xl font-bold uppercase text-white leading-none">
           Szkolenie dla każdego wieku
         </h3>
         <p class="text-zinc-400 text-xs sm:text-sm mt-1.5">
-          Bezpieczne grupy zorganizowane pod kątem stopnia zaawansowania[cite: 87].
+          Bezpieczne grupy zorganizowane pod kątem stopnia zaawansowania.
         </p>
       </div>
 
@@ -78,11 +78,11 @@ const ageGroups = [
         {ageGroups.map((ag) => (
           <div class="p-3.5 sm:p-5 lg:p-6 rounded-xl sm:rounded-2xl bg-v3-dark border border-v3-border hover:border-v3-red/50 transition-all flex flex-col justify-between group">
             <span class="font-['Teko'] text-xl sm:text-2xl lg:text-3xl font-bold tracking-wider text-white group-hover:text-v3-red transition-colors leading-tight">
-              {ag.group}[cite: 87]
+              {ag.group}
             </span>
             <div class="mt-3 pt-3 border-t border-v3-border/60 flex flex-wrap items-center justify-between gap-1 text-xs sm:text-sm font-semibold">
-              <span class="text-v3-red font-mono font-bold">{ag.age}[cite: 87]</span>
-              <span class="text-zinc-400 font-mono text-[11px] sm:text-xs">• {ag.time}[cite: 87]</span>
+              <span class="text-v3-red font-mono font-bold">{ag.age}</span>
+              <span class="text-zinc-400 font-mono text-[11px] sm:text-xs">• {ag.time}</span>
             </div>
           </div>
         ))}
