@@ -3,13 +3,13 @@ const googleMapsUrl = "https://maps.app.goo.gl/BUiRAiKCzPZr2aYN9";
 
 const galleryImages = [
   {
-    src: '/images/silownia1.jpg',
+    src: '/images/v3-gym-brick.jpeg',
     title: 'Strefa Cardio & Ceglana Ściana z Logo V3',
     tag: 'Park Maszyn',
   },
   {
     src: '/images/silownia2.jpg',
-    title: 'Strefa Maszyn Siłowych Bodytone & Mural',
+    title: 'Strefa Maszyn Siłowych Bodytone & Mural', // Poprawiona literówka
     tag: 'Siłownia',
   },
   {
@@ -25,33 +25,44 @@ const galleryImages = [
 ];
 ---
 
-<section id="galeria" class="py-20 bg-v3-dark border-b border-v3-border relative overflow-hidden">
+<section id="galeria" class="py-16 sm:py-20 bg-v3-dark border-b border-v3-border relative overflow-hidden">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 sm:mb-10">
       <div>
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-v3-lime/10 border border-v3-lime/30 text-v3-lime text-xs font-bold uppercase tracking-widest mb-3">
-          <span>📷</span> Zdjęcia z Klubu • Google Maps
+        <!-- Badge z wektorem SVG -->
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-v3-lime/10 border border-v3-lime/30 text-v3-lime text-[11px] font-bold uppercase tracking-widest mb-3">
+          <svg class="w-3.5 h-3.5 text-v3-lime" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          <span>Zdjęcia z Klubu • Google Maps</span>
         </div>
+
         <h2 class="font-['Teko'] text-4xl sm:text-5xl lg:text-6xl font-black uppercase text-white leading-none">
           Zobacz V3 <span class="text-v3-lime">od środka</span>
         </h2>
       </div>
 
+      <!-- Przycisk z wektorem mapy -->
       <a 
         href={googleMapsUrl}
         target="_blank" 
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-zinc-300 hover:text-white px-4 py-2.5 rounded-xl bg-v3-surface border border-v3-border hover:border-zinc-500 transition-all self-start md:self-auto"
+        class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-zinc-300 hover:text-white px-4 py-2.5 rounded-xl bg-v3-surface hover:bg-zinc-800 border border-v3-border hover:border-v3-lime/50 transition-all self-start md:self-auto"
       >
-        <span>📍</span> Zobacz więcej zdjęć na Google Maps &rarr;
+        <svg class="w-4 h-4 text-v3-lime" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+        <span>Więcej zdjęć na Google Maps &rarr;</span>
       </a>
     </div>
 
     <!-- Główny kontener slidera -->
     <div 
       id="gallery-slider-container"
-      class="relative w-full h-[320px] sm:h-[460px] md:h-[560px] rounded-3xl overflow-hidden border-2 border-v3-border shadow-2xl group select-none"
+      class="relative w-full h-[300px] sm:h-[460px] md:h-[540px] rounded-2xl sm:rounded-3xl overflow-hidden border border-v3-border shadow-2xl group select-none"
     >
       {galleryImages.map((img, index) => (
         <div 
@@ -66,27 +77,27 @@ const galleryImages = [
           />
           <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
           
-          <div class="absolute bottom-6 left-6 right-6 flex items-end justify-between gap-4 z-20">
+          <div class="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 flex items-end justify-between gap-4 z-20">
             <div>
-              <span class="px-2.5 py-1 rounded bg-v3-lime text-black font-black text-[10px] tracking-wider uppercase mb-2 inline-block">
+              <span class="px-2 py-0.5 rounded bg-v3-lime text-black font-black text-[9px] sm:text-[10px] tracking-wider uppercase mb-1.5 inline-block">
                 {img.tag}
               </span>
-              <h3 class="font-['Teko'] text-2xl sm:text-4xl font-bold uppercase text-white leading-none">
+              <h3 class="font-['Teko'] text-xl sm:text-3xl lg:text-4xl font-bold uppercase text-white leading-none">
                 {img.title}
               </h3>
             </div>
-            <span class="text-xs font-mono text-zinc-400 bg-black/60 px-3 py-1.5 rounded-lg border border-white/10 shrink-0">
+            <span class="text-[10px] sm:text-xs font-mono text-zinc-400 bg-black/60 px-2.5 py-1 rounded border border-white/10 shrink-0">
               {index + 1} / {galleryImages.length}
             </span>
           </div>
         </div>
       ))}
 
-      <!-- Przyciski nawigacji prawo / lewo -->
+      <!-- Przyciski prawo / lewo -->
       <button 
         id="slider-prev"
         aria-label="Poprzednie zdjęcie"
-        class="absolute left-4 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-black/60 hover:bg-v3-lime hover:text-black border border-white/20 hover:border-v3-lime text-white flex items-center justify-center transition-all opacity-0 group-hover:opacity-100"
+        class="absolute left-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-black/60 hover:bg-v3-lime hover:text-black border border-white/20 text-white flex items-center justify-center transition-all opacity-0 group-hover:opacity-100"
       >
         &#10094;
       </button>
@@ -94,13 +105,13 @@ const galleryImages = [
       <button 
         id="slider-next"
         aria-label="Następne zdjęcie"
-        class="absolute right-4 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-black/60 hover:bg-v3-lime hover:text-black border border-white/20 hover:border-v3-lime text-white flex items-center justify-center transition-all opacity-0 group-hover:opacity-100"
+        class="absolute right-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-black/60 hover:bg-v3-lime hover:text-black border border-white/20 text-white flex items-center justify-center transition-all opacity-0 group-hover:opacity-100"
       >
         &#10095;
       </button>
 
-      <!-- Paski postępu na dole -->
-      <div class="absolute top-4 left-6 right-6 z-30 flex gap-2">
+      <!-- Wskaźniki postępu -->
+      <div class="absolute top-3 left-4 right-4 sm:left-6 sm:right-6 z-30 flex gap-2">
         {galleryImages.map((_, i) => (
           <div class="flex-1 h-1 rounded-full bg-white/20 overflow-hidden">
             <div class={`slider-indicator h-full bg-v3-lime transition-all duration-300 ${i === 0 ? 'w-full' : 'w-0'}`} data-indicator={i}></div>
@@ -141,7 +152,7 @@ const galleryImages = [
     stopAutoplay();
     timer = setInterval(() => {
       goToSlide(currentIndex + 1);
-    }, 3000); // Zmiana co 3 sekundy
+    }, 3000);
   }
 
   function stopAutoplay() {

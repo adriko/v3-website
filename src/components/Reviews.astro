@@ -1,11 +1,8 @@
 ---
 const googleMapsUrl = "https://maps.app.goo.gl/BUiRAiKCzPZr2aYN9";
-
-// Wpisz tutaj rzeczywiste wartości z profilu Google Maps klubu V3:
 const realRating = "5.0"; 
 const totalReviews = "ponad 40 opinii";
 
-// Przykładowe autentyczne opinie z Google Maps (możesz wkleić dokładne cytaty):
 const reviews = [
   {
     author: 'Kamil P.',
@@ -31,19 +28,23 @@ const reviews = [
 ];
 ---
 
-<section id="opinie" class="py-24 bg-v3-surface border-b border-v3-border relative overflow-hidden">
+<section id="opinie" class="py-16 sm:py-24 bg-v3-surface border-b border-v3-border relative overflow-hidden">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    <!-- Nagłówek sekcji z kartą Google Maps -->
-    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
+    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12 sm:mb-16">
       <div>
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-amber-400/10 border border-amber-400/30 text-amber-300 text-xs font-bold uppercase tracking-widest mb-3">
-          <span>★</span> Wizytówka Google Maps
+        <!-- Elegancki badge ze złotą gwiazdką SVG -->
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-400 text-[11px] font-bold uppercase tracking-widest mb-3">
+          <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20">
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+          </svg>
+          <span>Wizytówka Google Maps</span>
         </div>
-        <h2 class="font-['Teko'] text-5xl sm:text-6xl font-black uppercase text-white leading-none">
+
+        <h2 class="font-['Teko'] text-4xl sm:text-6xl font-black uppercase text-white leading-none">
           Co mówią o nas <span class="text-v3-lime">w Jarosławiu</span>
         </h2>
-        <p class="text-zinc-400 mt-3 text-sm sm:text-base max-w-xl">
+        <p class="text-zinc-400 mt-2 text-xs sm:text-sm max-w-xl">
           Opinie zweryfikowane bezpośrednio z oficjalnego profilu klubu V3 w Google.
         </p>
       </div>
@@ -53,10 +54,10 @@ const reviews = [
         href={googleMapsUrl}
         target="_blank" 
         rel="noopener noreferrer"
-        class="flex items-center gap-4 bg-v3-dark hover:bg-zinc-900 border border-v3-border hover:border-v3-lime/50 p-4 rounded-2xl transition-all self-start lg:self-auto group shadow-lg"
+        class="flex items-center gap-4 bg-v3-dark hover:bg-zinc-900 border border-v3-border hover:border-v3-lime/50 p-3.5 sm:p-4 rounded-2xl transition-all self-start lg:self-auto group shadow-lg"
       >
-        <div class="w-12 h-12 rounded-xl bg-white flex items-center justify-center shrink-0 shadow-sm">
-          <svg class="w-7 h-7" viewBox="0 0 24 24">
+        <div class="w-11 h-11 rounded-xl bg-white flex items-center justify-center shrink-0 shadow-sm">
+          <svg class="w-6 h-6" viewBox="0 0 24 24">
             <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
             <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
             <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" />
@@ -64,9 +65,9 @@ const reviews = [
           </svg>
         </div>
         <div>
-          <div class="flex items-center gap-2">
-            <span class="font-['Teko'] text-3xl font-black text-white leading-none">{realRating}</span>
-            <div class="text-amber-400 text-sm">★★★★★</div>
+          <div class="flex items-center gap-1.5">
+            <span class="font-['Teko'] text-2xl sm:text-3xl font-black text-white leading-none">{realRating}</span>
+            <div class="text-amber-400 text-xs sm:text-sm">★★★★★</div>
           </div>
           <span class="text-[11px] text-zinc-400 group-hover:text-v3-lime transition-colors block">
             {totalReviews} w Google Maps &rarr;
@@ -76,13 +77,13 @@ const reviews = [
     </div>
 
     <!-- 3 Kolumny Opinii -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
       {reviews.map((r) => (
-        <div class="bg-v3-dark border border-v3-border hover:border-v3-lime/50 rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1">
+        <div class="bg-v3-dark border border-v3-border hover:border-v3-lime/50 rounded-2xl p-5 sm:p-6 flex flex-col justify-between transition-all duration-300">
           <div>
-            <div class="flex items-center justify-between gap-2 mb-4">
-              <div class="text-amber-400 text-sm">★★★★★</div>
-              <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-v3-surface text-zinc-300 border border-v3-border">
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <div class="text-amber-400 text-xs sm:text-sm">★★★★★</div>
+              <span class="text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-v3-surface text-zinc-300 border border-v3-border">
                 {r.badge}
               </span>
             </div>
@@ -91,7 +92,7 @@ const reviews = [
             </p>
           </div>
 
-          <div class="mt-6 pt-4 border-t border-v3-border/80 flex items-center justify-between text-xs">
+          <div class="mt-5 pt-3.5 border-t border-v3-border/80 flex items-center justify-between text-xs">
             <strong class="text-white font-semibold">{r.author}</strong>
             <span class="text-zinc-400 text-[11px]">{r.date}</span>
           </div>
@@ -99,15 +100,18 @@ const reviews = [
       ))}
     </div>
 
-    <!-- Przycisk dodania opinii -->
-    <div class="mt-12 text-center">
+    <!-- Przycisk z wektorem SVG -->
+    <div class="mt-10 sm:mt-12 text-center">
       <a 
         href={googleMapsUrl} 
         target="_blank" 
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-v3-dark hover:bg-zinc-800 border border-v3-border hover:border-v3-lime text-xs font-bold uppercase tracking-wider text-white transition-all shadow-md"
+        class="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-v3-dark hover:bg-zinc-800 border border-v3-border hover:border-amber-400/60 text-xs font-bold uppercase tracking-wider text-white transition-all shadow-md group"
       >
-        <span>✍️</span> Wystaw nam opinię w Google Maps
+        <svg class="w-4 h-4 text-amber-400 group-hover:rotate-12 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+        </svg>
+        <span>Wystaw nam opinię w Google Maps</span>
       </a>
     </div>
 
