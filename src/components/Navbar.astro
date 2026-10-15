@@ -2,44 +2,48 @@
 import Logo from './Logo.astro';
 
 const navLinks = [
-  { name: 'O klubie', href: '#o-nas' },
-  { name: 'Fight Zone', href: '#fight-zone' },
-  { name: 'Siłownia & Cross', href: '#silownia' },
-  { name: 'Strefa Kobiet', href: '#strefa-kobiet' },
-  { name: 'Fitness & Zumba', href: '#fitness' },
-  { name: 'Grafik', href: '#grafik' },
-  { name: 'Cennik', href: '#cennik' },
-  { name: 'Kontakt', href: '#kontakt' },
+  { name: 'O klubie', href: '#o-nas', icon: '📍' },
+  { name: 'Fight Zone', href: '#fight-zone', icon: '🥊' },
+  { name: 'Siłownia & Cross', href: '#silownia', icon: '🏋️' },
+  { name: 'Strefa Kobiet', href: '#strefa-kobiet', icon: '💖' },
+  { name: 'Fitness & Zumba', href: '#fitness', icon: '🔥' },
+  { name: 'Grafik', href: '#grafik', icon: '📅' },
+  { name: 'Cennik', href: '#cennik', icon: '💳' },
+  { name: 'Kontakt', href: '#kontakt', icon: '📞' },
 ];
 ---
 
 <header class="fixed top-0 left-0 right-0 z-50 bg-v3-dark/95 backdrop-blur-xl border-b border-v3-border">
   
-  <div class="bg-black/90 border-b border-white/5 py-1.5 px-4 text-[11px] font-semibold text-zinc-400">
-    <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
-      <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+  <!-- Dyskretny pasek statusu (na telefonie skrócony, by nie rozpychał ekranu) -->
+  <div class="bg-black/90 border-b border-white/5 py-1 px-4 text-[10px] sm:text-[11px] font-semibold text-zinc-400">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-2">
+      <div class="flex items-center gap-2 shrink-0">
         <span class="inline-flex items-center gap-1.5 text-v3-lime font-bold tracking-wider">
           <span class="w-1.5 h-1.5 rounded-full bg-v3-lime animate-pulse"></span>
           SAMOOBSŁUGA 5:00 – 24:00
         </span>
-        <span class="hidden sm:inline text-zinc-600">|</span>
-        <span class="hidden sm:inline text-zinc-400">Wstęp z aplikacją na kod QR</span>
+        <span class="hidden md:inline text-zinc-600">|</span>
+        <span class="hidden md:inline text-zinc-400">Wstęp z aplikacją na kod QR</span>
       </div>
 
       <div class="flex items-center gap-3 shrink-0 text-zinc-400">
-        <span class="hidden md:inline">Jarosław, ul. Poniatowskiego 24</span>
+        <span class="hidden sm:inline">Jarosław, ul. Poniatowskiego 24</span>
         <span class="hidden lg:inline text-zinc-600">•</span>
         <span class="hidden lg:inline text-zinc-300 font-bold">MultiSport • Medicover • FitProfit</span>
       </div>
     </div>
   </div>
 
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-6">
+  <!-- Główna belka -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-4">
     
+    <!-- Logo V3KLUB -->
     <a href="#" class="shrink-0 hover:opacity-90 transition-opacity">
-      <Logo className="h-10" />
+      <Logo className="h-8 sm:h-10" />
     </a>
 
+    <!-- Menu Desktop (ukryte poniżej xl) -->
     <nav class="hidden xl:flex items-center gap-5 text-xs font-bold uppercase tracking-wider">
       {navLinks.map((link) => (
         <a 
@@ -55,7 +59,8 @@ const navLinks = [
       ))}
     </nav>
 
-    <div class="flex items-center gap-3 shrink-0">
+    <!-- Prawe akcje (Desktop + Mobile) -->
+    <div class="flex items-center gap-2 sm:gap-3 shrink-0">
       <a 
         href="tel:788463717" 
         class="hidden sm:inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-v3-surface hover:bg-zinc-800 border border-v3-border text-xs font-bold text-zinc-200 hover:text-white transition-colors whitespace-nowrap"
@@ -65,14 +70,123 @@ const navLinks = [
 
       <a 
         href="#cennik" 
-        class="bg-v3-lime text-black font-black px-5 py-2.5 rounded-xl text-xs uppercase tracking-wider hover:bg-v3-lime-hover transition-all transform hover:scale-[1.02] shadow-[0_0_20px_rgba(200,255,0,0.3)] whitespace-nowrap"
+        class="bg-v3-lime text-black font-black px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs uppercase tracking-wider hover:bg-v3-lime-hover transition-all shadow-[0_0_15px_rgba(200,255,0,0.25)] whitespace-nowrap"
       >
         Kup karnet
       </a>
+
+      <!-- Przycisk Hamburger na telefon (widoczny tylko na mobile/tablet) -->
+      <button 
+        id="menu-open-btn"
+        type="button"
+        aria-label="Otwórz menu"
+        class="xl:hidden p-2 rounded-xl bg-v3-surface border border-v3-border text-zinc-200 hover:text-white hover:border-v3-lime transition-colors"
+      >
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
     </div>
 
   </div>
 
+  <!-- Cienka linia podziału -->
   <div class="h-[2px] w-full bg-gradient-to-r from-v3-lime via-pink-500 to-v3-red"></div>
 
 </header>
+
+<!-- Wysuwany Boczny Panel Mobilny (Off-canvas Drawer) -->
+<div id="mobile-drawer-backdrop" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 xl:hidden"></div>
+
+<aside 
+  id="mobile-drawer"
+  class="fixed top-0 right-0 bottom-0 z-50 w-[82%] max-w-sm bg-[#0E0E12] border-l border-v3-border p-6 flex flex-col justify-between translate-x-full transition-transform duration-300 ease-in-out shadow-2xl xl:hidden overflow-y-auto"
+>
+  <div>
+    <!-- Górny nagłówek panelu z przyciskiem zamknięcia -->
+    <div class="flex items-center justify-between pb-5 border-b border-v3-border">
+      <Logo className="h-8" />
+      <button 
+        id="menu-close-btn"
+        type="button"
+        aria-label="Zamknij menu"
+        class="p-2 rounded-xl bg-v3-surface border border-v3-border text-zinc-400 hover:text-white hover:border-zinc-500"
+      >
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Lista zakładek -->
+    <nav class="mt-6 flex flex-col gap-1.5">
+      {navLinks.map((link) => (
+        <a 
+          href={link.href} 
+          class={`mobile-nav-link flex items-center gap-3 px-3.5 py-3 rounded-xl font-bold text-sm uppercase tracking-wider transition-colors ${
+            link.name === 'Strefa Kobiet'
+              ? 'text-pink-400 hover:bg-pink-500/10'
+              : 'text-zinc-200 hover:text-v3-lime hover:bg-v3-surface'
+          }`}
+        >
+          <span class="text-base">{link.icon}</span>
+          <span>{link.name}</span>
+        </a>
+      ))}
+    </nav>
+  </div>
+
+  <!-- Dolne akcje w panelu -->
+  <div class="pt-6 border-t border-v3-border space-y-3">
+    <a 
+      href="tel:788463717" 
+      class="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-v3-surface border border-v3-border text-white text-xs font-bold uppercase tracking-wider"
+    >
+      <span class="text-v3-lime">📞</span> Zadzwoń: 788 463 717
+    </a>
+    
+    <a 
+      href="https://v3klub.gymmanager.io" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      class="w-full block text-center py-3.5 rounded-xl bg-v3-lime text-black text-xs font-black uppercase tracking-wider shadow-[0_0_20px_rgba(200,255,0,0.3)]"
+    >
+      Panel Klienta Online &rarr;
+    </a>
+
+    <p class="text-[10px] text-zinc-400 text-center pt-1 font-mono">
+      Samoobsługa 5:00 – 24:00 • ul. Poniatowskiego 24
+    </p>
+  </div>
+</aside>
+
+<script>
+  const openBtn = document.getElementById('menu-open-btn');
+  const closeBtn = document.getElementById('menu-close-btn');
+  const drawer = document.getElementById('mobile-drawer');
+  const backdrop = document.getElementById('mobile-drawer-backdrop');
+  const navLinks = document.querySelectorAll('.mobile-nav-link');
+
+  function openMenu() {
+    drawer?.classList.remove('translate-x-full');
+    backdrop?.classList.remove('opacity-0', 'pointer-events-none');
+    backdrop?.classList.add('opacity-100');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    drawer?.classList.add('translate-x-full');
+    backdrop?.classList.remove('opacity-100');
+    backdrop?.classList.add('opacity-0', 'pointer-events-none');
+    document.body.style.overflow = '';
+  }
+
+  openBtn?.addEventListener('click', openMenu);
+  closeBtn?.addEventListener('click', closeMenu);
+  backdrop?.addEventListener('click', closeMenu);
+
+  // Kliknięcie w dowolną pozycję menu natychmiast zamyka drawer
+  navLinks.forEach((link) => {
+    link.addEventListener('click', closeMenu);
+  });
+</script>

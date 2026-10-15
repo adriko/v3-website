@@ -1,0 +1,167 @@
+---
+const googleMapsUrl = "https://maps.app.goo.gl/BUiRAiKCzPZr2aYN9";
+
+const galleryImages = [
+  {
+    src: '/images/silownia1.jpg',
+    title: 'Strefa Cardio & Ceglana Ściana z Logo V3',
+    tag: 'Park Maszyn',
+  },
+  {
+    src: '/images/silownia2.jpg',
+    title: 'Strefa Maszyn Siłowych Bodytone & Mural',
+    tag: 'Siłownia',
+  },
+  {
+    src: '/images/women-zone.jpg',
+    title: 'Prywatna Różowa Strefa wyłącznie dla Kobiet',
+    tag: 'Women Zone',
+  },
+  {
+    src: '/images/silownia3.jpg',
+    title: 'Strefa Wolnych Ciężarów, Hantle i Sztangi',
+    tag: 'Ciężary',
+  },
+];
+---
+
+<section id="galeria" class="py-20 bg-v3-dark border-b border-v3-border relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-v3-lime/10 border border-v3-lime/30 text-v3-lime text-xs font-bold uppercase tracking-widest mb-3">
+          <span>📷</span> Zdjęcia z Klubu • Google Maps
+        </div>
+        <h2 class="font-['Teko'] text-4xl sm:text-5xl lg:text-6xl font-black uppercase text-white leading-none">
+          Zobacz V3 <span class="text-v3-lime">od środka</span>
+        </h2>
+      </div>
+
+      <a 
+        href={googleMapsUrl}
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-zinc-300 hover:text-white px-4 py-2.5 rounded-xl bg-v3-surface border border-v3-border hover:border-zinc-500 transition-all self-start md:self-auto"
+      >
+        <span>📍</span> Zobacz więcej zdjęć na Google Maps &rarr;
+      </a>
+    </div>
+
+    <!-- Główny kontener slidera -->
+    <div 
+      id="gallery-slider-container"
+      class="relative w-full h-[320px] sm:h-[460px] md:h-[560px] rounded-3xl overflow-hidden border-2 border-v3-border shadow-2xl group select-none"
+    >
+      {galleryImages.map((img, index) => (
+        <div 
+          class={`gallery-slide absolute inset-0 transition-opacity duration-700 ease-in-out ${index === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+          data-index={index}
+        >
+          <img 
+            src={img.src} 
+            alt={img.title} 
+            class="w-full h-full object-cover"
+            loading={index === 0 ? "eager" : "lazy"}
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+          
+          <div class="absolute bottom-6 left-6 right-6 flex items-end justify-between gap-4 z-20">
+            <div>
+              <span class="px-2.5 py-1 rounded bg-v3-lime text-black font-black text-[10px] tracking-wider uppercase mb-2 inline-block">
+                {img.tag}
+              </span>
+              <h3 class="font-['Teko'] text-2xl sm:text-4xl font-bold uppercase text-white leading-none">
+                {img.title}
+              </h3>
+            </div>
+            <span class="text-xs font-mono text-zinc-400 bg-black/60 px-3 py-1.5 rounded-lg border border-white/10 shrink-0">
+              {index + 1} / {galleryImages.length}
+            </span>
+          </div>
+        </div>
+      ))}
+
+      <!-- Przyciski nawigacji prawo / lewo -->
+      <button 
+        id="slider-prev"
+        aria-label="Poprzednie zdjęcie"
+        class="absolute left-4 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-black/60 hover:bg-v3-lime hover:text-black border border-white/20 hover:border-v3-lime text-white flex items-center justify-center transition-all opacity-0 group-hover:opacity-100"
+      >
+        &#10094;
+      </button>
+
+      <button 
+        id="slider-next"
+        aria-label="Następne zdjęcie"
+        class="absolute right-4 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-black/60 hover:bg-v3-lime hover:text-black border border-white/20 hover:border-v3-lime text-white flex items-center justify-center transition-all opacity-0 group-hover:opacity-100"
+      >
+        &#10095;
+      </button>
+
+      <!-- Paski postępu na dole -->
+      <div class="absolute top-4 left-6 right-6 z-30 flex gap-2">
+        {galleryImages.map((_, i) => (
+          <div class="flex-1 h-1 rounded-full bg-white/20 overflow-hidden">
+            <div class={`slider-indicator h-full bg-v3-lime transition-all duration-300 ${i === 0 ? 'w-full' : 'w-0'}`} data-indicator={i}></div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const slides = document.querySelectorAll<HTMLElement>('.gallery-slide');
+  const indicators = document.querySelectorAll<HTMLElement>('.slider-indicator');
+  const prevBtn = document.getElementById('slider-prev');
+  const nextBtn = document.getElementById('slider-next');
+  const container = document.getElementById('gallery-slider-container');
+
+  let currentIndex = 0;
+  const total = slides.length;
+  let timer: any = null;
+
+  function goToSlide(index: number) {
+    slides[currentIndex].classList.remove('opacity-100', 'z-10');
+    slides[currentIndex].classList.add('opacity-0', 'z-0');
+    indicators[currentIndex].classList.remove('w-full');
+    indicators[currentIndex].classList.add('w-0');
+
+    currentIndex = (index + total) % total;
+
+    slides[currentIndex].classList.remove('opacity-0', 'z-0');
+    slides[currentIndex].classList.add('opacity-100', 'z-10');
+    indicators[currentIndex].classList.remove('w-0');
+    indicators[currentIndex].classList.add('w-full');
+  }
+
+  function startAutoplay() {
+    stopAutoplay();
+    timer = setInterval(() => {
+      goToSlide(currentIndex + 1);
+    }, 3000); // Zmiana co 3 sekundy
+  }
+
+  function stopAutoplay() {
+    if (timer) clearInterval(timer);
+  }
+
+  nextBtn?.addEventListener('click', () => {
+    goToSlide(currentIndex + 1);
+    startAutoplay();
+  });
+
+  prevBtn?.addEventListener('click', () => {
+    goToSlide(currentIndex - 1);
+    startAutoplay();
+  });
+
+  container?.addEventListener('mouseenter', stopAutoplay);
+  container?.addEventListener('mouseleave', startAutoplay);
+  container?.addEventListener('touchstart', stopAutoplay, { passive: true });
+  container?.addEventListener('touchend', startAutoplay, { passive: true });
+
+  startAutoplay();
+</script>
