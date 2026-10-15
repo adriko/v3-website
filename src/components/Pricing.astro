@@ -60,6 +60,7 @@ const plans = [
     btnClass: 'bg-gradient-to-r from-amber-400 to-yellow-500 hover:from-amber-300 hover:to-yellow-400 text-black shadow-[0_0_25px_rgba(251,191,36,0.4)]',
     popular: false,
     badge: 'ALL INCLUSIVE',
+    isVip: true,
     features: [
       'Fitness, siłownia, sporty walki BEZ LIMITU',
       'Pierwszeństwo zapisów na zajęcia Fitness',
@@ -75,7 +76,7 @@ const plans = [
     
     <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
       <span class="text-v3-lime font-bold text-xs uppercase tracking-widest">Karnety V3</span>
-      <h2 class="font-['Teko'] text-5xl sm:text-6xl font-black uppercase text-white mt-2 leading-none">
+      <h2 class="font-['Rajdhani'] text-5xl sm:text-6xl font-bold uppercase tracking-wide text-white mt-2 leading-none">
         Cennik Członkostwa
       </h2>
       <p class="text-zinc-400 mt-3 text-xs sm:text-base">
@@ -86,28 +87,37 @@ const plans = [
     <!-- 4 Kolumny Cennika -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       {plans.map((plan) => (
-        <div class={`relative bg-v3-card rounded-3xl p-6 sm:p-7 border-2 ${plan.borderColor} flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 shadow-xl`}>
+        <div class={`relative bg-v3-card rounded-3xl p-6 sm:p-7 border-2 ${plan.borderColor} flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 shadow-xl overflow-hidden`}>
           
+          {plan.isVip && (
+            <div class="absolute -right-6 -bottom-6 w-36 h-36 text-amber-400/10 pointer-events-none select-none">
+              <svg viewBox="0 0 120 100" class="w-full h-full fill-current">
+                <path d="M42 12 H106 L63.3 86 H46 L39.7 75 H56.5 L86.5 23 H48.3 L42 12 Z" />
+                <path d="M14 25 H26.7 L32.5 35 H74.5 L68.2 46 H38.8 L44.6 56 H62.5 L56.2 67 H38.2 L14 25 Z" />
+              </svg>
+            </div>
+          )}
+
           {plan.popular && (
-            <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-v3-lime text-black font-black text-[10px] tracking-widest uppercase px-3.5 py-1 rounded-full shadow-md whitespace-nowrap">
+            <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-v3-lime text-black font-black text-[10px] tracking-widest uppercase px-3.5 py-1 rounded-full shadow-md whitespace-nowrap z-10">
               Najczęściej wybierany
             </div>
           )}
 
           {plan.badge && (
-            <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-amber-400 text-black font-black text-[10px] tracking-widest uppercase px-3.5 py-1 rounded-full shadow-md whitespace-nowrap">
+            <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-amber-400 text-black font-black text-[10px] tracking-widest uppercase px-3.5 py-1 rounded-full shadow-md whitespace-nowrap z-10">
               {plan.badge}
             </div>
           )}
 
-          <div>
-            <span class={`font-['Teko'] text-3xl sm:text-4xl font-black uppercase tracking-wider block ${plan.tagColor}`}>
+          <div class="relative z-10">
+            <span class={`font-['Rajdhani'] text-3xl sm:text-4xl font-bold uppercase tracking-wide block ${plan.tagColor}`}>
               {plan.name}
             </span>
             <p class="text-xs text-zinc-400 mt-1 min-h-[32px]">{plan.subtitle}</p>
 
             <div class="mt-4 mb-6">
-              <span class="font-['Teko'] text-5xl sm:text-6xl font-black text-white">{plan.price}</span>
+              <span class="font-['Rajdhani'] text-5xl sm:text-6xl font-black text-white">{plan.price}</span>
               <span class="text-xs text-zinc-400 ml-1 font-semibold">{plan.period}</span>
             </div>
 
@@ -121,13 +131,13 @@ const plans = [
             </ul>
           </div>
 
-          <!-- Wyrazisty, czytelny przycisk CTA dla każdego planu -->
-          <div class="mt-8 pt-4">
+          <!-- Przycisk CTA -->
+          <div class="mt-8 pt-4 relative z-10">
             <a 
               href={gymManagerUrl} 
               target="_blank" 
               rel="noopener noreferrer"
-              class={`w-full block text-center font-black text-xs uppercase tracking-wider py-3.5 rounded-xl transition-all transform hover:scale-[1.02] ${plan.btnClass}`}
+              class={`w-full block text-center font-black text-xs uppercase tracking-wider py-3.5 rounded-xl transition-all transform hover:scale-[1.02] cursor-pointer ${plan.btnClass}`}
             >
               Kup karnet online &rarr;
             </a>
@@ -140,7 +150,7 @@ const plans = [
     <!-- Pakiety partnerskie -->
     <div class="mt-14 bg-v3-surface border border-v3-border rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
       <div>
-        <h4 class="font-['Teko'] text-3xl font-bold uppercase text-white">Honorujemy pakiety sportowe</h4>
+        <h4 class="font-['Rajdhani'] text-3xl font-bold uppercase tracking-wide text-white">Honorujemy pakiety sportowe</h4>
         <p class="text-xs text-zinc-400 mt-1">Trenuj w klubie V3 w ramach swojej karty firmowej bez dodatkowych dopłat.</p>
       </div>
 

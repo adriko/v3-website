@@ -3,28 +3,35 @@ interface Props {
   className?: string;
 }
 
-const { className = "h-9" } = Astro.props;
+const { className = "h-10" } = Astro.props;
 ---
 
 <div class={`inline-flex items-center gap-2.5 select-none shrink-0 ${className}`}>
-  <!-- Sygnet z twardą blokadą wymiarów -->
+  <!-- Oficjalny geometryczny sygnet V3 w czystym wektorze SVG -->
   <svg 
     viewBox="0 0 120 100" 
     width="44"
     height="37"
     fill="none" 
     xmlns="http://www.w3.org/2000/svg"
-    class="w-auto h-full max-h-10 shrink-0 drop-shadow-[0_0_12px_rgba(200,255,0,0.45)]"
+    class="w-auto h-full max-h-10 shrink-0 drop-shadow-[0_0_12px_rgba(200,255,0,0.35)]"
     style="max-width: 48px; max-height: 40px;"
   >
-    <path d="M15 15 L95 15 L108 30 L45 30 L32 15 Z" fill="#C8FF00" />
-    <path d="M40 42 L88 42 L78 55 L30 55 Z" fill="#C8FF00" />
-    <path d="M36 40 L60 85 L72 85 L100 35 L86 35 L66 70 L48 40 Z" fill="#C8FF00" />
+    <!-- Prawa i górna rama trójkąta -->
+    <path 
+      d="M42 12 H106 L63.3 86 H46 L39.7 75 H56.5 L86.5 23 H48.3 L42 12 Z" 
+      fill="#C8FF00" 
+    />
+    <!-- Lewy bok z dwoma belkami poziomymi -->
+    <path 
+      d="M14 25 H26.7 L32.5 35 H74.5 L68.2 46 H38.8 L44.6 56 H62.5 L56.2 67 H38.2 L14 25 Z" 
+      fill="#C8FF00" 
+    />
   </svg>
 
-  <!-- Napis V3KLUB -->
-  <div class="flex items-baseline font-['Teko'] text-2xl sm:text-3xl font-black uppercase tracking-wider leading-none shrink-0">
-    <span class="text-v3-lime">V3</span>
-    <span class="text-white ml-0.5">KLUB</span>
+  <!-- Napis V3KLUB dopasowany do oficjalnego logo -->
+  <div class="flex items-baseline font-['Rajdhani'] text-2xl sm:text-3xl tracking-wider uppercase leading-none shrink-0">
+    <span class="text-v3-lime font-extrabold">V3</span>
+    <span class="text-white font-semibold ml-0.5">KLUB</span>
   </div>
 </div>

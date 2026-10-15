@@ -1,4 +1,5 @@
 ---
+// Grafik zajęć V3 Klub Jarosław - Obowiązuje od września 2026
 const fightDays = [
   {
     day: 'Poniedziałek',
@@ -103,6 +104,19 @@ const fitnessDays = [
     ],
   },
 ];
+
+// Poprawna odmiana w języku polskim
+function formatTreningi(count: number) {
+  if (count === 1) return '1 trening';
+  if (count >= 2 && count <= 4) return `${count} treningi`;
+  return `${count} treningów`;
+}
+
+function formatZajecia(count: number) {
+  if (count === 1) return '1 zajęcie';
+  if (count >= 2 && count <= 4) return `${count} zajęcia`;
+  return `${count} zajęć`;
+}
 ---
 
 <section id="grafik" class="py-16 sm:py-24 bg-v3-surface border-b border-v3-border relative overflow-hidden">
@@ -115,7 +129,7 @@ const fitnessDays = [
           <span class="w-2 h-2 rounded-full bg-v3-lime animate-pulse"></span>
           Aktualny grafik obowiązuje od września 2026
         </div>
-        <h2 class="font-['Teko'] text-4xl sm:text-6xl font-bold uppercase tracking-wide text-white leading-none">
+        <h2 class="font-['Rajdhani'] text-4xl sm:text-6xl font-bold uppercase tracking-wide text-white leading-none">
           Grafik <span class="text-v3-lime">Zajęć</span>
         </h2>
         <p class="text-zinc-400 text-xs sm:text-sm mt-2 max-w-lg">
@@ -123,19 +137,19 @@ const fitnessDays = [
         </p>
       </div>
 
-      <!-- Przełącznik Fight Zone / Fitness -->
+      <!-- Przełącznik Fight Zone / Fitness z kursorem pointer -->
       <div class="inline-flex p-1.5 bg-v3-dark rounded-2xl border border-v3-border self-start md:self-auto">
         <button 
           id="btn-fight" 
           type="button"
-          class="px-5 sm:px-6 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all bg-v3-red text-white shadow-[0_0_15px_rgba(255,42,42,0.3)]"
+          class="px-5 sm:px-6 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all bg-v3-red text-white shadow-[0_0_15px_rgba(255,42,42,0.3)] cursor-pointer"
         >
           Fight Zone
         </button>
         <button 
           id="btn-fitness" 
           type="button"
-          class="px-5 sm:px-6 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all text-zinc-400 hover:text-white"
+          class="px-5 sm:px-6 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all text-zinc-400 hover:text-white cursor-pointer"
         >
           Fitness & Wellness
         </button>
@@ -148,11 +162,11 @@ const fitnessDays = [
         <div class="p-4 sm:p-5 rounded-2xl bg-gradient-to-b from-[#180a0c] via-v3-dark to-v3-dark border-t-2 border-t-v3-red border-x border-b border-v3-border flex flex-col justify-between shadow-md">
           <div>
             <div class="flex items-center justify-between pb-2.5 mb-3 border-b border-v3-border/70">
-              <span class="font-['Teko'] text-2xl sm:text-3xl font-bold uppercase text-white tracking-wider">
+              <span class="font-['Rajdhani'] text-2xl sm:text-3xl font-bold uppercase text-white tracking-wider">
                 {d.day}
               </span>
               <span class="text-[10px] font-mono font-bold text-v3-red uppercase px-2 py-0.5 rounded bg-v3-red/10 border border-v3-red/25">
-                {d.classes.length} {d.classes.length === 1 ? 'trening' : 'treningi'}
+                {formatTreningi(d.classes.length)}
               </span>
             </div>
 
@@ -184,11 +198,11 @@ const fitnessDays = [
         <div class="p-4 sm:p-5 rounded-2xl bg-gradient-to-b from-[#14141d] via-v3-dark to-v3-dark border-t-2 border-t-v3-lime border-x border-b border-v3-border flex flex-col justify-between shadow-md">
           <div>
             <div class="flex items-center justify-between pb-2.5 mb-3 border-b border-v3-border/70">
-              <span class="font-['Teko'] text-2xl sm:text-3xl font-bold uppercase text-white tracking-wider">
+              <span class="font-['Rajdhani'] text-2xl sm:text-3xl font-bold uppercase text-white tracking-wider">
                 {d.day}
               </span>
               <span class="text-[10px] font-mono font-bold text-v3-lime uppercase px-2 py-0.5 rounded bg-v3-lime/10 border border-v3-lime/25">
-                {d.classes.length} {d.classes.length === 1 ? 'zajęcia' : 'zajęć'}
+                {formatZajecia(d.classes.length)}
               </span>
             </div>
 
@@ -222,7 +236,7 @@ const fitnessDays = [
       </div>
       <a 
         href="tel:788463717"
-        class="text-v3-lime font-bold uppercase tracking-wider hover:underline"
+        class="text-v3-lime font-bold uppercase tracking-wider hover:underline cursor-pointer"
       >
         Pytania? Zadzwoń: 788 463 717 &rarr;
       </a>
@@ -244,8 +258,8 @@ const fitnessDays = [
       tabFitness.classList.add('hidden');
       tabFitness.classList.remove('grid');
 
-      btnFight.className = 'px-5 sm:px-6 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all bg-v3-red text-white shadow-[0_0_15px_rgba(255,42,42,0.3)]';
-      btnFitness.className = 'px-5 sm:px-6 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all text-zinc-400 hover:text-white';
+      btnFight.className = 'px-5 sm:px-6 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all bg-v3-red text-white shadow-[0_0_15px_rgba(255,42,42,0.3)] cursor-pointer';
+      btnFitness.className = 'px-5 sm:px-6 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all text-zinc-400 hover:text-white cursor-pointer';
     });
 
     btnFitness.addEventListener('click', () => {
@@ -254,8 +268,8 @@ const fitnessDays = [
       tabFight.classList.add('hidden');
       tabFight.classList.remove('grid');
 
-      btnFitness.className = 'px-5 sm:px-6 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all bg-v3-lime text-black shadow-[0_0_15px_rgba(200,255,0,0.3)]';
-      btnFight.className = 'px-5 sm:px-6 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all text-zinc-400 hover:text-white';
+      btnFitness.className = 'px-5 sm:px-6 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all bg-v3-lime text-black shadow-[0_0_15px_rgba(200,255,0,0.3)] cursor-pointer';
+      btnFight.className = 'px-5 sm:px-6 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all text-zinc-400 hover:text-white cursor-pointer';
     });
   }
 </script>

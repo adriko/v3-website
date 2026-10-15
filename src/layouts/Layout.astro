@@ -24,9 +24,18 @@ const {
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Teko:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Rajdhani:wght@600;700;800&display=swap" rel="stylesheet" />
   </head>
   <body class="bg-v3-dark text-zinc-100 font-sans antialiased selection:bg-v3-lime selection:text-black min-h-screen flex flex-col">
     <slot />
   </body>
 </html>
+
+<style is:global>
+  [class*="font-['Teko']"],
+  [class*="font-['Rajdhani']"],
+  .font-teko {
+    font-family: 'Rajdhani', sans-serif !important;
+    letter-spacing: 0.02em;
+  }
+</style>

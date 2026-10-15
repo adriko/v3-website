@@ -4,19 +4,16 @@ const contactItems = [
     title: 'Adres Klubu',
     value: 'ul. Poniatowskiego 24, 37-500 Jarosław',
     href: 'https://maps.app.goo.gl/BUiRAiKCzPZr2aYN9',
-    type: 'map',
   },
   {
     title: 'Telefon / Recepcja',
     value: '788 463 717',
     href: 'tel:788463717',
-    type: 'phone',
   },
   {
     title: 'Godziny Otwarcia',
     value: 'Pn – Pt: 06:00 – 22:00 | Sb: 08:00 – 18:00 | Nd: 09:00 – 15:00',
     subtitle: 'Samoobsługa z aplikacją: 5:00 – 24:00 (codziennie)',
-    type: 'clock',
   },
 ];
 ---
@@ -29,7 +26,7 @@ const contactItems = [
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-v3-lime/10 border border-v3-lime/30 text-v3-lime text-[11px] font-bold uppercase tracking-widest mb-3">
           Zapraszamy na trening
         </div>
-        <h2 class="font-['Teko'] text-4xl sm:text-6xl font-black uppercase text-white leading-none">
+        <h2 class="font-['Rajdhani'] text-4xl sm:text-6xl font-bold uppercase tracking-wide text-white leading-none">
           Skontaktuj się <span class="text-v3-lime">z nami</span>
         </h2>
 
@@ -87,7 +84,7 @@ const contactItems = [
 
         </div>
 
-        <!-- Nowoczesne przyciski społecznościowe z oficjalnymi SVG -->
+        <!-- Przyciski społecznościowe -->
         <div class="mt-8 pt-6 border-t border-v3-border">
           <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-zinc-400 block mb-3">
             Obserwuj nas w sieci:
@@ -153,9 +150,26 @@ const contactItems = [
   </div>
 </section>
 
-<!-- Stopka -->
-<footer class="py-8 bg-black border-t border-v3-border text-center text-xs text-zinc-400">
-  <div class="max-w-7xl mx-auto px-4">
-    <p>© 2026 V3 Klub Jarosław • Wszelkie prawa zastrzeżone.</p>
+<!-- Stopka z oficjalnym logo V3 KLUB -->
+<footer class="py-12 bg-black border-t border-v3-border text-center">
+  <div class="max-w-7xl mx-auto px-4 flex flex-col items-center">
+    
+    <!-- Logo w stopce -->
+    <div class="inline-flex items-center gap-2.5 mb-4 select-none">
+      <svg viewBox="0 0 120 100" class="w-8 h-7 fill-current text-v3-lime">
+        <path d="M42 12 H106 L63.3 86 H46 L39.7 75 H56.5 L86.5 23 H48.3 L42 12 Z" />
+        <path d="M14 25 H26.7 L32.5 35 H74.5 L68.2 46 H38.8 L44.6 56 H62.5 L56.2 67 H38.2 L14 25 Z" />
+      </svg>
+      <span class="font-['Rajdhani'] text-2xl font-bold uppercase tracking-wider text-white">
+        V3 <span class="text-v3-lime">KLUB</span>
+      </span>
+    </div>
+
+    <p class="text-xs text-zinc-500">
+      Centrum Sportowe V3 • Jarosław, ul. Poniatowskiego 24
+    </p>
+    <p class="text-[11px] text-zinc-600 mt-2">
+      © 2026 V3 Klub Jarosław • Wszelkie prawa zastrzeżone.
+    </p>
   </div>
 </footer>

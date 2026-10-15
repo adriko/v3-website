@@ -6,29 +6,77 @@
   <!-- Siatka techniczna -->
   <div class="absolute inset-0 bg-[linear-gradient(to_right,#22222c_1px,transparent_1px),linear-gradient(to_bottom,#22222c_1px,transparent_1px)] bg-[size:2.5rem_2.5rem] sm:bg-[size:3.5rem_3.5rem] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_40%,#000_60%,transparent_100%)] opacity-20 pointer-events-none"></div>
 
+  <!-- Dyskretny geometryczny znak wodny sygnetu V3 w tle -->
+  <div class="absolute right-[-10%] sm:right-[5%] top-1/2 -translate-y-1/2 w-[380px] sm:w-[600px] opacity-[0.03] text-white pointer-events-none select-none">
+    <svg viewBox="0 0 120 100" class="w-full h-full fill-current">
+      <path d="M42 12 H106 L63.3 86 H46 L39.7 75 H56.5 L86.5 23 H48.3 L42 12 Z" />
+      <path d="M14 25 H26.7 L32.5 35 H74.5 L68.2 46 H38.8 L44.6 56 H62.5 L56.2 67 H38.2 L14 25 Z" />
+    </svg>
+  </div>
+
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
       
-      <!-- Lewa kolumna: Teksty i CTA -->
+      <!-- Lewa kolumna: Brand Lockup, Teksty, CTA i kafelki -->
       <div class="lg:col-span-7">
         
-        <!-- Pojedyncza etykieta adresu -->
-        <div class="flex items-center gap-2 mb-4">
+        <!-- Pasek lokalizacji -->
+        <div class="flex items-center gap-2 mb-3">
           <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-v3-surface border border-v3-border text-zinc-300 text-[10px] sm:text-xs font-semibold uppercase tracking-wider">
             <span class="w-1.5 h-1.5 rounded-full bg-v3-lime animate-pulse"></span>
             Jarosław • Poniatowskiego 24
           </div>
         </div>
 
-        <!-- Główny Nagłówek z wyraźnym odstępem między I oraz Ł -->
-        <h1 class="font-['Teko'] text-[2.85rem] sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl font-bold uppercase tracking-wide leading-[0.92]">
+        <!-- 1. Wyrazisty Brand-Lockup V3 KLUB przed nagłówkiem -->
+        <div class="flex items-center gap-2.5 mb-2 sm:mb-3">
+          <div class="w-8 h-7 sm:w-10 sm:h-9 shrink-0">
+            <svg viewBox="0 0 120 100" class="w-full h-full fill-current text-v3-lime drop-shadow-[0_0_12px_rgba(200,255,0,0.4)]">
+              <path d="M42 12 H106 L63.3 86 H46 L39.7 75 H56.5 L86.5 23 H48.3 L42 12 Z" />
+              <path d="M14 25 H26.7 L32.5 35 H74.5 L68.2 46 H38.8 L44.6 56 H62.5 L56.2 67 H38.2 L14 25 Z" />
+            </svg>
+          </div>
+          <span class="font-['Rajdhani'] text-2xl sm:text-3xl font-black uppercase tracking-wider text-white">
+            V3 <span class="text-v3-lime">KLUB</span>
+            <span class="text-zinc-500 text-xs sm:text-sm font-semibold tracking-normal font-sans ml-1.5">• Centrum Sportowe</span>
+          </span>
+        </div>
+
+        <!-- Główny Nagłówek w foncie Rajdhani -->
+        <h1 class="font-['Rajdhani'] text-[2.75rem] sm:text-6xl md:text-7xl lg:text-7xl xl:text-8xl font-bold uppercase tracking-wide leading-[0.95]">
           <span class="block text-white">Siłownia</span>
           <span class="block text-[#D946EF] drop-shadow-[0_0_25px_rgba(217,70,239,0.35)]">Fitness</span>
           <span class="block text-v3-red whitespace-nowrap">Fight Zone</span>
         </h1>
 
+        <!-- Zdjęcie klubu pod nagłówkiem na smartfonie -->
+        <div class="block lg:hidden my-4">
+          <div class="relative rounded-2xl overflow-hidden border-2 border-v3-border shadow-xl group">
+            <img 
+              src="/images/v3-gym-brick.jpeg" 
+              alt="Wnętrze V3 Klub Jarosław - strefa cardio i logo na cegle" 
+              class="w-full h-[210px] sm:h-[260px] object-cover object-[50%_40%]"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/20"></div>
+
+            <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+              <div>
+                <span class="text-[9px] font-black uppercase tracking-wider px-2 py-0.5 rounded bg-v3-lime text-black shadow">
+                  Strefa Cardio & Maszyn
+                </span>
+                <p class="text-white font-['Rajdhani'] text-lg font-bold uppercase leading-none mt-1 drop-shadow">
+                  Centrum Sportowe V3
+                </p>
+              </div>
+              <span class="text-[9px] font-mono text-zinc-300 bg-black/70 px-2 py-0.5 rounded border border-white/10 backdrop-blur-sm">
+                Jarosław
+              </span>
+            </div>
+          </div>
+        </div>
+
         <!-- Opis klubu -->
-        <p class="mt-4 text-sm sm:text-base md:text-lg text-zinc-300 font-normal leading-relaxed max-w-xl">
+        <p class="mt-3 sm:mt-5 text-sm sm:text-base md:text-lg text-zinc-300 font-normal leading-relaxed max-w-xl">
           Nowoczesne centrum sportowe w Jarosławiu. Strefa maszyn Bodytone, wolne ciężary, zajęcia fitness, dedykowana strefa kobiet oraz sekcja sportów walki. Trenuj bez ograniczeń dzięki <strong class="text-white font-semibold">samoobsługowemu wejściu w godzinach 5:00 – 24:00</strong> przez smartfon.
         </p>
 
@@ -62,28 +110,28 @@
         <!-- Kafelki atutów na dole Hero -->
         <div class="mt-8 grid grid-cols-3 gap-2 sm:gap-4 pt-6 border-t border-v3-border">
           <div class="p-2.5 sm:p-3.5 rounded-xl bg-v3-surface/60 border border-v3-border">
-            <span class="block font-['Teko'] text-lg sm:text-2xl font-bold text-white leading-none">5:00 – 24:00</span>
-            <span class="text-[9px] sm:text-xs text-zinc-400 mt-0.5 block leading-tight">Kod w telefonie</span>
+            <span class="block font-['Rajdhani'] text-lg sm:text-2xl font-bold text-white leading-none">5:00 – 24:00</span>
+            <span class="text-[9px] sm:text-xs text-zinc-400 mt-1 block leading-tight">Kod w telefonie</span>
           </div>
           <div class="p-2.5 sm:p-3.5 rounded-xl bg-v3-surface/60 border border-v3-border">
-            <span class="block font-['Teko'] text-lg sm:text-2xl font-bold text-v3-red leading-none">FIGHT ZONE</span>
-            <span class="text-[9px] sm:text-xs text-zinc-400 mt-0.5 block leading-tight">Mata & ring</span>
+            <span class="block font-['Rajdhani'] text-lg sm:text-2xl font-bold text-v3-red leading-none">FIGHT ZONE</span>
+            <span class="text-[9px] sm:text-xs text-zinc-400 mt-1 block leading-tight">Mata & ring</span>
           </div>
           <div class="p-2.5 sm:p-3.5 rounded-xl bg-v3-surface/60 border border-v3-border">
-            <span class="block font-['Teko'] text-lg sm:text-2xl font-bold text-v3-lime leading-none">CROSS W CENIE</span>
-            <span class="text-[9px] sm:text-xs text-zinc-400 mt-0.5 block leading-tight">W karnecie</span>
+            <span class="block font-['Rajdhani'] text-lg sm:text-2xl font-bold text-v3-lime leading-none">CROSS W CENIE</span>
+            <span class="text-[9px] sm:text-xs text-zinc-400 mt-1 block leading-tight">W karnecie</span>
           </div>
         </div>
 
       </div>
 
-      <!-- Prawa kolumna: Zdjęcie klubu -->
-      <div class="lg:col-span-5 mt-4 lg:mt-0">
+      <!-- Prawa kolumna (ekrany desktop): Duże zdjęcie klubu -->
+      <div class="hidden lg:block lg:col-span-5 mt-4 lg:mt-0">
         <div class="relative rounded-3xl overflow-hidden border-2 border-v3-border hover:border-v3-lime/50 transition-all duration-300 shadow-2xl group">
           <img 
             src="/images/v3-gym-brick.jpeg" 
             alt="Wnętrze V3 Klub Jarosław - strefa cardio i logo na cegle" 
-            class="w-full h-[280px] sm:h-[400px] lg:h-[480px] object-cover object-center group-hover:scale-105 transition-transform duration-500"
+            class="w-full h-[480px] object-cover object-center group-hover:scale-105 transition-transform duration-500"
           />
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20"></div>
 
@@ -92,7 +140,7 @@
               <span class="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded bg-v3-lime text-black shadow">
                 Strefa Cardio & Maszyn
               </span>
-              <p class="text-white font-['Teko'] text-2xl font-bold uppercase leading-none mt-1 drop-shadow">
+              <p class="text-white font-['Rajdhani'] text-2xl font-bold uppercase leading-none mt-1 drop-shadow">
                 Centrum Sportowe V3
               </p>
             </div>
