@@ -1,0 +1,78 @@
+---
+import Logo from './Logo.astro';
+
+const navLinks = [
+  { name: 'O klubie', href: '#o-nas' },
+  { name: 'Fight Zone', href: '#fight-zone' },
+  { name: 'Siłownia & Cross', href: '#silownia' },
+  { name: 'Strefa Kobiet', href: '#strefa-kobiet' },
+  { name: 'Fitness & Zumba', href: '#fitness' },
+  { name: 'Grafik', href: '#grafik' },
+  { name: 'Cennik', href: '#cennik' },
+  { name: 'Kontakt', href: '#kontakt' },
+];
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-v3-dark/95 backdrop-blur-xl border-b border-v3-border">
+  
+  <div class="bg-black/90 border-b border-white/5 py-1.5 px-4 text-[11px] font-semibold text-zinc-400">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+      <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+        <span class="inline-flex items-center gap-1.5 text-v3-lime font-bold tracking-wider">
+          <span class="w-1.5 h-1.5 rounded-full bg-v3-lime animate-pulse"></span>
+          SAMOOBSŁUGA 5:00 – 24:00
+        </span>
+        <span class="hidden sm:inline text-zinc-600">|</span>
+        <span class="hidden sm:inline text-zinc-400">Wstęp z aplikacją na kod QR</span>
+      </div>
+
+      <div class="flex items-center gap-3 shrink-0 text-zinc-400">
+        <span class="hidden md:inline">Jarosław, ul. Poniatowskiego 24</span>
+        <span class="hidden lg:inline text-zinc-600">•</span>
+        <span class="hidden lg:inline text-zinc-300 font-bold">MultiSport • Medicover • FitProfit</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-6">
+    
+    <a href="#" class="shrink-0 hover:opacity-90 transition-opacity">
+      <Logo className="h-10" />
+    </a>
+
+    <nav class="hidden xl:flex items-center gap-5 text-xs font-bold uppercase tracking-wider">
+      {navLinks.map((link) => (
+        <a 
+          href={link.href} 
+          class={`whitespace-nowrap py-1 transition-colors ${
+            link.name === 'Strefa Kobiet' 
+              ? 'text-pink-400 hover:text-pink-300' 
+              : 'text-zinc-300 hover:text-v3-lime'
+          }`}
+        >
+          {link.name}
+        </a>
+      ))}
+    </nav>
+
+    <div class="flex items-center gap-3 shrink-0">
+      <a 
+        href="tel:788463717" 
+        class="hidden sm:inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-v3-surface hover:bg-zinc-800 border border-v3-border text-xs font-bold text-zinc-200 hover:text-white transition-colors whitespace-nowrap"
+      >
+        <span class="text-v3-lime text-sm">📞</span> 788 463 717
+      </a>
+
+      <a 
+        href="#cennik" 
+        class="bg-v3-lime text-black font-black px-5 py-2.5 rounded-xl text-xs uppercase tracking-wider hover:bg-v3-lime-hover transition-all transform hover:scale-[1.02] shadow-[0_0_20px_rgba(200,255,0,0.3)] whitespace-nowrap"
+      >
+        Kup karnet
+      </a>
+    </div>
+
+  </div>
+
+  <div class="h-[2px] w-full bg-gradient-to-r from-v3-lime via-pink-500 to-v3-red"></div>
+
+</header>

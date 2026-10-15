@@ -1,0 +1,133 @@
+<section id="grafik" class="py-24 bg-v3-surface border-b border-v3-border">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+      <div>
+        <span class="text-v3-lime font-bold text-xs uppercase tracking-widest">Plan treningowy</span>
+        <h2 class="font-['Teko'] text-5xl sm:text-6xl font-black uppercase text-white mt-2 leading-none">
+          Grafik Zajęć
+        </h2>
+        <p class="text-zinc-400 text-sm mt-2">Aktualny rozkład zajęć prowadzonych w V3 Jarosław.</p>
+      </div>
+
+      <!-- Przełącznik zakładek -->
+      <div class="inline-flex p-1.5 bg-v3-dark rounded-2xl border border-v3-border">
+        <button 
+          id="btn-fight" 
+          class="px-6 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all bg-v3-red text-white"
+        >
+          Fight Zone
+        </button>
+        <button 
+          id="btn-fitness" 
+          class="px-6 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all text-zinc-400 hover:text-white"
+        >
+          Fitness & Wellness
+        </button>
+      </div>
+    </div>
+
+    <!-- Tabela Fight Zone -->
+    <div id="tab-fight" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="p-5 rounded-2xl bg-v3-dark border border-v3-border">
+        <span class="text-v3-red font-bold text-xs uppercase tracking-wider block mb-2">Poniedziałek / Środa</span>
+        <div class="space-y-2 text-xs text-zinc-300">
+          <p><strong class="text-white">16:00 - 16:45:</strong> Kids 4-6 lat</p>
+          <p><strong class="text-white">16:45 - 17:30:</strong> Start 7-10 lat</p>
+          <p><strong class="text-white">17:30 - 18:30:</strong> Junior 14-18 lat</p>
+          <p><strong class="text-white">18:30 - 19:45:</strong> Fight Team</p>
+          <p><strong class="text-white">19:45 - 21:00:</strong> Dorośli Rekreacja</p>
+        </div>
+      </div>
+
+      <div class="p-5 rounded-2xl bg-v3-dark border border-v3-border">
+        <span class="text-v3-red font-bold text-xs uppercase tracking-wider block mb-2">Wtorek / Czwartek</span>
+        <div class="space-y-2 text-xs text-zinc-300">
+          <p><strong class="text-white">16:00 - 17:00:</strong> Kadet 11-13 lat</p>
+          <p><strong class="text-white">17:00 - 18:30:</strong> SSW Cobra Ju-Jitsu</p>
+          <p><strong class="text-white">19:00 - 20:15:</strong> Boks</p>
+          <p><strong class="text-white">20:00 (Wt):</strong> Krav Maga</p>
+          <p><strong class="text-white">20:15 (Czw):</strong> Samoobrona Kobiet</p>
+        </div>
+      </div>
+
+      <div class="p-5 rounded-2xl bg-v3-dark border border-v3-border">
+        <span class="text-v3-red font-bold text-xs uppercase tracking-wider block mb-2">Piątek & Sobota</span>
+        <div class="space-y-2 text-xs text-zinc-300">
+          <p><strong class="text-white">Pt 18:00 - 19:00:</strong> Trening wprowadzający + sparingi</p>
+          <p><strong class="text-white">Pt 19:00 - 20:00:</strong> Fight Team</p>
+          <p><strong class="text-white">Pt 20:00 - 21:00:</strong> MMA</p>
+          <p><strong class="text-white">Sb 12:00 - 13:00:</strong> MMA Sobota</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabela Fitness (domyślnie ukryta) -->
+    <div id="tab-fitness" class="hidden grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="p-5 rounded-2xl bg-v3-dark border border-v3-border">
+        <span class="text-v3-lime font-bold text-xs uppercase tracking-wider block mb-2">Poniedziałek / Wtorek</span>
+        <div class="space-y-2 text-xs text-zinc-300">
+          <p><strong class="text-white">Pon 19:00:</strong> V3 Step Up!</p>
+          <p><strong class="text-white">Pon 19:15:</strong> V3 ABS</p>
+          <p><strong class="text-white">Pon 20:00:</strong> Pilates</p>
+          <p><strong class="text-white">Wt 17:00:</strong> Booty Project</p>
+          <p><strong class="text-white">Wt 18:15:</strong> Zdrowe Ciało</p>
+          <p><strong class="text-white">Wt 20:15:</strong> Zumba</p>
+        </div>
+      </div>
+
+      <div class="p-5 rounded-2xl bg-v3-dark border border-v3-border">
+        <span class="text-v3-lime font-bold text-xs uppercase tracking-wider block mb-2">Środa / Czwartek</span>
+        <div class="space-y-2 text-xs text-zinc-300">
+          <p><strong class="text-white">Śr 18:15:</strong> V3 Mobility (45 min)</p>
+          <p><strong class="text-white">Śr 19:15:</strong> V3 ABS</p>
+          <p><strong class="text-white">Śr 20:00:</strong> Pilates</p>
+          <p><strong class="text-white">Czw 17:00:</strong> Full Body Project</p>
+          <p><strong class="text-white">Czw 18:15:</strong> Zdrowy Kręgosłup</p>
+          <p><strong class="text-white">Czw 19:00:</strong> CROSS z Rafałem (w cenie siłowni)</p>
+        </div>
+      </div>
+
+      <div class="p-5 rounded-2xl bg-v3-dark border border-v3-border">
+        <span class="text-v3-lime font-bold text-xs uppercase tracking-wider block mb-2">Piątek / Sobota</span>
+        <div class="space-y-2 text-xs text-zinc-300">
+          <p><strong class="text-white">Pt 18:00:</strong> Pilates</p>
+          <p><strong class="text-white">Pt 19:00:</strong> V3 Step Up!</p>
+          <p><strong class="text-white">Pt 20:15:</strong> Zumba</p>
+          <p><strong class="text-white">Sb 08:30:</strong> Joga</p>
+          <p><strong class="text-white">Sb 09:30:</strong> Zdrowy Kręgosłup</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const btnFight = document.getElementById('btn-fight');
+  const btnFitness = document.getElementById('btn-fitness');
+  const tabFight = document.getElementById('tab-fight');
+  const tabFitness = document.getElementById('tab-fitness');
+
+  if (btnFight && btnFitness && tabFight && tabFitness) {
+    btnFight.addEventListener('click', () => {
+      tabFight.classList.remove('hidden');
+      tabFight.classList.add('grid');
+      tabFitness.classList.add('hidden');
+      tabFitness.classList.remove('grid');
+
+      btnFight.className = 'px-6 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all bg-v3-red text-white';
+      btnFitness.className = 'px-6 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all text-zinc-400 hover:text-white';
+    });
+
+    btnFitness.addEventListener('click', () => {
+      tabFitness.classList.remove('hidden');
+      tabFitness.classList.add('grid');
+      tabFight.classList.add('hidden');
+      tabFight.classList.remove('grid');
+
+      btnFitness.className = 'px-6 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all bg-v3-lime text-black';
+      btnFight.className = 'px-6 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all text-zinc-400 hover:text-white';
+    });
+  }
+</script>

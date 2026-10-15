@@ -1,0 +1,94 @@
+---
+const combatSports = [
+  { name: 'Boks', desc: 'Klasyczna szermierka na pięści. Technika ciosów, praca nóg, tarcze bokserskie i sparingi.', icon: '🥊' },
+  { name: 'Kickboxing / K1', desc: 'Połączenie dynamicznych uderzeń bokserskich z silnymi kopnięciami. Budowa kondycji i zwinności.', icon: '🥋' },
+  { name: 'MMA & Grappling', desc: 'Wszechstronny system łączący stójkę, zapasy, rzuty i walkę na macie w parterze.', icon: '🤼' },
+  { name: 'SSW Cobra Ju-Jitsu', desc: 'Tradycyjna japońska sztuka walki i obrony: techniki obezwładniające, dźwignie i rzuty.', icon: '⛩️' },
+  { name: 'Krav Maga', desc: 'Bezkompromisowy, praktyczny system samoobrony w realnych sytuacjach zagrożenia na ulicy.', icon: '🛡️' },
+  { name: 'Samoobrona Kobiet', desc: 'Dedykowana sekcja ucząca przełamywania stresu, pewności siebie i skutecznych odruchów.', icon: '⚡' },
+];
+
+const ageGroups = [
+  { group: 'KIDS', age: '4–6 lat', time: '45 min', desc: 'Ogólny rozwój motoryczny i dyscyplina przez zabawę' },
+  { group: 'START', age: '7–10 lat', time: '45 min', desc: 'Koordynacja, podstawy uderzeń i budowa sprawności' },
+  { group: 'KADET', age: '11–13 lat', time: '60 min', desc: 'Szlifowanie techniki i przygotowanie sprawnościowe' },
+  { group: 'JUNIOR', age: '14–18 lat', time: '60 min', desc: 'Intensywny trening taktyczny dla młodzieży' },
+  { group: 'DOROŚLI REKREACJA', age: 'Open', time: '75 min', desc: 'Czysta forma, zrzucanie wagi i technika bez presji walki' },
+  { group: 'FIGHT TEAM', age: 'Zawodnicy', time: '75 min', desc: 'Twarde sparingi turniejowe i starty reprezentacji' },
+];
+---
+
+<section id="fight-zone" class="py-24 bg-v3-dark border-b border-v3-border relative overflow-hidden">
+  <!-- Czerwona poświata tła -->
+  <div class="absolute -right-20 top-1/3 w-[600px] h-[600px] bg-v3-red/10 blur-[180px] pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    
+    <!-- Nagłówek strefy -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 bg-v3-red/10 border border-v3-red/30 rounded-lg text-v3-red text-xs font-black uppercase tracking-widest mb-3">
+          <span>&gt;&gt;&gt;</span> FIGHT ZONE V3 & SOKÓŁ JAROSŁAW
+        </div>
+        <h2 class="font-['Teko'] text-5xl sm:text-6xl font-black uppercase text-white leading-none">
+          Strefa Sportów <span class="text-v3-red">Walki</span>
+        </h2>
+        <p class="text-zinc-400 mt-4 max-w-xl text-base">
+          Mata sportowa, profesjonalna klatka MMA, worki bokserskie i ring. Prowadzimy grupy od przedszkolaków po zawodowców pod okiem kadry trenerskiej.
+        </p>
+      </div>
+
+      <a 
+        href="#grafik" 
+        class="inline-flex items-center gap-2 bg-gradient-to-r from-v3-surface to-v3-card border border-v3-red text-v3-red hover:bg-v3-red hover:text-white px-6 py-3.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all shadow-[0_0_15px_rgba(255,42,42,0.15)]"
+      >
+        Rozkład treningów walk &rarr;
+      </a>
+    </div>
+
+    <!-- Kafelki dyscyplin ze świetlistym akcentem -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+      {combatSports.map((sport) => (
+        <div class="bg-gradient-to-b from-v3-card to-v3-surface border-t-2 border-t-v3-red border-x border-b border-v3-border hover:border-v3-red rounded-2xl p-7 transition-all duration-300 group hover:-translate-y-1.5 shadow-lg hover:shadow-[0_10px_25px_rgba(255,42,42,0.15)]">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-2xl">{sport.icon}</span>
+            <span class="w-2 h-2 rounded-full bg-v3-red group-hover:scale-125 transition-transform"></span>
+          </div>
+          <h3 class="font-['Teko'] text-3xl font-bold uppercase text-white group-hover:text-v3-red transition-colors">
+            {sport.name}
+          </h3>
+          <p class="text-zinc-400 text-sm mt-2 leading-relaxed">
+            {sport.desc}
+          </p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Grupy wiekowe z wyrazistymi badge'ami -->
+    <div class="bg-gradient-to-br from-v3-card/90 via-v3-surface to-v3-dark border border-v3-border rounded-3xl p-8 lg:p-10 relative">
+      <div class="max-w-2xl mb-8">
+        <h3 class="font-['Teko'] text-4xl font-bold uppercase text-white">
+          Szkolenie dla każdego wieku
+        </h3>
+        <p class="text-zinc-400 text-sm mt-1">
+          Dzieci, młodzież i dorośli ćwiczą w odrębnych grupach z programem dostosowanym do ich możliwości.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {ageGroups.map((ag) => (
+          <div class="p-5 rounded-2xl bg-v3-dark/80 border border-v3-border/80 hover:border-v3-red/40 transition-colors">
+            <div class="flex items-center justify-between gap-2 mb-2">
+              <span class="font-black text-white text-sm tracking-wide">{ag.group}</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-v3-red/20 text-v3-red border border-v3-red/40 text-[10px] font-bold">
+                {ag.age} • {ag.time}
+              </span>
+            </div>
+            <p class="text-xs text-zinc-400 leading-relaxed">{ag.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>

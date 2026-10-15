@@ -1,0 +1,33 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "V3 Centrum Sportowe Jarosław | Siłownia, Fitness, Sporty Walki",
+  description = "Nowoczesne centrum sportowe w Jarosławiu przy ul. Poniatowskiego 24. Siłownia, sekcja sportów walki i zajęcia grupowe. Dołącz do nas!",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="pl" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- Google Fonts: Teko (nagłówki) i Inter (treść) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Teko:wght@500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body class="bg-v3-dark text-zinc-100 font-sans antialiased selection:bg-v3-lime selection:text-black min-h-screen flex flex-col">
+    <slot />
+  </body>
+</html>

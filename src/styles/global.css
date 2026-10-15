@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@theme {
+  /* Tła i struktura */
+  --color-v3-dark: #0A0A0C;
+  --color-v3-surface: #141418;
+  --color-v3-card: #1A1A22;
+  --color-v3-border: #262633;
+
+  /* Strefa Siłownia & Główne Logo (Neon Volt / Limonka) */
+  --color-v3-lime: #C8FF00;
+  --color-v3-lime-hover: #B0E200;
+
+  /* Strefa FIGHT ZONE (Czerwień i bordowy) */
+  --color-v3-red: #FF2A2A;
+  --color-v3-red-hover: #E01B1B;
+
+  /* Strefa FITNESS & DANCE (Zumba / ABS / Kobiety) */
+  --color-v3-magenta: #FF007F;
+  --color-v3-purple: #8A2BE2;
+
+  /* Karnety Cennika */
+  --color-v3-gold: #FFB800;
+  --color-v3-blue: #3B82F6;
+
+  /* Typografia */
+  --font-display: 'Teko', sans-serif;
+  --font-sans: 'Inter', sans-serif;
+}
+
+/* Efekty poświaty neonowej */
+.glow-lime {
+  filter: drop-shadow(0 0 15px rgba(200, 255, 0, 0.35));
+}
+.glow-red {
+  filter: drop-shadow(0 0 15px rgba(255, 42, 42, 0.4));
+}
+.glow-magenta {
+  filter: drop-shadow(0 0 15px rgba(255, 0, 127, 0.4));
+}

@@ -1,0 +1,87 @@
+---
+const socials = [
+  { name: 'Facebook', href: 'https://www.facebook.com/V3CentrumSportowe/' },
+  { name: 'Instagram', href: 'https://www.instagram.com/v3_klub_jaroslaw/' },
+  { name: 'TikTok', href: 'https://www.tiktok.com/@v3_klub_jaroslaw' },
+];
+---
+
+<section id="kontakt" class="py-24 bg-v3-dark">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      
+      <div>
+        <span class="text-v3-lime font-bold text-xs uppercase tracking-widest">Zapraszamy na trening</span>
+        <h2 class="font-['Teko'] text-5xl sm:text-6xl font-black uppercase text-white mt-2 leading-none">
+          Skontaktuj się z nami
+        </h2>
+
+        <div class="mt-8 space-y-6">
+          <div class="flex items-start gap-4">
+            <div class="p-3 bg-v3-surface rounded-xl border border-v3-border text-v3-lime text-xl">📍</div>
+            <div>
+              <strong class="block text-white text-sm font-bold">Adres Klubu</strong>
+              <p class="text-xs text-zinc-400 mt-0.5">ul. Poniatowskiego 24, 37-500 Jarosław</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="p-3 bg-v3-surface rounded-xl border border-v3-border text-v3-lime text-xl">📞</div>
+            <div>
+              <strong class="block text-white text-sm font-bold">Telefon / Recepcja</strong>
+              <a href="tel:788463717" class="text-xs text-v3-lime font-bold mt-0.5 block hover:underline">
+                788 463 717
+              </a>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="p-3 bg-v3-surface rounded-xl border border-v3-border text-v3-lime text-xl">⏰</div>
+            <div>
+              <strong class="block text-white text-sm font-bold">Godziny Otwarcia</strong>
+              <p class="text-xs text-zinc-400 mt-0.5">Poniedziałek – Piątek: 06:00 – 22:00</p>
+              <p class="text-xs text-zinc-400">Sobota: 08:00 – 18:00 | Niedziela: 09:00 – 15:00</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-10">
+          <span class="text-xs font-bold uppercase tracking-wider text-zinc-400 block mb-3">Obserwuj nas w sieci:</span>
+          <div class="flex flex-wrap gap-3">
+            {socials.map((s) => (
+              <a 
+                href={s.href} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="px-5 py-2.5 rounded-xl bg-v3-surface border border-v3-border text-xs font-bold uppercase tracking-wider text-white hover:text-v3-lime hover:border-v3-lime transition-all"
+              >
+                {s.name}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Interaktywna mapa dojazdu -->
+      <div class="rounded-3xl overflow-hidden border border-v3-border bg-v3-surface min-h-[350px]">
+        <iframe
+          title="Mapa V3 Centrum Sportowe Jarosław"
+          src="https://maps.google.com/maps?q=Poniatowskiego%2024,%20Jaroslaw&t=&z=16&ie=UTF8&iwloc=&output=embed"
+          width="100%"
+          height="100%"
+          style="border:0; min-height: 380px; filter: grayscale(1) invert(0.9) contrast(1.2);"
+          allowfullscreen=""
+          loading="lazy"
+        ></iframe>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Prosty footer -->
+<footer class="py-8 bg-black border-t border-v3-border text-center text-xs text-zinc-400">
+  <div class="max-w-7xl mx-auto px-4">
+    <p>© 2026 V3 Klub Jarosław • Wszelkie prawa zastrzeżone.</p>
+  </div>
+</footer>

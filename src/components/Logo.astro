@@ -1,0 +1,30 @@
+---
+interface Props {
+  className?: string;
+}
+
+const { className = "h-9" } = Astro.props;
+---
+
+<div class={`inline-flex items-center gap-3 select-none ${className}`}>
+  <!-- Geometryczny Sygnet V3 w wektorze SVG -->
+  <svg 
+    viewBox="0 0 120 100" 
+    fill="none" 
+    xmlns="http://www.w3.org/2000/svg"
+    class="h-full w-auto aspect-[12/10] drop-shadow-[0_0_12px_rgba(200,255,0,0.45)]"
+  >
+    <!-- Górna belka daszka z cięciem -->
+    <path d="M15 15 L95 15 L108 30 L45 30 L32 15 Z" fill="#C8FF00" />
+    <!-- Środkowa poprzeczka 3 -->
+    <path d="M40 42 L88 42 L78 55 L30 55 Z" fill="#C8FF00" />
+    <!-- Dolny klin tworzący literę V -->
+    <path d="M36 40 L60 85 L72 85 L100 35 L86 35 L66 70 L48 40 Z" fill="#C8FF00" />
+  </svg>
+
+  <!-- Napis V3KLUB -->
+  <div class="flex items-baseline font-['Teko'] text-3xl font-black uppercase tracking-wider leading-none">
+    <span class="text-v3-lime drop-shadow-[0_0_10px_rgba(200,255,0,0.3)]">V3</span>
+    <span class="text-white ml-0.5">KLUB</span>
+  </div>
+</div>

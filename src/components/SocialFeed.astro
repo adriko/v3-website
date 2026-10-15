@@ -1,0 +1,149 @@
+---
+const socialPosts = [
+  {
+    type: 'reel',
+    platform: 'Instagram',
+    tag: 'Fight Zone',
+    title: 'Sparingi i tarcze w sekcji sportów walki',
+    author: '@v3_klub_jaroslaw',
+    url: 'https://www.instagram.com/v3_klub_jaroslaw/',
+    aspect: 'aspect-[9/16]',
+    gradient: 'from-black/80 via-transparent to-black/90',
+    accentBorder: 'hover:border-v3-red',
+    badgeColor: 'bg-v3-red text-white',
+    imgSrc: '/images/silownia3.jpg', // HMS wolne ciężary
+  },
+  {
+    type: 'post',
+    platform: 'Instagram',
+    tag: 'Strefa Kobiet',
+    title: 'Prywatna różowa strefa wyłącznie dla Pań!',
+    author: '@v3_klub_jaroslaw',
+    url: 'https://www.instagram.com/v3_klub_jaroslaw/',
+    aspect: 'aspect-square sm:aspect-[9/16]',
+    gradient: 'from-black/80 via-transparent to-black/90',
+    accentBorder: 'hover:border-pink-500',
+    badgeColor: 'bg-pink-500 text-white',
+    imgSrc: '/images/women-zone.jpg', // Różowy pokój
+  },
+  {
+    type: 'reel',
+    platform: 'TikTok',
+    tag: 'Siłownia & Park Maszyn',
+    title: 'Klimat w strefie maszyn Bodytone i cardio',
+    author: '@v3_klub_jaroslaw',
+    url: 'https://www.tiktok.com/@v3_klub_jaroslaw',
+    aspect: 'aspect-square sm:aspect-[9/16]',
+    gradient: 'from-black/80 via-transparent to-black/90',
+    accentBorder: 'hover:border-v3-lime',
+    badgeColor: 'bg-v3-lime text-black',
+    imgSrc: '/images/silownia1.jpg', // Bieżnie i ceglana ściana z logo
+  },
+  {
+    type: 'post',
+    platform: 'Facebook',
+    tag: 'Trening & Opieka',
+    title: 'Drenaż limfatyczny i analiza składu ciała z Zuzą',
+    author: 'V3 Centrum Sportowe',
+    url: 'https://www.facebook.com/V3CentrumSportowe/',
+    aspect: 'aspect-[9/16]',
+    gradient: 'from-black/80 via-transparent to-black/90',
+    accentBorder: 'hover:border-pink-400',
+    badgeColor: 'bg-gradient-to-r from-pink-500 to-purple-600 text-white',
+    imgSrc: '/images/zuza.jpg', // Zuza
+  },
+];
+---
+
+<section id="social-feed" class="py-24 bg-v3-dark border-b border-v3-border relative overflow-hidden">
+  <div class="absolute left-1/2 -top-20 -translate-x-1/2 w-[600px] h-[300px] bg-v3-lime/10 blur-[160px] pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+      <div>
+        <div class="inline-flex items-center gap-2 text-v3-lime text-xs font-black uppercase tracking-widest mb-3">
+          <span class="w-2 h-2 rounded-full bg-v3-lime animate-pulse"></span>
+          Klimat z naszych mediów
+        </div>
+        <h2 class="font-['Teko'] text-5xl sm:text-6xl font-black uppercase text-white leading-none">
+          Życie Klubu <span class="text-v3-lime">V3</span>
+        </h2>
+        <p class="text-zinc-400 mt-3 text-sm sm:text-base max-w-xl">
+          Zobacz, jak wygląda nasz klub od środka – sale treningowe, strefa kobiet i codzienne przygotowania.
+        </p>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a 
+          href="https://www.instagram.com/v3_klub_jaroslaw/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-v3-surface border border-v3-border hover:border-v3-lime text-xs font-bold uppercase tracking-wider text-white transition-all transform hover:-translate-y-0.5"
+        >
+          <span>📸</span> Instagram
+        </a>
+        <a 
+          href="https://www.tiktok.com/@v3_klub_jaroslaw" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-v3-surface border border-v3-border hover:border-v3-lime text-xs font-bold uppercase tracking-wider text-white transition-all transform hover:-translate-y-0.5"
+        >
+          <span>🎵</span> TikTok
+        </a>
+      </div>
+    </div>
+
+    <!-- Siatka zdjęć -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+      {socialPosts.map((post) => (
+        <a 
+          href={post.url} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class={`group relative rounded-3xl overflow-hidden border-2 border-v3-border ${post.accentBorder} transition-all duration-300 transform hover:-translate-y-1.5 shadow-xl block ${post.aspect}`}
+        >
+          <img 
+            src={post.imgSrc} 
+            alt={post.title} 
+            loading="lazy"
+            class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            onerror="this.src='https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80';"
+          />
+
+          <div class={`absolute inset-0 bg-gradient-to-t ${post.gradient}`}></div>
+
+          <div class="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
+            <span class={`text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md ${post.badgeColor} shadow-md`}>
+              {post.tag}
+            </span>
+            <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-black/60 text-zinc-300 backdrop-blur-md border border-white/10">
+              {post.platform}
+            </span>
+          </div>
+
+          {post.type === 'reel' && (
+            <div class="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+              <div class="w-12 h-12 rounded-full bg-black/50 border border-white/20 backdrop-blur-sm flex items-center justify-center text-white text-lg transition-transform group-hover:scale-110 group-hover:bg-v3-lime group-hover:text-black group-hover:border-v3-lime">
+                ▶
+              </div>
+            </div>
+          )}
+
+          <div class="absolute bottom-4 left-4 right-4 z-10">
+            <span class="text-xs font-mono text-zinc-300 block mb-1">
+              {post.author}
+            </span>
+            <h3 class="text-xs sm:text-sm font-bold text-white leading-snug group-hover:text-zinc-100 transition-colors">
+              {post.title}
+            </h3>
+            <span class="text-[10px] text-v3-lime font-bold uppercase tracking-wider mt-2 inline-flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+              Oglądaj &rarr;
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+
+  </div>
+</section>
