@@ -1,81 +1,100 @@
 ---
 const gymManagerUrl = "https://v3klub.gymmanager.io";
+const googlePlayUrl = "https://play.google.com/store/apps/details?id=io.gymmanager.app&hl=pl";
+const appStoreUrl = "https://apps.apple.com/pl/search?term=GymManager";
 ---
 
-<section id="aplikacja" class="py-24 bg-v3-dark border-b border-v3-border relative overflow-hidden">
-  <div class="absolute right-0 top-1/2 -translate-y-1/2 w-[550px] h-[450px] bg-v3-lime/10 blur-[180px] pointer-events-none"></div>
+<section id="aplikacja" class="py-16 sm:py-24 bg-v3-dark border-b border-v3-border relative overflow-hidden">
+  <div class="absolute right-0 top-1/2 -translate-y-1/2 w-[500px] h-[400px] bg-v3-lime/10 blur-[170px] pointer-events-none"></div>
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
       
       <!-- Lewa kolumna -->
       <div class="lg:col-span-7">
-        <div class="inline-flex items-center gap-2 px-3 py-1 bg-v3-lime/10 border border-v3-lime/30 text-v3-lime text-xs font-bold uppercase tracking-widest rounded-lg mb-4">
-          <span>⚡</span> Inteligentny Wstęp 5:00 – 24:00
+        <div class="inline-flex items-center gap-2 px-3 py-1 bg-v3-lime/10 border border-v3-lime/30 text-v3-lime text-[11px] font-bold uppercase tracking-widest rounded-full mb-4">
+          <svg class="w-3.5 h-3.5 text-v3-lime fill-current" viewBox="0 0 24 24">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+          </svg>
+          <span>Inteligentny Wstęp 5:00 – 24:00</span>
         </div>
 
-        <h2 class="font-['Teko'] text-5xl sm:text-6xl lg:text-7xl font-black uppercase text-white leading-none">
+        <h2 class="font-['Teko'] text-4xl sm:text-6xl lg:text-7xl font-black uppercase text-white leading-none">
           Smartfon Twoim <br />
           <span class="text-v3-lime">Kluczem Do Klubu</span>
         </h2>
         
-        <p class="mt-6 text-zinc-300 text-sm sm:text-base leading-relaxed max-w-xl">
-          Koniec ze staniem w kolejkach do recepcji i zgubionymi kartami plastikowymi. W V3 Klubie całe członkostwo masz w telefonie – od zakupu karnetu, przez rezerwację miejsc na macie i fitnessie, aż po <strong class="text-white font-semibold">automatyczne otwieranie wejścia od 5:00 rano do północy</strong>.
+        <p class="mt-4 sm:mt-6 text-zinc-300 text-xs sm:text-base leading-relaxed max-w-xl">
+          Koniec ze staniem w kolejkach do recepcji i plastikowymi kartami. W V3 Klubie całym członkostwem zarządzasz online w panelu mobilnym <strong class="text-white font-semibold">v3klub.gymmanager.io</strong> lub w aplikacji.
         </p>
 
-        <ul class="mt-6 space-y-3.5 text-xs sm:text-sm text-zinc-300">
-          <li class="flex items-center gap-3">
-            <span class="text-v3-lime font-bold text-base leading-none">✓</span> 
-            <span><strong class="text-white">Autonomiczny dostęp:</strong> Skanujesz kod QR z ekranu telefonu przy czytniku wejściowym i wchodzisz na trening (5:00 – 24:00)</span>
+        <ul class="mt-6 space-y-3 text-xs sm:text-sm text-zinc-300">
+          <li class="flex items-start gap-3">
+            <span class="text-v3-lime font-bold text-sm leading-none mt-0.5 shrink-0">✓</span> 
+            <span><strong class="text-white">Autonomiczne wejście:</strong> Skanujesz kod QR z ekranu telefonu przy czytniku i wchodzisz na trening od 5:00 rano do północy</span>
           </li>
-          <li class="flex items-center gap-3">
-            <span class="text-v3-lime font-bold text-base leading-none">✓</span> 
-            <span><strong class="text-white">Zakup w 30 sekund:</strong> Karnety LIMIT, ACTIVE, PRO, VIP aktywowane natychmiast bez formalności papierowych</span>
+          <li class="flex items-start gap-3">
+            <span class="text-v3-lime font-bold text-sm leading-none mt-0.5 shrink-0">✓</span> 
+            <span><strong class="text-white">Zakup w 30 sekund:</strong> Karnety LIMIT, ACTIVE, PRO i VIP aktywowane natychmiast na koncie</span>
           </li>
-          <li class="flex items-center gap-3">
-            <span class="text-v3-lime font-bold text-base leading-none">✓</span> 
-            <span><strong class="text-white">Gwarancja miejsca:</strong> Rezerwacja maty w Fight Zone i sali fitness jednym dotknięciem</span>
+          <li class="flex items-start gap-3">
+            <span class="text-v3-lime font-bold text-sm leading-none mt-0.5 shrink-0">✓</span> 
+            <span><strong class="text-white">Rezerwacja zajęć:</strong> Zapisy na Fight Zone oraz zajęcia Fitness jednym dotknięciem</span>
           </li>
         </ul>
 
-        <div class="mt-10 flex flex-wrap gap-4 items-center">
+        <!-- Przyciski akcji z ikonami SVG -->
+        <div class="mt-8 sm:mt-10 flex flex-col sm:flex-row flex-wrap gap-3 sm:items-center">
           <a 
             href={gymManagerUrl} 
             target="_blank" 
             rel="noopener noreferrer"
-            class="bg-v3-lime text-black font-extrabold px-8 py-3.5 rounded-xl text-xs uppercase tracking-wider hover:bg-v3-lime-hover transition-all transform hover:-translate-y-0.5 shadow-[0_0_25px_rgba(200,255,0,0.35)] inline-flex items-center gap-2"
+            class="w-full sm:w-auto text-center bg-v3-lime text-black font-black px-7 py-3.5 rounded-xl text-xs uppercase tracking-wider hover:bg-v3-lime-hover transition-all transform hover:-translate-y-0.5 shadow-[0_0_25px_rgba(200,255,0,0.35)]"
           >
-            Panel Klienta Online (Kup Karnet) &rarr;
+            Panel Klienta V3 (Kup Karnet) &rarr;
           </a>
 
-          <a 
-            href="https://play.google.com/store/apps/details?id=io.gymmanager.app" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            class="bg-v3-surface hover:bg-zinc-800 border border-v3-border text-white px-5 py-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-all"
-          >
-            Google Play
-          </a>
-          <a 
-            href="https://apps.apple.com/app/gymmanager/id1450284489" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            class="bg-v3-surface hover:bg-zinc-800 border border-v3-border text-white px-5 py-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-all"
-          >
-            App Store
-          </a>
+          <div class="flex items-center gap-2.5">
+            <a 
+              href={googlePlayUrl} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-v3-surface hover:bg-zinc-800 border border-v3-border hover:border-v3-lime/50 text-white px-4 py-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-all"
+            >
+              <svg class="w-4 h-4 text-v3-lime fill-current" viewBox="0 0 24 24">
+                <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 0 1 0 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.8 8.99l-2.302 2.302-8.634-8.634z"/>
+              </svg>
+              <span>Google Play</span>
+            </a>
+
+            <a 
+              href={appStoreUrl} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-v3-surface hover:bg-zinc-800 border border-v3-border hover:border-v3-lime/50 text-white px-4 py-3 rounded-xl text-xs font-bold uppercase tracking-wider transition-all"
+            >
+              <svg class="w-4 h-4 text-white fill-current" viewBox="0 0 24 24">
+                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.96 6.33c.67-.81 1.12-1.94 1-3.08-.96.04-2.13.64-2.82 1.45-.61.7-.11 1.86-.99 2.97 1.08.08 2.15-.53 2.81-1.34z"/>
+              </svg>
+              <span>App Store</span>
+            </a>
+          </div>
         </div>
       </div>
 
       <!-- Prawa kolumna z kodem QR -->
       <div class="lg:col-span-5 flex justify-center">
-        <div class="bg-gradient-to-b from-v3-surface to-v3-card border-2 border-v3-lime/60 rounded-3xl p-8 text-center max-w-sm w-full shadow-[0_0_40px_rgba(200,255,0,0.2)] relative">
-          
-          <div class="text-[11px] font-bold text-zinc-400 uppercase tracking-widest mb-4">
-            Zeskanuj aparatem w smartfonie
+        <a 
+          href={gymManagerUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-gradient-to-b from-v3-surface to-v3-card border-2 border-v3-lime/60 hover:border-v3-lime rounded-3xl p-6 sm:p-8 text-center max-w-sm w-full shadow-[0_0_40px_rgba(200,255,0,0.18)] transition-all group block"
+        >
+          <div class="text-[10px] sm:text-[11px] font-bold text-zinc-400 uppercase tracking-widest mb-4">
+            Zeskanuj aparatem lub kliknij
           </div>
 
-          <div class="bg-white p-3 rounded-2xl mx-auto w-56 h-56 flex items-center justify-center shadow-inner">
+          <div class="bg-white p-3 rounded-2xl mx-auto w-48 h-48 sm:w-56 sm:h-56 flex items-center justify-center shadow-inner group-hover:scale-[1.02] transition-transform">
             <img 
               src="/qr-gymmanager.png" 
               alt="Kod QR GymManager V3 Klub Jarosław" 
@@ -83,19 +102,18 @@ const gymManagerUrl = "https://v3klub.gymmanager.io";
               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
             />
             <div style="display:none;" class="w-full h-full flex-col items-center justify-center text-black font-mono text-xs font-bold text-center p-2">
-              <span>Wklej plik:</span>
-              <span class="text-zinc-600 mt-1">public/qr-gymmanager.png</span>
+              <span>Panel Online:</span>
+              <span class="text-zinc-600 mt-1">v3klub.gymmanager.io</span>
             </div>
           </div>
 
-          <div class="mt-4 font-mono text-xs font-bold text-v3-lime uppercase tracking-wider">
-            v3klub.gymmanager.io
+          <div class="mt-4 font-mono text-xs font-bold text-v3-lime uppercase tracking-wider group-hover:underline">
+            v3klub.gymmanager.io &rarr;
           </div>
-          <p class="text-[11px] text-zinc-400 mt-2">
-            Aparat otworzy aplikację GymManager lub stronę logowania V3.
+          <p class="text-[11px] text-zinc-400 mt-1.5 leading-relaxed">
+            Bezpośredni dostęp do karnetów, rezerwacji i kodu wejściowego QR w przeglądarce telefonu.
           </p>
-
-        </div>
+        </a>
       </div>
 
     </div>
