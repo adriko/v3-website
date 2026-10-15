@@ -7,18 +7,17 @@
   <div class="pointer-events-none absolute top-1/3 right-0 h-96 w-96 rounded-full bg-v3-red/10 blur-3xl"></div>
 
   <div class="mx-auto max-w-7xl px-4 lg:px-8">
-    <!-- Układ CSS Grid: na mobile zdjęcie (order-2) wskakuje od razu pod H1 (order-1), a na PC jest w prawej kolumnie -->
-    <div class="grid grid-cols-1 items-center gap-6 lg:grid-cols-12 lg:gap-x-12 lg:gap-y-6">
+    <div class="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-x-12 lg:gap-y-8">
       
-      <!-- CZĘŚĆ 1 (order-1): Lokalizacja + Napis w stylu Logo + Główny Nagłówek H1 -->
+      <!-- CZĘŚĆ 1 (order-1): Belka lokalizacji + Typografia Logo + Nagłówek H1 -->
       <div class="order-1 lg:col-span-7 lg:self-end">
         <!-- Pigułka lokalizacji -->
         <div class="inline-flex items-center gap-2 rounded-full border border-v3-lime/30 bg-v3-lime/10 px-3.5 py-1 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-v3-lime">
           <span class="h-2 w-2 rounded-full bg-v3-lime"></span>
-          Jarosław • Poniatowskiego 24
+          Jarosław • Poniatowskiego 24 • Od wiosny 2025
         </div>
 
-        <!-- Napis V3 KLUB identyczny jak w oficjalnym Logo -->
+        <!-- Napis w stylu logo -->
         <div class="mt-4 flex items-center gap-2.5">
           <span class="h-5 w-1 rounded-full bg-v3-lime shadow-[0_0_10px_rgba(200,255,0,0.6)]"></span>
           <div class="flex items-baseline font-['Rajdhani'] text-xl sm:text-2xl font-extrabold uppercase tracking-wider leading-none">
@@ -39,7 +38,7 @@
         </h1>
       </div>
 
-      <!-- CZĘŚĆ 2 (order-2): Zdjęcie z cegłą — na smartfonie pojawia się OD RAZU pod napisami H1! -->
+      <!-- CZĘŚĆ 2 (order-2): Zdjęcie z cegłą (na smartfonie wskakuje zaraz pod H1) -->
       <div class="order-2 lg:col-span-5 lg:row-span-2 lg:self-center">
         <div class="relative overflow-hidden rounded-2xl border border-white/15 bg-zinc-900 shadow-2xl">
           <img
@@ -49,13 +48,13 @@
             height="600"
             fetchpriority="high"
             decoding="async"
-            class="h-60 w-full object-cover sm:h-80 lg:h-[480px]"
+            class="h-64 w-full object-cover sm:h-80 lg:h-[500px]"
           />
           <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent"></div>
           <div class="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 flex items-center justify-between gap-2 rounded-xl border border-white/10 bg-zinc-950/85 px-3.5 py-3 sm:p-4 backdrop-blur-md">
             <div>
               <span class="block text-[10px] sm:text-xs font-bold uppercase tracking-wider text-v3-lime">
-                Strefa Cardio &amp; Maszyn
+                Dwa Piętra Sportu • Maszyny Bodytone
               </span>
               <p class="mt-0.5 font-['Teko'] text-xl sm:text-2xl font-bold uppercase leading-none text-white whitespace-nowrap">
                 Centrum Sportowe V3
@@ -68,14 +67,40 @@
         </div>
       </div>
 
-      <!-- CZĘŚĆ 3 (order-3): Opis + Symetryczne przyciski CTA + Statystyki w jednej linii -->
+      <!-- CZĘŚĆ 3 (order-3): Dopracowany opis klubu + Kafelki atutów + Przyciski CTA -->
       <div class="order-3 lg:col-span-7 lg:self-start">
-        <p class="max-w-2xl text-sm leading-relaxed text-zinc-300 sm:text-lg">
-          Nowoczesne centrum sportowe w Jarosławiu. Strefa maszyn Bodytone, wolne ciężary, zajęcia fitness, dedykowana strefa kobiet oraz sekcja sportów walki. Trenuj bez ograniczeń dzięki <strong class="font-semibold text-white">samoobsługowemu wejściu w godzinach 5:00 – 24:00</strong> przez smartfon.
-        </p>
+        <!-- Zredagowany, przyjazny opis klubu -->
+        <div class="space-y-3.5 text-sm leading-relaxed text-zinc-300 sm:text-base">
+          <p>
+            <strong class="text-white font-semibold">V3 Klub</strong> to nowoczesne, dwupoziomowe centrum sportowe w Jarosławiu, stworzone wiosną 2025 roku z czystej pasji do aktywnego stylu życia i sportów walki. Na dwóch piętrach znajdziesz strefę maszyn Bodytone i wolnych ciężarów, zajęcia fitness, dedykowaną Strefę Kobiet oraz profesjonalną sekcję walk z pełnowymiarowym ringiem, rozwijaną wspólnie z renomowanym <strong class="text-white font-semibold">KSW Sokół Jarosław</strong>.
+          </p>
+          <p>
+            Trenuj swobodnie dzięki samoobsłudze w smartfonie <strong class="text-v3-lime font-semibold">5:00 – 24:00</strong> lub skorzystaj z pomocy recepcji, która chętnie odpowie na każde pytanie. Do Twojej dyspozycji oddajemy komfortowe szatnie z prysznicami oraz <strong class="text-white font-semibold">prywatny parking z Paczkomatem</strong> tuż pod wejściem.
+          </p>
+        </div>
 
-        <!-- Przyciski CTA: na smartfonie główny na całą szerokość, a dwa pozostałe równo obok siebie w 2 kolumnach -->
-        <div class="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center">
+        <!-- Wyróżniki w formie czytelnych plakietek -->
+        <div class="mt-5 grid grid-cols-2 gap-2.5 sm:grid-cols-4 sm:gap-3">
+          <div class="rounded-xl border border-white/10 bg-zinc-900/60 p-2.5 text-center">
+            <span class="block text-xs font-bold uppercase text-v3-lime">2 Piętra</span>
+            <span class="text-[11px] text-zinc-400">Pełen komfort</span>
+          </div>
+          <div class="rounded-xl border border-white/10 bg-zinc-900/60 p-2.5 text-center">
+            <span class="block text-xs font-bold uppercase text-v3-red">KSW Sokół</span>
+            <span class="text-[11px] text-zinc-400">Ring &amp; mata</span>
+          </div>
+          <div class="rounded-xl border border-white/10 bg-zinc-900/60 p-2.5 text-center">
+            <span class="block text-xs font-bold uppercase text-white">5:00 – 24:00</span>
+            <span class="text-[11px] text-zinc-400">QR w telefonie</span>
+          </div>
+          <div class="rounded-xl border border-white/10 bg-zinc-900/60 p-2.5 text-center">
+            <span class="block text-xs font-bold uppercase text-v3-lime">Własny Parking</span>
+            <span class="text-[11px] text-zinc-400">+ Paczkomat</span>
+          </div>
+        </div>
+
+        <!-- Przyciski CTA -->
+        <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
           <a
             href="#cennik"
             class="inline-flex w-full sm:w-auto items-center justify-center rounded-xl bg-v3-lime px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-black transition hover:bg-v3-lime-hover shadow-[0_0_25px_rgba(200,255,0,0.3)]"
@@ -102,25 +127,25 @@
           </div>
         </div>
 
-        <!-- Kluczowe atuty (bez łamania godzin 5:00 – 24:00 na dwie linie) -->
-        <div class="mt-8 grid grid-cols-3 gap-2 border-t border-white/10 pt-6 sm:mt-10 sm:gap-6">
+        <!-- Dolny pasek statystyk -->
+        <div class="mt-8 grid grid-cols-3 gap-2 border-t border-white/10 pt-5 sm:gap-6">
           <div>
             <span class="block font-['Teko'] text-xl font-bold uppercase leading-none text-v3-lime whitespace-nowrap sm:text-3xl">
               5:00 – 24:00
             </span>
-            <span class="mt-1 block text-[11px] font-medium text-zinc-300 sm:text-sm">Kod w telefonie</span>
+            <span class="mt-1 block text-[11px] font-medium text-zinc-300 sm:text-sm">Wejście na kod QR</span>
           </div>
           <div>
             <span class="block font-['Teko'] text-xl font-bold uppercase leading-none text-v3-red whitespace-nowrap sm:text-3xl">
               FIGHT ZONE
             </span>
-            <span class="mt-1 block text-[11px] font-medium text-zinc-300 sm:text-sm">Mata &amp; ring</span>
+            <span class="mt-1 block text-[11px] font-medium text-zinc-300 sm:text-sm">Mata &amp; ring KSW</span>
           </div>
           <div>
             <span class="block font-['Teko'] text-xl font-bold uppercase leading-none text-white whitespace-nowrap sm:text-3xl">
               CROSS W CENIE
             </span>
-            <span class="mt-1 block text-[11px] font-medium text-zinc-300 sm:text-sm">W karnecie</span>
+            <span class="mt-1 block text-[11px] font-medium text-zinc-300 sm:text-sm">W każdym karnecie</span>
           </div>
         </div>
       </div>
