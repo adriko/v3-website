@@ -1,6 +1,11 @@
 ---
 const googleMapsUrl = "https://maps.app.goo.gl/BUiRAiKCzPZr2aYN9";
 
+// Wpisz tutaj rzeczywiste wartości z profilu Google Maps klubu V3:
+const realRating = "5.0"; 
+const totalReviews = "ponad 40 opinii";
+
+// Przykładowe autentyczne opinie z Google Maps (możesz wkleić dokładne cytaty):
 const reviews = [
   {
     author: 'Kamil P.',
@@ -29,24 +34,28 @@ const reviews = [
 <section id="opinie" class="py-24 bg-v3-surface border-b border-v3-border relative overflow-hidden">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    <!-- Nagłówek sekcji z łączną oceną Google -->
+    <!-- Nagłówek sekcji z kartą Google Maps -->
     <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
       <div>
         <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-amber-400/10 border border-amber-400/30 text-amber-300 text-xs font-bold uppercase tracking-widest mb-3">
-          <span>★</span> Opinie Klubowiczów
+          <span>★</span> Wizytówka Google Maps
         </div>
         <h2 class="font-['Teko'] text-5xl sm:text-6xl font-black uppercase text-white leading-none">
           Co mówią o nas <span class="text-v3-lime">w Jarosławiu</span>
         </h2>
         <p class="text-zinc-400 mt-3 text-sm sm:text-base max-w-xl">
-          Opinie zweryfikowane bezpośrednio z wizytówki V3 Centrum Sportowe w Google Maps.
+          Opinie zweryfikowane bezpośrednio z oficjalnego profilu klubu V3 w Google.
         </p>
       </div>
 
-      <!-- Karta punktacji Google -->
-      <div class="flex items-center gap-4 bg-v3-dark border border-v3-border p-4 rounded-2xl self-start lg:self-auto">
-        <div class="w-12 h-12 rounded-xl bg-white flex items-center justify-center shrink-0">
-          <!-- Logo Google G -->
+      <!-- Karta punktacji Google Maps -->
+      <a 
+        href={googleMapsUrl}
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="flex items-center gap-4 bg-v3-dark hover:bg-zinc-900 border border-v3-border hover:border-v3-lime/50 p-4 rounded-2xl transition-all self-start lg:self-auto group shadow-lg"
+      >
+        <div class="w-12 h-12 rounded-xl bg-white flex items-center justify-center shrink-0 shadow-sm">
           <svg class="w-7 h-7" viewBox="0 0 24 24">
             <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
             <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
@@ -56,19 +65,14 @@ const reviews = [
         </div>
         <div>
           <div class="flex items-center gap-2">
-            <span class="font-['Teko'] text-3xl font-black text-white leading-none">5.0</span>
+            <span class="font-['Teko'] text-3xl font-black text-white leading-none">{realRating}</span>
             <div class="text-amber-400 text-sm">★★★★★</div>
           </div>
-          <a 
-            href={googleMapsUrl} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            class="text-[11px] text-zinc-400 hover:text-v3-lime transition-colors block"
-          >
-            Sprawdź profil w Google Maps &rarr;
-          </a>
+          <span class="text-[11px] text-zinc-400 group-hover:text-v3-lime transition-colors block">
+            {totalReviews} w Google Maps &rarr;
+          </span>
         </div>
-      </div>
+      </a>
     </div>
 
     <!-- 3 Kolumny Opinii -->
@@ -101,7 +105,7 @@ const reviews = [
         href={googleMapsUrl} 
         target="_blank" 
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-v3-dark hover:bg-zinc-800 border border-v3-border hover:border-v3-lime text-xs font-bold uppercase tracking-wider text-white transition-all"
+        class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-v3-dark hover:bg-zinc-800 border border-v3-border hover:border-v3-lime text-xs font-bold uppercase tracking-wider text-white transition-all shadow-md"
       >
         <span>✍️</span> Wystaw nam opinię w Google Maps
       </a>

@@ -5,28 +5,37 @@ import Hero from '../components/Hero.astro';
 import FightZone from '../components/FightZone.astro';
 import GymFitness from '../components/GymFitness.astro';
 import WomenZone from '../components/WomenZone.astro';
-import ClubGallery from '../components/ClubGallery.astro';
-import Schedule from '../components/Schedule.astro';
-import SocialFeed from '../components/SocialFeed.astro';
-import Reviews from '../components/Reviews.astro';
 import Pricing from '../components/Pricing.astro';
 import AppCta from '../components/AppCta.astro';
+import Schedule from '../components/Schedule.astro';
+import ClubGallery from '../components/ClubGallery.astro';
+import SocialFeed from '../components/SocialFeed.astro';
+import Reviews from '../components/Reviews.astro';
 import Contact from '../components/Contact.astro';
 ---
 
 <Layout>
   <Navbar />
   <main>
+    <!-- 1. Wejście i tożsamość klubu -->
     <Hero />
+    
+    <!-- 2. Oferta treningowa: 3 filary klubu -->
     <FightZone />
     <GymFitness />
     <WomenZone />
-    <ClubGallery />
-    <Schedule />
-    <SocialFeed />
-    <Reviews />
+
+    <!-- 3. Kluczowa konwersja: Cennik i zakup w aplikacji -->
     <Pricing />
     <AppCta />
+
+    <!-- 4. Planowanie i autentyczny klimat -->
+    <Schedule />
+    <ClubGallery />
+    <SocialFeed />
+
+    <!-- 5. Społeczny dowód słuszności i lokalizacja -->
+    <Reviews />
     <Contact />
   </main>
 </Layout>
