@@ -1,47 +1,47 @@
 <section id="o-nas" class="relative pt-24 sm:pt-36 md:pt-44 pb-12 sm:pb-20 md:pb-28 overflow-hidden border-b border-v3-border">
-  <!-- Dynamiczne gradienty w tle -->
-  <div class="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[400px] sm:w-[650px] h-[300px] sm:h-[400px] bg-v3-lime/15 blur-[120px] sm:blur-[160px] pointer-events-none"></div>
-  <div class="absolute bottom-10 right-10 w-[350px] sm:w-[550px] h-[300px] sm:h-[400px] bg-v3-red/15 blur-[120px] sm:blur-[160px] pointer-events-none"></div>
+  <!-- Subtelne, ciemniejsze ambientowe światła w tle -->
+  <div class="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[600px] h-[300px] bg-v3-lime/10 blur-[130px] pointer-events-none"></div>
+  <div class="absolute bottom-10 right-10 w-[300px] sm:w-[500px] h-[300px] bg-v3-red/10 blur-[140px] pointer-events-none"></div>
 
   <!-- Siatka techniczna -->
-  <div class="absolute inset-0 bg-[linear-gradient(to_right,#262633_1px,transparent_1px),linear-gradient(to_bottom,#262633_1px,transparent_1px)] bg-[size:2.5rem_2.5rem] sm:bg-[size:3.5rem_3.5rem] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_40%,#000_60%,transparent_100%)] opacity-25 pointer-events-none"></div>
+  <div class="absolute inset-0 bg-[linear-gradient(to_right,#22222c_1px,transparent_1px),linear-gradient(to_bottom,#22222c_1px,transparent_1px)] bg-[size:2.5rem_2.5rem] sm:bg-[size:3.5rem_3.5rem] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_40%,#000_60%,transparent_100%)] opacity-20 pointer-events-none"></div>
 
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="max-w-3xl">
       
-      <!-- Badges (mniejsze i zwięzłe na mobile) -->
-      <div class="flex flex-wrap items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
-        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-v3-surface/90 border border-v3-border text-zinc-300 text-[10px] sm:text-xs font-semibold uppercase tracking-wider backdrop-blur-sm">
+      <!-- Badges -->
+      <div class="flex flex-wrap items-center gap-2 mb-4 sm:mb-6">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-v3-surface border border-v3-border text-zinc-300 text-[10px] sm:text-xs font-semibold uppercase tracking-wider">
           <span class="w-1.5 h-1.5 rounded-full bg-v3-lime animate-pulse"></span>
           Jarosław • Poniatowskiego 24
         </div>
-        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-v3-lime/10 border border-v3-lime/40 text-v3-lime text-[10px] sm:text-xs font-bold uppercase tracking-wider">
-          <span>⚡</span> Samoobsługa 5:00 – 24:00
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-v3-surface border border-v3-border text-zinc-300 text-[10px] sm:text-xs font-semibold uppercase tracking-wider">
+          <span class="text-v3-lime">⚡</span> Samoobsługa 5:00 – 24:00
         </div>
       </div>
 
-      <!-- Nagłówek: kompaktowy na mobile, potężny na desktopie -->
+      <!-- Poprawny tytuł: SIŁOWNIA (z literą I) -->
       <h1 class="font-['Teko'] text-[2.75rem] sm:text-6xl md:text-7xl lg:text-8xl font-black uppercase tracking-tight text-white leading-[0.92]">
-        Siłownia <span class="text-v3-lime">•</span> Fitness <span class="text-white">•</span> <span class="text-v3-red">Fight Zone</span>
+        Siłownia <span class="text-zinc-500">•</span> Fitness <span class="text-zinc-500">•</span> <span class="text-v3-red">Fight Zone</span>
       </h1>
 
-      <!-- Opis klubu -->
+      <!-- Uspokojony kolorystycznie opis -->
       <p class="mt-4 sm:mt-6 text-sm sm:text-base md:text-lg text-zinc-300 font-normal leading-relaxed max-w-2xl">
-        <strong class="text-white font-semibold">V3 Klub</strong> to wszechstronne centrum sportowe w Jarosławiu. Nowoczesna siłownia, klub fitness, dedykowana strefa dla kobiet oraz sekcja sportów walki. Trenuj o dowolnej porze dzięki <strong class="text-v3-lime font-semibold">samoobsłudze w godz. 5:00 – 24:00</strong> za pomocą aplikacji w smartfonie.
+        Kompleksowe centrum sportowe w Jarosławiu. Nowoczesny park maszyn, zajęcia fitness, dedykowana strefa dla kobiet oraz sekcja sportów walki. Trenuj o dowolnej porze dzięki samoobsługowemu wejściu w godzinach <strong class="text-white font-semibold">5:00 – 24:00</strong> za pomocą aplikacji w telefonie.
       </p>
 
-      <!-- Przyciski akcji (dopasowane do dotyku na smartfonie) -->
+      <!-- Przyciski akcji: jeden czytelny akcent -->
       <div class="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 sm:items-center">
         <a 
           href="#cennik" 
-          class="w-full sm:w-auto text-center bg-v3-lime text-black font-extrabold px-7 py-3 sm:py-3.5 rounded-xl text-xs sm:text-sm uppercase tracking-wider hover:bg-v3-lime-hover transition-all shadow-[0_0_20px_rgba(200,255,0,0.3)]"
+          class="w-full sm:w-auto text-center bg-v3-lime text-black font-extrabold px-7 py-3 rounded-xl text-xs sm:text-sm uppercase tracking-wider hover:bg-v3-lime-hover transition-all shadow-[0_0_15px_rgba(200,255,0,0.25)]"
         >
           Sprawdź karnety
         </a>
         <div class="flex items-center gap-2">
           <a 
             href="#fight-zone" 
-            class="flex-1 sm:flex-none text-center bg-v3-surface/90 border-2 border-v3-red text-white font-bold px-5 py-3 rounded-xl text-xs sm:text-sm uppercase tracking-wider hover:bg-v3-red transition-all"
+            class="flex-1 sm:flex-none text-center bg-v3-surface border border-v3-border hover:border-v3-red text-white font-bold px-5 py-3 rounded-xl text-xs sm:text-sm uppercase tracking-wider transition-colors"
           >
             Fight Zone
           </a>
@@ -54,19 +54,19 @@
         </div>
       </div>
 
-      <!-- Kafelki atutów: 3 kolumny w jednym rzędzie na smartfonie -->
-      <div class="mt-8 sm:mt-12 grid grid-cols-3 gap-2 sm:gap-4 pt-6 sm:pt-8 border-t border-v3-border/80">
-        <div class="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-gradient-to-b from-v3-surface to-v3-dark border border-v3-border">
-          <span class="block font-['Teko'] text-xl sm:text-3xl font-bold text-v3-lime leading-none">5:00 – 24:00</span>
-          <span class="text-[10px] sm:text-xs text-zinc-400 mt-1 block leading-tight">Wstęp na kod w telefonie</span>
+      <!-- Kafelki atutów: 3 zbalansowane kolumny -->
+      <div class="mt-8 sm:mt-12 grid grid-cols-3 gap-2 sm:gap-4 pt-6 sm:pt-8 border-t border-v3-border">
+        <div class="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-v3-surface/60 border border-v3-border">
+          <span class="block font-['Teko'] text-xl sm:text-3xl font-bold text-white leading-none">5:00 – 24:00</span>
+          <span class="text-[10px] sm:text-xs text-zinc-400 mt-1 block leading-tight">Wstęp na kod QR</span>
         </div>
-        <div class="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-gradient-to-b from-v3-surface to-v3-dark border border-v3-border">
+        <div class="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-v3-surface/60 border border-v3-border">
           <span class="block font-['Teko'] text-xl sm:text-3xl font-bold text-v3-red leading-none">FIGHT ZONE</span>
-          <span class="text-[10px] sm:text-xs text-zinc-400 mt-1 block leading-tight">Boks, BJJ, MMA, Krav Maga</span>
+          <span class="text-[10px] sm:text-xs text-zinc-400 mt-1 block leading-tight">Mata, ring & klatka</span>
         </div>
-        <div class="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-gradient-to-b from-v3-surface to-v3-dark border border-v3-border">
-          <span class="block font-['Teko'] text-xl sm:text-3xl font-bold text-white leading-none">CROSS W CENIE</span>
-          <span class="text-[10px] sm:text-xs text-zinc-400 mt-1 block leading-tight">W czwartki w cenie karnetu</span>
+        <div class="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-v3-surface/60 border border-v3-border">
+          <span class="block font-['Teko'] text-xl sm:text-3xl font-bold text-v3-lime leading-none">CROSS W CENIE</span>
+          <span class="text-[10px] sm:text-xs text-zinc-400 mt-1 block leading-tight">W czwartki w karnecie</span>
         </div>
       </div>
 
