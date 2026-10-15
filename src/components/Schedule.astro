@@ -1,5 +1,4 @@
 ---
-// Grafik zajęć V3 Klub Jarosław - Obowiązuje od września 2026
 const fightDays = [
   {
     day: 'Poniedziałek',
@@ -43,7 +42,7 @@ const fightDays = [
     day: 'Piątek',
     classes: [
       { time: '17:30 - 18:30', name: 'Trening wprowadzający', badge: 'Dla nowych', badgeColor: 'text-v3-lime border-v3-lime/30 bg-v3-lime/10' },
-      { time: '18:30 - 20:00', name: 'Fight Team (Sparingi)', badge: 'Zaawansowani', badgeColor: 'text-v3-red border-v3-red/30 bg-v3-red/10' },
+      { time: '18:30 - 20:00', name: 'Fight Team (Sparingi)', badge: 'Sparingi', badgeColor: 'text-v3-red border-v3-red/30 bg-v3-red/10' },
       { time: '20:00 - 21:00', name: 'MMA', badge: 'Klatka', badgeColor: 'text-cyan-400 border-cyan-400/30 bg-cyan-400/10' },
     ],
   },
@@ -116,7 +115,7 @@ const fitnessDays = [
           <span class="w-2 h-2 rounded-full bg-v3-lime animate-pulse"></span>
           Aktualny grafik obowiązuje od września 2026
         </div>
-        <h2 class="font-['Teko'] text-4xl sm:text-6xl font-black uppercase text-white leading-none">
+        <h2 class="font-['Teko'] text-4xl sm:text-6xl font-bold uppercase tracking-wide text-white leading-none">
           Grafik <span class="text-v3-lime">Zajęć</span>
         </h2>
         <p class="text-zinc-400 text-xs sm:text-sm mt-2 max-w-lg">
@@ -146,11 +145,10 @@ const fitnessDays = [
     <!-- 1. Tabela Fight Zone -->
     <div id="tab-fight" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4 lg:gap-5">
       {fightDays.map((d) => (
-        <div class="p-3.5 sm:p-5 rounded-2xl bg-gradient-to-b from-[#180a0c] via-v3-dark to-v3-dark border-t-2 border-t-v3-red border-x border-b border-v3-border flex flex-col justify-between shadow-md">
+        <div class="p-4 sm:p-5 rounded-2xl bg-gradient-to-b from-[#180a0c] via-v3-dark to-v3-dark border-t-2 border-t-v3-red border-x border-b border-v3-border flex flex-col justify-between shadow-md">
           <div>
-            <!-- Nagłówek dnia -->
-            <div class="flex items-center justify-between pb-2.5 mb-2.5 border-b border-v3-border/70">
-              <span class="font-['Teko'] text-2xl sm:text-3xl font-black uppercase text-white tracking-wider">
+            <div class="flex items-center justify-between pb-2.5 mb-3 border-b border-v3-border/70">
+              <span class="font-['Teko'] text-2xl sm:text-3xl font-bold uppercase text-white tracking-wider">
                 {d.day}
               </span>
               <span class="text-[10px] font-mono font-bold text-v3-red uppercase px-2 py-0.5 rounded bg-v3-red/10 border border-v3-red/25">
@@ -158,23 +156,19 @@ const fitnessDays = [
               </span>
             </div>
 
-            <!-- Kompaktowa lista zajęć ze sztywną kotwicą czasową -->
-            <div class="space-y-1.5">
+            <div class="space-y-2">
               {d.classes.map((c) => (
-                <div class="p-2 sm:p-2.5 rounded-xl bg-v3-surface/50 hover:bg-v3-surface border border-white/5 transition-colors flex items-center justify-between gap-2.5">
-                  <div class="flex items-center gap-2.5 min-w-0">
-                    <!-- Wyrazisty cyfrowy badge godziny -->
-                    <span class="font-mono text-[10px] sm:text-[11px] font-bold text-white bg-black/60 border border-white/10 px-2 py-0.5 rounded-md shrink-0 tabular-nums shadow-inner">
+                <div class="p-2.5 rounded-xl bg-v3-surface/60 hover:bg-v3-surface border border-white/5 transition-colors">
+                  <div class="flex items-center justify-between gap-2 mb-1">
+                    <span class="font-mono text-[11px] font-bold text-v3-red tabular-nums">
                       {c.time}
                     </span>
-                    <!-- Tytuł treningu -->
-                    <span class="text-xs sm:text-[13px] font-bold text-zinc-100 leading-tight">
-                      {c.name}
+                    <span class={`text-[9px] font-mono font-bold uppercase px-1.5 py-0.5 rounded border shrink-0 ${c.badgeColor}`}>
+                      {c.badge}
                     </span>
                   </div>
-                  <!-- Kategoria -->
-                  <span class={`text-[9px] font-mono font-bold uppercase px-1.5 py-0.5 rounded border shrink-0 ${c.badgeColor}`}>
-                    {c.badge}
+                  <span class="block text-xs sm:text-[13px] font-bold text-white leading-snug">
+                    {c.name}
                   </span>
                 </div>
               ))}
@@ -187,11 +181,10 @@ const fitnessDays = [
     <!-- 2. Tabela Fitness (domyślnie ukryta) -->
     <div id="tab-fitness" class="hidden grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4 lg:gap-5">
       {fitnessDays.map((d) => (
-        <div class="p-3.5 sm:p-5 rounded-2xl bg-gradient-to-b from-[#14141d] via-v3-dark to-v3-dark border-t-2 border-t-v3-lime border-x border-b border-v3-border flex flex-col justify-between shadow-md">
+        <div class="p-4 sm:p-5 rounded-2xl bg-gradient-to-b from-[#14141d] via-v3-dark to-v3-dark border-t-2 border-t-v3-lime border-x border-b border-v3-border flex flex-col justify-between shadow-md">
           <div>
-            <!-- Nagłówek dnia -->
-            <div class="flex items-center justify-between pb-2.5 mb-2.5 border-b border-v3-border/70">
-              <span class="font-['Teko'] text-2xl sm:text-3xl font-black uppercase text-white tracking-wider">
+            <div class="flex items-center justify-between pb-2.5 mb-3 border-b border-v3-border/70">
+              <span class="font-['Teko'] text-2xl sm:text-3xl font-bold uppercase text-white tracking-wider">
                 {d.day}
               </span>
               <span class="text-[10px] font-mono font-bold text-v3-lime uppercase px-2 py-0.5 rounded bg-v3-lime/10 border border-v3-lime/25">
@@ -199,23 +192,19 @@ const fitnessDays = [
               </span>
             </div>
 
-            <!-- Kompaktowa lista zajęć fitness -->
-            <div class="space-y-1.5">
+            <div class="space-y-2">
               {d.classes.map((c) => (
-                <div class="p-2 sm:p-2.5 rounded-xl bg-v3-surface/50 hover:bg-v3-surface border border-white/5 transition-colors flex items-center justify-between gap-2.5">
-                  <div class="flex items-center gap-2.5 min-w-0">
-                    <!-- Wyrazisty cyfrowy badge godziny -->
-                    <span class="font-mono text-[10px] sm:text-[11px] font-bold text-v3-lime bg-v3-lime/10 border border-v3-lime/25 px-2 py-0.5 rounded-md shrink-0 tabular-nums">
-                      {c.time}
+                <div class="p-2.5 rounded-xl bg-v3-surface/60 hover:bg-v3-surface border border-white/5 transition-colors">
+                  <div class="flex items-center justify-between gap-2 mb-1">
+                    <span class="font-mono text-[11px] font-bold text-v3-lime tabular-nums">
+                      Godz. {c.time}
                     </span>
-                    <!-- Tytuł zajęć -->
-                    <span class="text-xs sm:text-[13px] font-bold text-zinc-100 leading-tight">
-                      {c.name}
+                    <span class={`text-[9px] font-mono font-bold uppercase px-1.5 py-0.5 rounded border shrink-0 ${c.badgeColor}`}>
+                      {c.badge}
                     </span>
                   </div>
-                  <!-- Kategoria -->
-                  <span class={`text-[9px] font-mono font-bold uppercase px-1.5 py-0.5 rounded border shrink-0 ${c.badgeColor}`}>
-                    {c.badge}
+                  <span class="block text-xs sm:text-[13px] font-bold text-white leading-snug">
+                    {c.name}
                   </span>
                 </div>
               ))}
@@ -229,7 +218,7 @@ const fitnessDays = [
     <div class="mt-8 p-3.5 sm:p-4 rounded-2xl bg-v3-dark border border-v3-border flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-zinc-400">
       <div class="flex items-center gap-2">
         <span class="w-2 h-2 rounded-full bg-v3-lime animate-pulse"></span>
-        <span>Rezerwacja miejsc na zajęcia w aplikacji: <strong>v3klub.gymmanager.io</strong></span>
+        <span>Rezerwacja miejsc na zajęcia w aplikacji: <strong class="text-white">v3klub.gymmanager.io</strong></span>
       </div>
       <a 
         href="tel:788463717"

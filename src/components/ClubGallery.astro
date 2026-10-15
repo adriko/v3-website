@@ -3,39 +3,46 @@ const googleMapsUrl = "https://maps.app.goo.gl/BUiRAiKCzPZr2aYN9";
 
 const galleryImages = [
   {
-    src: '/images/recepcja1.png',
-    title: 'Recepcja Klubu, Strefa Chillout & Odżywki',
-    tag: 'Strefa Wejścia',
-  },
-  {
     src: '/images/v3-gym-brick.jpeg',
     title: 'Strefa Cardio & Ceglana Ściana z Logo V3',
     tag: 'Park Maszyn',
-  },
-  {
-    src: '/images/fight1.png',
-    title: 'Główna Mata Sportów Walki & Strefa Ciężkich Worków',
-    tag: 'Fight Zone',
+    cropWhiteBorders: false,
   },
   {
     src: '/images/boks2.jpg',
-    title: 'Profesjonalny Ring Bokserski & Kaski Sparingowe',
-    tag: 'Boks & K1',
+    title: 'Profesjonalny Ring Bokserski & Sprzęt Sparingowy',
+    tag: 'Fight Zone',
+    cropWhiteBorders: false,
   },
   {
     src: '/images/women-zone.jpg',
     title: 'Prywatna Różowa Strefa wyłącznie dla Kobiet',
     tag: 'Women Zone',
+    cropWhiteBorders: false,
   },
   {
-    src: '/images/ciezary2.jpg',
-    title: 'Strefa Wolnych Ciężarów, Bramy & Suwnice',
+    src: '/images/silownia2.jpg',
+    title: 'Strefa Maszyn Izolowanych Bodytone & Mural',
     tag: 'Siłownia',
+    cropWhiteBorders: false,
   },
   {
-    src: '/images/lazienka1.png',
-    title: 'Komfortowe Szatnie & Designerskie Łazienki',
-    tag: 'Sanitariaty',
+    src: '/images/silownia3.jpg',
+    title: 'Strefa Wolnych Ciężarów, Hantle i Sztangi',
+    tag: 'Ciężary',
+    cropWhiteBorders: false,
+  },
+  {
+    src: '/images/fight1.png',
+    title: 'Główna Mata Sportów Walki & Strefa Worków',
+    tag: 'Sala Walk',
+    cropWhiteBorders: true,
+  },
+  {
+    src: '/images/recepcja1.png',
+    title: 'Recepcja Klubu, Strefa Chillout & Odżywki',
+    tag: 'Recepcja V3',
+    cropWhiteBorders: true,
   },
 ];
 ---
@@ -53,7 +60,7 @@ const galleryImages = [
           <span>Zdjęcia z Klubu • Google Maps</span>
         </div>
 
-        <h2 class="font-['Teko'] text-4xl sm:text-5xl lg:text-6xl font-black uppercase text-white leading-none">
+        <h2 class="font-['Teko'] text-4xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-wide text-white leading-none">
           Zobacz V3 <span class="text-v3-lime">od środka</span>
         </h2>
       </div>
@@ -75,31 +82,31 @@ const galleryImages = [
     <!-- Główny slider ze zmianą co 3 sekundy -->
     <div 
       id="gallery-slider-container"
-      class="relative w-full h-[300px] sm:h-[460px] md:h-[540px] rounded-2xl sm:rounded-3xl overflow-hidden border border-v3-border shadow-2xl group select-none"
+      class="relative w-full h-[300px] sm:h-[460px] md:h-[540px] rounded-2xl sm:rounded-3xl overflow-hidden border border-v3-border bg-black shadow-2xl group select-none"
     >
       {galleryImages.map((img, index) => (
         <div 
-          class={`gallery-slide absolute inset-0 transition-opacity duration-700 ease-in-out ${index === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+          class={`gallery-slide absolute inset-0 overflow-hidden transition-opacity duration-700 ease-in-out ${index === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
           data-index={index}
         >
           <img 
             src={img.src} 
             alt={img.title} 
-            class="w-full h-full object-cover"
+            class={`w-full h-full object-cover object-center ${img.cropWhiteBorders ? 'scale-[1.85]' : ''}`}
             loading={index === 0 ? "eager" : "lazy"}
           />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-black/30"></div>
           
           <div class="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 flex items-end justify-between gap-4 z-20">
             <div>
               <span class="px-2.5 py-0.5 rounded bg-v3-lime text-black font-black text-[9px] sm:text-[10px] tracking-wider uppercase mb-1.5 inline-block">
                 {img.tag}
               </span>
-              <h3 class="font-['Teko'] text-xl sm:text-3xl lg:text-4xl font-bold uppercase text-white leading-none">
+              <h3 class="font-['Teko'] text-xl sm:text-3xl lg:text-4xl font-bold uppercase tracking-wide text-white leading-none">
                 {img.title}
               </h3>
             </div>
-            <span class="text-[10px] sm:text-xs font-mono text-zinc-400 bg-black/60 px-2.5 py-1 rounded border border-white/10 shrink-0">
+            <span class="text-[10px] sm:text-xs font-mono text-zinc-300 bg-black/70 px-2.5 py-1 rounded border border-white/10 shrink-0">
               {index + 1} / {galleryImages.length}
             </span>
           </div>
