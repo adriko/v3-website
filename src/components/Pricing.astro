@@ -1,8 +1,11 @@
 ---
 ---
 
-<section id="cennik" class="relative border-b border-white/10 py-16 lg:py-24">
-  <div class="mx-auto max-w-7xl px-4 lg:px-8">
+<section id="cennik" class="relative overflow-hidden border-b border-v3-border bg-v3-dark py-16 lg:py-24 ambient-glow-lime">
+  <!-- Subtelna poświata centralna za cennikiem -->
+  <div class="pointer-events-none absolute -top-20 left-1/2 -translate-x-1/2 h-[500px] w-[800px] max-w-full rounded-full bg-v3-lime/5 blur-[140px]"></div>
+
+  <div class="mx-auto max-w-7xl px-4 lg:px-8 relative">
     <div class="text-center">
       <span class="text-xs font-bold uppercase tracking-widest text-v3-lime">Karnety V3</span>
       <h2 class="mt-2 font-['Teko'] text-4xl font-bold uppercase leading-[0.95] text-white sm:text-6xl">
@@ -12,12 +15,12 @@
         Kup karnet bez kolejek – wybierz pakiet i aktywuj konto online w systemie klubowym.
       </p>
 
-      <!-- Przełącznik Cennika z wymuszonym kursorem rączki (cursor-pointer) -->
-      <div class="mt-8 inline-flex items-center rounded-2xl border border-white/15 bg-zinc-900 p-1.5 shadow-lg">
+      <!-- Przełącznik Cennika -->
+      <div class="mt-8 inline-flex items-center rounded-2xl border border-v3-border bg-v3-surface p-1.5 shadow-lg">
         <button
           type="button"
           id="btn-pricing-monthly"
-          class="cursor-pointer rounded-xl bg-v3-lime px-4 py-2 text-xs font-bold uppercase tracking-wider text-black transition sm:px-5 sm:text-sm"
+          class="cursor-pointer rounded-xl bg-v3-lime px-4 py-2 text-xs font-bold uppercase tracking-wider text-black transition sm:px-5 sm:text-sm shadow-md"
         >
           Karnet Miesięczny
         </button>
@@ -40,7 +43,7 @@
     <!-- Karty Cennika -->
     <div class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
       <!-- 1. V3 LIMIT -->
-      <div class="flex flex-col justify-between rounded-2xl border border-white/10 bg-zinc-900/60 p-6">
+      <div class="flex flex-col justify-between rounded-2xl border border-v3-border bg-v3-surface/70 p-6 transition duration-300 hover:border-v3-border/90">
         <div>
           <span class="font-['Teko'] text-3xl font-bold uppercase tracking-wide text-white">V3 LIMIT</span>
           <p class="mt-1 text-xs font-semibold uppercase tracking-wider text-zinc-400">Miesięczny | Bez umowy</p>
@@ -50,7 +53,7 @@
           </div>
           <p class="mt-1 text-xs font-medium text-v3-lime">Stała cena bez zobowiązań</p>
 
-          <ul class="mt-6 space-y-3 border-t border-white/10 pt-6 text-sm text-zinc-200">
+          <ul class="mt-6 space-y-3 border-t border-v3-border pt-6 text-sm text-zinc-200">
             <li class="flex items-center gap-2.5"><span class="font-bold text-v3-lime">✓</span><span>Wejście do klubu do godz. 12:00</span></li>
             <li class="flex items-center gap-2.5"><span class="font-bold text-v3-lime">✓</span><span>Strefa maszyn i wolnych ciężarów</span></li>
             <li class="flex items-center gap-2.5"><span class="font-bold text-v3-lime">✓</span><span>Bez konieczności podpisywania umowy</span></li>
@@ -62,7 +65,7 @@
             href="https://v3klub.gymmanager.io"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex w-full items-center justify-center rounded-xl border border-white/15 bg-zinc-800 py-3.5 text-sm font-bold uppercase tracking-wider text-white transition hover:border-v3-lime hover:bg-v3-lime hover:text-black"
+            class="flex w-full items-center justify-center rounded-xl border border-v3-border bg-v3-card py-3.5 text-sm font-bold uppercase tracking-wider text-white transition hover:border-v3-lime hover:bg-v3-lime hover:text-black"
           >
             Kup karnet online →
           </a>
@@ -70,7 +73,7 @@
       </div>
 
       <!-- 2. V3 ACTIVE -->
-      <div class="relative flex flex-col justify-between rounded-2xl border-2 border-v3-lime bg-zinc-900/90 p-6 shadow-[0_0_30px_rgba(200,255,0,0.12)]">
+      <div class="relative flex flex-col justify-between rounded-2xl border-2 border-v3-lime bg-v3-surface p-6 shadow-[0_0_30px_rgba(200,255,0,0.14)]">
         <div class="absolute -top-3.5 left-6 rounded-full bg-v3-lime px-3 py-0.5 text-[11px] font-extrabold uppercase tracking-wider text-black">
           Najczęściej wybierany
         </div>
@@ -87,7 +90,7 @@
             W pakiecie półrocznym tylko 119 zł / msc
           </p>
 
-          <ul class="mt-6 space-y-3 border-t border-white/10 pt-6 text-sm text-zinc-200">
+          <ul class="mt-6 space-y-3 border-t border-v3-border pt-6 text-sm text-zinc-200">
             <li class="flex items-center gap-2.5"><span class="font-bold text-v3-lime">✓</span><span>Wejście bez ograniczeń godzinowych</span></li>
             <li class="flex items-center gap-2.5"><span class="font-bold text-v3-lime">✓</span><span>2 wejścia na zajęcia fitness w tygodniu</span></li>
             <li class="flex items-center gap-2.5"><span class="font-bold text-v3-lime">✓</span><span>Zajęcia Cross w czwartki w cenie</span></li>
@@ -99,7 +102,7 @@
             href="https://v3klub.gymmanager.io"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex w-full items-center justify-center rounded-xl bg-v3-lime py-3.5 text-sm font-bold uppercase tracking-wider text-black transition hover:bg-v3-lime-hover"
+            class="flex w-full items-center justify-center rounded-xl bg-v3-lime py-3.5 text-sm font-bold uppercase tracking-wider text-black transition hover:bg-v3-lime-hover shadow-[0_0_20px_rgba(200,255,0,0.2)]"
           >
             Kup karnet online →
           </a>
@@ -107,7 +110,7 @@
       </div>
 
       <!-- 3. V3 PRO -->
-      <div class="flex flex-col justify-between rounded-2xl border border-white/10 bg-zinc-900/60 p-6">
+      <div class="flex flex-col justify-between rounded-2xl border border-v3-border bg-v3-surface/70 p-6 transition duration-300 hover:border-v3-border/90">
         <div>
           <span class="font-['Teko'] text-3xl font-bold uppercase tracking-wide text-white">V3 PRO</span>
           <p class="mt-1 text-xs font-semibold uppercase tracking-wider text-zinc-300">
@@ -121,7 +124,7 @@
             W pakiecie półrocznym tylko 129 zł / msc
           </p>
 
-          <ul class="mt-6 space-y-3 border-t border-white/10 pt-6 text-sm text-zinc-200">
+          <ul class="mt-6 space-y-3 border-t border-v3-border pt-6 text-sm text-zinc-200">
             <li class="flex items-center gap-2.5"><span class="font-bold text-v3-lime">✓</span><span>Pełen nielimitowany dostęp do siłowni</span></li>
             <li class="flex items-center gap-2.5"><span class="font-bold text-v3-lime">✓</span><span>3 wejścia na zajęcia fitness w tygodniu</span></li>
             <li class="flex items-center gap-2.5"><span class="font-bold text-v3-lime">✓</span><span>Zajęcia Cross w czwartki w cenie</span></li>
@@ -133,7 +136,7 @@
             href="https://v3klub.gymmanager.io"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex w-full items-center justify-center rounded-xl border border-white/15 bg-zinc-800 py-3.5 text-sm font-bold uppercase tracking-wider text-white transition hover:border-v3-lime hover:bg-v3-lime hover:text-black"
+            class="flex w-full items-center justify-center rounded-xl border border-v3-border bg-v3-card py-3.5 text-sm font-bold uppercase tracking-wider text-white transition hover:border-v3-lime hover:bg-v3-lime hover:text-black"
           >
             Kup karnet online →
           </a>
@@ -141,7 +144,7 @@
       </div>
 
       <!-- 4. V3 VIP -->
-      <div class="relative flex flex-col justify-between rounded-2xl border border-v3-red/40 bg-gradient-to-b from-zinc-900 to-red-950/20 p-6">
+      <div class="relative flex flex-col justify-between rounded-2xl border border-v3-red/40 bg-gradient-to-b from-v3-surface to-red-950/20 p-6 shadow-[0_0_25px_rgba(255,42,42,0.12)]">
         <div class="absolute -top-3.5 left-6 rounded-full bg-v3-red px-3 py-0.5 text-[11px] font-extrabold uppercase tracking-wider text-white">
           ALL INCLUSIVE
         </div>
@@ -154,7 +157,7 @@
           </div>
           <p class="mt-1 text-xs font-medium text-v3-red">Pełny dostęp do wszystkich stref</p>
 
-          <ul class="mt-6 space-y-3 border-t border-white/10 pt-6 text-sm text-zinc-200">
+          <ul class="mt-6 space-y-3 border-t border-v3-border pt-6 text-sm text-zinc-200">
             <li class="flex items-center gap-2.5"><span class="font-bold text-v3-red">✓</span><span>Fitness, siłownia, sporty walki BEZ LIMITU</span></li>
             <li class="flex items-center gap-2.5"><span class="font-bold text-v3-red">✓</span><span>Pierwszeństwo zapisów na zajęcia Fitness</span></li>
             <li class="flex items-center gap-2.5"><span class="font-bold text-v3-red">✓</span><span>1 trening personalny w miesiącu w cenie</span></li>
@@ -166,7 +169,7 @@
             href="https://v3klub.gymmanager.io"
             target="_blank"
             rel="noopener noreferrer"
-            class="flex w-full items-center justify-center rounded-xl bg-v3-red py-3.5 text-sm font-bold uppercase tracking-wider text-white transition hover:bg-v3-red-hover"
+            class="flex w-full items-center justify-center rounded-xl bg-v3-red py-3.5 text-sm font-bold uppercase tracking-wider text-white transition hover:bg-v3-red-hover shadow-[0_0_20px_rgba(255,42,42,0.2)]"
           >
             Kup karnet online →
           </a>
@@ -175,7 +178,7 @@
     </div>
 
     <!-- Karty partnerskie -->
-    <div class="mt-10 flex flex-col items-center justify-between gap-4 rounded-2xl border border-white/10 bg-zinc-900/50 p-6 sm:flex-row">
+    <div class="mt-10 flex flex-col items-center justify-between gap-4 rounded-2xl border border-v3-border bg-v3-surface/60 p-6 sm:flex-row backdrop-blur-sm">
       <div>
         <h4 class="font-['Teko'] text-2xl font-bold uppercase leading-none text-white sm:text-3xl">
           Honorujemy pakiety sportowe
@@ -206,18 +209,18 @@
 
     if (mode === 'monthly') {
       btnMonthly.className =
-        'cursor-pointer rounded-xl bg-v3-lime px-4 py-2 text-xs font-bold uppercase tracking-wider text-black transition sm:px-5 sm:text-sm';
+        'cursor-pointer rounded-xl bg-v3-lime px-4 py-2 text-xs font-bold uppercase tracking-wider text-black transition sm:px-5 sm:text-sm shadow-md';
       btnLong.className =
         'cursor-pointer flex items-center gap-2 rounded-xl px-4 py-2 text-xs font-bold uppercase tracking-wider text-zinc-300 transition hover:text-white sm:px-5 sm:text-sm';
       badgeDiscount.className =
         'rounded-md border border-v3-lime/30 bg-v3-lime/15 px-2 py-0.5 text-[10px] font-extrabold text-v3-lime transition-all';
     } else {
       btnLong.className =
-        'cursor-pointer flex items-center gap-2 rounded-xl bg-v3-lime px-4 py-2 text-xs font-bold uppercase tracking-wider text-black transition sm:px-5 sm:text-sm';
+        'cursor-pointer flex items-center gap-2 rounded-xl bg-v3-lime px-4 py-2 text-xs font-bold uppercase tracking-wider text-black transition sm:px-5 sm:text-sm shadow-md';
       btnMonthly.className =
         'cursor-pointer rounded-xl px-4 py-2 text-xs font-bold uppercase tracking-wider text-zinc-300 transition hover:text-white sm:px-5 sm:text-sm';
       badgeDiscount.className =
-        'rounded-md bg-black border border-black/20 px-2 py-0.5 text-[10px] font-extrabold text-v3-lime shadow-sm transition-all';
+        'rounded-md bg-v3-dark border border-v3-border px-2 py-0.5 text-[10px] font-extrabold text-v3-lime shadow-sm transition-all';
     }
 
     priceValues.forEach((el) => {

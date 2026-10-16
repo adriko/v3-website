@@ -44,7 +44,10 @@ const socialPosts = [
 ---
 
 <section id="social-feed" class="py-16 sm:py-24 bg-v3-dark border-b border-v3-border relative overflow-hidden">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- Dyskretny lśniący akcent w tle -->
+  <div class="pointer-events-none absolute -bottom-24 right-1/4 h-[400px] w-[500px] rounded-full bg-v3-lime/[0.04] blur-[130px]"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
     
     <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 sm:mb-12">
       <div>
@@ -104,20 +107,21 @@ const socialPosts = [
             class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
 
-          <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/40"></div>
+          <!-- Gradient tonalny zamiast płaskiej czerni -->
+          <div class="absolute inset-0 bg-gradient-to-t from-v3-dark via-v3-dark/30 to-black/30"></div>
 
           <div class="absolute top-3 left-3 right-3 flex items-center justify-between z-10">
             <span class={`text-[9px] sm:text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded shadow ${post.badgeColor}`}>
               {post.tag}
             </span>
-            <span class="text-[9px] sm:text-[10px] font-semibold text-zinc-300 bg-black/60 backdrop-blur-md px-2 py-0.5 rounded border border-white/10">
+            <span class="text-[9px] sm:text-[10px] font-semibold text-zinc-300 bg-v3-dark/70 backdrop-blur-md px-2 py-0.5 rounded border border-white/10">
               {post.platform}
             </span>
           </div>
 
           {post.type === 'reel' && (
             <div class="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
-              <div class="w-10 h-10 rounded-full bg-black/60 border border-white/20 backdrop-blur-sm flex items-center justify-center text-white text-xs group-hover:bg-v3-lime group-hover:text-black group-hover:border-v3-lime transition-all">
+              <div class="w-10 h-10 rounded-full bg-v3-dark/70 border border-white/20 backdrop-blur-sm flex items-center justify-center text-white text-xs group-hover:bg-v3-lime group-hover:text-black group-hover:border-v3-lime transition-all">
                 ▶
               </div>
             </div>

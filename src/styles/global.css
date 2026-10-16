@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 @theme {
-  /* Tła i struktura */
-  --color-v3-dark: #0A0A0C;
-  --color-v3-surface: #141418;
-  --color-v3-card: #1A1A22;
-  --color-v3-border: #262633;
+  /* Tła i struktura - Nowoczesny głęboki grafit 2026 zamiast czystej smoły */
+  --color-v3-dark: #121317;
+  --color-v3-surface: #181a20;
+  --color-v3-card: #20222a;
+  --color-v3-border: #2d303b;
 
   /* Strefa Siłownia & Główne Logo (Neon Volt / Limonka) */
   --color-v3-lime: #C8FF00;
@@ -28,7 +28,7 @@
   --font-sans: 'Inter', sans-serif;
 }
 
-/* Efekty poświaty neonowej */
+/* Efekty poświaty neonowej na tekst / ikony */
 .glow-lime {
   filter: drop-shadow(0 0 15px rgba(200, 255, 0, 0.35));
 }
@@ -37,4 +37,17 @@
 }
 .glow-magenta {
   filter: drop-shadow(0 0 15px rgba(255, 0, 127, 0.4));
+}
+
+/* Subtelne poświaty ambientowe sekcji (Ambient Glow) */
+.ambient-glow-lime {
+  background-image: radial-gradient(ellipse 75% 50% at 50% 0%, rgba(200, 255, 0, 0.08), transparent 75%);
+}
+
+.ambient-glow-red {
+  background-image: radial-gradient(ellipse 80% 55% at 50% 0%, rgba(255, 42, 42, 0.10), transparent 75%);
+}
+
+.ambient-glow-women {
+  background-image: radial-gradient(ellipse 85% 55% at 50% 0%, rgba(255, 0, 127, 0.09), rgba(138, 43, 226, 0.05) 50%, transparent 75%);
 }

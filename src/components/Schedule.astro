@@ -118,8 +118,8 @@ const fitnessDays = [
 ];
 ---
 
-<section id="grafik" class="relative border-b border-white/10 py-16 lg:py-24">
-  <div class="mx-auto max-w-7xl px-4 lg:px-8">
+<section id="grafik" class="relative overflow-hidden border-b border-v3-border bg-v3-dark py-16 lg:py-24">
+  <div class="mx-auto max-w-7xl px-4 lg:px-8 relative">
     <!-- Górny nagłówek i przełącznik stref -->
     <div class="flex flex-col justify-between gap-6 md:flex-row md:items-end">
       <div>
@@ -136,7 +136,7 @@ const fitnessDays = [
       </div>
 
       <!-- Przełącznik stref grafikowych -->
-      <div class="inline-flex items-center rounded-2xl border border-white/15 bg-zinc-900 p-1.5 self-start md:self-auto shadow-md">
+      <div class="inline-flex items-center rounded-2xl border border-v3-border bg-v3-surface p-1.5 self-start md:self-auto shadow-md">
         <button
           type="button"
           id="tab-fight-zone"
@@ -154,12 +154,12 @@ const fitnessDays = [
       </div>
     </div>
 
-    <!-- Siatka 1: FIGHT ZONE (grid na smartfonie, tablecie i PC) -->
+    <!-- Siatka 1: FIGHT ZONE -->
     <div id="grid-fight-zone" class="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
       {fightDays.map((item) => (
-        <div class="flex flex-col justify-between rounded-2xl border border-white/10 bg-zinc-900/60 p-5 sm:p-6 transition hover:border-v3-red/40">
+        <div class="flex flex-col justify-between rounded-2xl border border-v3-border bg-v3-surface/75 p-5 sm:p-6 transition hover:border-v3-red/40 hover:shadow-[0_0_20px_rgba(255,42,42,0.1)]">
           <div>
-            <div class="flex items-baseline justify-between border-b border-white/10 pb-4">
+            <div class="flex items-baseline justify-between border-b border-v3-border pb-4">
               <h3 class="font-['Teko'] text-3xl font-bold uppercase tracking-wide text-white">
                 {item.day}
               </h3>
@@ -190,12 +190,12 @@ const fitnessDays = [
       ))}
     </div>
 
-    <!-- Siatka 2: FITNESS & WELLNESS (Z zachowaną klasą grid przy ukryciu/pokazaniu) -->
+    <!-- Siatka 2: FITNESS & WELLNESS -->
     <div id="grid-fitness" class="mt-12 hidden grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
       {fitnessDays.map((item) => (
-        <div class="flex flex-col justify-between rounded-2xl border border-white/10 bg-zinc-900/60 p-5 sm:p-6 transition hover:border-v3-lime/40">
+        <div class="flex flex-col justify-between rounded-2xl border border-v3-border bg-v3-surface/75 p-5 sm:p-6 transition hover:border-v3-lime/40 hover:shadow-[0_0_20px_rgba(200,255,0,0.1)]">
           <div>
-            <div class="flex items-baseline justify-between border-b border-white/10 pb-4">
+            <div class="flex items-baseline justify-between border-b border-v3-border pb-4">
               <h3 class="font-['Teko'] text-3xl font-bold uppercase tracking-wide text-white">
                 {item.day}
               </h3>
@@ -227,7 +227,7 @@ const fitnessDays = [
     </div>
 
     <!-- Dolna belka informacyjna -->
-    <div class="mt-10 flex flex-col items-center justify-between gap-3 rounded-2xl border border-white/10 bg-zinc-900/40 px-6 py-4 text-xs font-medium text-zinc-300 sm:flex-row">
+    <div class="mt-10 flex flex-col items-center justify-between gap-3 rounded-2xl border border-v3-border bg-v3-surface/50 px-6 py-4 text-xs font-medium text-zinc-300 sm:flex-row backdrop-blur-sm">
       <div class="flex items-center gap-2">
         <span class="h-2 w-2 rounded-full bg-v3-lime"></span>
         <span>Rezerwacja miejsc na zajęcia w aplikacji: <strong class="text-white">v3klub.gymmanager.io</strong></span>

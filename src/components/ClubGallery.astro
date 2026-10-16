@@ -48,7 +48,10 @@ const galleryImages = [
 ---
 
 <section id="galeria" class="py-16 sm:py-20 bg-v3-dark border-b border-v3-border relative overflow-hidden">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- Dyskretna poświata za galerią dodająca głębi -->
+  <div class="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[800px] rounded-full bg-v3-lime/[0.03] blur-[150px]"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
     
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 sm:mb-10">
       <div>
@@ -82,7 +85,7 @@ const galleryImages = [
     <!-- Główny slider ze zmianą co 3 sekundy -->
     <div 
       id="gallery-slider-container"
-      class="relative w-full h-[300px] sm:h-[460px] md:h-[540px] rounded-2xl sm:rounded-3xl overflow-hidden border border-v3-border bg-black shadow-2xl group select-none"
+      class="relative w-full h-[300px] sm:h-[460px] md:h-[540px] rounded-2xl sm:rounded-3xl overflow-hidden border border-v3-border bg-v3-card shadow-2xl group select-none"
     >
       {galleryImages.map((img, index) => (
         <div 
@@ -95,7 +98,7 @@ const galleryImages = [
             class={`w-full h-full object-cover object-center ${img.cropWhiteBorders ? 'scale-[1.85]' : ''}`}
             loading={index === 0 ? "eager" : "lazy"}
           />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-black/30"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-v3-dark via-v3-dark/25 to-v3-dark/30"></div>
           
           <div class="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 flex items-end justify-between gap-4 z-20">
             <div>
@@ -106,7 +109,7 @@ const galleryImages = [
                 {img.title}
               </h3>
             </div>
-            <span class="text-[10px] sm:text-xs font-mono text-zinc-300 bg-black/70 px-2.5 py-1 rounded border border-white/10 shrink-0">
+            <span class="text-[10px] sm:text-xs font-mono text-zinc-300 bg-v3-dark/80 px-2.5 py-1 rounded border border-white/10 shrink-0">
               {index + 1} / {galleryImages.length}
             </span>
           </div>
@@ -118,7 +121,7 @@ const galleryImages = [
         id="slider-prev"
         type="button"
         aria-label="Poprzednie zdjęcie"
-        class="absolute left-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-black/60 hover:bg-v3-lime hover:text-black border border-white/20 text-white flex items-center justify-center transition-all opacity-0 group-hover:opacity-100"
+        class="absolute left-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-v3-dark/70 hover:bg-v3-lime hover:text-black border border-white/20 text-white flex items-center justify-center transition-all opacity-0 group-hover:opacity-100"
       >
         &#10094;
       </button>
@@ -127,7 +130,7 @@ const galleryImages = [
         id="slider-next"
         type="button"
         aria-label="Następne zdjęcie"
-        class="absolute right-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-black/60 hover:bg-v3-lime hover:text-black border border-white/20 text-white flex items-center justify-center transition-all opacity-0 group-hover:opacity-100"
+        class="absolute right-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-v3-dark/70 hover:bg-v3-lime hover:text-black border border-white/20 text-white flex items-center justify-center transition-all opacity-0 group-hover:opacity-100"
       >
         &#10095;
       </button>
