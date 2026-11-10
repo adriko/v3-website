@@ -13,7 +13,7 @@ const disciplines = [
   {
     tag: "Walka Wszechstylowa",
     title: "MMA & Grappling",
-    desc: "Płynne przejścia ze stójki do obaleń, kontrola pozycji i techniki parterowe.",
+    desc: "Płynne przejścia ze stójki do obaleń, kontrola pozycji i techniki parterowe na macie.",
   },
   {
     tag: "Sztuka Obezwładniania",
@@ -86,7 +86,7 @@ const ageGroups = [
 
 <section
   id="fight-zone"
-  class="relative overflow-hidden border-b border-v3-border bg-gradient-to-b from-v3-dark via-v3-surface/40 to-v3-dark ambient-glow-red py-14 sm:py-16 lg:py-24"
+  class="relative overflow-hidden border-b border-v3-border bg-linear-to-b from-v3-dark via-v3-surface/40 to-v3-dark ambient-glow-red py-14 sm:py-16 lg:py-24"
 >
   <div
     class="pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 h-125 w-200 max-w-full rounded-full bg-v3-red/10 blur-[130px]"
@@ -107,8 +107,8 @@ const ageGroups = [
           Strefa Sportów <span class="text-v3-red">Walki</span>
         </h2>
         <p class="mt-2.5 max-w-2xl text-sm sm:text-base text-zinc-300">
-          Profesjonalna mata zapaśnicza, pełnowymiarowa klatka MMA, ring oraz
-          strefa ciężkich worków bokserskich.
+          Profesjonalna mata zapaśnicza, pełnowymiarowy ring bokserski oraz
+          strefa ciężkich worków treningowych.
         </p>
       </div>
       <a
@@ -120,7 +120,7 @@ const ageGroups = [
       </a>
     </div>
 
-    <!-- 6 dyscyplin: na smartfonie płynny scroll horyzontalny (swipe), na PC/tablecie regularny grid -->
+    <!-- 6 dyscyplin: na smartfonie płynny scroll horyzontalny (swipe), na PC siatka -->
     <div class="relative -mx-4 px-4 sm:mx-0 sm:px-0 mt-8 sm:mt-10">
       <div
         class="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4 overflow-x-auto sm:overflow-x-visible pb-3 sm:pb-0 snap-x snap-mandatory scroll-smooth overscroll-x-contain [-ms-overflow-style:none] scrollbar-none [&::-webkit-scrollbar]:hidden"
@@ -145,7 +145,7 @@ const ageGroups = [
       </div>
     </div>
 
-    <!-- 6 Grup Wiekowych: na smartfonie płynny scroll horyzontalny (swipe), na PC/tablecie regularny grid -->
+    <!-- 6 Grup Wiekowych: na smartfonie płynny scroll horyzontalny (swipe), na PC siatka -->
     <div
       class="mt-10 sm:mt-14 rounded-3xl border border-v3-border bg-v3-surface/50 p-4 sm:p-8 backdrop-blur-sm"
     >
@@ -207,7 +207,7 @@ const ageGroups = [
       </div>
     </div>
 
-    <!-- Baner kierujący do Kadry z automatycznym wyborem zakładki Fight Zone -->
+    <!-- Baner kierujący do Kadry -->
     <div
       class="mt-8 sm:mt-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 rounded-2xl border border-v3-red/30 bg-v3-surface/50 p-4 sm:p-5 backdrop-blur-sm"
     >
