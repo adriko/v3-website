@@ -1,32 +1,61 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/Navbar.astro';
-import Hero from '../components/Hero.astro';
-import FightZone from '../components/FightZone.astro';
-import GymFitness from '../components/GymFitness.astro';
-import WomenZone from '../components/WomenZone.astro';
-import Pricing from '../components/Pricing.astro';
-import AppCta from '../components/AppCta.astro';
-import Schedule from '../components/Schedule.astro';
-import ClubGallery from '../components/ClubGallery.astro';
-import SocialFeed from '../components/SocialFeed.astro';
-import Reviews from '../components/Reviews.astro';
-import Contact from '../components/Contact.astro';
+import Layout from "../layouts/Layout.astro";
+import SeasonalBanner from "../components/SeasonalBanner.astro";
+import Navbar from "../components/Navbar.astro";
+import Hero from "../components/Hero.astro";
+import FightZone from "../components/FightZone.astro";
+import GymFitness from "../components/GymFitness.astro";
+import WomenZone from "../components/WomenZone.astro";
+import TrainersSection from "../components/TrainersSection.astro";
+import Pricing from "../components/Pricing.astro";
+import Schedule from "../components/Schedule.astro";
+import AppCta from "../components/AppCta.astro";
+import Reviews from "../components/Reviews.astro";
+import SocialFeed from "../components/SocialFeed.astro";
+import Contact from "../components/Contact.astro";
 ---
 
-<Layout>
+<Layout
+  title="V3 Klub Jarosław • Siłownia, Fitness, Fight Zone i Samoobsługa 5:00 – 24:00"
+>
+  <!-- Dynamiczny baner akcji okolicznościowych sterowany kalendarzem -->
+  <SeasonalBanner />
+
+  <!-- Główny pasek nawigacyjny -->
   <Navbar />
+
   <main>
+    <!-- 1. Ekran Powitalny / Hero -->
     <Hero />
+
+    <!-- 2. Fight Zone (KSW Sokół Jarosław) -->
     <FightZone />
+
+    <!-- 3. Siłownia & Fitness -->
     <GymFitness />
+
+    <!-- 4. Dedykowana Strefa Kobiet -->
     <WomenZone />
+
+    <!-- 5. Reprezentacyjna Kadra Trenerska V3 (Wariant A) -->
+    <TrainersSection />
+
+    <!-- 6. Cennik Członkostwa & Pakiety partnerskie -->
     <Pricing />
-    <AppCta />
+
+    <!-- 7. Grafik Zajęć -->
     <Schedule />
-    <ClubGallery />
-    <SocialFeed />
+
+    <!-- 8. Aplikacja GymManager & Kod QR -->
+    <AppCta />
+
+    <!-- 9. Zweryfikowane Opinie Google Maps -->
     <Reviews />
+
+    <!-- 10. Social Media Feed -->
+    <SocialFeed />
+
+    <!-- 11. Kontakt & Dojazd Google Maps -->
     <Contact />
   </main>
 </Layout>

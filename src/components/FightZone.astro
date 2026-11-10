@@ -1,6 +1,4 @@
 ---
-import TrainerSlider from "./TrainerSlider.astro";
-
 const disciplines = [
   {
     tag: "Klasyczna Stójka",
@@ -90,14 +88,12 @@ const ageGroups = [
   id="fight-zone"
   class="relative overflow-hidden border-b border-v3-border bg-linear-to-b from-v3-dark via-v3-surface/40 to-v3-dark ambient-glow-red py-16 lg:py-24"
 >
-  <!-- Dynamiczna czerwona poświata centralna -->
   <div
     class="pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 h-125 w-200 max-w-full rounded-full bg-v3-red/10 blur-[130px]"
   >
   </div>
 
   <div class="mx-auto max-w-7xl px-4 lg:px-8 relative">
-    <!-- Nagłówek -->
     <div class="flex flex-col justify-between gap-6 md:flex-row md:items-end">
       <div>
         <div
@@ -198,11 +194,34 @@ const ageGroups = [
       </div>
     </div>
 
-    <!-- Zintegrowana Kadra Trenerska Sportów Walki KSW Sokół & V3 -->
-    <TrainerSlider
-      zone="fight"
-      title="Kadra Trenerska"
-      subtitle="Trenerzy boksu, kickboxingu, MMA i Krav Magi z licencjami PZKB i doświadczeniem zawodowym"
-    />
+    <!-- Dyskretny baner kierujący do Kadry -->
+    <div
+      class="mt-10 flex flex-col sm:flex-row items-center justify-between gap-4 rounded-2xl border border-v3-red/30 bg-v3-surface/50 p-5 backdrop-blur-sm"
+    >
+      <div class="flex items-center gap-3">
+        <span
+          class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-v3-red/10 border border-v3-red/30 text-v3-red font-bold"
+        >
+          🥊
+        </span>
+        <div>
+          <h4
+            class="font-['Teko'] text-2xl font-bold uppercase leading-none text-white"
+          >
+            Poznaj instruktorów KSW Sokół & V3
+          </h4>
+          <p class="text-xs text-zinc-300">
+            Mistrzowie Polski, licencjonowani trenerzy PZKB i czynni zawodnicy
+            MMA.
+          </p>
+        </div>
+      </div>
+      <a
+        href="#kadra"
+        class="inline-flex items-center gap-2 rounded-xl border border-v3-red/40 bg-v3-red/10 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-v3-red hover:bg-v3-red/20 transition shrink-0"
+      >
+        Zobacz kadrę trenerską →
+      </a>
+    </div>
   </div>
 </section>

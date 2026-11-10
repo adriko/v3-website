@@ -1,0 +1,117 @@
+---
+import { SEASON_CAMPAIGNS } from "../data/seasons";
+---
+
+<!-- Ukryty domyślnie kontener, aktywowany skryptem JS po weryfikacji daty i localStorage -->
+<aside
+  id="seasonal-banner"
+  aria-label="Ogłoszenie sezonowe"
+  class="hidden relative z-50 border-b transition-all duration-300"
+>
+  <div
+    class="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-2 sm:px-6 lg:px-8 text-xs"
+  >
+    <!-- Treść banera -->
+    <div class="flex flex-wrap items-center gap-2 sm:gap-3 flex-1 min-w-0">
+      <span
+        id="seasonal-badge"
+        class="inline-block rounded-md border px-2 py-0.5 text-[10px] font-black uppercase tracking-wider shrink-0"
+      ></span>
+      <p
+        id="seasonal-text"
+        class="text-zinc-200 font-medium truncate sm:whitespace-normal"
+      >
+      </p>
+      <a
+        id="seasonal-cta"
+        href="#cennik"
+        class="font-bold underline uppercase tracking-wider text-white hover:text-v3-lime transition shrink-0 text-[11px]"
+      ></a>
+    </div>
+
+    <!-- Dyskretny przycisk wyłączenia / zamknięcia -->
+    <button
+      type="button"
+      id="seasonal-dismiss-btn"
+      aria-label="Ukryj powiadomienie sezonowe"
+      class="inline-flex items-center gap-1 rounded-lg border border-white/10 bg-black/30 px-2 py-1 text-[11px] font-medium text-zinc-300 hover:text-white hover:bg-black/50 transition shrink-0 cursor-pointer active:scale-95"
+    >
+      <span>Ukryj</span>
+      <svg
+        class="h-3.5 w-3.5"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2.5"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+  </div>
+</aside>
+
+<script define:vars={{ campaigns: SEASON_CAMPAIGNS }}>
+  function initSeasonalBanner() {
+    const banner = document.getElementById("seasonal-banner");
+    const badgeEl = document.getElementById("seasonal-badge");
+    const textEl = document.getElementById("seasonal-text");
+    const ctaEl = document.getElementById("seasonal-cta");
+    const dismissBtn = document.getElementById("seasonal-dismiss-btn");
+
+    if (!banner || !badgeEl || !textEl || !ctaEl || !dismissBtn) return;
+
+    const now = new Date();
+    const curMonth = now.getMonth() + 1;
+    const curDay = now.getDate();
+
+    // Sprawdzenie, czy bieżąca data mieści się w którejś z zaplanowanych akcji
+    const active = campaigns.find((c) => {
+      // Przypadek akcji na przełomie roku (np. grudzień -> styczeń)
+      if (c.startMonth > c.endMonth) {
+        const inFirstPart =
+          (curMonth === c.startMonth && curDay >= c.startDay) ||
+          curMonth > c.startMonth;
+        const inSecondPart =
+          (curMonth === c.endMonth && curDay <= c.endDay) ||
+          curMonth < c.endMonth;
+        return inFirstPart || inSecondPart;
+      }
+
+      // Standardowy przypadek w obrębie tego samego roku
+      const afterStart =
+        curMonth > c.startMonth ||
+        (curMonth === c.startMonth && curDay >= c.startDay);
+      const beforeEnd =
+        curMonth < c.endMonth ||
+        (curMonth === c.endMonth && curDay <= c.endDay);
+      return afterStart && beforeEnd;
+    });
+
+    if (!active) return;
+
+    // Sprawdzenie, czy użytkownik wyłączył tę akcję przyciskiem "Ukryj"
+    const storageKey = `v3_dismissed_${active.id}`;
+    if (localStorage.getItem(storageKey) === "true") return;
+
+    // Wypełnienie danych aktywnej akcji
+    badgeEl.textContent = active.badge;
+    badgeEl.className = `inline-block rounded-md border px-2 py-0.5 text-[10px] font-black uppercase tracking-wider shrink-0 ${active.accentBorder}`;
+    textEl.textContent = active.text;
+    ctaEl.textContent = `${active.ctaText} →`;
+    ctaEl.setAttribute("href", active.ctaLink);
+
+    banner.className = `relative z-50 border-b bg-linear-to-r ${active.themeGradient} ${active.accentBorder.split(" ")[0]}`;
+    banner.classList.remove("hidden");
+
+    // Obsługa kliknięcia "Ukryj"
+    dismissBtn.addEventListener("click", () => {
+      banner.classList.add("hidden");
+      localStorage.setItem(storageKey, "true");
+    });
+  }
+
+  initSeasonalBanner();
+</script>
