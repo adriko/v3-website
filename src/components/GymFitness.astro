@@ -4,7 +4,7 @@
 
 <section
   id="silownia"
-  class="py-16 sm:py-24 bg-v3-dark border-b border-v3-border relative overflow-hidden ambient-glow-lime"
+  class="py-14 sm:py-24 bg-v3-dark border-b border-v3-border relative overflow-hidden ambient-glow-lime"
 >
   <div
     class="pointer-events-none absolute -top-24 right-1/4 h-80 w-80 rounded-full bg-v3-lime/5 blur-[120px]"
@@ -12,26 +12,38 @@
   </div>
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-    <div class="mb-10 sm:mb-14">
-      <div
-        class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded bg-v3-lime/10 border border-v3-lime/30 text-v3-lime text-[11px] font-bold uppercase tracking-widest mb-2"
-      >
-        Nowa energia • Nowe cele
+    <div
+      class="flex flex-col justify-between gap-4 md:flex-row md:items-end mb-8 sm:mb-12"
+    >
+      <div>
+        <div
+          class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded bg-v3-lime/10 border border-v3-lime/30 text-v3-lime text-[11px] font-bold uppercase tracking-widest mb-2"
+        >
+          Nowa energia • Nowe cele
+        </div>
+        <h2
+          class="font-['Rajdhani'] text-4xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-wide text-white leading-none lg:whitespace-nowrap"
+        >
+          Siłownia &amp; <span class="text-v3-lime">Zajęcia Grupowe</span>
+        </h2>
+        <p class="text-zinc-400 mt-2 text-xs sm:text-sm max-w-2xl">
+          Strefa maszyn Bodytone, wolne ciężary oraz zróżnicowany grafik zajęć
+          fitness i cross-treningu.
+        </p>
       </div>
-      <h2
-        class="font-['Rajdhani'] text-4xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-wide text-white leading-none lg:whitespace-nowrap"
+
+      <a
+        href="#grafik"
+        onclick="document.getElementById('tab-fitness')?.click()"
+        class="inline-flex items-center gap-2 self-start rounded-xl border border-v3-lime/40 bg-v3-lime/10 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-v3-lime transition hover:bg-v3-lime/20 shrink-0"
       >
-        Siłownia & <span class="text-v3-lime">Zajęcia Grupowe</span>
-      </h2>
-      <p class="text-zinc-400 mt-2 text-xs sm:text-sm max-w-2xl">
-        Strefa maszyn Bodytone, wolne ciężary oraz zróżnicowany grafik zajęć
-        fitness i cross-treningu.
-      </p>
+        Pełny grafik Fitness →
+      </a>
     </div>
 
     <!-- Zwarty baner CROSS Z RAFAŁEM -->
     <div
-      class="mb-10 sm:mb-14 bg-linear-to-r from-v3-card via-v3-surface to-v3-dark border border-v3-red/80 rounded-2xl sm:rounded-3xl p-5 sm:p-8 relative overflow-hidden shadow-lg"
+      class="mb-8 sm:mb-12 bg-linear-to-r from-v3-card via-v3-surface to-v3-dark border border-v3-red/80 rounded-2xl sm:rounded-3xl p-5 sm:p-8 relative overflow-hidden shadow-lg"
     >
       <div class="max-w-xl">
         <div
@@ -56,7 +68,7 @@
     <!-- Siatka Fitness z przypisaną kotwicą #fitness -->
     <div
       id="fitness"
-      class="scroll-mt-28 grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-6"
+      class="scroll-mt-28 grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6"
     >
       <!-- V3 ABS -->
       <div
@@ -66,20 +78,20 @@
           <span
             class="text-[9px] sm:text-[10px] font-black text-v3-lime uppercase tracking-wider block mb-1"
           >
-            Pon / Śr • 19:15
+            Poniedziałek / Środa
           </span>
           <h4
             class="font-['Rajdhani'] text-2xl sm:text-3xl font-bold uppercase tracking-wide text-white leading-tight"
           >
-            V3 ABS
+            V3 ABS &amp; Step
           </h4>
         </div>
-        <p class="text-zinc-400 text-[10px] sm:text-xs mt-2 leading-tight">
-          Silny core, rzeźba i stabilizacja kręgosłupa.
+        <p class="text-zinc-400 text-[11px] sm:text-xs mt-2 leading-snug">
+          Silny core, spalanie kalorii, rzeźba i stabilizacja.
         </p>
       </div>
 
-      <!-- ZUMBA -->
+      <!-- ZUMBA / BOOTY -->
       <div
         class="bg-linear-to-b from-[#240e1e] to-v3-dark border-t-2 border-t-pink-500 border-x border-b border-pink-500/30 rounded-xl sm:rounded-2xl p-3.5 sm:p-5 flex flex-col justify-between"
       >
@@ -87,16 +99,16 @@
           <span
             class="text-[9px] sm:text-[10px] font-black text-pink-400 uppercase tracking-wider block mb-1"
           >
-            Wt / Pt • 20:15
+            Wtorek / Czwartek / Piątek
           </span>
           <h4
             class="font-['Rajdhani'] text-2xl sm:text-3xl font-bold uppercase tracking-wide text-white leading-tight"
           >
-            Zumba
+            Zumba &amp; Booty
           </h4>
         </div>
-        <p class="text-zinc-400 text-[10px] sm:text-xs mt-2 leading-tight">
-          Spalanie kalorii w latynoskich rytmach.
+        <p class="text-zinc-400 text-[11px] sm:text-xs mt-2 leading-snug">
+          Modelowanie sylwetki i energia w rytmie muzyki.
         </p>
       </div>
 
@@ -108,16 +120,16 @@
           <span
             class="text-[9px] sm:text-[10px] font-black text-blue-400 uppercase tracking-wider block mb-1"
           >
-            Wt / Czw / Sb
+            Pon – Sb • Wybrane dni
           </span>
           <h4
             class="font-['Rajdhani'] text-2xl sm:text-3xl font-bold uppercase tracking-wide text-white leading-tight"
           >
-            Joga & Pilates
+            Joga &amp; Pilates
           </h4>
         </div>
-        <p class="text-zinc-400 text-[10px] sm:text-xs mt-2 leading-tight">
-          Rozciąganie, mobilność i redukcja stresu.
+        <p class="text-zinc-400 text-[11px] sm:text-xs mt-2 leading-snug">
+          Rozciąganie, mobilność, oddech i redukcja stresu.
         </p>
       </div>
 
@@ -129,7 +141,7 @@
           <span
             class="text-[9px] sm:text-[10px] font-black text-amber-400 uppercase tracking-wider block mb-1"
           >
-            Czw • 18:15 / Sb
+            Czwartek / Sobota
           </span>
           <h4
             class="font-['Rajdhani'] text-2xl sm:text-3xl font-bold uppercase tracking-wide text-white leading-tight"
@@ -137,15 +149,15 @@
             Kręgosłup
           </h4>
         </div>
-        <p class="text-zinc-400 text-[10px] sm:text-xs mt-2 leading-tight">
-          Zajęcia korekcyjne dla osób za biurkiem.
+        <p class="text-zinc-400 text-[11px] sm:text-xs mt-2 leading-snug">
+          Zajęcia korekcyjne i wzmacniające dla osób za biurkiem.
         </p>
       </div>
     </div>
 
-    <!-- Dyskretny baner kierujący do Kadry -->
+    <!-- Baner kierujący do Kadry z automatycznym wyborem zakładki Siłownia & Fitness -->
     <div
-      class="mt-10 flex flex-col sm:flex-row items-center justify-between gap-4 rounded-2xl border border-v3-lime/30 bg-v3-surface/50 p-5 backdrop-blur-sm"
+      class="mt-8 sm:mt-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 rounded-2xl border border-v3-lime/30 bg-v3-surface/50 p-4 sm:p-5 backdrop-blur-sm"
     >
       <div class="flex items-center gap-3">
         <span
@@ -166,9 +178,10 @@
       </div>
       <a
         href="#kadra"
-        class="inline-flex items-center gap-2 rounded-xl border border-v3-lime/40 bg-v3-lime/10 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-v3-lime hover:bg-v3-lime/20 transition shrink-0"
+        data-trainers-tab="gym"
+        class="inline-flex w-full sm:w-auto justify-center items-center gap-2 rounded-xl border border-v3-lime/40 bg-v3-lime/10 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-v3-lime hover:bg-v3-lime/20 transition shrink-0"
       >
-        Poznaj naszych trenerów →
+        Poznaj trenerów Siłowni →
       </a>
     </div>
   </div>
