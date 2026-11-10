@@ -82,10 +82,10 @@ const gymTrainers: Trainer[] = TRAINERS
         </button>
       </div>
 
-      <!-- Horyzontalna lista z dotykowym snapem i pełnymi opisami -->
+      <!-- Horyzontalna lista (touch-pan-x usunięte - scroll pionowy odblokowany) -->
       <div
         id="slider-fight"
-        class="flex items-stretch gap-4 sm:gap-6 overflow-x-auto pb-6 pt-1 snap-x snap-mandatory scroll-smooth touch-pan-x [-ms-overflow-style:none] scrollbar-none [&::-webkit-scrollbar]:hidden -mx-4 px-4 sm:mx-0 sm:px-0"
+        class="flex items-stretch gap-4 sm:gap-6 overflow-x-auto pb-6 pt-1 snap-x snap-mandatory scroll-smooth overscroll-x-contain [-ms-overflow-style:none] scrollbar-none [&::-webkit-scrollbar]:hidden -mx-4 px-4 sm:mx-0 sm:px-0"
       >
         {fightTrainers.map((t: Trainer) => {
           const initials = t.name.split(' ').map((n: string) => n[0]).join('');
@@ -174,10 +174,10 @@ const gymTrainers: Trainer[] = TRAINERS
         </button>
       </div>
 
-      <!-- Horyzontalna lista z dotykowym snapem i pełnymi opisami -->
+      <!-- Horyzontalna lista (touch-pan-x usunięte - scroll pionowy odblokowany) -->
       <div
         id="slider-gym"
-        class="flex items-stretch gap-4 sm:gap-6 overflow-x-auto pb-6 pt-1 snap-x snap-mandatory scroll-smooth touch-pan-x [-ms-overflow-style:none] scrollbar-none [&::-webkit-scrollbar]:hidden -mx-4 px-4 sm:mx-0 sm:px-0"
+        class="flex items-stretch gap-4 sm:gap-6 overflow-x-auto pb-6 pt-1 snap-x snap-mandatory scroll-smooth overscroll-x-contain [-ms-overflow-style:none] scrollbar-none [&::-webkit-scrollbar]:hidden -mx-4 px-4 sm:mx-0 sm:px-0"
       >
         {gymTrainers.map((t: Trainer) => {
           const initials = t.name.split(' ').map((n: string) => n[0]).join('');
