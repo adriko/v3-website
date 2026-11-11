@@ -1,143 +1,139 @@
 ---
 const disciplines = [
   {
+    name: "Boks",
     tag: "Klasyczna Stójka",
-    title: "Boks",
     desc: "Precyzja ciosów, praca nóg, uniki, tarcze bokserskie i kontrolowane sparingi.",
   },
   {
+    name: "Kickboxing / K1",
     tag: "Stójka & Kopnięcia",
-    title: "Kickboxing / K1",
     desc: "Połączenie technik bokserskich z mocnymi kopnięciami. Eksplozywna dynamika.",
   },
   {
+    name: "MMA & Grappling",
     tag: "Walka Wszechstylowa",
-    title: "MMA & Grappling",
     desc: "Płynne przejścia ze stójki do obaleń, kontrola pozycji i techniki parterowe na macie.",
   },
   {
+    name: "SSW Ju-Jitsu",
     tag: "Sztuka Obezwładniania",
-    title: "SSW Ju-Jitsu",
     desc: "Tradycyjna japońska dyscyplina: dźwignie, rzuty, duszenia i skuteczna samoobrona.",
   },
   {
+    name: "Krav Maga",
     tag: "Samoobrona Uliczna",
-    title: "Krav Maga",
     desc: "Praktyczny system eliminacji realnego zagrożenia bez reguł ringowych.",
   },
   {
+    name: "Samoobrona Kobiet",
     tag: "Dedykowana Grupa",
-    title: "Samoobrona Kobiet",
     desc: "Pewność siebie, asertywność, bezpieczne odruchy i techniki obronne.",
   },
 ];
 
 const ageGroups = [
   {
-    name: "KIDS",
-    subtitle: "Przedszkolaki",
-    desc: "Rozwój sprawności, koordynacja i dyscyplina przez sportowe zabawy.",
+    group: "KIDS",
+    sub: "Przedszkolaki",
     age: "4–6 lat",
     duration: "45 min",
-    pro: false,
+    focus: "Rozwój sprawności, koordynacja i dyscyplina przez sportowe zabawy.",
   },
   {
-    name: "START",
-    subtitle: "Podstawy",
-    desc: "Nauka pozycji walki, podstawowych uderzeń i ogólnej zwinności.",
+    group: "START",
+    sub: "Podstawy",
     age: "7–10 lat",
     duration: "45 min",
-    pro: false,
+    focus: "Nauka pozycji walki, podstawowych uderzeń i ogólnej zwinności.",
   },
   {
-    name: "KADET",
-    subtitle: "Młodzież",
-    desc: "Szlifowanie techniki ciosów, gibkość i przygotowanie motoryczne.",
+    group: "KADET",
+    sub: "Młodzież",
     age: "11–13 lat",
     duration: "60 min",
-    pro: false,
+    focus: "Szlifowanie techniki ciosów, gibkość i przygotowanie motoryczne.",
   },
   {
-    name: "JUNIOR",
-    subtitle: "Zaawansowani",
-    desc: "Intensywny trening zadaniowy, sparingi i taktyka ringowa.",
+    group: "JUNIOR",
+    sub: "Zaawansowani",
     age: "14–18 lat",
     duration: "60 min",
-    pro: false,
+    focus: "Intensywny trening zadaniowy, sparingi i taktyka ringowa.",
   },
   {
-    name: "DOROŚLI",
-    subtitle: "Forma & Pasja",
-    desc: "Budowa kondycji, zrzucanie wagi i technika bez presji walk.",
+    group: "DOROŚLI",
+    sub: "Forma & Pasja",
     age: "Open",
     duration: "75 min",
-    pro: false,
+    focus: "Budowa kondycji, zrzucanie wagi i technika bez presji walk.",
   },
   {
-    name: "FIGHT TEAM",
-    subtitle: "Kadra PRO",
-    desc: "Twarde sparingi turniejowe i przygotowanie do startów w zawodach.",
+    group: "FIGHT TEAM",
+    sub: "Kadra PRO",
     age: "Zawodnicy",
     duration: "75 min",
-    pro: true,
+    focus: "Twarde sparingi turniejowe i przygotowanie do startów w zawodach.",
   },
 ];
 ---
 
 <section
   id="fight-zone"
-  class="relative overflow-hidden border-b border-v3-border bg-linear-to-b from-v3-dark via-v3-surface/40 to-v3-dark ambient-glow-red py-14 sm:py-16 lg:py-24"
+  class="py-16 lg:py-24 relative bg-zinc-950 border-b border-zinc-900"
 >
   <div
-    class="pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 h-125 w-200 max-w-full rounded-full bg-v3-red/10 blur-[130px]"
+    class="absolute top-1/3 left-0 w-96 h-96 bg-red-600/5 rounded-full blur-3xl pointer-events-none"
   >
   </div>
 
-  <div class="mx-auto max-w-7xl px-4 lg:px-8 relative">
-    <div class="flex flex-col justify-between gap-5 md:flex-row md:items-end">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <!-- Section Header -->
+    <div
+      class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6"
+    >
       <div>
         <div
-          class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-v3-red"
+          class="inline-flex items-center gap-2 text-red-500 font-mono text-xs uppercase tracking-wider mb-2.5 font-semibold"
         >
-          <span>&gt;&gt;&gt;</span> FIGHT ZONE &amp; SOKÓŁ JAROSŁAW
+          <span>&gt;&gt;&gt;</span> FIGHT ZONE & SOKÓŁ JAROSŁAW
         </div>
         <h2
-          class="mt-2 font-['Teko'] text-4xl font-bold uppercase leading-[0.95] text-white sm:text-6xl"
+          class="font-heading text-3xl sm:text-5xl font-black uppercase tracking-tight text-white"
         >
-          Strefa Sportów <span class="text-v3-red">Walki</span>
+          Strefa Sportów <span class="text-red-600">Walki</span>
         </h2>
-        <p class="mt-2.5 max-w-2xl text-sm sm:text-base text-zinc-300">
+        <p
+          class="text-zinc-300 text-sm sm:text-base max-w-xl mt-2 leading-relaxed"
+        >
           Profesjonalna mata zapaśnicza, pełnowymiarowy ring bokserski oraz
           strefa ciężkich worków treningowych.
         </p>
       </div>
       <a
         href="#grafik"
-        onclick="document.getElementById('tab-fight-zone')?.click()"
-        class="inline-flex items-center gap-2 self-start rounded-xl border border-v3-red/40 bg-v3-red/10 px-5 py-3 text-xs sm:text-sm font-bold uppercase tracking-wider text-v3-red transition hover:bg-v3-red/20 shadow-[0_0_20px_rgba(255,42,42,0.15)]"
+        class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wide text-red-400 hover:text-red-300 font-bold shrink-0 cursor-pointer"
       >
-        Grafik treningów walk →
+        Grafik treningów walk &rarr;
       </a>
     </div>
 
-    <!-- 6 dyscyplin: na smartfonie płynny scroll horyzontalny (swipe), na PC siatka -->
-    <div class="relative -mx-4 px-4 sm:mx-0 sm:px-0 mt-8 sm:mt-10">
+    <!-- Disciplines: Horizontal swipe on mobile, 3-col grid on desktop -->
+    <div class="relative -mx-4 px-4 sm:mx-0 sm:px-0 mb-14">
       <div
-        class="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4 overflow-x-auto sm:overflow-x-visible pb-3 sm:pb-0 snap-x snap-mandatory scroll-smooth overscroll-x-contain [-ms-overflow-style:none] scrollbar-none [&::-webkit-scrollbar]:hidden"
+        class="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4 overflow-x-auto sm:overflow-visible pb-4 sm:pb-0 snap-x snap-mandatory scrollbar-none"
       >
         {
           disciplines.map((item) => (
-            <div class="w-[78vw] max-w-[310px] sm:w-auto shrink-0 snap-center group rounded-2xl border border-v3-border bg-v3-surface/80 p-5 sm:p-6 transition duration-300 hover:border-v3-red/50 hover:shadow-[0_0_25px_rgba(255,42,42,0.12)] flex flex-col justify-between">
+            <div class="w-[82vw] max-w-77.5 sm:w-auto sm:max-w-none shrink-0 snap-start bg-zinc-900/50 border border-zinc-800/90 hover:border-red-500/40 rounded-2xl p-5 sm:p-6 transition-all flex flex-col justify-between">
               <div>
-                <span class="inline-block rounded-md bg-v3-red/10 px-2.5 py-1 text-[10px] sm:text-xs font-bold uppercase tracking-wider text-v3-red">
+                <span class="inline-block text-[11px] font-mono uppercase tracking-wider text-red-400 font-semibold mb-1.5">
                   {item.tag}
                 </span>
-                <h3 class="mt-3 font-['Teko'] text-3xl font-bold uppercase leading-none text-white transition group-hover:text-v3-red">
-                  {item.title}
+                <h3 class="text-lg sm:text-xl font-bold text-white uppercase tracking-tight mb-2">
+                  {item.name}
                 </h3>
-                <p class="mt-2 text-xs sm:text-sm leading-relaxed text-zinc-300">
-                  {item.desc}
-                </p>
+                <p class="text-zinc-300 text-sm leading-relaxed">{item.desc}</p>
               </div>
             </div>
           ))
@@ -145,60 +141,54 @@ const ageGroups = [
       </div>
     </div>
 
-    <!-- 6 Grup Wiekowych: na smartfonie płynny scroll horyzontalny (swipe), na PC siatka -->
+    <!-- Age Hierarchy: Horizontal swipe on mobile, 6-col compact grid on desktop -->
     <div
-      class="mt-10 sm:mt-14 rounded-3xl border border-v3-border bg-v3-surface/50 p-4 sm:p-8 backdrop-blur-sm"
+      class="bg-zinc-900/30 border border-zinc-800/80 rounded-2xl p-5 sm:p-8 mb-10"
     >
       <div
-        class="flex flex-col justify-between gap-3 border-b border-v3-border pb-4 sm:pb-6 sm:flex-row sm:items-end"
+        class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6"
       >
         <div>
           <h3
-            class="font-['Teko'] text-3xl font-bold uppercase leading-none text-white sm:text-4xl"
+            class="font-heading text-lg sm:text-2xl font-black uppercase text-white tracking-tight"
           >
             Szkolenie dla każdego wieku
           </h3>
-          <p class="mt-1 text-xs sm:text-sm text-zinc-300">
+          <p class="text-zinc-400 text-xs sm:text-sm">
             Zorganizowane grupy dostosowane do stopnia zaawansowania i etapu
             rozwoju.
           </p>
         </div>
         <span
-          class="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-v3-red"
+          class="text-[11px] font-mono uppercase tracking-wider text-zinc-400"
+          >Bezpieczeństwo • Technika • Rozwój</span
         >
-          Bezpieczeństwo • Technika • Rozwój
-        </span>
       </div>
 
-      <div class="relative -mx-4 px-4 sm:mx-0 sm:px-0 mt-5 sm:mt-6">
+      <div class="-mx-2 px-2 sm:mx-0 sm:px-0">
         <div
-          class="flex sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 overflow-x-auto sm:overflow-x-visible pb-3 sm:pb-0 snap-x snap-mandatory scroll-smooth overscroll-x-contain [-ms-overflow-style:none] scrollbar-none [&::-webkit-scrollbar]:hidden"
+          class="flex sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3.5 overflow-x-auto sm:overflow-visible pb-3 sm:pb-0 snap-x snap-mandatory"
         >
           {
-            ageGroups.map((group) => (
-              <div
-                class={`w-[76vw] max-w-[290px] sm:w-auto shrink-0 snap-center flex flex-col justify-between rounded-2xl border p-4 sm:p-5 transition ${
-                  group.pro
-                    ? "border-v3-red/40 bg-red-950/25"
-                    : "border-v3-border bg-v3-card/80 hover:border-v3-red/30"
-                }`}
-              >
+            ageGroups.map((g) => (
+              <div class="w-[74vw] max-w-62.5 sm:w-auto sm:max-w-none shrink-0 snap-start bg-zinc-950/90 border border-zinc-800/90 hover:border-zinc-700 rounded-xl p-4 flex flex-col justify-between transition-colors">
                 <div>
-                  <div class="flex flex-wrap items-baseline justify-between gap-1">
-                    <span class="font-['Teko'] text-2xl font-bold uppercase leading-none text-v3-red sm:text-3xl">
-                      {group.name}
+                  <div class="flex flex-wrap items-center gap-2 mb-2.5">
+                    <span class="px-2 py-0.5 rounded bg-red-950/60 border border-red-500/25 text-red-400 font-mono text-xs font-extrabold uppercase tracking-wide">
+                      {g.group}
                     </span>
-                    <span class="text-[11px] font-semibold uppercase tracking-wider text-zinc-400">
-                      {group.subtitle}
+                    <span class="text-zinc-300 text-xs font-semibold">
+                      {g.sub}
                     </span>
                   </div>
-                  <p class="mt-2 text-xs leading-relaxed text-zinc-300 sm:text-sm">
-                    {group.desc}
+                  <p class="text-zinc-300 text-xs leading-relaxed mb-4">
+                    {g.focus}
                   </p>
                 </div>
-                <div class="mt-3.5 border-t border-white/5 pt-2.5 text-xs font-bold text-zinc-200">
-                  <span>{group.age}</span>{" "}
-                  <span class="text-v3-red">• {group.duration}</span>
+                <div class="pt-2.5 border-t border-zinc-900 flex items-center gap-2 text-xs font-mono">
+                  <span class="text-white font-bold">{g.age}</span>
+                  <span class="text-zinc-600">•</span>
+                  <span class="text-zinc-400">{g.duration}</span>
                 </div>
               </div>
             ))
@@ -207,23 +197,17 @@ const ageGroups = [
       </div>
     </div>
 
-    <!-- Baner kierujący do Kadry -->
+    <!-- Compact CTA Bar to Trainers -->
     <div
-      class="mt-8 sm:mt-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 rounded-2xl border border-v3-red/30 bg-v3-surface/50 p-4 sm:p-5 backdrop-blur-sm"
+      class="rounded-2xl bg-linear-to-r from-red-950/40 via-zinc-900/80 to-zinc-900/60 border border-red-500/25 p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
     >
-      <div class="flex items-center gap-3">
-        <span
-          class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-v3-red/10 border border-v3-red/30 text-v3-red font-bold"
-        >
-          🥊
-        </span>
+      <div class="flex items-center gap-3.5">
+        <span class="text-2xl shrink-0">🥊</span>
         <div>
-          <h4
-            class="font-['Teko'] text-2xl font-bold uppercase leading-none text-white"
-          >
-            Poznaj instruktorów KSW Sokół &amp; V3
+          <h4 class="text-white font-bold text-sm sm:text-base">
+            Poznaj instruktorów KSW Sokół & V3
           </h4>
-          <p class="text-xs text-zinc-300">
+          <p class="text-zinc-300 text-xs sm:text-sm">
             Mistrzowie Polski, licencjonowani trenerzy PZKB i czynni zawodnicy
             MMA.
           </p>
@@ -231,10 +215,9 @@ const ageGroups = [
       </div>
       <a
         href="#kadra"
-        data-trainers-tab="fight"
-        class="inline-flex w-full sm:w-auto justify-center items-center gap-2 rounded-xl border border-v3-red/40 bg-v3-red/10 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-v3-red hover:bg-v3-red/20 transition shrink-0"
+        class="w-full sm:w-auto text-center px-5 py-3 rounded-xl bg-red-600 hover:bg-red-500 text-white font-bold text-xs uppercase tracking-wide transition-all shrink-0 cursor-pointer"
       >
-        Zobacz kadrę Fight Zone →
+        Zobacz kadrę Fight Zone &rarr;
       </a>
     </div>
   </div>

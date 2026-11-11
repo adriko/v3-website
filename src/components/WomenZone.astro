@@ -4,54 +4,65 @@
 
 <section
   id="strefa-kobiet"
-  class="relative overflow-hidden border-b border-v3-border bg-linear-to-b from-v3-dark via-v3-surface/40 to-v3-dark ambient-glow-women py-14 sm:py-16 lg:py-24"
+  class="py-16 lg:py-24 relative overflow-hidden bg-zinc-950 border-b border-zinc-900"
 >
-  <!-- Dwie subtelne poświaty: neonowy róż (lewa strona) i fiolet (prawa strona) -->
+  <!-- Subtelna poświata łącząca czerń klubu z akcentem Rose/Pink -->
   <div
-    class="pointer-events-none absolute -top-16 -left-16 h-125 w-125 rounded-full bg-v3-magenta/10 blur-[130px]"
+    class="absolute top-1/2 right-0 -translate-y-1/2 w-125 h-125 bg-rose-600/8 rounded-full blur-[130px] pointer-events-none"
   >
   </div>
   <div
-    class="pointer-events-none absolute top-1/3 -right-16 h-137.5 w-137.5 rounded-full bg-v3-purple/10 blur-[140px]"
+    class="absolute bottom-0 left-1/4 w-100 h-100 bg-pink-600/5 rounded-full blur-[110px] pointer-events-none"
   >
   </div>
 
-  <div class="mx-auto max-w-7xl px-4 lg:px-8 space-y-10 sm:space-y-16 relative">
-    <!-- Część 1: Dedykowana Strefa Kobiet -->
-    <div class="grid grid-cols-1 items-center gap-8 sm:gap-10 lg:grid-cols-12">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <!-- Część 1: Sala Strefa Kobiet -->
+    <div
+      class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center mb-14"
+    >
+      <!-- Kolumna Tekstowa -->
       <div class="lg:col-span-6">
         <div
-          class="inline-flex items-center gap-2 rounded-full border border-pink-500/30 bg-pink-500/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-pink-400"
+          class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-rose-950/50 border border-rose-500/25 mb-5"
         >
-          <span>100% Prywatności i Komfortu</span>
+          <span class="w-2 h-2 rounded-full bg-rose-400"></span>
+          <span
+            class="text-xs font-mono uppercase tracking-wide text-rose-300 font-semibold"
+            >100% Prywatności i Komfortu</span
+          >
         </div>
+
         <h2
-          class="mt-3 sm:mt-4 font-['Teko'] text-4xl font-bold uppercase leading-[0.95] text-white sm:text-6xl"
+          class="font-heading text-3xl sm:text-5xl font-black uppercase tracking-tight text-white mb-5 leading-[1.08]"
         >
-          Dedykowana <br /><span class="text-pink-400">Strefa Kobiet</span>
+          Dedykowana <br />
+          <span
+            class="text-transparent bg-clip-text bg-linear-to-r from-rose-400 via-pink-500 to-rose-500"
+          >
+            Strefa Kobiet
+          </span>
         </h2>
-        <p
-          class="mt-3 sm:mt-4 text-sm sm:text-base leading-relaxed text-zinc-300"
-        >
+
+        <p class="text-zinc-300 text-base sm:text-lg leading-relaxed mb-6">
           W klubie V3 stworzyliśmy wyjątkową, odrębną przestrzeń zaprojektowaną
           specjalnie dla kobiet. Różowa sala wyposażona w suwnicę Smitha,
           profesjonalne stojaki rack, wolne ciężary, hantle, sztangi tiguar oraz
           podświetlane lustro selfie – wszystko w atmosferze pełnego skupienia i
           swobody.
         </p>
-        <ul
-          class="mt-5 sm:mt-6 space-y-2.5 sm:space-y-3 text-xs sm:text-base text-zinc-200"
-        >
+
+        <ul class="space-y-3 mb-6 text-sm sm:text-base text-zinc-200">
           <li class="flex items-center gap-3">
             <span
-              class="flex h-5 w-5 sm:h-6 sm:w-6 shrink-0 items-center justify-center rounded-full bg-pink-500/20 text-xs font-bold text-pink-400"
+              class="w-5 h-5 rounded-full bg-rose-500/15 border border-rose-500/30 flex items-center justify-center text-rose-400 text-xs font-bold shrink-0"
               >✓</span
             >
             <span>Własna, zamknięta sala wyłącznie dla pań</span>
           </li>
           <li class="flex items-center gap-3">
             <span
-              class="flex h-5 w-5 sm:h-6 sm:w-6 shrink-0 items-center justify-center rounded-full bg-pink-500/20 text-xs font-bold text-pink-400"
+              class="w-5 h-5 rounded-full bg-rose-500/15 border border-rose-500/30 flex items-center justify-center text-rose-400 text-xs font-bold shrink-0"
               >✓</span
             >
             <span
@@ -60,7 +71,7 @@
           </li>
           <li class="flex items-center gap-3">
             <span
-              class="flex h-5 w-5 sm:h-6 sm:w-6 shrink-0 items-center justify-center rounded-full bg-pink-500/20 text-xs font-bold text-pink-400"
+              class="w-5 h-5 rounded-full bg-rose-500/15 border border-rose-500/30 flex items-center justify-center text-rose-400 text-xs font-bold shrink-0"
               >✓</span
             >
             <span
@@ -70,33 +81,32 @@
         </ul>
       </div>
 
+      <!-- Kolumna Zdjęciowa -->
       <div class="lg:col-span-6">
         <div
-          class="relative overflow-hidden rounded-2xl border border-pink-500/25 bg-v3-surface shadow-2xl"
+          class="relative rounded-2xl overflow-hidden border border-rose-500/20 bg-zinc-900 shadow-[0_0_40px_rgba(244,63,94,0.08)] group"
         >
           <img
             src="/images/women-zone.jpg"
             alt="Strefa Kobiet w V3 Klub Jarosław"
-            width="800"
-            height="600"
+            class="w-full h-80 sm:h-110 object-cover object-center group-hover:scale-103 transition-transform duration-500"
             loading="lazy"
             decoding="async"
-            class="h-64 w-full object-cover sm:h-96"
+            width="800"
+            height="600"
           />
           <div
-            class="absolute inset-0 bg-linear-to-t from-v3-dark via-transparent to-transparent"
+            class="absolute inset-0 bg-linear-to-t from-zinc-950 via-zinc-950/20 to-transparent"
           >
           </div>
           <div
-            class="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 rounded-xl border border-pink-500/20 bg-v3-dark/85 p-3 sm:p-4 backdrop-blur-md"
+            class="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-zinc-950/90 backdrop-blur-md border border-zinc-800/90"
           >
             <span
-              class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-pink-400"
+              class="text-[11px] font-mono uppercase text-rose-400 tracking-wide block font-semibold"
               >Pink Zone • Tylko dla Kobiet</span
             >
-            <p
-              class="mt-0.5 font-['Teko'] text-xl sm:text-2xl font-bold uppercase leading-none text-white"
-            >
+            <p class="text-white font-bold text-sm sm:text-base">
               Twoje miejsce na bezpieczny i pewny trening
             </p>
           </div>
@@ -104,57 +114,54 @@
       </div>
     </div>
 
-    <!-- Część 2: Opieka Trenerska z Zuzą -->
+    <!-- Część 2: Opieka Wellness, Drenaż Limfatyczny i Analiza Składu Ciała z Zuzą -->
     <div
-      class="rounded-3xl border border-pink-500/20 bg-v3-surface/60 p-4 sm:p-10 backdrop-blur-sm"
+      class="rounded-2xl bg-linear-to-br from-zinc-900/95 via-zinc-900/90 to-rose-950/20 border border-zinc-800/90 p-6 sm:p-8 lg:p-10"
     >
-      <div class="grid grid-cols-1 items-center gap-6 sm:gap-8 lg:grid-cols-12">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <!-- Zdjęcie Zuzy -->
         <div class="lg:col-span-4">
           <div
-            class="relative overflow-hidden rounded-2xl border border-pink-500/30 bg-v3-card"
+            class="relative rounded-xl overflow-hidden border border-zinc-800 aspect-4/5 max-w-xs mx-auto lg:max-w-none shadow-xl"
           >
             <img
               src="/images/zuza.jpg"
               alt="Trenerka Zuza - V3 Klub Jarosław"
-              width="600"
-              height="750"
+              class="w-full h-full object-cover object-top"
               loading="lazy"
               decoding="async"
-              class="h-64 w-full object-cover object-top sm:h-96"
+              width="600"
+              height="750"
             />
             <div
-              class="absolute inset-0 bg-linear-to-t from-v3-dark via-transparent to-transparent"
+              class="absolute inset-0 bg-linear-to-t from-zinc-950/90 via-transparent to-transparent"
             >
             </div>
-            <div
-              class="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4"
-            >
+            <div class="absolute bottom-3 left-3 right-3">
               <span
-                class="block font-['Teko'] text-3xl font-bold uppercase leading-none text-white"
+                class="px-2.5 py-1 rounded bg-rose-600 text-white font-mono text-[11px] font-bold uppercase tracking-wide"
                 >Zuza</span
               >
-              <span
-                class="text-xs font-semibold uppercase tracking-wider text-pink-400"
-                >Trenerka &amp; Opieka Wellness</span
+              <span class="block text-zinc-200 text-xs font-semibold mt-1"
+                >Trenerka & Opieka Wellness</span
               >
             </div>
           </div>
         </div>
 
+        <!-- Opis pakietu u Zuzy -->
         <div class="lg:col-span-8">
           <div
-            class="text-xs font-bold uppercase tracking-widest text-pink-400"
+            class="inline-flex items-center gap-2 text-rose-400 font-mono text-xs uppercase tracking-wider mb-2 font-semibold"
           >
-            Opieka Trenerska &amp; Odnowa
+            Opieka Trenerska & Odnowa
           </div>
           <h3
-            class="mt-1.5 sm:mt-2 font-['Teko'] text-3xl font-bold uppercase leading-[0.95] text-white sm:text-5xl"
+            class="text-2xl sm:text-3xl font-extrabold uppercase text-white tracking-tight mb-3"
           >
             Zadbaj o sylwetkę i zdrowie z Zuzą
           </h3>
-          <p
-            class="mt-2.5 sm:mt-3 text-xs sm:text-base leading-relaxed text-zinc-300"
-          >
+          <p class="text-zinc-300 text-sm sm:text-base leading-relaxed mb-6">
             Skorzystaj z kompleksowych pakietów metamorfozy dostępnych w klubie
             V3. Połączenie drenażu limfatycznego, precyzyjnej analizy składu
             ciała i indywidualnych wytycznych żywieniowo-treningowych to
@@ -162,68 +169,64 @@
             samopoczucia.
           </p>
 
-          <!-- Siatka 2x2 również na smartfonach dla zwięzłości widoku -->
-          <div class="mt-5 sm:mt-6 grid grid-cols-2 gap-2.5 sm:gap-3.5">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-7">
             <div
-              class="rounded-xl border border-v3-border bg-v3-card/70 p-3 sm:p-4"
+              class="bg-zinc-950/70 border border-zinc-800/80 rounded-xl p-4"
             >
-              <span
-                class="block text-xs sm:text-sm font-bold uppercase tracking-wider text-pink-400 leading-tight"
+              <span class="text-rose-400 font-bold text-sm block mb-1"
                 >Drenaż limfatyczny</span
               >
-              <p class="mt-1 text-[11px] sm:text-sm leading-snug text-zinc-300">
+              <p class="text-zinc-300 text-xs leading-relaxed">
                 Redukcja opuchlizny, uczucie lekkich nóg i regeneracja.
               </p>
             </div>
             <div
-              class="rounded-xl border border-v3-border bg-v3-card/70 p-3 sm:p-4"
+              class="bg-zinc-950/70 border border-zinc-800/80 rounded-xl p-4"
             >
-              <span
-                class="block text-xs sm:text-sm font-bold uppercase tracking-wider text-pink-400 leading-tight"
+              <span class="text-rose-400 font-bold text-sm block mb-1"
                 >Analiza składu ciała</span
               >
-              <p class="mt-1 text-[11px] sm:text-sm leading-snug text-zinc-300">
+              <p class="text-zinc-300 text-xs leading-relaxed">
                 Pomiar tkanki tłuszczowej, mięśniowej i wody.
               </p>
             </div>
             <div
-              class="rounded-xl border border-v3-border bg-v3-card/70 p-3 sm:p-4"
+              class="bg-zinc-950/70 border border-zinc-800/80 rounded-xl p-4"
             >
-              <span
-                class="block text-xs sm:text-sm font-bold uppercase tracking-wider text-pink-400 leading-tight"
+              <span class="text-rose-400 font-bold text-sm block mb-1"
                 >Wytyczne dietetyczne</span
               >
-              <p class="mt-1 text-[11px] sm:text-sm leading-snug text-zinc-300">
+              <p class="text-zinc-300 text-xs leading-relaxed">
                 Plan żywieniowy dopasowany do Twojego trybu życia.
               </p>
             </div>
             <div
-              class="rounded-xl border border-v3-border bg-v3-card/70 p-3 sm:p-4"
+              class="bg-zinc-950/70 border border-zinc-800/80 rounded-xl p-4"
             >
-              <span
-                class="block text-xs sm:text-sm font-bold uppercase tracking-wider text-pink-400 leading-tight"
+              <span class="text-rose-400 font-bold text-sm block mb-1"
                 >Kontrola postępów</span
               >
-              <p class="mt-1 text-[11px] sm:text-sm leading-snug text-zinc-300">
+              <p class="text-zinc-300 text-xs leading-relaxed">
                 Monitorowanie efektów, motywacja i opieka.
               </p>
             </div>
           </div>
 
           <div
-            class="mt-5 sm:mt-6 flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3 sm:gap-4"
+            class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5"
           >
             <a
               href="tel:+48733484404"
               aria-label="Zadzwoń i umów się z trenerką Zuzą: 733 484 404"
-              class="inline-flex w-full sm:w-auto justify-center items-center gap-2 rounded-xl bg-pink-500 px-5 py-3.5 text-xs sm:text-sm font-bold uppercase tracking-wider text-white transition hover:bg-pink-400 shadow-[0_0_20px_rgba(236,72,153,0.35)]"
+              class="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs sm:text-sm uppercase tracking-wide transition-all shadow-[0_0_20px_rgba(225,29,72,0.25)] cursor-pointer"
             >
               <span>📞 Umów się z Zuzą: 733 484 404</span>
             </a>
             <span
-              class="text-[11px] sm:text-xs text-zinc-300 text-center sm:text-left"
-              >Pierwsza konsultacja i pomiar na miejscu w klubie</span
+              class="text-xs text-zinc-400 font-mono text-center sm:text-left"
             >
+              Pierwsza konsultacja i pomiar na miejscu w klubie
+            </span>
           </div>
         </div>
       </div>

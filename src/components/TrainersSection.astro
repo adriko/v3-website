@@ -1,430 +1,183 @@
 ---
-import { TRAINERS, type Trainer } from "../data/trainers";
+import { TRAINERS, type Trainer } from '../data/trainers';
 
-const getLastName = (fullName: string) => {
-  const parts = fullName.trim().split(/\s+/);
-  return parts[parts.length - 1] || "";
-};
-
-const fightTrainers: Trainer[] = TRAINERS.filter(
-  (t: Trainer) => t.zone === "fight",
-).sort((a: Trainer, b: Trainer) =>
-  getLastName(a.name).localeCompare(getLastName(b.name), "pl"),
+const sortedTrainers: Trainer[] = [...TRAINERS].sort((a, b) =>
+  a.name.localeCompare(b.name, 'pl')
 );
 
-const gymTrainers: Trainer[] = TRAINERS.filter(
-  (t: Trainer) => t.zone === "gym",
-).sort((a: Trainer, b: Trainer) =>
-  getLastName(a.name).localeCompare(getLastName(b.name), "pl"),
-);
+function getInitials(name: string): string {
+  return name
+    .split(' ')
+    .map((part) => part[0])
+    .join('')
+    .toUpperCase()
+    .slice(0, 2);
+}
 ---
 
-<section
-  id="kadra"
-  class="relative overflow-hidden border-b border-v3-border bg-v3-dark py-16 sm:py-24"
->
-  <!-- Dyskretna poświata centralna -->
-  <div
-    class="pointer-events-none absolute -top-20 left-1/2 -translate-x-1/2 h-125 w-200 max-w-full rounded-full bg-v3-red/10 blur-[140px]"
-    id="trainers-glow"
-  >
-  </div>
+<section id="kadra" class="py-16 lg:py-24 bg-zinc-950 border-b border-zinc-900 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
-  <div class="mx-auto max-w-7xl px-4 lg:px-8 relative">
-    <!-- Górny nagłówek i przełącznik stref kadry -->
-    <div class="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+    <!-- Section Header + Navigation Arrows -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
       <div>
-        <div
-          class="inline-flex items-center gap-2 text-[10px] sm:text-xs font-bold uppercase tracking-widest px-2.5 py-0.5 rounded border border-v3-red/40 bg-v3-red/10 text-v3-red mb-2"
-          id="trainers-badge"
-        >
+        <div class="inline-flex items-center gap-2 text-red-500 font-mono text-xs uppercase tracking-wider mb-2.5 font-semibold">
           <span>&gt;&gt;&gt;</span>
           <span>Profesjonalna Kadra Szkoleniowa V3</span>
         </div>
-        <h2
-          class="font-['Teko'] text-4xl sm:text-6xl font-bold uppercase leading-[0.95] text-white"
-        >
-          Nasi <span id="trainers-title-accent" class="text-v3-red"
-            >Trenerzy</span
-          >
+        <h2 class="font-heading text-3xl sm:text-5xl font-black uppercase tracking-tight text-white">
+          Nasi <span class="text-red-600">Trenerzy</span>
         </h2>
-        <p
-          class="mt-2 text-xs sm:text-base text-zinc-300 max-w-2xl leading-relaxed"
-        >
-          Doświadczeni szkoleniowcy KSW Sokół Jarosław z licencjami PZKB oraz
-          certyfikowani trenerzy personalni i instruktorzy wellness.
+        <p class="text-zinc-300 text-sm sm:text-base max-w-2xl mt-2 leading-relaxed">
+          Doświadczeni szkoleniowcy KSW Sokół Jarosław z licencjami PZKB oraz certyfikowani trenerzy personalni i instruktorzy wellness.
         </p>
       </div>
 
-      <!-- Przełącznik stref trenerskich -->
-      <div
-        class="inline-flex items-center rounded-2xl border border-v3-border bg-v3-surface p-1.5 self-start md:self-auto shadow-md"
-      >
+      <!-- Slider Controls -->
+      <div class="flex items-center gap-2.5 self-start md:self-end">
         <button
+          id="trainers-prev"
           type="button"
-          id="btn-tab-fight"
-          class="cursor-pointer rounded-xl bg-v3-red px-4 sm:px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white shadow-lg transition"
+          aria-label="Poprzedni trener"
+          class="w-11 h-11 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-200 hover:text-white flex items-center justify-center transition-colors cursor-pointer"
         >
-          Fight Zone ({fightTrainers.length})
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
         </button>
         <button
+          id="trainers-next"
           type="button"
-          id="btn-tab-gym"
-          class="cursor-pointer rounded-xl px-4 sm:px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-zinc-300 transition hover:text-white"
+          aria-label="Następny trener"
+          class="w-11 h-11 rounded-xl bg-red-600 hover:bg-red-500 text-white flex items-center justify-center transition-colors shadow-md cursor-pointer"
         >
-          Siłownia &amp; Fitness ({gymTrainers.length})
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
         </button>
       </div>
     </div>
 
-    <!-- Kontener 1: Trenerzy FIGHT ZONE -->
-    <div id="wrapper-fight-trainers" class="mt-10 sm:mt-12">
-      <div class="hidden sm:flex justify-end gap-2 mb-4">
-        <button
-          type="button"
-          id="fight-prev"
-          aria-label="Poprzedni trener"
-          class="w-10 h-10 rounded-xl border border-v3-border bg-v3-surface hover:bg-v3-card flex items-center justify-center text-zinc-300 hover:text-white transition active:scale-95 cursor-pointer shadow-md"
-        >
-          <svg
-            class="w-5 h-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="2.5"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M15 19l-7-7 7-7"></path>
-          </svg>
-        </button>
-        <button
-          type="button"
-          id="fight-next"
-          aria-label="Następny trener"
-          class="w-10 h-10 rounded-xl border border-v3-border bg-v3-surface hover:bg-v3-card flex items-center justify-center text-zinc-300 hover:text-white transition active:scale-95 cursor-pointer shadow-md"
-        >
-          <svg
-            class="w-5 h-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="2.5"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M9 5l7 7-7 7"></path>
-          </svg>
-        </button>
-      </div>
+    <!-- Horizontal Carousel Container -->
+    <div class="relative -mx-4 px-4 sm:mx-0 sm:px-0">
+      <!-- Right Fade Gradient Hint on Desktop -->
+      <div class="hidden lg:block absolute top-0 right-0 bottom-4 w-20 bg-linear-to-l from-zinc-950 to-transparent z-20 pointer-events-none"></div>
 
       <div
-        id="slider-fight"
-        class="flex items-stretch gap-4 sm:gap-6 overflow-x-auto pb-6 pt-1 snap-x snap-mandatory scroll-smooth overscroll-x-contain [-ms-overflow-style:none] scrollbar-none [&::-webkit-scrollbar]:hidden -mx-4 px-4 sm:mx-0 sm:px-0"
+        id="trainers-track"
+        class="flex gap-5 overflow-x-auto pb-4 snap-x snap-mandatory scroll-smooth scrollbar-none"
       >
-        {
-          fightTrainers.map((t: Trainer) => {
-            const initials = t.name
-              .split(" ")
-              .map((n: string) => n[0])
-              .join("");
-            return (
-              <div class="shrink-0 w-[82vw] max-w-85 sm:w-90 snap-center rounded-2xl sm:rounded-3xl border border-v3-border bg-v3-surface/85 backdrop-blur-md p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 hover:border-v3-red/50 hover:shadow-xl shadow-md group">
-                <div>
-                  <div class="relative w-full h-56 sm:h-64 rounded-xl sm:rounded-2xl overflow-hidden border border-white/5 bg-v3-card mb-4 flex items-center justify-center">
-                    {t.image ? (
-                      <img
-                        src={t.image}
-                        alt={t.name}
-                        loading="lazy"
-                        decoding="async"
-                        class="w-full h-full object-cover object-top transition duration-500 group-hover:scale-105"
-                      />
-                    ) : (
-                      <div class="w-full h-full flex flex-col items-center justify-center bg-linear-to-b from-v3-card via-v3-surface to-v3-dark text-center p-4 relative">
-                        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-size-[16px_16px]" />
-                        <div class="w-20 h-20 rounded-full border-2 border-v3-red/40 bg-v3-red/10 text-v3-red flex items-center justify-center font-['Teko'] text-3xl font-bold tracking-wider mb-2 shadow-inner z-10">
-                          {initials}
-                        </div>
-                        <span class="text-[11px] font-bold uppercase tracking-widest text-zinc-300 z-10">
-                          KSW Sokół &amp; V3
-                        </span>
-                      </div>
-                    )}
-                    <div class="absolute inset-0 bg-linear-to-t from-v3-dark via-transparent to-transparent pointer-events-none" />
-                    {t.leadsClasses && (
-                      <div class="absolute bottom-2.5 left-2.5 right-2.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider px-2.5 py-1.5 rounded-lg bg-v3-dark/95 backdrop-blur-md text-white border border-white/10 leading-tight">
-                        <span class="mr-1">🎯</span>
-                        {t.leadsClasses}
-                      </div>
-                    )}
-                  </div>
+        {sortedTrainers.map((t: Trainer) => {
+          const isFight = t.zone === 'fight';
+          const isPink = t.id === 'zuzanna-janicka';
+          const initials = getInitials(t.name);
 
-                  <div>
-                    <h3 class="font-['Teko'] text-2xl sm:text-3xl font-bold uppercase tracking-wide text-white leading-none">
-                      {t.name}
-                    </h3>
-                    <p class="text-xs sm:text-sm font-semibold text-v3-red mt-1 leading-snug">
-                      {t.role}
-                    </p>
-                  </div>
-
-                  <div class="flex flex-wrap gap-1.5 mt-3">
-                    {t.tags.map((tag: string) => (
-                      <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-v3-card text-zinc-300 border border-white/5">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  <p class="text-xs sm:text-sm text-zinc-300 mt-3.5 leading-relaxed">
-                    {t.description}
-                  </p>
-                </div>
-
-                <div class="mt-6 pt-3.5 border-t border-v3-border flex items-center justify-between text-xs">
-                  <span class="text-zinc-400 font-medium text-[11px]">
-                    Sekcja &amp; Konsultacje
-                  </span>
-                  <a
-                    href="tel:+48788463717"
-                    class="font-bold uppercase tracking-wider text-v3-red hover:underline flex items-center gap-1 text-[11px]"
-                  >
-                    Zapytaj w klubie &rarr;
-                  </a>
-                </div>
-              </div>
-            );
-          })
-        }
-      </div>
-    </div>
-
-    <!-- Kontener 2: Trenerzy SIŁOWNIA & FITNESS -->
-    <div id="wrapper-gym-trainers" class="mt-10 sm:mt-12 hidden">
-      <div class="hidden sm:flex justify-end gap-2 mb-4">
-        <button
-          type="button"
-          id="gym-prev"
-          aria-label="Poprzedni trener"
-          class="w-10 h-10 rounded-xl border border-v3-border bg-v3-surface hover:bg-v3-card flex items-center justify-center text-zinc-300 hover:text-white transition active:scale-95 cursor-pointer shadow-md"
-        >
-          <svg
-            class="w-5 h-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="2.5"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M15 19l-7-7 7-7"></path>
-          </svg>
-        </button>
-        <button
-          type="button"
-          id="gym-next"
-          aria-label="Następny trener"
-          class="w-10 h-10 rounded-xl border border-v3-border bg-v3-surface hover:bg-v3-card flex items-center justify-center text-zinc-300 hover:text-white transition active:scale-95 cursor-pointer shadow-md"
-        >
-          <svg
-            class="w-5 h-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="2.5"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M9 5l7 7-7 7"></path>
-          </svg>
-        </button>
-      </div>
-
-      <div
-        id="slider-gym"
-        class="flex items-stretch gap-4 sm:gap-6 overflow-x-auto pb-6 pt-1 snap-x snap-mandatory scroll-smooth overscroll-x-contain [-ms-overflow-style:none] scrollbar-none [&::-webkit-scrollbar]:hidden -mx-4 px-4 sm:mx-0 sm:px-0"
-      >
-        {
-          gymTrainers.map((t: Trainer) => {
-            const initials = t.name
-              .split(" ")
-              .map((n: string) => n[0])
-              .join("");
-            return (
-              <div class="shrink-0 w-[82vw] max-w-85 sm:w-90 snap-center rounded-2xl sm:rounded-3xl border border-v3-border bg-v3-surface/85 backdrop-blur-md p-5 sm:p-6 flex flex-col justify-between transition-all duration-300 hover:border-v3-lime/50 hover:shadow-xl shadow-md group">
-                <div>
-                  <div class="relative w-full h-56 sm:h-64 rounded-xl sm:rounded-2xl overflow-hidden border border-white/5 bg-v3-card mb-4 flex items-center justify-center">
-                    {t.image ? (
-                      <img
-                        src={t.image}
-                        alt={t.name}
-                        loading="lazy"
-                        decoding="async"
-                        class="w-full h-full object-cover object-top transition duration-500 group-hover:scale-105"
-                      />
-                    ) : (
-                      <div class="w-full h-full flex flex-col items-center justify-center bg-linear-to-b from-v3-card via-v3-surface to-v3-dark text-center p-4 relative">
-                        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-size-[16px_16px]" />
-                        <div class="w-20 h-20 rounded-full border-2 border-v3-lime/40 bg-v3-lime/10 text-v3-lime flex items-center justify-center font-['Teko'] text-3xl font-bold tracking-wider mb-2 shadow-inner z-10">
-                          {initials}
-                        </div>
-                        <span class="text-[11px] font-bold uppercase tracking-widest text-zinc-300 z-10">
-                          Centrum Sportowe V3
-                        </span>
-                      </div>
-                    )}
-                    <div class="absolute inset-0 bg-linear-to-t from-v3-dark via-transparent to-transparent pointer-events-none" />
-                    {t.leadsClasses && (
-                      <div class="absolute bottom-2.5 left-2.5 right-2.5 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider px-2.5 py-1.5 rounded-lg bg-v3-dark/95 backdrop-blur-md text-white border border-white/10 leading-tight">
-                        <span class="mr-1">🎯</span>
-                        {t.leadsClasses}
-                      </div>
-                    )}
-                  </div>
-
-                  <div>
-                    <h3 class="font-['Teko'] text-2xl sm:text-3xl font-bold uppercase tracking-wide text-white leading-none">
-                      {t.name}
-                    </h3>
-                    <p class="text-xs sm:text-sm font-semibold text-v3-lime mt-1 leading-snug">
-                      {t.role}
-                    </p>
-                  </div>
-
-                  <div class="flex flex-wrap gap-1.5 mt-3">
-                    {t.tags.map((tag: string) => (
-                      <span class="text-[9px] sm:text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-v3-card text-zinc-300 border border-white/5">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  <p class="text-xs sm:text-sm text-zinc-300 mt-3.5 leading-relaxed">
-                    {t.description}
-                  </p>
-                </div>
-
-                <div class="mt-6 pt-3.5 border-t border-v3-border">
-                  {t.specialLink ? (
-                    <a
-                      href={t.specialLink.href}
-                      class="inline-flex items-center justify-center gap-1.5 w-full py-2.5 rounded-xl border border-pink-500/40 bg-pink-500/10 text-pink-400 hover:bg-pink-500/20 text-xs font-bold uppercase tracking-wider transition active:scale-[0.98]"
-                    >
-                      <span>{t.specialLink.label}</span>
-                    </a>
+          return (
+            <article class="w-[84vw] max-w-85 sm:w-87.5 shrink-0 snap-start bg-zinc-900/50 border border-zinc-800/90 hover:border-zinc-700 rounded-2xl overflow-hidden flex flex-col justify-between transition-all">
+              <div>
+                <!-- Card Top Visual / Photo or Initials -->
+                <div class="relative h-56 bg-zinc-900 overflow-hidden border-b border-zinc-800/80">
+                  {t.image ? (
+                    <img
+                      src={t.image}
+                      alt={t.name}
+                      class="w-full h-full object-cover object-top"
+                      loading="lazy"
+                      decoding="async"
+                    />
                   ) : (
-                    <div class="flex items-center justify-between text-xs">
-                      <span class="text-zinc-400 font-medium text-[11px]">
-                        Treningi Personalne
+                    <div class="w-full h-full flex flex-col items-center justify-center bg-linear-to-br from-zinc-900 via-zinc-950 to-zinc-900 relative">
+                      <div class:list={[
+                        "w-20 h-20 rounded-2xl flex items-center justify-center font-heading text-2xl font-black border",
+                        isFight
+                          ? "bg-red-950/40 border-red-500/30 text-red-500"
+                          : isPink
+                            ? "bg-rose-950/40 border-rose-500/30 text-rose-400"
+                            : "bg-zinc-900 border-zinc-700 text-zinc-200"
+                      ]}>
+                        {initials}
+                      </div>
+                      <span class="mt-2.5 text-[11px] font-mono uppercase tracking-wide text-zinc-400">
+                        {isFight ? 'KSW Sokół & V3' : 'V3 Klub • Siłownia & Fitness'}
                       </span>
-                      <a
-                        href="tel:+48788463717"
-                        class="font-bold uppercase tracking-wider text-v3-lime hover:underline flex items-center gap-1 text-[11px]"
-                      >
-                        Zapytaj w klubie &rarr;
-                      </a>
+                    </div>
+                  )}
+                  <div class="absolute inset-0 bg-linear-to-t from-zinc-950 via-transparent to-transparent"></div>
+
+                  <!-- Leads Classes Pill -->
+                  {t.leadsClasses && (
+                    <div class="absolute bottom-3 left-3 right-3 flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-950/90 backdrop-blur-md border border-zinc-800 text-xs font-mono text-zinc-200 truncate">
+                      <span>🎯</span>
+                      <span class="truncate">{t.leadsClasses}</span>
                     </div>
                   )}
                 </div>
+
+                <!-- Trainer Details -->
+                <div class="p-5">
+                  <div class="mb-3">
+                    <h3 class="text-xl font-bold text-white tracking-tight">{t.name}</h3>
+                    <p class:list={[
+                      "text-xs font-mono font-semibold mt-0.5",
+                      isFight ? "text-red-400" : isPink ? "text-rose-400" : "text-zinc-300"
+                    ]}>
+                      {t.role}
+                    </p>
+                  </div>
+
+                  <!-- Specialization Tags -->
+                  <div class="flex flex-wrap gap-1.5 mb-4">
+                    {t.tags.map((tag: string) => (
+                      <span class="px-2 py-0.5 rounded bg-zinc-950 border border-zinc-800 text-[11px] font-mono text-zinc-300">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <p class="text-zinc-300 text-xs sm:text-sm leading-relaxed">
+                    {t.description}
+                  </p>
+                </div>
               </div>
-            );
-          })
-        }
+
+              <!-- Card Footer CTA -->
+              <div class="px-5 py-3.5 bg-zinc-950/60 border-t border-zinc-800/80 flex items-center justify-between gap-2 text-xs font-mono">
+                <span class="text-zinc-400 truncate">
+                  {t.experience}
+                </span>
+                {t.specialLink ? (
+                  <a
+                    href={t.specialLink.href}
+                    class="font-bold text-rose-400 hover:text-rose-300 transition-colors shrink-0"
+                  >
+                    Strefa Kobiet →
+                  </a>
+                ) : (
+                  <a
+                    href="tel:+48788463717"
+                    class="font-bold text-red-400 hover:text-red-300 transition-colors shrink-0"
+                  >
+                    Zapytaj w klubie →
+                  </a>
+                )}
+              </div>
+            </article>
+          );
+        })}
       </div>
     </div>
+
   </div>
 </section>
 
 <script>
-  const btnFight = document.getElementById("btn-tab-fight");
-  const btnGym = document.getElementById("btn-tab-gym");
-  const wrapFight = document.getElementById("wrapper-fight-trainers");
-  const wrapGym = document.getElementById("wrapper-gym-trainers");
-  const titleAccent = document.getElementById("trainers-title-accent");
-  const badgeEl = document.getElementById("trainers-badge");
-  const glowEl = document.getElementById("trainers-glow");
+  const track = document.getElementById('trainers-track');
+  const prevBtn = document.getElementById('trainers-prev');
+  const nextBtn = document.getElementById('trainers-next');
 
-  function switchTrainersTab(tab: "fight" | "gym") {
-    if (
-      !btnFight ||
-      !btnGym ||
-      !wrapFight ||
-      !wrapGym ||
-      !titleAccent ||
-      !badgeEl ||
-      !glowEl
-    )
-      return;
+  const scrollAmount = 370;
 
-    if (tab === "fight") {
-      btnFight.className =
-        "cursor-pointer rounded-xl bg-v3-red px-4 sm:px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white shadow-lg transition";
-      btnGym.className =
-        "cursor-pointer rounded-xl px-4 sm:px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-zinc-300 transition hover:text-white";
-      wrapFight.classList.remove("hidden");
-      wrapGym.classList.add("hidden");
-      titleAccent.className = "text-v3-red";
-      badgeEl.className =
-        "inline-flex items-center gap-2 text-[10px] sm:text-xs font-bold uppercase tracking-widest px-2.5 py-0.5 rounded border border-v3-red/40 bg-v3-red/10 text-v3-red mb-2";
-      glowEl.className =
-        "pointer-events-none absolute -top-20 left-1/2 -translate-x-1/2 h-125 w-200 max-w-full rounded-full bg-v3-red/10 blur-[140px]";
-    } else {
-      btnGym.className =
-        "cursor-pointer rounded-xl bg-v3-lime px-4 sm:px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-black shadow-lg transition";
-      btnFight.className =
-        "cursor-pointer rounded-xl px-4 sm:px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-zinc-300 transition hover:text-white";
-      wrapGym.classList.remove("hidden");
-      wrapFight.classList.add("hidden");
-      titleAccent.className = "text-v3-lime";
-      badgeEl.className =
-        "inline-flex items-center gap-2 text-[10px] sm:text-xs font-bold uppercase tracking-widest px-2.5 py-0.5 rounded border border-v3-lime/40 bg-v3-lime/10 text-v3-lime mb-2";
-      glowEl.className =
-        "pointer-events-none absolute -top-20 left-1/2 -translate-x-1/2 h-125 w-200 max-w-full rounded-full bg-v3-lime/10 blur-[140px]";
-    }
-  }
+  prevBtn?.addEventListener('click', () => {
+    track?.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+  });
 
-  btnFight?.addEventListener("click", () => switchTrainersTab("fight"));
-  btnGym?.addEventListener("click", () => switchTrainersTab("gym"));
-
-  // Automatyczne przełączanie zakładki po kliknięciu linków z FightZone / GymFitness
-  document
-    .querySelectorAll<HTMLElement>("[data-trainers-tab]")
-    .forEach((trigger) => {
-      trigger.addEventListener("click", () => {
-        const targetTab = trigger.dataset.trainersTab;
-        if (targetTab === "fight" || targetTab === "gym") {
-          switchTrainersTab(targetTab);
-        }
-      });
-    });
-
-  // Strzałki nawigacyjne
-  const sliderFight = document.getElementById("slider-fight");
-  const sliderGym = document.getElementById("slider-gym");
-
-  document
-    .getElementById("fight-prev")
-    ?.addEventListener("click", () =>
-      sliderFight?.scrollBy({ left: -340, behavior: "smooth" }),
-    );
-  document
-    .getElementById("fight-next")
-    ?.addEventListener("click", () =>
-      sliderFight?.scrollBy({ left: 340, behavior: "smooth" }),
-    );
-  document
-    .getElementById("gym-prev")
-    ?.addEventListener("click", () =>
-      sliderGym?.scrollBy({ left: -340, behavior: "smooth" }),
-    );
-  document
-    .getElementById("gym-next")
-    ?.addEventListener("click", () =>
-      sliderGym?.scrollBy({ left: 340, behavior: "smooth" }),
-    );
+  nextBtn?.addEventListener('click', () => {
+    track?.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  });
 </script>
