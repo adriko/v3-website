@@ -1,56 +1,53 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-heading: "Montserrat", sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
+  /* Tła i struktura - Nowoczesny głęboki grafit 2026 zamiast czystej smoły */
+  --color-v3-dark: #121317;
+  --color-v3-surface: #181a20;
+  --color-v3-card: #20222a;
+  --color-v3-border: #2d303b;
 
-  --color-v3-red: #dc2626;
-  --color-v3-red-glow: #ef4444;
-  --color-v3-dark: #09090b;
-  --color-v3-card: #121215;
-  --color-v3-border: #27272a;
-}
+  /* Strefa Siłownia & Główne Logo (Neon Volt / Limonka) */
+  --color-v3-lime: #C8FF00;
+  --color-v3-lime-hover: #B0E200;
 
-html {
-  scroll-behavior: smooth;
-  background-color: #09090b;
-  color: #f4f4f5;
-  font-family: var(--font-sans);
-}
+  /* Strefa FIGHT ZONE (Czerwień i bordowy) */
+  --color-v3-red: #FF2A2A;
+  --color-v3-red-hover: #E01B1B;
 
-/* Główny font nagłówkowy tylko dla H1, H2 i jawnej klasy .font-heading */
-h1,
-h2,
-.font-heading {
-  font-family: var(--font-heading);
-  text-wrap: balance;
-}
+  /* Strefa FITNESS & DANCE (Zumba / ABS / Kobiety) */
+  --color-v3-magenta: #FF007F;
+  --color-v3-purple: #8A2BE2;
 
-/* H3 i H4 dziedziczą czysty Inter dla spójności wewnątrz kart */
-h3,
-h4 {
-  font-family: var(--font-sans);
-  text-wrap: balance;
+  /* Karnety Cennika */
+  --color-v3-gold: #FFB800;
+  --color-v3-blue: #3B82F6;
+
+  /* Typografia */
+  --font-display: 'Teko', sans-serif;
+  --font-sans: 'Inter', sans-serif;
 }
 
-/* Eliminacja sierot typograficznych i dziwnych łamań na końcach linii */
-p,
-li {
-  text-wrap: pretty;
+/* Efekty poświaty neonowej na tekst / ikony */
+.glow-lime {
+  filter: drop-shadow(0 0 15px rgba(200, 255, 0, 0.35));
+}
+.glow-red {
+  filter: drop-shadow(0 0 15px rgba(255, 42, 42, 0.4));
+}
+.glow-magenta {
+  filter: drop-shadow(0 0 15px rgba(255, 0, 127, 0.4));
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
+/* Subtelne poświaty ambientowe sekcji (Ambient Glow) */
+.ambient-glow-lime {
+  background-image: radial-gradient(ellipse 75% 50% at 50% 0%, rgba(200, 255, 0, 0.08), transparent 75%);
 }
-::-webkit-scrollbar-track {
-  background: #09090b;
+
+.ambient-glow-red {
+  background-image: radial-gradient(ellipse 80% 55% at 50% 0%, rgba(255, 42, 42, 0.10), transparent 75%);
 }
-::-webkit-scrollbar-thumb {
-  background: #27272a;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #dc2626;
+
+.ambient-glow-women {
+  background-image: radial-gradient(ellipse 85% 55% at 50% 0%, rgba(255, 0, 127, 0.09), rgba(138, 43, 226, 0.05) 50%, transparent 75%);
 }

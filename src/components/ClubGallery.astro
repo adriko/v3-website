@@ -1,90 +1,204 @@
 ---
-const photos = [
+const googleMapsUrl = "https://maps.app.goo.gl/BUiRAiKCzPZr2aYN9";
+
+const galleryImages = [
   {
-    src: "/images/v3-gym-brick.jpeg",
-    alt: "Strefa siłowa i bieżnie na tle ceglanej ściany z logo V3 Klub",
-    label: "Strefa Siłowa & Cardio",
-    desc: "Dwa piętra sprzętu Bodytone, wolne ciężary i industrialny klimat",
-    span: "md:col-span-8",
+    src: '/images/v3-gym-brick.jpeg',
+    title: 'Strefa Cardio & Ceglana Ściana z Logo V3',
+    tag: 'Park Maszyn',
+    cropWhiteBorders: false,
   },
   {
-    src: "/images/women-zone.jpg",
-    alt: "Dedykowana różowa Strefa Kobiet w V3 Klub Jarosław",
-    label: "Pink Zone • Strefa Kobiet",
-    desc: "Zamknięta sala wyłącznie dla pań z suwnicą Smitha i lustrem selfie",
-    span: "md:col-span-4",
+    src: '/images/boks2.jpg',
+    title: 'Profesjonalny Ring Bokserski & Sprzęt Sparingowy',
+    tag: 'Fight Zone',
+    cropWhiteBorders: false,
   },
   {
-    src: "/images/ring-light.jpg",
-    alt: "Pełnowymiarowy ring bokserski i mata w sekcji KSW Sokół & V3",
-    label: "Fight Zone & Ring Bokserski",
-    desc: "Dom sekcji KSW Sokół Jarosław – boks, kickboxing, MMA i grappling",
-    span: "md:col-span-6",
+    src: '/images/women-zone.jpg',
+    title: 'Prywatna Różowa Strefa wyłącznie dla Kobiet',
+    tag: 'Women Zone',
+    cropWhiteBorders: false,
   },
   {
-    src: "/images/gym-overview.jpg",
-    alt: "Przestronna strefa maszyn i treningu funkcjonalnego w V3 Klub",
-    label: "Przestrzeń Treningowa",
-    desc: "Ergonomiczne maszyny izotoniczne, klatki rack i strefa cross",
-    span: "md:col-span-6",
+    src: '/images/silownia2.jpg',
+    title: 'Strefa Maszyn Izolowanych Bodytone & Mural',
+    tag: 'Siłownia',
+    cropWhiteBorders: false,
+  },
+  {
+    src: '/images/silownia3.jpg',
+    title: 'Strefa Wolnych Ciężarów, Hantle i Sztangi',
+    tag: 'Ciężary',
+    cropWhiteBorders: false,
+  },
+  {
+    src: '/images/fight1.png',
+    title: 'Główna Mata Sportów Walki & Strefa Worków',
+    tag: 'Sala Walk',
+    cropWhiteBorders: true,
+  },
+  {
+    src: '/images/recepcja1.png',
+    title: 'Recepcja Klubu, Strefa Chillout & Odżywki',
+    tag: 'Recepcja V3',
+    cropWhiteBorders: true,
   },
 ];
 ---
 
-<section
-  id="galeria"
-  class="py-16 lg:py-24 bg-zinc-950 border-b border-zinc-900 relative overflow-hidden"
->
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <div
-      class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4"
-    >
+<section id="galeria" class="py-16 sm:py-20 bg-v3-dark border-b border-v3-border relative overflow-hidden">
+  <!-- Dyskretna poświata za galerią dodająca głębi -->
+  <div class="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[800px] rounded-full bg-v3-lime/[0.03] blur-[150px]"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 sm:mb-10">
       <div>
-        <div
-          class="inline-flex items-center gap-2 text-red-500 font-mono text-xs uppercase tracking-wider mb-2.5 font-semibold"
-        >
-          <span>&gt;&gt;&gt;</span> WNĘTRZE KLUBU
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-v3-lime/10 border border-v3-lime/30 text-v3-lime text-[11px] font-bold uppercase tracking-widest mb-3">
+          <svg class="w-3.5 h-3.5 text-v3-lime" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          <span>Zdjęcia z Klubu • Google Maps</span>
         </div>
-        <h2
-          class="font-heading text-3xl sm:text-5xl font-black uppercase tracking-tight text-white"
-        >
-          Zobacz <span class="text-red-600">V3 Klub</span> od środka
+
+        <h2 class="font-['Rajdhani'] text-4xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-wide text-white leading-none">
+          Zobacz V3 <span class="text-v3-lime">od środka</span>
         </h2>
       </div>
-      <p class="text-zinc-300 text-sm sm:text-base max-w-md">
-        Industrialny styl, profesjonalne oświetlenie i ponadprzeciętna czystość
-        na dwóch kondygnacjach przy ul. Poniatowskiego 24.
-      </p>
+
+      <a 
+        href={googleMapsUrl}
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-zinc-300 hover:text-white px-4 py-2.5 rounded-xl bg-v3-surface hover:bg-zinc-800 border border-v3-border hover:border-v3-lime/50 transition-all self-start md:self-auto"
+      >
+        <svg class="w-4 h-4 text-v3-lime" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+        <span>Więcej zdjęć na Google Maps &rarr;</span>
+      </a>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-6">
-      {
-        photos.map((photo) => (
-          <div
-            class:list={[
-              "group relative rounded-2xl overflow-hidden border border-zinc-800/90 bg-zinc-900 h-65 sm:h-85",
-              photo.span,
-            ]}
-          >
-            <img
-              src={photo.src}
-              alt={photo.alt}
-              class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
-              loading="lazy"
-              decoding="async"
-            />
-            <div class="absolute inset-0 bg-linear-to-t from-zinc-950 via-zinc-950/25 to-transparent" />
-            <div class="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-zinc-950/85 backdrop-blur-md border border-zinc-800/80">
-              <span class="text-[11px] font-mono uppercase tracking-wide text-red-400 block font-bold mb-0.5">
-                {photo.label}
+    <!-- Główny slider ze zmianą co 3 sekundy -->
+    <div 
+      id="gallery-slider-container"
+      class="relative w-full h-[300px] sm:h-[460px] md:h-[540px] rounded-2xl sm:rounded-3xl overflow-hidden border border-v3-border bg-v3-card shadow-2xl group select-none"
+    >
+      {galleryImages.map((img, index) => (
+        <div 
+          class={`gallery-slide absolute inset-0 overflow-hidden transition-opacity duration-700 ease-in-out ${index === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+          data-index={index}
+        >
+          <img 
+            src={img.src} 
+            alt={img.title} 
+            class={`w-full h-full object-cover object-center ${img.cropWhiteBorders ? 'scale-[1.85]' : ''}`}
+            loading={index === 0 ? "eager" : "lazy"}
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-v3-dark via-v3-dark/25 to-v3-dark/30"></div>
+          
+          <div class="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 flex items-end justify-between gap-4 z-20">
+            <div>
+              <span class="px-2.5 py-0.5 rounded bg-v3-lime text-black font-black text-[9px] sm:text-[10px] tracking-wider uppercase mb-1.5 inline-block">
+                {img.tag}
               </span>
-              <p class="text-zinc-200 text-xs sm:text-sm font-medium">
-                {photo.desc}
-              </p>
+              <h3 class="font-['Rajdhani'] text-xl sm:text-3xl lg:text-4xl font-bold uppercase tracking-wide text-white leading-none">
+                {img.title}
+              </h3>
             </div>
+            <span class="text-[10px] sm:text-xs font-mono text-zinc-300 bg-v3-dark/80 px-2.5 py-1 rounded border border-white/10 shrink-0">
+              {index + 1} / {galleryImages.length}
+            </span>
           </div>
-        ))
-      }
+        </div>
+      ))}
+
+      <!-- Przyciski prawo / lewo -->
+      <button 
+        id="slider-prev"
+        type="button"
+        aria-label="Poprzednie zdjęcie"
+        class="absolute left-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-v3-dark/70 hover:bg-v3-lime hover:text-black border border-white/20 text-white flex items-center justify-center transition-all opacity-0 group-hover:opacity-100"
+      >
+        &#10094;
+      </button>
+
+      <button 
+        id="slider-next"
+        type="button"
+        aria-label="Następne zdjęcie"
+        class="absolute right-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-v3-dark/70 hover:bg-v3-lime hover:text-black border border-white/20 text-white flex items-center justify-center transition-all opacity-0 group-hover:opacity-100"
+      >
+        &#10095;
+      </button>
+
+      <!-- Paski postępu -->
+      <div class="absolute top-3 left-4 right-4 sm:left-6 sm:right-6 z-30 flex gap-1.5 sm:gap-2">
+        {galleryImages.map((_, i) => (
+          <div class="flex-1 h-1 rounded-full bg-white/20 overflow-hidden">
+            <div class={`slider-indicator h-full bg-v3-lime transition-all duration-300 ${i === 0 ? 'w-full' : 'w-0'}`} data-indicator={i}></div>
+          </div>
+        ))}
+      </div>
     </div>
+
   </div>
 </section>
+
+<script>
+  const slides = document.querySelectorAll<HTMLElement>('.gallery-slide');
+  const indicators = document.querySelectorAll<HTMLElement>('.slider-indicator');
+  const prevBtn = document.getElementById('slider-prev');
+  const nextBtn = document.getElementById('slider-next');
+  const container = document.getElementById('gallery-slider-container');
+
+  let currentIndex = 0;
+  const total = slides.length;
+  let timer: any = null;
+
+  function goToSlide(index: number) {
+    if (total === 0) return;
+    slides[currentIndex].classList.remove('opacity-100', 'z-10');
+    slides[currentIndex].classList.add('opacity-0', 'z-0');
+    indicators[currentIndex].classList.remove('w-full');
+    indicators[currentIndex].classList.add('w-0');
+
+    currentIndex = (index + total) % total;
+
+    slides[currentIndex].classList.remove('opacity-0', 'z-0');
+    slides[currentIndex].classList.add('opacity-100', 'z-10');
+    indicators[currentIndex].classList.remove('w-0');
+    indicators[currentIndex].classList.add('w-full');
+  }
+
+  function startAutoplay() {
+    stopAutoplay();
+    timer = setInterval(() => {
+      goToSlide(currentIndex + 1);
+    }, 3000);
+  }
+
+  function stopAutoplay() {
+    if (timer) clearInterval(timer);
+  }
+
+  nextBtn?.addEventListener('click', () => {
+    goToSlide(currentIndex + 1);
+    startAutoplay();
+  });
+
+  prevBtn?.addEventListener('click', () => {
+    goToSlide(currentIndex - 1);
+    startAutoplay();
+  });
+
+  container?.addEventListener('mouseenter', stopAutoplay);
+  container?.addEventListener('mouseleave', startAutoplay);
+  container?.addEventListener('touchstart', stopAutoplay, { passive: true });
+  container?.addEventListener('touchend', startAutoplay, { passive: true });
+
+  startAutoplay();
+</script>

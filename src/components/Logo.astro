@@ -1,66 +1,37 @@
 ---
 interface Props {
-  size?: "sm" | "md" | "lg";
-  showTagline?: boolean;
+  className?: string;
 }
 
-const { size = "md", showTagline = false } = Astro.props;
-
-const sizeClasses = {
-  sm: {
-    box: "px-2.5 py-1 gap-1.5 border",
-    v3: "text-xl",
-    klub: "text-[10px]",
-  },
-  md: {
-    box: "px-3.5 py-1.5 gap-2 border-2",
-    v3: "text-2xl sm:text-3xl",
-    klub: "text-xs sm:text-sm",
-  },
-  lg: {
-    box: "px-5 py-2.5 gap-2.5 border-2",
-    v3: "text-4xl sm:text-5xl",
-    klub: "text-sm sm:text-base",
-  },
-}[size];
+const { className = "h-10" } = Astro.props;
 ---
 
-<div class="inline-flex items-center gap-3 select-none group">
-  <!-- Main Red Framed Box matching original V3 Klub signage -->
-  <div
-    class:list={[
-      "inline-flex items-baseline bg-zinc-950/90 border-red-600 rounded-sm shadow-[0_0_20px_rgba(220,38,38,0.2)] group-hover:shadow-[0_0_25px_rgba(220,38,38,0.45)] group-hover:border-red-500 transition-all duration-300",
-      sizeClasses.box,
-    ]}
+<div class={`inline-flex items-center gap-2.5 select-none shrink-0 ${className}`}>
+  <!-- Oficjalny geometryczny sygnet V3 w czystym wektorze SVG -->
+  <svg 
+    viewBox="0 0 120 100" 
+    width="44"
+    height="37"
+    fill="none" 
+    xmlns="http://www.w3.org/2000/svg"
+    class="w-auto h-full max-h-10 shrink-0 drop-shadow-[0_0_12px_rgba(200,255,0,0.35)]"
+    style="max-width: 48px; max-height: 40px;"
   >
-    <span
-      class:list={[
-        "font-heading font-black tracking-tight text-red-600 leading-none",
-        sizeClasses.v3,
-      ]}
-    >
-      V3
-    </span>
-    <span
-      class:list={[
-        "font-heading font-extrabold tracking-[0.14em] text-white uppercase leading-none",
-        sizeClasses.klub,
-      ]}
-    >
-      KLUB
-    </span>
-  </div>
+    <!-- Prawa i górna rama trójkąta -->
+    <path 
+      d="M42 12 H106 L63.3 86 H46 L39.7 75 H56.5 L86.5 23 H48.3 L42 12 Z" 
+      fill="#C8FF00" 
+    />
+    <!-- Lewy bok z dwoma belkami poziomymi -->
+    <path 
+      d="M14 25 H26.7 L32.5 35 H74.5 L68.2 46 H38.8 L44.6 56 H62.5 L56.2 67 H38.2 L14 25 Z" 
+      fill="#C8FF00" 
+    />
+  </svg>
 
-  {
-    showTagline && (
-      <div class="hidden sm:flex flex-col leading-tight">
-        <span class="text-[11px] font-mono uppercase tracking-wider text-zinc-300 font-semibold">
-          Centrum Sportowe
-        </span>
-        <span class="text-[10px] font-mono text-zinc-400">
-          Jarosław • Poniatowskiego 24
-        </span>
-      </div>
-    )
-  }
+  <!-- Napis V3KLUB dopasowany do oficjalnego logo -->
+  <div class="flex items-baseline font-['Rajdhani'] text-2xl sm:text-3xl tracking-wider uppercase leading-none shrink-0">
+    <span class="text-v3-lime font-extrabold">V3</span>
+    <span class="text-white font-semibold ml-0.5">KLUB</span>
+  </div>
 </div>

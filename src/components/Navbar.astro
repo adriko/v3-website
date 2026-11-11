@@ -1,279 +1,306 @@
 ---
 import Logo from "./Logo.astro";
+
+const navLinks = [
+  {
+    name: "Fight Zone",
+    href: "#fight-zone",
+    hover: "hover:text-v3-red",
+    bar: "bg-v3-red",
+    border: "hover:border-v3-red/40",
+  },
+  {
+    name: "Siłownia & Fitness",
+    href: "#silownia",
+    hover: "hover:text-v3-lime",
+    bar: "bg-v3-lime",
+    border: "hover:border-v3-lime/40",
+  },
+  {
+    name: "Strefa Kobiet",
+    href: "#strefa-kobiet",
+    hover: "hover:text-pink-400",
+    bar: "bg-pink-400",
+    border: "hover:border-pink-500/40",
+  },
+  {
+    name: "Trenerzy",
+    href: "#kadra",
+    hover: "hover:text-v3-lime",
+    bar: "bg-v3-lime",
+    border: "hover:border-v3-lime/40",
+  },
+  {
+    name: "Cennik",
+    href: "#cennik",
+    hover: "hover:text-v3-lime",
+    bar: "bg-v3-lime",
+    border: "hover:border-v3-lime/40",
+  },
+  {
+    name: "Grafik",
+    href: "#grafik",
+    hover: "hover:text-v3-lime",
+    bar: "bg-v3-lime",
+    border: "hover:border-v3-lime/40",
+  },
+  {
+    name: "Kontakt",
+    href: "#kontakt",
+    hover: "hover:text-v3-lime",
+    bar: "bg-v3-lime",
+    border: "hover:border-v3-lime/40",
+  },
+];
 ---
 
 <header
-  class="sticky top-0 z-50 w-full backdrop-blur-md bg-zinc-950/90 border-b border-zinc-800/80"
+  class="sticky top-0 z-50 border-b border-v3-border bg-v3-dark/90 backdrop-blur-xl"
 >
-  <!-- Top Info Bar (Godziny, Adres, Karty partnerskie, Social Media) -->
+  <!-- Górny pasek informacyjny + Social Media -->
   <div
-    class="bg-zinc-900/95 border-b border-zinc-800/60 py-1.5 px-4 text-xs font-mono text-zinc-300 hidden md:block"
+    class="border-b border-white/5 bg-v3-dark/95 px-4 py-1.5 text-[11px] sm:text-xs text-zinc-300"
   >
-    <div class="max-w-7xl mx-auto flex justify-between items-center">
-      <div class="flex items-center gap-5">
-        <span class="flex items-center gap-2 text-red-400 font-bold">
-          <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+    <div class="mx-auto flex max-w-7xl items-center justify-between gap-3">
+      <!-- Lewa strona: Godziny i kod QR -->
+      <div class="flex items-center gap-2 font-medium">
+        <span
+          class="inline-flex items-center gap-1.5 font-semibold text-v3-lime"
+        >
+          <span class="h-2 w-2 rounded-full bg-v3-lime animate-pulse"></span>
           SAMOOBSŁUGA 5:00 – 24:00
         </span>
-        <span class="text-zinc-600">|</span>
-        <span class="text-zinc-300">Wstęp z aplikacją na kod QR</span>
-      </div>
-      <div class="flex items-center gap-5">
-        <span class="text-zinc-200 font-semibold"
-          >Poniatowskiego 24, Jarosław</span
+        <span class="hidden sm:inline text-zinc-600">|</span>
+        <span class="hidden sm:inline text-zinc-300"
+          >Wstęp z aplikacją na kod QR</span
         >
-        <span class="text-zinc-600">•</span>
-        <span class="text-zinc-300">MultiSport • Medicover • FitProfit</span>
-        <span class="text-zinc-600">|</span>
-        <div class="flex items-center gap-3">
+      </div>
+
+      <!-- Prawa strona: Adres + Pakiety + Ikony Social Media -->
+      <div class="flex items-center gap-3 text-zinc-300">
+        <span class="truncate">Poniatowskiego 24, Jarosław</span>
+        <span class="hidden lg:inline text-zinc-600">•</span>
+        <span class="hidden lg:inline font-medium text-v3-lime/90"
+          >MultiSport • Medicover • FitProfit</span
+        >
+
+        <span class="hidden sm:inline text-zinc-600">|</span>
+
+        <!-- Ikony Social Media Desktop -->
+        <div class="flex items-center gap-2.5">
           <a
             href="https://www.facebook.com/V3CentrumSportowe/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="V3 Klub Facebook"
-            class="text-zinc-300 hover:text-red-500 transition-colors"
+            class="text-zinc-400 transition hover:text-v3-lime"
           >
-            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"
-              ><path
+            <svg class="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24">
+              <path
                 d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
-              ></path></svg
-            >
+              ></path>
+            </svg>
           </a>
+
           <a
             href="https://www.instagram.com/v3_klub_jaroslaw/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="V3 Klub Instagram"
-            class="text-zinc-300 hover:text-red-500 transition-colors"
+            class="text-zinc-400 transition hover:text-v3-lime"
           >
-            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"
-              ><path
+            <svg class="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24">
+              <path
                 d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
-              ></path></svg
-            >
+              ></path>
+            </svg>
           </a>
+
           <a
             href="https://www.tiktok.com/@v3_klub_jaroslaw"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="V3 Klub TikTok"
-            class="text-zinc-300 hover:text-red-500 transition-colors"
+            class="text-zinc-400 transition hover:text-v3-lime"
           >
-            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"
-              ><path
-                d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"
-              ></path></svg
-            >
+            <svg class="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24">
+              <path
+                d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"
+              ></path>
+            </svg>
           </a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Main Navigation -->
+  <!-- Główny pasek nawigacji -->
   <div
-    class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-14 sm:h-20 flex items-center justify-between"
+    class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:px-8"
   >
-    <a href="#" class="focus:outline-none" aria-label="V3 Klub - Strona główna">
-      <Logo size="md" showTagline={false} />
+    <a
+      href="#"
+      aria-label="V3 Klub - Strona główna"
+      class="group flex items-center"
+    >
+      <Logo />
     </a>
 
-    <!-- Desktop Links -->
+    <!-- Nawigacja Desktop (7 kluczowych sekcji) -->
     <nav
-      class="hidden lg:flex items-center gap-6 text-sm font-medium text-zinc-200"
       aria-label="Główna nawigacja"
+      class="hidden lg:flex items-center gap-6 xl:gap-7 text-sm font-semibold text-zinc-200"
     >
-      <a
-        href="#fight-zone"
-        class="hover:text-red-500 transition-colors flex items-center gap-1.5 font-semibold text-white"
-      >
-        <span class="w-1.5 h-1.5 rounded-full bg-red-600"></span>
-        Fight Zone
-      </a>
-      <a href="#silownia" class="hover:text-white transition-colors"
-        >Siłownia & Fitness</a
-      >
-      <a
-        href="#strefa-kobiet"
-        class="hover:text-rose-400 transition-colors text-rose-300 font-medium"
-        >Strefa Kobiet</a
-      >
-      <a href="#kadra" class="hover:text-white transition-colors">Trenerzy</a>
-      <a href="#cennik" class="hover:text-white transition-colors">Cennik</a>
-      <a href="#grafik" class="hover:text-white transition-colors">Grafik</a>
-      <a href="#kontakt" class="hover:text-white transition-colors">Kontakt</a>
+      {
+        navLinks.map((link) => (
+          <a href={link.href} class={`transition-colors ${link.hover}`}>
+            {link.name}
+          </a>
+        ))
+      }
     </nav>
 
-    <!-- Desktop CTA Buttons -->
-    <div class="hidden sm:flex items-center gap-3">
+    <!-- Przyciski akcji Desktop -->
+    <div class="hidden lg:flex items-center gap-3">
       <a
         href="tel:+48788463717"
         aria-label="Zadzwoń do recepcji V3 Klub: 788 463 717"
-        class="hidden xl:flex items-center gap-2 px-3.5 py-2 rounded-lg border border-zinc-800 hover:border-zinc-700 text-xs font-mono text-zinc-200 transition-all"
+        class="inline-flex items-center gap-2 rounded-xl border border-v3-border bg-v3-surface px-3.5 py-2 text-sm font-semibold text-zinc-200 transition hover:border-v3-lime/50 hover:text-white"
       >
         <svg
-          class="w-3.5 h-3.5 text-red-500"
+          class="h-4 w-4 text-v3-lime shrink-0"
           fill="none"
-          stroke="currentColor"
           viewBox="0 0 24 24"
-          ><path
+          stroke="currentColor"
+          stroke-width="2.2"
+        >
+          <path
             stroke-linecap="round"
             stroke-linejoin="round"
-            stroke-width="2"
             d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-          ></path></svg
-        >
+          ></path>
+        </svg>
         <span>788 463 717</span>
       </a>
       <a
         href="#cennik"
-        class="px-4 py-2.5 rounded-lg bg-red-600 hover:bg-red-500 text-white font-bold text-xs uppercase tracking-wide transition-all shadow-[0_0_20px_rgba(220,38,38,0.3)] hover:shadow-[0_0_25px_rgba(220,38,38,0.5)] cursor-pointer"
+        class="inline-flex items-center justify-center rounded-xl bg-v3-lime px-4 py-2 text-sm font-bold uppercase tracking-wider text-black transition hover:bg-v3-lime-hover shadow-[0_0_20px_rgba(200,255,0,0.25)]"
       >
         Kup karnet
       </a>
     </div>
 
-    <!-- Mobile Menu Trigger -->
+    <!-- Przycisk Hamburger Mobile -->
     <button
       id="mobile-menu-btn"
       type="button"
-      class="lg:hidden inline-flex items-center gap-2 p-2 rounded-lg text-zinc-200 hover:text-white hover:bg-zinc-900 border border-zinc-800 transition-colors cursor-pointer"
       aria-label="Otwórz menu nawigacji"
       aria-expanded="false"
+      class="inline-flex lg:hidden items-center justify-center rounded-xl border border-v3-border bg-v3-surface p-2.5 text-zinc-200 transition hover:border-v3-lime/50 hover:text-v3-lime"
     >
-      <span class="text-xs font-mono uppercase tracking-wide font-bold pl-1"
-        >Menu</span
-      >
       <svg
-        id="menu-icon-open"
-        class="w-5 h-5"
+        class="h-6 w-6"
         fill="none"
-        stroke="currentColor"
         viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
       >
         <path
           stroke-linecap="round"
           stroke-linejoin="round"
-          stroke-width="2"
           d="M4 6h16M4 12h16M4 18h16"></path>
       </svg>
     </button>
   </div>
 </header>
 
-<!-- Mobile Backdrop Overlay -->
+<!-- Tło przysłaniające dla menu mobilnego -->
 <div
   id="mobile-backdrop"
-  class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden"
-  aria-hidden="true"
+  class="fixed inset-0 z-40 hidden bg-black/75 backdrop-blur-sm lg:hidden transition-opacity"
 >
 </div>
 
-<!-- Right Side Slide-Over Drawer (Mobile Navigation) -->
+<!-- Przestronny panel boczny Mobile z dużymi odnośnikami dotykowymi -->
 <aside
   id="mobile-drawer"
-  class="fixed top-0 right-0 z-50 h-full w-[82vw] max-w-[320px] bg-zinc-950 border-l border-zinc-800 shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out lg:hidden flex flex-col justify-between overflow-y-auto"
   aria-label="Menu mobilne"
+  class="fixed top-0 right-0 z-50 flex h-dvh w-84 max-w-[88vw] translate-x-full flex-col justify-between border-l border-v3-border bg-v3-dark px-5 py-5 transition-transform duration-300 ease-out lg:hidden shadow-2xl overflow-y-auto"
 >
-  <div class="p-5">
-    <!-- Drawer Header -->
+  <div class="flex flex-col">
+    <!-- Pasek nagłówka drawera -->
     <div
-      class="flex items-center justify-between pb-4 mb-4 border-b border-zinc-800"
+      class="flex items-center justify-between border-b border-v3-border/80 pb-3.5"
     >
-      <Logo size="sm" />
+      <Logo />
       <button
         id="mobile-close-btn"
         type="button"
-        class="p-2 rounded-lg text-zinc-400 hover:text-white bg-zinc-900 border border-zinc-800 cursor-pointer"
-        aria-label="Zamknij menu"
+        aria-label="Zamknij menu nawigacji"
+        class="rounded-xl border border-v3-border bg-v3-surface p-2 text-zinc-400 hover:text-white transition active:scale-95"
       >
         <svg
-          class="w-5 h-5"
+          class="h-5 w-5"
           fill="none"
-          stroke="currentColor"
           viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
         >
           <path
             stroke-linecap="round"
             stroke-linejoin="round"
-            stroke-width="2"
             d="M6 18L18 6M6 6l12 12"></path>
         </svg>
       </button>
     </div>
 
-    <!-- Navigation Links -->
-    <nav class="flex flex-col space-y-1.5">
-      <a
-        href="#fight-zone"
-        class="mobile-link flex items-center gap-3 px-4 py-3 rounded-xl bg-zinc-900/70 hover:bg-zinc-900 text-white font-bold text-base border border-zinc-800/80 transition-colors"
-      >
-        <span class="w-2 h-2 rounded-full bg-red-600 shrink-0"></span>
-        <span>Fight Zone</span>
-        <span class="text-zinc-500 text-sm ml-auto">&rarr;</span>
-      </a>
-      <a
-        href="#silownia"
-        class="mobile-link flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-zinc-900/60 text-zinc-100 font-semibold text-base transition-colors"
-      >
-        <span class="w-2 h-2 rounded-full bg-zinc-700 shrink-0"></span>
-        <span>Siłownia & Fitness</span>
-        <span class="text-zinc-500 text-sm ml-auto">&rarr;</span>
-      </a>
-      <a
-        href="#strefa-kobiet"
-        class="mobile-link flex items-center gap-3 px-4 py-3 rounded-xl bg-rose-950/25 hover:bg-rose-950/40 text-rose-300 font-bold text-base border border-rose-500/20 transition-colors"
-      >
-        <span class="w-2 h-2 rounded-full bg-rose-400 shrink-0"></span>
-        <span>Strefa Kobiet</span>
-        <span class="text-rose-400 text-sm ml-auto">&rarr;</span>
-      </a>
-      <a
-        href="#kadra"
-        class="mobile-link flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-zinc-900/60 text-zinc-100 font-semibold text-base transition-colors"
-      >
-        <span class="w-2 h-2 rounded-full bg-zinc-700 shrink-0"></span>
-        <span>Trenerzy</span>
-        <span class="text-zinc-500 text-sm ml-auto">&rarr;</span>
-      </a>
-      <a
-        href="#cennik"
-        class="mobile-link flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-zinc-900/60 text-zinc-100 font-semibold text-base transition-colors"
-      >
-        <span class="w-2 h-2 rounded-full bg-zinc-700 shrink-0"></span>
-        <span>Cennik</span>
-        <span class="text-zinc-500 text-sm ml-auto">&rarr;</span>
-      </a>
-      <a
-        href="#grafik"
-        class="mobile-link flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-zinc-900/60 text-zinc-100 font-semibold text-base transition-colors"
-      >
-        <span class="w-2 h-2 rounded-full bg-zinc-700 shrink-0"></span>
-        <span>Grafik</span>
-        <span class="text-zinc-500 text-sm ml-auto">&rarr;</span>
-      </a>
-      <a
-        href="#kontakt"
-        class="mobile-link flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-zinc-900/60 text-zinc-100 font-semibold text-base transition-colors"
-      >
-        <span class="w-2 h-2 rounded-full bg-zinc-700 shrink-0"></span>
-        <span>Kontakt</span>
-        <span class="text-zinc-500 text-sm ml-auto">&rarr;</span>
-      </a>
+    <!-- Lista dużych pozycji nawigacyjnych -->
+    <nav class="mt-4 flex flex-col gap-2">
+      {
+        navLinks.map((link) => (
+          <a
+            href={link.href}
+            class={`mobile-link group flex items-center justify-between rounded-2xl border border-white/5 bg-v3-surface/70 px-4 py-3 sm:py-3.5 transition-all duration-150 active:scale-[0.98] hover:bg-v3-surface hover:border-white/10 ${link.border}`}
+          >
+            <div class="flex items-center gap-3">
+              <span
+                class={`h-5 w-1.5 rounded-full ${link.bar} opacity-90 group-hover:opacity-100 transition-opacity`}
+              />
+              <span class="font-['Rajdhani'] text-lg sm:text-xl font-bold uppercase tracking-wider text-zinc-100 transition-colors group-hover:text-white leading-none">
+                {link.name}
+              </span>
+            </div>
+
+            <svg
+              class="h-4 w-4 text-zinc-500 transition-all duration-150 group-hover:text-white group-hover:translate-x-1"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2.5"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </a>
+        ))
+      }
     </nav>
   </div>
 
-  <!-- Drawer Footer -->
-  <div class="p-5 border-t border-zinc-900 bg-zinc-900/30 space-y-3">
-    <div class="flex items-center justify-center gap-4 pb-2">
+  <!-- Dolna sekcja akcji w menu bocznym -->
+  <div class="mt-4 space-y-2.5 border-t border-v3-border/80 pt-3.5">
+    <div class="flex items-center justify-around py-1">
       <a
         href="https://www.facebook.com/V3CentrumSportowe/"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Facebook"
-        class="p-2.5 rounded-lg bg-zinc-900 text-zinc-300 hover:text-white border border-zinc-800"
+        class="p-2 text-zinc-400 hover:text-v3-lime transition"
       >
-        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"
+        <svg class="h-4.5 w-4.5 fill-current" viewBox="0 0 24 24"
           ><path
             d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
           ></path></svg
@@ -284,9 +311,9 @@ import Logo from "./Logo.astro";
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Instagram"
-        class="p-2.5 rounded-lg bg-zinc-900 text-zinc-300 hover:text-white border border-zinc-800"
+        class="p-2 text-zinc-400 hover:text-v3-lime transition"
       >
-        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"
+        <svg class="h-4.5 w-4.5 fill-current" viewBox="0 0 24 24"
           ><path
             d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
           ></path></svg
@@ -297,11 +324,11 @@ import Logo from "./Logo.astro";
         target="_blank"
         rel="noopener noreferrer"
         aria-label="TikTok"
-        class="p-2.5 rounded-lg bg-zinc-900 text-zinc-300 hover:text-white border border-zinc-800"
+        class="p-2 text-zinc-400 hover:text-v3-lime transition"
       >
-        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"
+        <svg class="h-4.5 w-4.5 fill-current" viewBox="0 0 24 24"
           ><path
-            d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"
+            d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.24 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"
           ></path></svg
         >
       </a>
@@ -309,102 +336,130 @@ import Logo from "./Logo.astro";
 
     <a
       href="tel:+48788463717"
-      class="w-full py-3 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-zinc-200 font-mono text-xs flex items-center justify-center gap-2 border border-zinc-800"
+      class="flex w-full items-center justify-center gap-2 rounded-xl border border-v3-border bg-v3-surface py-3 text-xs font-semibold text-zinc-100 transition hover:border-v3-lime/50 active:scale-[0.98]"
     >
-      <span>Zadzwoń: <strong>788 463 717</strong></span>
+      <svg
+        class="h-4 w-4 text-v3-lime shrink-0"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2.2"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+        ></path>
+      </svg>
+      <span
+        >Zadzwoń: <strong
+          class="font-['Rajdhani'] text-base tracking-wider text-white"
+          >788 463 717</strong
+        ></span
+      >
     </a>
+
     <a
       href="https://v3klub.gymmanager.io"
       target="_blank"
       rel="noopener noreferrer"
-      class="w-full py-3 rounded-xl bg-red-600 hover:bg-red-500 text-white font-bold text-xs uppercase tracking-wide text-center block shadow-lg"
+      class="flex w-full items-center justify-center rounded-xl bg-v3-lime py-3 text-xs font-bold uppercase tracking-wider text-black transition hover:bg-v3-lime-hover shadow-[0_0_20px_rgba(200,255,0,0.25)] active:scale-[0.98]"
     >
-      Panel Klienta Online &rarr;
+      Panel Klienta Online →
     </a>
-    <p class="text-[11px] font-mono text-zinc-400 text-center pt-1">
+
+    <p class="text-center text-[10px] text-zinc-400 leading-none pt-1 pb-0.5">
       Samoobsługa 5:00 – 24:00 • ul. Poniatowskiego 24
     </p>
   </div>
 </aside>
 
-<!-- Kompaktowy Dolny Pasek Mobilny (Quick Actions Bar) -->
+<!-- Dolny pasek szybkiego dostępu na smartfonie (pojawia się po przewinięciu sekcji Hero) -->
 <div
-  class="fixed bottom-0 left-0 right-0 z-40 lg:hidden bg-zinc-950/95 backdrop-blur-md border-t border-zinc-800/90 px-3 py-1.5 pb-[calc(0.375rem+env(safe-area-inset-bottom))]"
+  id="mobile-quick-bar"
   aria-label="Szybka nawigacja mobilna"
+  class="fixed bottom-0 inset-x-0 z-40 translate-y-full border-t border-v3-border bg-v3-dark/95 px-3 py-2 backdrop-blur-xl transition-transform duration-300 lg:hidden shadow-[0_-8px_25px_rgba(0,0,0,0.6)]"
 >
-  <div class="grid grid-cols-3 gap-2 max-w-md mx-auto">
+  <div class="mx-auto grid max-w-md grid-cols-3 gap-2">
     <a
       href="#cennik"
-      class="py-2 px-2.5 rounded-lg bg-red-600 hover:bg-red-500 text-white font-bold text-[11px] uppercase tracking-wide text-center flex items-center justify-center gap-1.5 shadow-sm"
+      class="flex items-center justify-center rounded-xl bg-v3-lime py-2.5 text-xs font-bold uppercase tracking-wider text-black shadow-[0_0_15px_rgba(200,255,0,0.25)] active:scale-95 transition"
     >
       Karnety
     </a>
     <a
       href="#grafik"
-      class="py-2 px-2.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-100 font-semibold text-[11px] uppercase tracking-wide text-center border border-zinc-800 flex items-center justify-center gap-1.5"
+      class="flex items-center justify-center gap-1.5 rounded-xl border border-v3-border bg-v3-surface py-2.5 text-xs font-bold uppercase tracking-wider text-zinc-100 active:scale-95 transition"
     >
       <svg
-        class="w-3.5 h-3.5 text-red-500 shrink-0"
+        class="h-3.5 w-3.5 text-v3-lime shrink-0"
         fill="none"
-        stroke="currentColor"
         viewBox="0 0 24 24"
-        ><path
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path
           stroke-linecap="round"
           stroke-linejoin="round"
-          stroke-width="2"
           d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-        ></path></svg
-      >
+        ></path>
+      </svg>
       <span>Grafik</span>
     </a>
     <a
       href="tel:+48788463717"
       aria-label="Zadzwoń do recepcji V3 Klub"
-      class="py-2 px-2.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-100 font-semibold text-[11px] uppercase tracking-wide text-center border border-zinc-800 flex items-center justify-center gap-1.5"
+      class="flex items-center justify-center gap-1.5 rounded-xl border border-v3-border bg-v3-surface py-2.5 text-xs font-bold uppercase tracking-wider text-zinc-100 active:scale-95 transition"
     >
       <svg
-        class="w-3.5 h-3.5 text-red-500 shrink-0"
+        class="h-3.5 w-3.5 text-v3-lime shrink-0"
         fill="none"
-        stroke="currentColor"
         viewBox="0 0 24 24"
-        ><path
+        stroke="currentColor"
+        stroke-width="2.2"
+      >
+        <path
           stroke-linecap="round"
           stroke-linejoin="round"
-          stroke-width="2"
           d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-        ></path></svg
-      >
+        ></path>
+      </svg>
       <span>Zadzwoń</span>
     </a>
   </div>
 </div>
 
 <script>
-  const btn = document.getElementById("mobile-menu-btn");
+  const menuBtn = document.getElementById("mobile-menu-btn");
   const closeBtn = document.getElementById("mobile-close-btn");
   const drawer = document.getElementById("mobile-drawer");
   const backdrop = document.getElementById("mobile-backdrop");
-  const links = document.querySelectorAll(".mobile-link");
+  const quickBar = document.getElementById("mobile-quick-bar");
+  const mobileLinks = document.querySelectorAll(".mobile-link");
 
-  function openMenu() {
-    drawer?.classList.remove("translate-x-full");
-    backdrop?.classList.remove("opacity-0", "pointer-events-none");
-    btn?.setAttribute("aria-expanded", "true");
-    document.body.style.overflow = "hidden";
+  let isMenuOpen = false;
+
+  function updateQuickBar() {
+    if (!quickBar) return;
+    const shouldShow = window.scrollY > 420 && !isMenuOpen;
+    quickBar.classList.toggle("translate-y-full", !shouldShow);
   }
 
-  function closeMenu() {
-    drawer?.classList.add("translate-x-full");
-    backdrop?.classList.add("opacity-0", "pointer-events-none");
-    btn?.setAttribute("aria-expanded", "false");
-    document.body.style.overflow = "";
+  function toggleMenu(open: boolean) {
+    if (!drawer || !backdrop) return;
+    isMenuOpen = open;
+    drawer.classList.toggle("translate-x-full", !open);
+    backdrop.classList.toggle("hidden", !open);
+    menuBtn?.setAttribute("aria-expanded", String(open));
+    updateQuickBar();
   }
 
-  btn?.addEventListener("click", openMenu);
-  closeBtn?.addEventListener("click", closeMenu);
-  backdrop?.addEventListener("click", closeMenu);
+  menuBtn?.addEventListener("click", () => toggleMenu(true));
+  closeBtn?.addEventListener("click", () => toggleMenu(false));
+  backdrop?.addEventListener("click", () => toggleMenu(false));
+  mobileLinks.forEach((link) =>
+    link.addEventListener("click", () => toggleMenu(false)),
+  );
 
-  links.forEach((link) => {
-    link.addEventListener("click", closeMenu);
-  });
+  window.addEventListener("scroll", updateQuickBar, { passive: true });
 </script>
