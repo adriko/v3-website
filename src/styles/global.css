@@ -1,53 +1,75 @@
 @import "tailwindcss";
 
 @theme {
-  /* Tła i struktura - Nowoczesny głęboki grafit 2026 zamiast czystej smoły */
+  /* Tła i struktura - Grafit 2026 */
   --color-v3-dark: #121317;
   --color-v3-surface: #181a20;
   --color-v3-card: #20222a;
   --color-v3-border: #2d303b;
 
-  /* Strefa Siłownia & Główne Logo (Neon Volt / Limonka) */
-  --color-v3-lime: #C8FF00;
-  --color-v3-lime-hover: #B0E200;
+  /* Strefa Siłownia & Akcent Główny (Volt / Limonka) */
+  --color-v3-lime: #c8ff00;
+  --color-v3-lime-hover: #b0e200;
 
-  /* Strefa FIGHT ZONE (Czerwień i bordowy) */
-  --color-v3-red: #FF2A2A;
-  --color-v3-red-hover: #E01B1B;
+  /* Strefa FIGHT ZONE (Czerwień) */
+  --color-v3-red: #ff2a2a;
+  --color-v3-red-hover: #e01b1b;
 
-  /* Strefa FITNESS & DANCE (Zumba / ABS / Kobiety) */
-  --color-v3-magenta: #FF007F;
-  --color-v3-purple: #8A2BE2;
+  /* Strefa Kobiet & Fitness */
+  --color-v3-magenta: #ff007f;
+  --color-v3-purple: #8a2be2;
 
-  /* Karnety Cennika */
-  --color-v3-gold: #FFB800;
-  --color-v3-blue: #3B82F6;
+  /* Akcenty pomocnicze */
+  --color-v3-gold: #ffb800;
+  --color-v3-blue: #3b82f6;
 
-  /* Typografia */
-  --font-display: 'Teko', sans-serif;
-  --font-sans: 'Inter', sans-serif;
+  /* TYPOGRAFIA: Ścisły podział na 2 czcionki w całym serwisie */
+  --font-display: "Rajdhani", sans-serif;
+  --font-sans: "Inter", sans-serif;
 }
 
-/* Efekty poświaty neonowej na tekst / ikony */
+/* Poświaty neonowe */
 .glow-lime {
-  filter: drop-shadow(0 0 15px rgba(200, 255, 0, 0.35));
+  filter: drop-shadow(0 0 14px rgba(200, 255, 0, 0.35));
 }
 .glow-red {
-  filter: drop-shadow(0 0 15px rgba(255, 42, 42, 0.4));
+  filter: drop-shadow(0 0 14px rgba(255, 42, 42, 0.4));
 }
 .glow-magenta {
-  filter: drop-shadow(0 0 15px rgba(255, 0, 127, 0.4));
+  filter: drop-shadow(0 0 14px rgba(255, 0, 127, 0.4));
 }
 
-/* Subtelne poświaty ambientowe sekcji (Ambient Glow) */
+/* Tła ambientowe sekcji */
 .ambient-glow-lime {
-  background-image: radial-gradient(ellipse 75% 50% at 50% 0%, rgba(200, 255, 0, 0.08), transparent 75%);
+  background-image: radial-gradient(
+    ellipse 75% 45% at 50% 0%,
+    rgba(200, 255, 0, 0.07),
+    transparent 70%
+  );
 }
 
 .ambient-glow-red {
-  background-image: radial-gradient(ellipse 80% 55% at 50% 0%, rgba(255, 42, 42, 0.10), transparent 75%);
+  background-image: radial-gradient(
+    ellipse 80% 50% at 50% 0%,
+    rgba(255, 42, 42, 0.08),
+    transparent 70%
+  );
 }
 
 .ambient-glow-women {
-  background-image: radial-gradient(ellipse 85% 55% at 50% 0%, rgba(255, 0, 127, 0.09), rgba(138, 43, 226, 0.05) 50%, transparent 75%);
+  background-image: radial-gradient(
+    ellipse 80% 50% at 50% 0%,
+    rgba(255, 0, 127, 0.08),
+    rgba(138, 43, 226, 0.04) 50%,
+    transparent 70%
+  );
+}
+
+/* Scrollbary mobilne */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

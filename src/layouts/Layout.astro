@@ -1,5 +1,5 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
 
 interface Props {
   title?: string;
@@ -29,13 +29,13 @@ const {
       rel="stylesheet"
     />
 
-    <!-- Dane strukturalne Schema.org (Lokalne SEO 2026) -->
+    <!-- Schema.org -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "ExerciseGym",
         "name": "V3 Klub - Centrum Sportowe Jarosław",
-        "description": "Nowoczesne centrum sportowe w Jarosławiu: siłownia Bodytone, wolne ciężary, Fight Zone (Boks, Kickboxing, MMA, Ju-Jitsu, Krav Maga), dedykowana Strefa Kobiet oraz zajęcia fitness i cross. Samoobsługowe wejście 5:00 – 24:00 na kod QR.",
+        "description": "Nowoczesne centrum sportowe w Jarosławiu: siłownia Bodytone, wolne ciężary, Fight Zone, dedykowana Strefa Kobiet oraz zajęcia fitness i cross. Samoobsługowe wejście 5:00 – 24:00 na kod QR.",
         "url": "https://v3-website-ten.vercel.app/",
         "telephone": "+48788463717",
         "priceRange": "109 PLN - 309 PLN",
@@ -69,23 +69,23 @@ const {
             "closes": "23:59"
           }
         ],
-        "sameAs": [
-          "https://v3klub.gymmanager.io"
-        ]
+        "sameAs": ["https://v3klub.gymmanager.io"]
       }
     </script>
   </head>
-  <body class="bg-v3-dark text-zinc-100 font-sans antialiased selection:bg-v3-lime selection:text-black min-h-screen flex flex-col">
+  <body
+    class="bg-v3-dark text-zinc-100 font-sans antialiased selection:bg-v3-lime selection:text-black min-h-screen flex flex-col"
+  >
     <slot />
   </body>
 </html>
 
 <style is:global>
+  /* Gwarancja absolutnej spójności: wszystkie nagłówki i akcenty bez wyjątku używają Rajdhani */
   [class*="font-['Teko']"],
   [class*="font-['Rajdhani']"],
-  .font-teko,
   .font-display {
-    font-family: 'Rajdhani', sans-serif !important;
+    font-family: "Rajdhani", sans-serif !important;
     letter-spacing: 0.02em;
   }
 </style>

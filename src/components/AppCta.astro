@@ -1,100 +1,134 @@
 ---
+
 ---
 
-<section class="relative border-b border-v3-border bg-v3-surface/40 py-16 lg:py-24 overflow-hidden">
-  <!-- Dyskretna poświata pod kodem QR -->
-  <div class="pointer-events-none absolute -bottom-20 -left-20 h-80 w-80 rounded-full bg-v3-lime/5 blur-3xl"></div>
+<section
+  class="relative border-b border-v3-border bg-v3-surface/40 py-14 sm:py-16 lg:py-20 overflow-hidden"
+>
+  <!-- Poświata pod kodem QR -->
+  <div
+    class="pointer-events-none absolute -bottom-20 -left-20 h-72 w-72 rounded-full bg-v3-lime/5 blur-3xl"
+  >
+  </div>
 
-  <div class="mx-auto max-w-7xl px-4 lg:px-8 relative">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
     <div class="grid grid-cols-1 items-center gap-10 lg:grid-cols-12">
-      <!-- Lewa kolumna -->
+      <!-- Lewa kolumna: Informacje o aplikacji -->
       <div class="lg:col-span-7">
-        <div class="inline-flex items-center gap-2 rounded-full border border-v3-lime/30 bg-v3-lime/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-v3-lime">
-          <span>Inteligentny Wstęp 5:00 – 24:00</span>
+        <div
+          class="inline-flex items-center gap-2 rounded-full border border-v3-lime/30 bg-v3-lime/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-v3-lime"
+        >
+          <span>Wejście 5:00 – 24:00</span>
         </div>
-        <h2 class="mt-4 font-['Teko'] text-4xl font-bold uppercase leading-[0.95] text-white sm:text-6xl">
-          Smartfon Twoim <br /><span class="text-v3-lime">Kluczem Do Klubu</span>
+
+        <h2
+          class="mt-3 font-display text-4xl sm:text-5xl lg:text-6xl font-bold uppercase leading-none text-white"
+        >
+          Wstęp na Smartfon <br /><span class="text-v3-lime"
+            >Klub Bez Ograniczeń</span
+          >
         </h2>
-        <p class="mt-4 text-base leading-relaxed text-zinc-300">
-          Koniec ze staniem w kolejkach do recepcji i plastikowymi kartami. W V3 Klubie całym członkostwem zarządzasz online w panelu mobilnym <strong class="text-white">v3klub.gymmanager.io</strong> lub w aplikacji.
+
+        <p
+          class="mt-3 text-sm sm:text-base leading-normal text-zinc-300 max-w-xl"
+        >
+          Centrum Sportowe V3 działa w standardzie samoobsługowym. Pobierz
+          bezpłatną aplikację klubową <strong>GymManager</strong>, aktywuj
+          karnet w kilka sekund i wchodź do klubu o dowolnej porze przy użyciu
+          cyfrowego kodu QR na kołowrotku.
         </p>
 
-        <ul class="mt-6 space-y-3.5 text-sm text-zinc-200 sm:text-base">
-          <li class="flex items-start gap-3">
-            <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-v3-lime/20 text-xs font-bold text-v3-lime">✓</span>
-            <span><strong class="text-white">Autonomiczne wejście:</strong> Skanujesz kod QR z ekranu telefonu przy czytniku i wchodzisz na trening od 5:00 rano do północy</span>
+        <ul class="mt-5 space-y-2.5 text-xs sm:text-sm text-zinc-200">
+          <li class="flex items-center gap-3">
+            <span
+              class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-v3-lime/20 text-xs font-bold text-v3-lime"
+              >✓</span
+            >
+            <span
+              >Błyskawiczne otwieranie wejścia kodem QR z ekranu telefonu</span
+            >
           </li>
-          <li class="flex items-start gap-3">
-            <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-v3-lime/20 text-xs font-bold text-v3-lime">✓</span>
-            <span><strong class="text-white">Zakup w 30 sekund:</strong> Karnety LIMIT, ACTIVE, PRO i VIP aktywowane natychmiast na koncie</span>
+          <li class="flex items-center gap-3">
+            <span
+              class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-v3-lime/20 text-xs font-bold text-v3-lime"
+              >✓</span
+            >
+            <span
+              >Zapisy na zajęcia grupowe, cross oraz fitness w 1 kliknięcie</span
+            >
           </li>
-          <li class="flex items-start gap-3">
-            <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-v3-lime/20 text-xs font-bold text-v3-lime">✓</span>
-            <span><strong class="text-white">Rezerwacja zajęć:</strong> Zapisy na Fight Zone oraz zajęcia Fitness jednym dotknięciem</span>
+          <li class="flex items-center gap-3">
+            <span
+              class="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-v3-lime/20 text-xs font-bold text-v3-lime"
+              >✓</span
+            >
+            <span>Wygodne odnawianie członkostwa i podgląd historii wejść</span>
           </li>
         </ul>
 
-        <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <div class="mt-7 flex flex-wrap items-center gap-3">
           <a
             href="https://v3klub.gymmanager.io"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center justify-center rounded-xl bg-v3-lime px-6 py-3.5 text-sm font-bold uppercase tracking-wider text-black transition hover:bg-v3-lime-hover shadow-[0_0_20px_rgba(200,255,0,0.25)]"
+            class="inline-flex items-center justify-center rounded-xl bg-v3-lime px-6 py-3.5 text-xs sm:text-sm font-bold uppercase tracking-wider text-black transition hover:bg-v3-lime-hover shadow-[0_0_20px_rgba(200,255,0,0.25)]"
           >
-            Panel Klienta V3 (Kup Karnet) →
+            Panel Klienta Online →
           </a>
-          <div class="flex items-center gap-3">
-            <a
-              href="https://play.google.com/store/apps/details?id=io.gymmanager.app&hl=pl"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Pobierz aplikację GymManager z Google Play"
-              class="inline-flex flex-1 sm:flex-initial items-center justify-center gap-2 rounded-xl border border-v3-border bg-v3-surface px-4 py-3.5 text-xs font-bold uppercase tracking-wider text-zinc-200 transition hover:border-v3-lime/50 hover:text-white"
-            >
-              <span>▶ Google Play</span>
-            </a>
-            <a
-              href="https://apps.apple.com/pl/app/gymmanager-app/id6474127775"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Pobierz aplikację GymManager z App Store"
-              class="inline-flex flex-1 sm:flex-initial items-center justify-center gap-2 rounded-xl border border-v3-border bg-v3-surface px-4 py-3.5 text-xs font-bold uppercase tracking-wider text-zinc-200 transition hover:border-v3-lime/50 hover:text-white"
-            >
-              <span> App Store</span>
-            </a>
-          </div>
+          <a
+            href="https://apps.apple.com/pl/app/gymmanager/id1453912648"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2 rounded-xl border border-zinc-700 bg-v3-card px-4 py-3 text-xs sm:text-sm font-bold uppercase tracking-wider text-zinc-200 hover:border-v3-lime/40 hover:text-white transition"
+          >
+            <span>App Store</span>
+          </a>
+          <a
+            href="https://play.google.com/store/apps/details?id=io.gymmanager.mobile"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-2 rounded-xl border border-zinc-700 bg-v3-card px-4 py-3 text-xs sm:text-sm font-bold uppercase tracking-wider text-zinc-200 hover:border-v3-lime/40 hover:text-white transition"
+          >
+            <span>Google Play</span>
+          </a>
         </div>
       </div>
 
-      <!-- Prawa kolumna: Kod QR -->
-      <div class="hidden lg:flex lg:col-span-5 justify-center">
-        <a
-          href="https://v3klub.gymmanager.io"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="group flex w-full max-w-sm flex-col items-center rounded-3xl border border-v3-border bg-v3-card p-8 text-center shadow-2xl transition hover:border-v3-lime/50 hover:shadow-[0_0_30px_rgba(200,255,0,0.12)]"
+      <!-- Prawa kolumna: Karta QR -->
+      <div class="lg:col-span-5 flex justify-center">
+        <div
+          class="relative w-full max-w-sm rounded-3xl border border-v3-border bg-v3-surface/90 p-6 sm:p-8 backdrop-blur-md text-center shadow-xl"
         >
-          <span class="rounded-full bg-v3-lime/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-v3-lime">
-            Zeskanuj aparatem lub kliknij
+          <span
+            class="inline-block rounded-full bg-v3-lime/10 px-3 py-1 text-xs font-bold uppercase tracking-wider text-v3-lime mb-4"
+          >
+            Kod QR Klubu
           </span>
-          <div class="mt-6 rounded-2xl bg-white p-4">
+
+          <div
+            class="mx-auto w-44 h-44 rounded-2xl bg-white p-3 shadow-inner flex items-center justify-center"
+          >
+            <!-- Dynamiczny kod QR linkujący do platformy GymManager -->
             <img
-              src="/qr-gymmanager.png"
-              alt="Kod QR GymManager V3 Klub Jarosław"
-              width="200"
-              height="200"
+              src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://v3klub.gymmanager.io"
+              alt="Kod QR do rejestracji w V3 Klub"
+              width="170"
+              height="170"
               loading="lazy"
               decoding="async"
-              class="h-44 w-44 object-contain"
+              class="w-full h-full object-contain"
             />
           </div>
-          <div class="mt-5 font-['Teko'] text-3xl font-bold uppercase leading-none text-white transition group-hover:text-v3-lime">
-            v3klub.gymmanager.io →
-          </div>
-          <p class="mt-2 text-xs leading-relaxed text-zinc-300">
-            Bezpośredni dostęp do karnetów, rezerwacji i kodu wejściowego QR w przeglądarce telefonu.
+
+          <p
+            class="mt-4 font-display text-2xl font-bold uppercase text-white leading-none"
+          >
+            Zeskanuj i dołącz
           </p>
-        </a>
+          <span class="mt-1 block text-xs text-zinc-400">
+            Skieruj aparat telefonu, aby otworzyć panel rejestracji
+          </span>
+        </div>
       </div>
     </div>
   </div>
