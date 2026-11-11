@@ -55,11 +55,11 @@ const navLinks = [
 ---
 
 <header class="sticky top-0 z-50 border-b border-v3-border bg-v3-dark/90 backdrop-blur-xl">
-  <!-- Górny pasek informacyjny: Na smartfonie w jednej linii, na PC pełna rozpiętość -->
+  <!-- Górny pasek: 1 linia na smartfonie, pełna szerokość na PC -->
   <div class="border-b border-white/5 bg-v3-dark/95 px-3 sm:px-4 py-1.5 text-[11px] sm:text-xs text-zinc-300">
     <div class="mx-auto flex max-w-7xl items-center justify-between gap-2 sm:gap-3">
       <!-- Lewa strona: Godziny (na telefonie w jednej linii) -->
-      <div class="flex items-center gap-2 font-medium shrink-0">
+      <div class="flex items-center gap-1.5 font-medium shrink-0">
         <span class="inline-flex items-center gap-1.5 font-semibold text-v3-lime whitespace-nowrap">
           <span class="h-1.5 w-1.5 rounded-full bg-v3-lime animate-pulse"></span>
           SAMOOBSŁUGA 5:00 – 24:00
@@ -70,7 +70,7 @@ const navLinks = [
         </span>
       </div>
 
-      <!-- Prawa strona: Adres + Pakiety + Social (na telefonie schowane ikony dla zachowania 1 linii) -->
+      <!-- Prawa strona: Adres + Pakiety + Social -->
       <div class="flex items-center gap-2 sm:gap-3 text-zinc-300 min-w-0 justify-end">
         <span class="truncate whitespace-nowrap text-zinc-400 sm:text-zinc-300">
           Poniatowskiego 24<span class="hidden sm:inline">, Jarosław</span>
@@ -112,7 +112,7 @@ const navLinks = [
             href="https://www.tiktok.com/@v3_klub_jaroslaw"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="V3 Klub TikTok"
+            aria-label="TikTok"
             class="text-zinc-400 transition hover:text-v3-lime"
           >
             <svg class="h-3.5 w-3.5 fill-current" viewBox="0 0 24 24">
@@ -134,7 +134,7 @@ const navLinks = [
       <Logo />
     </a>
 
-    <!-- Nawigacja Desktop (7 kluczowych sekcji) -->
+    <!-- Nawigacja Desktop -->
     <nav
       aria-label="Główna nawigacja"
       class="hidden lg:flex items-center gap-6 xl:gap-7 text-sm font-semibold text-zinc-200"
@@ -201,13 +201,13 @@ const navLinks = [
   </div>
 </header>
 
-<!-- Tło przysłaniające dla menu mobilnego -->
+<!-- Tło dla menu mobilnego -->
 <div
   id="mobile-backdrop"
   class="fixed inset-0 z-40 hidden bg-black/75 backdrop-blur-sm lg:hidden transition-opacity"
 ></div>
 
-<!-- Przestronny panel boczny Mobile z dużymi odnośnikami dotykowymi -->
+<!-- Panel boczny Mobile -->
 <aside
   id="mobile-drawer"
   aria-label="Menu mobilne"
@@ -351,7 +351,7 @@ const navLinks = [
   </div>
 </aside>
 
-<!-- Dolny pasek szybkiego dostępu na smartfonie (pojawia się po przewinięciu sekcji Hero) -->
+<!-- Dolny pasek szybkiego dostępu na smartfonie -->
 <div
   id="mobile-quick-bar"
   aria-label="Szybka nawigacja mobilna"

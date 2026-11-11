@@ -45,7 +45,7 @@ export const GOOGLE_REVIEWS: ReviewItem[] = [
     author: "Wika",
     rating: 5,
     date: "3 miesiące temu",
-    badge: "Fight Zone & Boks",
+    badge: "Fight Zone & Trener Jacek",
     text: "Szczerze polecam tą siłownię, a szczególnie strefę Fight Zone i zajęcia z trenerem Jackiem, który zawsze zaraża pozytywną energią, tłumaczy każdy krok i dostosowuje poziom trudności do osób na zajęciach. Czuć jego powołanie do roli trenera i pracy z ludźmi!",
   },
   {
@@ -61,7 +61,7 @@ export const GOOGLE_REVIEWS: ReviewItem[] = [
     author: "Dominika Zakrzewska",
     rating: 5,
     date: "5 miesięcy temu",
-    badge: "Trening Personalny",
+    badge: "Trenerka Wiktoria",
     text: "Świetna siłownia z bardzo dobrą atmosferą i profesjonalnym podejściem. Szczególne podziękowania dla trenerki Wiktorii – jest mega zaangażowana, pomocna i motywująca. Po treningu wprowadzającym zostaliśmy z nią na dłużej i była to świetna decyzja!",
   },
   {
@@ -78,7 +78,7 @@ export const GOOGLE_REVIEWS: ReviewItem[] = [
     rating: 5,
     date: "miesiąc temu",
     badge: "Zajęcia & Parking",
-    text: "Polecam, na siłowni jest prowadzone dużo aktywności w postaci zajęć grupowych, jak i również sporty walki. Sama siłownia dobrze wyposażona, recepcja zawsze uśmiechnięta i pomocna, a na plus duży parking i wejście przez aplikację poza godzinami recepcji.",
+    text: "Polecam, na siłowni jest prowadzone dużo aktywności w postaci zajęć grupowych jak i również sporty walki. Sama siłownia dobrze wyposażona, recepcja zawsze uśmiechnięta i pomocna, a na plus duży parking i możliwość wchodzenia przez aplikację.",
   },
   {
     id: 10,
@@ -86,14 +86,14 @@ export const GOOGLE_REVIEWS: ReviewItem[] = [
     rating: 5,
     date: "5 miesięcy temu",
     badge: "Szkolenie Młodzieży",
-    text: "Moja córka 4 lata trenuje pod okiem Pana Jacka. Treningi są na wysokim poziomie zarówno fizycznym, jak i mentalnym. Zawsze ma czas porozmawiać, wytłumaczyć i pomóc. Stworzył jedno z najlepszych miejsc dla chcącej sportowo rozwijać się młodzieży. Brawo!",
+    text: "Moja córka 4 lata trenuje pod okiem Pana Jacka. Treningi są na wysokim poziomie zarówno fizycznym jak i mentalnym. Zawsze ma czas porozmawiać, przekazać uwagi i pochwały. Stworzył jedno z najlepszych miejsc dla chcącej sportowo rozwijać się młodzieży. Brawo!",
   },
   {
     id: 11,
     author: "Paulina Piekarz",
     rating: 5,
     date: "5 miesięcy temu",
-    badge: "Sekcja Bokserska",
+    badge: "Boks Dzieci & Młodzież",
     text: "Syn uczęszcza na treningi boksu do pana Jacka i jest bardzo zadowolony. Profesjonalny trener, świetne podejście do dzieci i młodzieży oraz miła atmosfera na zajęciach. Widać zaangażowanie i pasję do sportu. Syn z każdym tygodniem robi coraz większe postępy.",
   },
   {
@@ -101,7 +101,7 @@ export const GOOGLE_REVIEWS: ReviewItem[] = [
     author: "Iza Jakaś",
     rating: 5,
     date: "2 miesiące temu",
-    badge: "Komfort Treningu",
+    badge: "Komfort & Brak Kolejek",
     text: "Z całego serca polecam ten klub przede wszystkim dlatego, że nie trzeba czekać w kolejce na użycie maszyny. Jest przemiła obsługa, zawsze jest czysto, a opcja samoobsługi nie raz uratowała mój trening!",
   },
   {
@@ -109,15 +109,15 @@ export const GOOGLE_REVIEWS: ReviewItem[] = [
     author: "Monika Kiwacka",
     rating: 5,
     date: "3 miesiące temu",
-    badge: "Kickboxing & Góra",
-    text: "Z całego serduszka polecam to miejsce, zarówno siłownię, jak i górę na której odbywają się zajęcia z Kickboxingu. Jest bardzo dobrze wyposażona. Szczególnie polecam spróbować zajęć z Kickboxingu, które odmieniają sylwetkę i kształtują charakter.",
+    badge: "Kickboxing & Sylwetka",
+    text: "Z całego serduszka polecam to miejsce, zarówno siłownię jak i górę na której odbywają się zajęcia z Kickboxingu. Jest bardzo dobrze wyposażone. Szczególnie polecam spróbować zajęć z Kickboxingu, które odmieniają sylwetkę i kształtują charakter.",
   },
   {
     id: 14,
     author: "Alicja Harpula",
     rating: 5,
     date: "miesiąc temu",
-    badge: "Obsługa & Recepcja",
+    badge: "Obsługa Recepcji",
     text: "Bardzo fajna siłownia, ale szczególnie na plus zasługują dziewczyny z recepcji. Zawsze uśmiechnięte, miłe i pomocne. Dzięki nim od samego wejścia panuje naprawdę przyjemna atmosfera.",
   },
   {
@@ -125,7 +125,7 @@ export const GOOGLE_REVIEWS: ReviewItem[] = [
     author: "Joanna",
     rating: 5,
     date: "3 miesiące temu",
-    badge: "Porządek & Sprzęt",
+    badge: "Sprzęt & Porządek",
     text: "Super siłownia, wszystko jest co potrzeba. Czysto i ciężary na swoim miejscu, nie trzeba szukać po całej siłowni jak w sieciówce obok. Muzyka w tle nie ogłusza.",
   },
   {
@@ -133,7 +133,7 @@ export const GOOGLE_REVIEWS: ReviewItem[] = [
     author: "Magdalena Bednarz",
     rating: 5,
     date: "5 miesięcy temu",
-    badge: "Trenerka Wiktoria",
+    badge: "Atmosfera & Trenerzy",
     text: "Pierwsza siłownia, na którą mam ochotę regularnie wracać. Panie na recepcji są przemiłe i pomocne, a Trenerka Wiktoria jest najwspanialsza na świecie! Polecam!!",
   },
   {
@@ -141,15 +141,15 @@ export const GOOGLE_REVIEWS: ReviewItem[] = [
     author: "Daniel M",
     rating: 5,
     date: "miesiąc temu",
-    badge: "Klimat & Zarządzanie",
-    text: "Super siłownia, personel wysoka liga. Marta bardzo profesjonalnie podchodzi do każdego z klientów – cudowna kobieta, nadaje tam bardzo pozytywny klimat, aż chce się ćwiczyć!",
+    badge: "Kadra & Motywacja",
+    text: "Super siłownia, personel wysoka liga. Marta bardzo profesjonalnie podchodzi do każdego z klientów – cudowna kobieta, tylko ćwiczyć, nadaje tam bardzo pozytywny klimat!",
   },
   {
     id: 18,
     author: "Piotr Sz",
     rating: 5,
     date: "miesiąc temu",
-    badge: "Trener Dawid Pietluch",
+    badge: "MMA & Dawid Pietluch",
     text: "Świetna siłownia z bardzo przyjazną obsługą i dobrą atmosferą do ćwiczeń. Pozdrawiam trenera Dawida z sekcji MMA!",
   },
   {
@@ -157,7 +157,7 @@ export const GOOGLE_REVIEWS: ReviewItem[] = [
     author: "Zuza proca",
     rating: 5,
     date: "5 miesięcy temu",
-    badge: "Organizacja Zajęć",
+    badge: "Organizacja & Jakość",
     text: "Polecam ten klub. Dużym plusem jest świetna organizacja zajęć oraz nowoczesne wyposażenie, które pozwala na efektywny i bezpieczny trening. Widać, że klub stawia na rozwój i jakość.",
   },
   {
@@ -165,7 +165,7 @@ export const GOOGLE_REVIEWS: ReviewItem[] = [
     author: "JaKub Kaczmarski",
     rating: 5,
     date: "2 miesiące temu",
-    badge: "Atmosfera Klubu",
+    badge: "Zarządzanie & Klimat",
     text: "Świetne miejsce, świetna obsługa. Polecam bardzo gorąco. Pani menadżer świetnie prowadzi tę siłownię i dostarcza niesamowitej atmosfery do ćwiczeń.",
   },
 ];
