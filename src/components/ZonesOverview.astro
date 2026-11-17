@@ -1,0 +1,171 @@
+---
+const zones = [
+  {
+    num: "01",
+    badge: "KSW Sokół & V3",
+    title: "Fight Zone",
+    subtitle: "Sporty Walki & Samoobrona",
+    description:
+      "Pełnowymiarowy ring bokserski, profesjonalna mata zapaśnicza i strefa ciężkich worków. Boks, Kickboxing/K1, MMA, SSW Cobra Ju-Jitsu oraz Krav Maga dla dzieci, młodzieży i dorosłych.",
+    image: "/images/fight1.png",
+    imageAlt: "Strefa Sportów Walki Fight Zone w V3 Klub Jarosław",
+    primaryHref: "/fight-zone",
+    primaryLabel: "Poznaj dyscypliny",
+    secondaryHref: "/grafik?strefa=fight",
+    secondaryLabel: "Grafik walk",
+    borderHover: "hover:border-v3-red/60",
+    badgeClass: "border-v3-red/60 bg-black/90 text-red-400",
+    btnClass: "bg-v3-red text-white hover:bg-v3-red-hover",
+    pillBg: "bg-black/20",
+  },
+  {
+    num: "02",
+    badge: "Dwa Piętra Treningu",
+    title: "Siłownia & Fitness",
+    subtitle: "Bodytone & Zajęcia Grupowe",
+    description:
+      "Nowoczesny park maszyn izolowanych Bodytone, rozbudowana strefa wolnych ciężarów oraz 9 rodzajów zajęć grupowych — w tym czwartkowy CROSS z Rafałem w cenie każdego karnetu.",
+    image: "/images/silownia2.jpg",
+    imageAlt: "Strefa maszyn Bodytone w V3 Klub Jarosław",
+    primaryHref: "/fitness",
+    primaryLabel: "Zobacz ofertę zajęć",
+    secondaryHref: "/grafik?strefa=fitness",
+    secondaryLabel: "Grafik fitness",
+    borderHover: "hover:border-v3-lime/60",
+    badgeClass: "border-v3-lime/50 bg-black/90 text-v3-lime",
+    btnClass: "bg-v3-lime text-black hover:bg-white",
+    pillBg: "bg-black/15",
+  },
+  {
+    num: "03",
+    badge: "100% Prywatności",
+    title: "Strefa Kobiet",
+    subtitle: "Pink Zone & Opieka Wellness",
+    description:
+      "Odrębna, zamknięta sala wyłącznie dla pań wyposażona w suwnicę Smitha, stojaki rack, hantle, sztangi tiguar i podświetlane lustro selfie, połączona z opieką trenerską Zuzy.",
+    image: "/images/women-zone.jpg",
+    imageAlt: "Dedykowana Strefa Kobiet w V3 Klub Jarosław",
+    primaryHref: "/fitness#strefa-kobiet",
+    primaryLabel: "Odkryj Strefę Kobiet",
+    secondaryHref: "/trenerzy?strefa=gym",
+    secondaryLabel: "Poznaj trenerkę Zuzę",
+    borderHover: "hover:border-pink-500/60",
+    badgeClass: "border-pink-500/50 bg-black/90 text-pink-400",
+    btnClass: "bg-pink-500 text-white hover:bg-pink-400",
+    pillBg: "bg-black/20",
+  },
+];
+---
+
+<section
+  id="strefy"
+  class="relative overflow-hidden border-b border-white/10 bg-v3-dark py-16 sm:py-20"
+>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col justify-between gap-4 md:flex-row md:items-end mb-10 sm:mb-12">
+      <div>
+        <span class="text-xs font-bold uppercase tracking-widest text-v3-lime block">
+          Trzy Strefy • Jeden Klub
+        </span>
+        <h2 class="mt-2 font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold uppercase leading-none tracking-tight text-white">
+          Wybierz Swój <span class="text-v3-lime">Kierunek Treningu</span>
+        </h2>
+      </div>
+
+      <a
+        href="/o-nas"
+        class="group inline-flex items-center gap-2.5 self-start md:self-end rounded-2xl border border-white/15 bg-white/5 px-5 py-3 text-xs font-bold uppercase tracking-wider text-zinc-200 transition hover:border-v3-lime hover:text-v3-lime shrink-0"
+      >
+        <span>Poznaj cały klub V3</span>
+        <svg
+          class="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2.5"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M7 17L17 7M7 7h10v10"
+          />
+        </svg>
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+      {zones.map((zone) => (
+        <article
+          class={`group flex flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-v3-surface transition-all duration-300 ${zone.borderHover}`}
+        >
+          <div>
+            <div class="relative h-56 sm:h-60 w-full overflow-hidden bg-v3-card">
+              <img
+                src={zone.image}
+                alt={zone.imageAlt}
+                width="600"
+                height="400"
+                loading="lazy"
+                decoding="async"
+                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div class="absolute inset-0 bg-linear-to-t from-v3-surface via-v3-surface/20 to-transparent" />
+              <span
+                class={`absolute top-4 left-4 rounded-lg border px-3 py-1 text-xs font-bold uppercase tracking-wider backdrop-blur-md ${zone.badgeClass}`}
+              >
+                {zone.badge}
+              </span>
+              <span class="absolute bottom-2 right-5 font-display text-5xl font-black text-white/15 select-none">
+                {zone.num}
+              </span>
+            </div>
+
+            <div class="p-6">
+              <span class="block text-xs font-bold uppercase tracking-wider text-zinc-400">
+                {zone.subtitle}
+              </span>
+              <h3 class="mt-1 font-display text-3xl sm:text-4xl font-extrabold uppercase leading-none tracking-tight text-white">
+                {zone.title}
+              </h3>
+              <p class="mt-3 text-sm leading-relaxed text-zinc-300">
+                {zone.description}
+              </p>
+            </div>
+          </div>
+
+          <div class="px-6 pb-6 pt-2 flex flex-col gap-2.5">
+            <a
+              href={zone.primaryHref}
+              class={`group/btn flex w-full items-center justify-between rounded-2xl pl-5 pr-3.5 py-3 text-sm font-extrabold uppercase tracking-wider whitespace-nowrap transition ${zone.btnClass}`}
+            >
+              <span>{zone.primaryLabel}</span>
+              <span
+                class={`flex h-7 w-7 items-center justify-center rounded-xl transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 ${zone.pillBg}`}
+              >
+                <svg
+                  class="h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M7 17L17 7M7 7h10v10"
+                  />
+                </svg>
+              </span>
+            </a>
+            <a
+              href={zone.secondaryHref}
+              class="flex w-full items-center justify-center rounded-2xl border border-white/10 bg-white/3 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-zinc-300 whitespace-nowrap transition hover:border-white/25 hover:bg-white/8 hover:text-white"
+            >
+              {zone.secondaryLabel}
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

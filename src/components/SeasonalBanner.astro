@@ -2,16 +2,13 @@
 import { SEASON_CAMPAIGNS } from "../data/seasons";
 ---
 
-<!-- Ukryty domyślnie kontener z aria-hidden="true", aktywowany skryptem JS po weryfikacji daty i localStorage -->
 <aside
   id="seasonal-banner"
   aria-label="Ogłoszenie sezonowe"
   aria-hidden="true"
   class="hidden relative z-50 border-b transition-all duration-300"
 >
-  <div
-    class="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-2 sm:px-6 lg:px-8 text-xs"
-  >
+  <div class="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-2 sm:px-6 lg:px-8 text-xs">
     <!-- Treść banera -->
     <div class="flex flex-wrap items-center gap-2 sm:gap-3 flex-1 min-w-0">
       <span
@@ -21,11 +18,10 @@ import { SEASON_CAMPAIGNS } from "../data/seasons";
       <p
         id="seasonal-text"
         class="text-zinc-200 font-medium truncate sm:whitespace-normal"
-      >
-      </p>
+      ></p>
       <a
         id="seasonal-cta"
-        href="#cennik"
+        href="/#cennik"
         class="font-bold underline uppercase tracking-wider text-white hover:text-v3-lime transition shrink-0 text-[11px]"
       >
         Sprawdź ofertę →
@@ -50,7 +46,8 @@ import { SEASON_CAMPAIGNS } from "../data/seasons";
         <path
           stroke-linecap="round"
           stroke-linejoin="round"
-          d="M6 18L18 6M6 6l12 12"></path>
+          d="M6 18L18 6M6 6l12 12"
+        ></path>
       </svg>
     </button>
   </div>
@@ -70,7 +67,6 @@ import { SEASON_CAMPAIGNS } from "../data/seasons";
     const curMonth = now.getMonth() + 1;
     const curDay = now.getDate();
 
-    // Sprawdzenie, czy bieżąca data mieści się w którejś z zaplanowanych akcji
     const active = campaigns.find((c) => {
       if (c.startMonth > c.endMonth) {
         const inFirstPart =
@@ -96,11 +92,15 @@ import { SEASON_CAMPAIGNS } from "../data/seasons";
     const storageKey = `v3_dismissed_${active.id}`;
     if (localStorage.getItem(storageKey) === "true") return;
 
+    const targetLink = active.ctaLink.startsWith("#")
+      ? `/${active.ctaLink}`
+      : active.ctaLink;
+
     badgeEl.textContent = active.badge;
     badgeEl.className = `inline-block rounded-md border px-2 py-0.5 text-[10px] font-black uppercase tracking-wider shrink-0 ${active.accentBorder}`;
     textEl.textContent = active.text;
     ctaEl.textContent = `${active.ctaText} →`;
-    ctaEl.setAttribute("href", active.ctaLink);
+    ctaEl.setAttribute("href", targetLink);
 
     banner.className = `relative z-50 border-b bg-linear-to-r ${active.themeGradient} ${active.accentBorder.split(" ")[0]}`;
     banner.classList.remove("hidden");

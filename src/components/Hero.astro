@@ -3,183 +3,189 @@
 
 <section
   id="o-nas"
-  class="relative overflow-hidden border-b border-v3-border ambient-glow-lime py-6 sm:py-10 lg:py-16"
+  class="relative overflow-hidden border-b border-white/10 bg-v3-dark"
 >
-  <!-- Subtelne poświaty tła -->
-  <div class="pointer-events-none absolute -top-32 -left-32 h-80 w-80 rounded-full bg-v3-lime/10 blur-[130px]"></div>
-  <div class="pointer-events-none absolute top-1/4 right-0 h-80 w-80 rounded-full bg-v3-red/10 blur-[120px]"></div>
+  <!-- Pełnoekranowe zdjęcie tła po prawej stronie z prawidłowym kadrem neonu V3 -->
+  <div class="hidden lg:block absolute inset-y-0 right-0 w-3/5 pointer-events-none select-none pr-6">
+    <img
+      src="/images/v3-gym-brick.jpeg"
+      alt="Wnętrze V3 Klub Jarosław - strefa cardio i logo na cegle"
+      width="1200"
+      height="900"
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+      class="h-full w-full object-cover object-right opacity-90"
+    />
+    <div class="absolute inset-0 bg-linear-to-r from-v3-dark via-v3-dark/65 to-transparent"></div>
+    <div class="absolute inset-0 bg-linear-to-t from-v3-dark via-transparent to-v3-dark/40"></div>
+  </div>
 
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 items-center gap-4 sm:gap-8 lg:grid-cols-12 lg:gap-x-12 lg:gap-y-4">
-      <!-- BLOK 1: Kicker + Tytuł H1 (na samej górze na smartfonie i na PC) -->
-      <div class="order-1 lg:col-span-7 lg:self-end">
-        <div class="flex items-center gap-2">
-          <span class="h-4 w-1 rounded-full bg-v3-lime shadow-[0_0_10px_rgba(200,255,0,0.6)]"></span>
-          <div class="flex items-baseline font-display text-lg sm:text-2xl font-extrabold uppercase tracking-wider leading-none">
-            <span class="text-v3-lime">V3</span>
-            <span class="ml-0.5 font-semibold text-white">KLUB</span>
-          </div>
-          <span class="text-zinc-600">•</span>
-          <span class="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-zinc-300 whitespace-nowrap">
-            Centrum Sportowe
+  <!-- Subtelna siatka architektoniczna -->
+  <div class="absolute inset-0 bg-v3-grid pointer-events-none"></div>
+
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative pt-8 pb-10 sm:pt-14 sm:pb-14 lg:pt-20 lg:pb-16">
+    <div class="max-w-xl lg:max-w-2xl">
+      <!-- Kicker -->
+      <div class="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 backdrop-blur-md">
+        <span class="h-2 w-2 rounded-full bg-v3-lime"></span>
+        <span class="text-xs font-bold uppercase tracking-wider text-zinc-200">
+          ul. Poniatowskiego 24 • Jarosław
+        </span>
+      </div>
+
+      <!-- Nagłówek H1 -->
+      <h1 class="mt-4 sm:mt-5 font-display text-6xl sm:text-7xl lg:text-8xl font-black uppercase leading-[0.88] tracking-tight">
+        <span class="block text-white">Siłownia</span>
+        <span class="block text-v3-lime">Fitness</span>
+        <span class="block text-v3-red">Fight Zone</span>
+      </h1>
+
+      <!-- Zdjęcie na smartfonie / tablecie -->
+      <div class="lg:hidden mt-5 relative overflow-hidden rounded-2xl border border-white/10 bg-v3-surface shadow-2xl">
+        <img
+          src="/images/v3-gym-brick.jpeg"
+          alt="Wnętrze V3 Klub Jarosław"
+          width="800"
+          height="500"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+          class="h-52 sm:h-72 w-full object-cover"
+        />
+        <div class="absolute inset-0 bg-linear-to-t from-v3-dark via-transparent to-transparent"></div>
+        <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between rounded-xl border border-white/10 bg-v3-dark/90 px-3.5 py-2 backdrop-blur-md">
+          <span class="text-xs font-bold uppercase tracking-wider text-v3-lime">
+            Dwa Piętra Treningu • Bodytone
           </span>
-        </div>
-
-        <h1 class="mt-2 sm:mt-3 flex flex-col font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold uppercase leading-[0.92] tracking-tight">
-          <span class="text-white">Siłownia</span>
-          <span class="text-v3-lime">Fitness</span>
-          <span class="text-v3-red">Fight Zone</span>
-        </h1>
-      </div>
-
-      <!-- BLOK 2: Zdjęcie lokalu (na smartfonie pojawia się natychmiast po nagłówku H1, na PC po prawej stronie col-span-5) -->
-      <div class="order-2 lg:col-span-5 lg:row-span-2 lg:self-center my-1 lg:my-0">
-        <div class="relative overflow-hidden rounded-2xl border border-v3-border bg-v3-surface shadow-2xl">
-          <img
-            src="/images/v3-gym-brick.jpeg"
-            alt="Wnętrze V3 Klub Jarosław - strefa cardio i logo na cegle"
-            width="800"
-            height="600"
-            loading="eager"
-            fetchpriority="high"
-            decoding="async"
-            class="h-44 w-full object-cover sm:h-64 lg:h-[420px]"
-          />
-          <div class="absolute inset-0 bg-linear-to-t from-v3-dark via-v3-dark/20 to-transparent"></div>
-          <div class="absolute bottom-2.5 left-2.5 right-2.5 sm:bottom-4 sm:left-4 sm:right-4 flex items-center justify-between gap-2 rounded-xl border border-white/10 bg-v3-dark/90 px-3 py-2 sm:p-3.5 backdrop-blur-md">
-            <div class="min-w-0">
-              <span class="block text-[10px] sm:text-xs font-bold uppercase tracking-wider text-v3-lime truncate">
-                Dwa Piętra Treningu • Bodytone
-              </span>
-              <p class="mt-0.5 font-display text-base sm:text-xl font-bold uppercase leading-none text-white truncate">
-                Centrum Sportowe V3
-              </p>
-            </div>
-            <span class="shrink-0 rounded-lg bg-white/10 px-2 py-0.5 sm:px-2.5 sm:py-1 text-[11px] sm:text-xs font-semibold text-zinc-200">
-              Jarosław
-            </span>
-          </div>
+          <span class="text-xs font-semibold text-zinc-300">Jarosław</span>
         </div>
       </div>
 
-      <!-- BLOK 3: Opis + Przyciski + Nowy Pasek Statystyk -->
-      <div class="order-3 lg:col-span-7 lg:self-start">
-        <p class="text-xs sm:text-base leading-normal text-zinc-300 max-w-2xl">
-          Nowoczesne, dwupoziomowe centrum sportowe w Jarosławiu. Na dwóch
-          piętrach znajdziesz strefę maszyn Bodytone i wolnych ciężarów, salę
-          fitness, kameralną Strefę Kobiet oraz sekcję sportów walki z
-          pełnowymiarowym ringiem. Trenuj bez ograniczeń dzięki{" "}
-          <strong class="font-semibold text-white">
-            samoobsługowemu wejściu 5:00 – 24:00
-          </strong>{" "}
-          przez smartfon lub przy wsparciu naszej recepcji.
-        </p>
+      <!-- Zwięzły opis najmocniejszych stron -->
+      <p class="mt-5 sm:mt-6 text-base sm:text-lg leading-relaxed text-zinc-300 max-w-xl">
+        Dwupoziomowe centrum sportowe łączące park maszyn{" "}
+        <strong class="font-semibold text-white">Bodytone</strong>, zajęcia
+        grupowe, zamkniętą Strefę Kobiet oraz sekcję sportów walki z
+        pełnowymiarowym ringiem. Wejście samoobsługowe{" "}
+        <strong class="font-semibold text-white">5:00 – 24:00</strong> na kod QR
+        w telefonie.
+      </p>
 
-        <!-- Przyciski CTA -->
-        <div class="mt-4 sm:mt-6 flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3">
+      <!-- Przyciski CTA -->
+      <div class="mt-7 flex flex-col sm:flex-row sm:items-center gap-3">
+        <a
+          href="/#cennik"
+          class="group inline-flex w-full sm:w-auto items-center justify-between sm:justify-center gap-3 rounded-2xl bg-v3-lime pl-6 pr-3.5 py-3.5 text-sm font-extrabold uppercase tracking-wider text-black transition-all duration-200 hover:bg-white active:scale-[0.98]"
+        >
+          <span>Sprawdź karnety</span>
+          <span class="flex h-7 w-7 items-center justify-center rounded-xl bg-black/15 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+            <svg
+              class="h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2.5"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M7 17L17 7M7 7h10v10"
+              />
+            </svg>
+          </span>
+        </a>
+
+        <div class="grid grid-cols-2 gap-3 sm:flex sm:items-center">
           <a
-            href="#cennik"
-            class="inline-flex w-full sm:w-auto items-center justify-center rounded-xl bg-v3-lime px-6 py-3 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-black transition hover:bg-white hover:text-black shadow-[0_0_20px_rgba(200,255,0,0.25)]"
+            href="/grafik"
+            class="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/5 px-5 py-4 text-sm font-bold uppercase tracking-wider text-white backdrop-blur-md transition hover:border-v3-lime/60 hover:bg-white/10 hover:text-v3-lime"
           >
-            Sprawdź karnety
+            <svg
+              class="h-4 w-4 text-v3-lime shrink-0"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+              />
+            </svg>
+            <span>Grafik zajęć</span>
           </a>
 
-          <div class="grid grid-cols-2 gap-2 sm:flex sm:items-center sm:gap-3">
-            <a
-              href="#grafik"
-              class="inline-flex items-center justify-center gap-1.5 rounded-xl border border-zinc-700 bg-v3-surface px-3 py-2.5 sm:px-5 sm:py-3 text-xs sm:text-sm font-bold uppercase tracking-wider text-zinc-100 transition hover:border-v3-lime/50 hover:text-v3-lime"
+          <a
+            href="tel:+48788463717"
+            class="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/5 px-5 py-4 text-sm font-bold uppercase tracking-wider text-white backdrop-blur-md transition hover:border-white/35 hover:bg-white/10"
+          >
+            <svg
+              class="h-4 w-4 text-v3-lime shrink-0"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2.2"
             >
-              <svg
-                class="h-4 w-4 text-v3-lime shrink-0"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                ></path>
-              </svg>
-              <span>Grafik zajęć</span>
-            </a>
-
-            <a
-              href="tel:+48788463717"
-              aria-label="Zadzwoń do klubu V3: 788 463 717"
-              class="inline-flex items-center justify-center gap-1.5 rounded-xl border border-zinc-700 bg-v3-surface px-3 py-2.5 sm:px-5 sm:py-3 text-xs sm:text-sm font-bold uppercase tracking-wider text-zinc-100 transition hover:border-v3-lime/50 hover:text-white"
-            >
-              <svg
-                class="h-4 w-4 text-v3-lime shrink-0"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="2.2"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                ></path>
-              </svg>
-              <span>Zadzwoń</span>
-            </a>
-          </div>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+              />
+            </svg>
+            <span>Zadzwoń</span>
+          </a>
         </div>
+      </div>
 
-        <!-- Uporządkowany pasek statystyk: czytelny kafel bez zlewania się i ucinania tekstu -->
-        <div class="mt-4 sm:mt-6 rounded-2xl border border-v3-border bg-v3-surface/60 p-3 sm:p-4 backdrop-blur-sm">
-          <div class="grid grid-cols-3 divide-x divide-white/10 text-center items-center">
-            <div class="px-1 sm:px-3">
-              <span class="block font-display text-sm sm:text-2xl font-bold uppercase leading-none text-v3-lime whitespace-nowrap">
-                5:00 – 24:00
-              </span>
-              <span class="mt-1 block text-[10px] sm:text-xs font-medium text-zinc-300 leading-tight">
-                Wejście na QR
-              </span>
-            </div>
-            <div class="px-1 sm:px-3">
-              <span class="block font-display text-sm sm:text-2xl font-bold uppercase leading-none text-v3-red whitespace-nowrap">
-                FIGHT ZONE
-              </span>
-              <span class="mt-1 block text-[10px] sm:text-xs font-medium text-zinc-300 leading-tight">
-                Mata &amp; ring
-              </span>
-            </div>
-            <div class="px-1 sm:px-3">
-              <span class="block font-display text-sm sm:text-2xl font-bold uppercase leading-none text-white whitespace-nowrap">
-                CROSS
-              </span>
-              <span class="mt-1 block text-[10px] sm:text-xs font-medium text-zinc-300 leading-tight">
-                W cenie karnetu
-              </span>
-            </div>
-          </div>
+      <!-- 4 kluczowe przewagi klubu V3 -->
+      <div class="mt-9 grid grid-cols-2 sm:grid-cols-4 gap-4 border-t border-white/10 pt-6">
+        <div>
+          <span class="block font-display text-2xl sm:text-3xl font-extrabold uppercase leading-none text-v3-lime">
+            5:00 – 24:00
+          </span>
+          <span class="mt-1.5 block text-xs text-zinc-400">Samoobsługa QR</span>
+        </div>
+        <div>
+          <span class="block font-display text-2xl sm:text-3xl font-extrabold uppercase leading-none text-white">
+            2 PIĘTRA
+          </span>
+          <span class="mt-1.5 block text-xs text-zinc-400">
+            Siłownia &amp; Fight Zone
+          </span>
+        </div>
+        <div>
+          <span class="block font-display text-2xl sm:text-3xl font-extrabold uppercase leading-none text-pink-400">
+            PINK ZONE
+          </span>
+          <span class="mt-1.5 block text-xs text-zinc-400">
+            Odrębna Strefa Kobiet
+          </span>
+        </div>
+        <div>
+          <span class="block font-display text-2xl sm:text-3xl font-extrabold uppercase leading-none text-white">
+            KARTY VIP
+          </span>
+          <span class="mt-1.5 block text-xs text-zinc-400">
+            MultiSport • Medicover
+          </span>
         </div>
       </div>
     </div>
 
-    <!-- Pasek udogodnień: Na PC w jednej linii bez łamania słów -->
-    <div class="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-v3-border grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
-      <!-- 1. Parking -->
-      <div class="group flex items-center gap-3.5 sm:gap-4 rounded-2xl border border-v3-border bg-v3-surface/60 p-3.5 sm:p-4 backdrop-blur-sm transition-all duration-300 hover:border-v3-lime/40 hover:bg-v3-surface/90">
-        <div class="w-11 h-11 rounded-xl bg-v3-card border border-v3-border flex items-center justify-center shrink-0 text-v3-lime group-hover:border-v3-lime/50 group-hover:bg-v3-lime/10 transition-all">
+    <!-- Pasek udogodnień -->
+    <div class="mt-10 sm:mt-14 grid grid-cols-1 md:grid-cols-3 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10">
+      <div class="flex items-center gap-4 bg-v3-surface/95 p-5 backdrop-blur-md">
+        <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-v3-lime/10 text-v3-lime">
           <svg
-            class="w-5 h-5"
+            class="h-5 w-5"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
             stroke-width="2"
           >
-            <rect
-              x="3"
-              y="3"
-              width="18"
-              height="18"
-              rx="5"
-              stroke="currentColor"
-            ></rect>
+            <rect x="3" y="3" width="18" height="18" rx="4"></rect>
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -187,21 +193,20 @@
             ></path>
           </svg>
         </div>
-        <div class="min-w-0">
-          <span class="block font-display text-base xl:text-lg font-bold uppercase tracking-wider text-white group-hover:text-v3-lime transition-colors leading-tight sm:whitespace-normal xl:whitespace-nowrap truncate">
-            Parking dla Klubowiczów
-          </span>
-          <span class="text-xs text-zinc-400 mt-0.5 block leading-tight truncate">
-            Własne miejsca bezpośrednio pod klubem
-          </span>
+        <div>
+          <h2 class="font-display text-xl font-bold uppercase tracking-wide text-white leading-none">
+            Własny Parking
+          </h2>
+          <p class="mt-1 text-xs sm:text-sm text-zinc-400">
+            Bezpośrednio pod klubem dla klubowiczów
+          </p>
         </div>
       </div>
 
-      <!-- 2. Szatnie i prysznice -->
-      <div class="group flex items-center gap-3.5 sm:gap-4 rounded-2xl border border-v3-border bg-v3-surface/60 p-3.5 sm:p-4 backdrop-blur-sm transition-all duration-300 hover:border-v3-lime/40 hover:bg-v3-surface/90">
-        <div class="w-11 h-11 rounded-xl bg-v3-card border border-v3-border flex items-center justify-center shrink-0 text-v3-lime group-hover:border-v3-lime/50 group-hover:bg-v3-lime/10 transition-all">
+      <div class="flex items-center gap-4 bg-v3-surface/95 p-5 backdrop-blur-md">
+        <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-v3-lime/10 text-v3-lime">
           <svg
-            class="w-5 h-5"
+            class="h-5 w-5"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -210,35 +215,24 @@
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
-              d="M4 4h6a5 5 0 015 5v2.5"
-            ></path>
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M10.5 11.5h9l-1.2 3h-6.6l-1.2-3z"
-            ></path>
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M12 18v2M15 18v2M18 18v2M13.5 15.5v1M16.5 15.5v1"
+              d="M4 4h6a5 5 0 015 5v2.5M10.5 11.5h9l-1.2 3h-6.6l-1.2-3zM12 18v2M15 18v2M18 18v2"
             ></path>
           </svg>
         </div>
-        <div class="min-w-0">
-          <span class="block font-display text-base xl:text-lg font-bold uppercase tracking-wider text-white group-hover:text-v3-lime transition-colors leading-tight sm:whitespace-normal xl:whitespace-nowrap truncate">
+        <div>
+          <h2 class="font-display text-xl font-bold uppercase tracking-wide text-white leading-none">
             Szatnie &amp; Prysznice
-          </span>
-          <span class="text-xs text-zinc-400 mt-0.5 block leading-tight truncate">
-            Czyste szatnie z pełnym węzłem sanitarnym
-          </span>
+          </h2>
+          <p class="mt-1 text-xs sm:text-sm text-zinc-400">
+            Przestronne szatnie z pełnym węzłem sanitarnym
+          </p>
         </div>
       </div>
 
-      <!-- 3. FitBar -->
-      <div class="group flex items-center gap-3.5 sm:gap-4 rounded-2xl border border-v3-border bg-v3-surface/60 p-3.5 sm:p-4 backdrop-blur-sm transition-all duration-300 hover:border-v3-lime/40 hover:bg-v3-surface/90">
-        <div class="w-11 h-11 rounded-xl bg-v3-card border border-v3-border flex items-center justify-center shrink-0 text-v3-lime group-hover:border-v3-lime/50 group-hover:bg-v3-lime/10 transition-all">
+      <div class="flex items-center gap-4 bg-v3-surface/95 p-5 backdrop-blur-md">
+        <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-v3-lime/10 text-v3-lime">
           <svg
-            class="w-5 h-5"
+            class="h-5 w-5"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -247,32 +241,17 @@
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
-              d="M7 8h10l-1.2 11.5a2 2 0 01-2 1.5H10.2a2 2 0 01-2-1.5L7 8z"
-            ></path>
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M6 5h12v3H6V5z"
-            ></path>
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M10 2h4v3h-4V2z"
-            ></path>
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M12 12v5M10 14.5h4"
+              d="M7 8h10l-1.2 11.5a2 2 0 01-2 1.5H10.2a2 2 0 01-2-1.5L7 8zM6 5h12v3H6V5zM10 2h4v3h-4V2z"
             ></path>
           </svg>
         </div>
-        <div class="min-w-0">
-          <span class="block font-display text-base xl:text-lg font-bold uppercase tracking-wider text-white group-hover:text-v3-lime transition-colors leading-tight sm:whitespace-normal xl:whitespace-nowrap truncate">
+        <div>
+          <h2 class="font-display text-xl font-bold uppercase tracking-wide text-white leading-none">
             FitBar z Odżywkami
-          </span>
-          <span class="text-xs text-zinc-400 mt-0.5 block leading-tight truncate">
-            Napoje izotoniczne, shake'i białkowe i batony
-          </span>
+          </h2>
+          <p class="mt-1 text-xs sm:text-sm text-zinc-400">
+            Izotoniki, shake'i białkowe i batony na miejscu
+          </p>
         </div>
       </div>
     </div>

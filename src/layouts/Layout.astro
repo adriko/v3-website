@@ -7,9 +7,13 @@ interface Props {
 }
 
 const {
-  title = "V3 Centrum Sportowe Jarosław | Siłownia, Fitness, Fight Zone",
+  title = "V3 Klub Jarosław • Siłownia, Fitness, Fight Zone",
   description = "Nowoczesne centrum sportowe w Jarosławiu przy ul. Poniatowskiego 24. Samoobsługa 5:00–24:00, siłownia Bodytone, dedykowana Strefa Kobiet i sporty walki.",
 } = Astro.props;
+
+const v3Favicon = `data:image/svg+xml,${encodeURIComponent(
+  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100"><rect width="120" height="100" rx="20" fill="#090A0D"/><path fill="#C8FF00" d="M42 12 H106 L63.3 86 H46 L39.7 75 H56.5 L86.5 23 H48.3 L42 12 Z"/><path fill="#C8FF00" d="M14 25 H26.7 L32.5 35 H74.5 L68.2 46 H38.8 L44.6 56 H62.5 L56.2 67 H38.2 L14 25 Z"/></svg>',
+)}`;
 ---
 
 <!doctype html>
@@ -17,7 +21,7 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href={v3Favicon} />
 
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -25,11 +29,10 @@ const {
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Rajdhani:wght@600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
-    <!-- Schema.org -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -73,19 +76,15 @@ const {
       }
     </script>
   </head>
-  <body
-    class="bg-v3-dark text-zinc-100 font-sans antialiased selection:bg-v3-lime selection:text-black min-h-screen flex flex-col"
-  >
+  <body class="bg-v3-dark text-zinc-100 font-sans antialiased selection:bg-v3-lime selection:text-black min-h-screen flex flex-col">
     <slot />
   </body>
 </html>
 
 <style is:global>
-  /* Gwarancja absolutnej spójności: wszystkie nagłówki i akcenty bez wyjątku używają Rajdhani */
   [class*="font-['Teko']"],
   [class*="font-['Rajdhani']"],
   .font-display {
-    font-family: "Rajdhani", sans-serif !important;
-    letter-spacing: 0.02em;
+    font-family: "Barlow Condensed", sans-serif !important;
   }
 </style>

@@ -1,0 +1,499 @@
+---
+import { FIGHT_SCHEDULE, FITNESS_SCHEDULE } from "../data/schedule";
+
+interface Props {
+  initialZone?: "fight" | "fitness";
+  lockedZone?: boolean;
+  title?: string;
+  subtitle?: string;
+}
+
+const {
+  initialZone = "fight",
+  lockedZone = false,
+  title = "Grafik",
+  subtitle = "Zapisuj się na zajęcia bezpośrednio w aplikacji klubowej GymManager.",
+} = Astro.props;
+
+const fightCategories = [
+  "Wszystkie",
+  "Kickboxing",
+  "Boks",
+  "MMA",
+  "SSW Cobra Ju-Jitsu",
+  "Samoobrona / Krav Maga",
+  "Trening wprowadzający",
+];
+
+const fitnessCategories = [
+  "Wszystkie",
+  "CROSS",
+  "V3 Step Up!",
+  "Booty Project",
+  "Full Body Project",
+  "Pilates",
+  "Joga",
+  "Zdrowy Kręgosłup",
+  "Zdrowe Ciało",
+  "V3 Mobility",
+];
+
+const daysFilter = [
+  { label: "Wszystkie dni", value: "all" },
+  { label: "Pon", value: "Poniedziałek" },
+  { label: "Wt", value: "Wtorek" },
+  { label: "Śr", value: "Środa" },
+  { label: "Czw", value: "Czwartek" },
+  { label: "Pt", value: "Piątek" },
+  { label: "Sob", value: "Sobota" },
+];
+---
+
+<section
+  id="grafik-strefy"
+  data-initial-zone={initialZone}
+  data-locked-zone={String(lockedZone)}
+  class="relative overflow-hidden border-b border-white/10 bg-v3-dark py-14 sm:py-16 lg:py-20"
+>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
+    <div class="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+      <div>
+        <span class="text-xs font-bold uppercase tracking-widest text-v3-lime block">
+          Harmonogram Treningów
+        </span>
+        <h2 class="mt-2 font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold uppercase leading-none tracking-tight text-white">
+          {title}{" "}
+          <span
+            id="sb-title-accent"
+            class={initialZone === "fight" ? "text-v3-red" : "text-v3-lime"}
+          >
+            Zajęć
+          </span>
+        </h2>
+        <p class="mt-2.5 max-w-xl text-sm sm:text-base text-zinc-300 leading-relaxed">
+          {subtitle}
+        </p>
+      </div>
+
+      {!lockedZone && (
+        <div class="inline-flex items-center rounded-2xl border border-white/10 bg-v3-surface p-1.5 self-start md:self-auto">
+          <button
+            type="button"
+            id="sb-tab-fight"
+            class={`cursor-pointer rounded-xl px-5 py-2.5 text-xs sm:text-sm font-extrabold uppercase tracking-wider transition ${
+              initialZone === "fight"
+                ? "bg-v3-red text-white"
+                : "text-zinc-300 hover:text-white"
+            }`}
+          >
+            Fight Zone
+          </button>
+          <button
+            type="button"
+            id="sb-tab-fitness"
+            class={`cursor-pointer rounded-xl px-5 py-2.5 text-xs sm:text-sm font-extrabold uppercase tracking-wider transition ${
+              initialZone === "fitness"
+                ? "bg-v3-lime text-black"
+                : "text-zinc-300 hover:text-white"
+            }`}
+          >
+            Fitness &amp; Wellness
+          </button>
+        </div>
+      )}
+    </div>
+
+    <!-- Pasek szybkiego filtrowania zajęć (Fight Zone) -->
+    <div
+      id="sb-filters-fight"
+      class={`mt-7 flex items-center gap-2 overflow-x-auto pb-2 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap ${
+        initialZone === "fight" ? "" : "hidden"
+      }`}
+    >
+      {fightCategories.map((cat, idx) => (
+        <button
+          type="button"
+          data-filter-zone="fight"
+          data-filter-cat={cat}
+          class={`sb-filter-btn shrink-0 cursor-pointer rounded-xl border px-3.5 py-2 text-xs font-bold uppercase tracking-wider transition ${
+            idx === 0
+              ? "border-v3-red bg-v3-red text-white"
+              : "border-white/10 bg-v3-surface text-zinc-300 hover:border-v3-red/50 hover:text-white"
+          }`}
+        >
+          {cat}
+        </button>
+      ))}
+    </div>
+
+    <!-- Pasek szybkiego filtrowania zajęć (Fitness) -->
+    <div
+      id="sb-filters-fitness"
+      class={`mt-7 flex items-center gap-2 overflow-x-auto pb-2 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap ${
+        initialZone === "fitness" ? "" : "hidden"
+      }`}
+    >
+      {fitnessCategories.map((cat, idx) => (
+        <button
+          type="button"
+          data-filter-zone="fitness"
+          data-filter-cat={cat}
+          class={`sb-filter-btn shrink-0 cursor-pointer rounded-xl border px-3.5 py-2 text-xs font-bold uppercase tracking-wider transition ${
+            idx === 0
+              ? "border-v3-lime bg-v3-lime text-black"
+              : "border-white/10 bg-v3-surface text-zinc-300 hover:border-v3-lime/50 hover:text-white"
+          }`}
+        >
+          {cat}
+        </button>
+      ))}
+    </div>
+
+    <!-- Pasek wyboru dnia tygodnia -->
+    <div class="mt-3 flex items-center gap-1.5 overflow-x-auto pb-2 no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0">
+      {daysFilter.map((d, i) => (
+        <button
+          type="button"
+          data-day-filter={d.value}
+          class={`sb-day-btn shrink-0 cursor-pointer rounded-lg border px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider transition ${
+            i === 0
+              ? "border-white/30 bg-white/10 text-white"
+              : "border-white/8 bg-v3-surface/60 text-zinc-400 hover:text-white"
+          }`}
+        >
+          {d.label}
+        </button>
+      ))}
+    </div>
+
+    <!-- Komunikat pustego stanu -->
+    <div
+      id="sb-empty-state"
+      class="hidden mt-8 rounded-3xl border border-white/10 bg-v3-surface p-8 text-center"
+    >
+      <p class="font-display text-3xl font-extrabold uppercase text-white">
+        Brak wybranych zajęć w tym dniu
+      </p>
+      <p class="mt-1.5 text-sm text-zinc-400">
+        Te zajęcia odbywają się w inne dni tygodnia.
+      </p>
+      <button
+        type="button"
+        id="sb-reset-filters"
+        class="mt-5 cursor-pointer inline-flex items-center justify-center rounded-xl bg-v3-lime px-5 py-2.5 text-xs font-extrabold uppercase tracking-wider text-black transition hover:bg-white"
+      >
+        Pokaż wszystkie dni tygodnia
+      </button>
+    </div>
+
+    <!-- Siatka 1: FIGHT ZONE -->
+    <div
+      id="sb-grid-fight"
+      class={`mt-6 sm:mt-8 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 ${
+        initialZone === "fight" ? "" : "hidden"
+      }`}
+    >
+      {FIGHT_SCHEDULE.map((item) => (
+        <div
+          data-day-card="fight"
+          data-day-name={item.day}
+          class="flex flex-col justify-between rounded-3xl border border-white/10 bg-v3-surface p-5 sm:p-6 transition hover:border-v3-red/40"
+        >
+          <div>
+            <div class="flex items-center justify-between border-b border-white/10 pb-4">
+              <h3 class="font-display text-3xl font-extrabold uppercase tracking-tight text-white leading-none">
+                {item.day}
+              </h3>
+              <span
+                data-day-count
+                class="rounded-lg bg-v3-red/15 border border-v3-red/25 px-2.5 py-1 text-xs font-bold uppercase tracking-wider text-red-400"
+              >
+                {item.count}
+              </span>
+            </div>
+
+            <div class="mt-4 space-y-2.5">
+              {item.classes.map((c) => (
+                <div
+                  data-class-item
+                  data-category={c.category}
+                  class="rounded-2xl border border-white/6 bg-v3-card/80 px-4 py-3 border-l-2 border-l-v3-red transition hover:bg-v3-card"
+                >
+                  <div class="flex items-center justify-between gap-2">
+                    <span class="font-display text-lg sm:text-xl font-extrabold tracking-wide tabular-nums text-red-400 leading-none">
+                      {c.time}
+                    </span>
+                    <span
+                      class={`rounded-md border px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider ${c.badgeColor}`}
+                    >
+                      {c.badge}
+                    </span>
+                  </div>
+                  <p class="mt-1.5 text-sm sm:text-base font-bold text-white leading-snug">
+                    {c.name}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Siatka 2: FITNESS & WELLNESS -->
+    <div
+      id="sb-grid-fitness"
+      class={`mt-6 sm:mt-8 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 ${
+        initialZone === "fitness" ? "" : "hidden"
+      }`}
+    >
+      {FITNESS_SCHEDULE.map((item) => (
+        <div
+          data-day-card="fitness"
+          data-day-name={item.day}
+          class="flex flex-col justify-between rounded-3xl border border-white/10 bg-v3-surface p-5 sm:p-6 transition hover:border-v3-lime/40"
+        >
+          <div>
+            <div class="flex items-center justify-between border-b border-white/10 pb-4">
+              <h3 class="font-display text-3xl font-extrabold uppercase tracking-tight text-white leading-none">
+                {item.day}
+              </h3>
+              <span
+                data-day-count
+                class="rounded-lg bg-v3-lime/15 border border-v3-lime/25 px-2.5 py-1 text-xs font-bold uppercase tracking-wider text-v3-lime"
+              >
+                {item.count}
+              </span>
+            </div>
+
+            <div class="mt-4 space-y-2.5">
+              {item.classes.map((c) => (
+                <div
+                  data-class-item
+                  data-category={c.category}
+                  class="rounded-2xl border border-white/6 bg-v3-card/80 px-4 py-3 border-l-2 border-l-v3-lime transition hover:bg-v3-card"
+                >
+                  <div class="flex items-center justify-between gap-2">
+                    <span class="font-display text-lg sm:text-xl font-extrabold tracking-wide tabular-nums text-v3-lime leading-none">
+                      {c.time}
+                    </span>
+                    <span
+                      class={`rounded-md border px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider ${c.badgeColor}`}
+                    >
+                      {c.badge}
+                    </span>
+                  </div>
+                  <p class="mt-1.5 text-sm sm:text-base font-bold text-white leading-snug">
+                    {c.name}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Dolna belka informacyjna (bez przestarzałej strzałki i font-mono) -->
+    <div class="mt-10 flex flex-col items-center justify-between gap-3 rounded-2xl border border-white/10 bg-v3-surface px-5 py-4 sm:flex-row text-center sm:text-left">
+      <div class="flex items-center gap-2.5">
+        <span class="h-2 w-2 rounded-full bg-v3-lime animate-pulse shrink-0"></span>
+        <span class="text-xs sm:text-sm text-zinc-300">
+          Rezerwacja miejsc na zajęcia w aplikacji:
+          <a
+            href="https://v3klub.gymmanager.io"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="font-bold text-v3-lime transition hover:underline ml-1"
+          >
+            v3klub.gymmanager.io
+          </a>
+        </span>
+      </div>
+
+      <a
+        href="tel:+48788463717"
+        class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-zinc-300 hover:text-white transition"
+      >
+        <span>Pytania? Zadzwoń:</span>
+        <span class="font-display text-lg font-extrabold tracking-wide text-v3-lime">
+          788 463 717
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  const section = document.getElementById("grafik-strefy");
+  const tabFight = document.getElementById("sb-tab-fight");
+  const tabFitness = document.getElementById("sb-tab-fitness");
+  const gridFight = document.getElementById("sb-grid-fight");
+  const gridFitness = document.getElementById("sb-grid-fitness");
+  const filtersFight = document.getElementById("sb-filters-fight");
+  const filtersFitness = document.getElementById("sb-filters-fitness");
+  const titleAccent = document.getElementById("sb-title-accent");
+  const emptyState = document.getElementById("sb-empty-state");
+  const resetBtn = document.getElementById("sb-reset-filters");
+  const filterButtons =
+    document.querySelectorAll<HTMLButtonElement>(".sb-filter-btn");
+  const dayButtons =
+    document.querySelectorAll<HTMLButtonElement>(".sb-day-btn");
+
+  const isLocked = section?.dataset.lockedZone === "true";
+
+  let currentZone: "fight" | "fitness" = "fight";
+  let currentCategory = "Wszystkie";
+  let currentDay = "all";
+
+  function renderFilteredSchedule() {
+    filterButtons.forEach((btn) => {
+      if (btn.dataset.filterZone !== currentZone) return;
+      const isSelected = btn.dataset.filterCat === currentCategory;
+      if (currentZone === "fight") {
+        btn.className = isSelected
+          ? "sb-filter-btn shrink-0 cursor-pointer rounded-xl border border-v3-red bg-v3-red px-3.5 py-2 text-xs font-bold uppercase tracking-wider text-white transition"
+          : "sb-filter-btn shrink-0 cursor-pointer rounded-xl border border-white/10 bg-v3-surface text-zinc-300 hover:border-v3-red/50 hover:text-white px-3.5 py-2 text-xs font-bold uppercase tracking-wider transition";
+      } else {
+        btn.className = isSelected
+          ? "sb-filter-btn shrink-0 cursor-pointer rounded-xl border border-v3-lime bg-v3-lime px-3.5 py-2 text-xs font-bold uppercase tracking-wider text-black transition"
+          : "sb-filter-btn shrink-0 cursor-pointer rounded-xl border border-white/10 bg-v3-surface text-zinc-300 hover:border-v3-lime/50 hover:text-white px-3.5 py-2 text-xs font-bold uppercase tracking-wider transition";
+      }
+    });
+
+    dayButtons.forEach((btn) => {
+      const isSelected = btn.dataset.dayFilter === currentDay;
+      btn.className = isSelected
+        ? "sb-day-btn shrink-0 cursor-pointer rounded-lg border border-white/40 bg-white/15 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-white transition"
+        : "sb-day-btn shrink-0 cursor-pointer rounded-lg border border-white/8 bg-v3-surface/60 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-zinc-400 hover:text-white transition";
+    });
+
+    const dayCards = document.querySelectorAll<HTMLElement>(
+      `[data-day-card="${currentZone}"]`,
+    );
+    let visibleDays = 0;
+
+    dayCards.forEach((card) => {
+      const dayMatches =
+        currentDay === "all" || card.dataset.dayName === currentDay;
+      const items = card.querySelectorAll<HTMLElement>("[data-class-item]");
+      let visibleCount = 0;
+
+      items.forEach((item) => {
+        const match =
+          currentCategory === "Wszystkie" ||
+          item.dataset.category === currentCategory;
+        item.classList.toggle("hidden", !match);
+        if (match) visibleCount++;
+      });
+
+      const isVisible = dayMatches && visibleCount > 0;
+      card.classList.toggle("hidden", !isVisible);
+      if (isVisible) visibleDays++;
+
+      const countBadge = card.querySelector<HTMLElement>("[data-day-count]");
+      if (countBadge) {
+        if (currentCategory === "Wszystkie") {
+          countBadge.textContent =
+            currentZone === "fight"
+              ? `${visibleCount} ${visibleCount === 1 ? "trening" : visibleCount < 5 ? "treningi" : "treningów"}`
+              : `${visibleCount} zajęcia`;
+        } else {
+          countBadge.textContent = `${visibleCount} w tym dniu`;
+        }
+      }
+    });
+
+    if (emptyState) {
+      emptyState.classList.toggle("hidden", visibleDays > 0);
+    }
+  }
+
+  function setZone(zone: "fight" | "fitness") {
+    currentZone = zone;
+    if (
+      !gridFight ||
+      !gridFitness ||
+      !filtersFight ||
+      !filtersFitness ||
+      !titleAccent
+    )
+      return;
+
+    if (zone === "fight") {
+      if (tabFight && tabFitness) {
+        tabFight.className =
+          "cursor-pointer rounded-xl bg-v3-red px-5 py-2.5 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-white transition";
+        tabFitness.className =
+          "cursor-pointer rounded-xl px-5 py-2.5 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-zinc-300 transition hover:text-white";
+      }
+      gridFight.classList.remove("hidden");
+      gridFitness.classList.add("hidden");
+      filtersFight.classList.remove("hidden");
+      filtersFitness.classList.add("hidden");
+      titleAccent.className = "text-v3-red";
+    } else {
+      if (tabFight && tabFitness) {
+        tabFitness.className =
+          "cursor-pointer rounded-xl bg-v3-lime px-5 py-2.5 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-black transition";
+        tabFight.className =
+          "cursor-pointer rounded-xl px-5 py-2.5 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-zinc-300 transition hover:text-white";
+      }
+      gridFitness.classList.remove("hidden");
+      gridFight.classList.add("hidden");
+      filtersFitness.classList.remove("hidden");
+      filtersFight.classList.add("hidden");
+      titleAccent.className = "text-v3-lime";
+    }
+    renderFilteredSchedule();
+  }
+
+  if (!isLocked) {
+    tabFight?.addEventListener("click", () => {
+      currentCategory = "Wszystkie";
+      currentDay = "all";
+      setZone("fight");
+    });
+    tabFitness?.addEventListener("click", () => {
+      currentCategory = "Wszystkie";
+      currentDay = "all";
+      setZone("fitness");
+    });
+  }
+
+  filterButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      currentCategory = btn.dataset.filterCat || "Wszystkie";
+      renderFilteredSchedule();
+    });
+  });
+
+  dayButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      currentDay = btn.dataset.dayFilter || "all";
+      renderFilteredSchedule();
+    });
+  });
+
+  resetBtn?.addEventListener("click", () => {
+    currentDay = "all";
+    renderFilteredSchedule();
+  });
+
+  const params = new URLSearchParams(window.location.search);
+  const urlZone = params.get("strefa");
+  const urlClass = params.get("zajecia");
+
+  const activeZone: "fight" | "fitness" = isLocked
+    ? (section?.dataset.initialZone as "fight" | "fitness") || "fight"
+    : urlZone === "fitness"
+      ? "fitness"
+      : urlZone === "fight"
+        ? "fight"
+        : (section?.dataset.initialZone as "fight" | "fitness") || "fight";
+
+  if (urlClass) {
+    currentCategory = urlClass;
+  }
+  setZone(activeZone);
+</script>

@@ -1,71 +1,47 @@
 @import "tailwindcss";
 
 @theme {
-  /* Tła i struktura - Grafit 2026 */
-  --color-v3-dark: #121317;
-  --color-v3-surface: #181a20;
-  --color-v3-card: #20222a;
-  --color-v3-border: #2d303b;
+  /* Głęboka czerń węglowa 2027 - maksymalny kontrast dla neonów */
+  --color-v3-dark: #090a0d;
+  --color-v3-surface: #111318;
+  --color-v3-card: #171a21;
+  --color-v3-border: #242834;
 
-  /* Strefa Siłownia & Akcent Główny (Volt / Limonka) */
+  /* Akcent Główny (Volt Lime) */
   --color-v3-lime: #c8ff00;
-  --color-v3-lime-hover: #b0e200;
+  --color-v3-lime-hover: #d8ff4d;
 
-  /* Strefa FIGHT ZONE (Czerwień) */
+  /* Strefa FIGHT ZONE (Sportowa czerwień) */
   --color-v3-red: #ff2a2a;
-  --color-v3-red-hover: #e01b1b;
+  --color-v3-red-hover: #ff4747;
 
-  /* Strefa Kobiet & Fitness */
-  --color-v3-magenta: #ff007f;
+  /* Strefa Kobiet */
+  --color-v3-magenta: #ff1e8a;
   --color-v3-purple: #8a2be2;
 
-  /* Akcenty pomocnicze */
-  --color-v3-gold: #ffb800;
-  --color-v3-blue: #3b82f6;
-
-  /* TYPOGRAFIA: Ścisły podział na 2 czcionki w całym serwisie */
-  --font-display: "Rajdhani", sans-serif;
-  --font-sans: "Inter", sans-serif;
+  /* Nowoczesna Typografia 2027 */
+  --font-display: "Barlow Condensed", sans-serif;
+  --font-sans: "Plus Jakarta Sans", sans-serif;
 }
 
-/* Poświaty neonowe */
+/* Subtelna architektoniczna siatka w tle (zamiast rozmytych plam) */
+.bg-v3-grid {
+  background-size: 48px 48px;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+}
+
+/* Ostre poświaty tylko dla kluczowych elementów */
 .glow-lime {
-  filter: drop-shadow(0 0 14px rgba(200, 255, 0, 0.35));
+  filter: drop-shadow(0 0 12px rgba(200, 255, 0, 0.4));
 }
+
 .glow-red {
-  filter: drop-shadow(0 0 14px rgba(255, 42, 42, 0.4));
-}
-.glow-magenta {
-  filter: drop-shadow(0 0 14px rgba(255, 0, 127, 0.4));
+  filter: drop-shadow(0 0 12px rgba(255, 42, 42, 0.4));
 }
 
-/* Tła ambientowe sekcji */
-.ambient-glow-lime {
-  background-image: radial-gradient(
-    ellipse 75% 45% at 50% 0%,
-    rgba(200, 255, 0, 0.07),
-    transparent 70%
-  );
-}
-
-.ambient-glow-red {
-  background-image: radial-gradient(
-    ellipse 80% 50% at 50% 0%,
-    rgba(255, 42, 42, 0.08),
-    transparent 70%
-  );
-}
-
-.ambient-glow-women {
-  background-image: radial-gradient(
-    ellipse 80% 50% at 50% 0%,
-    rgba(255, 0, 127, 0.08),
-    rgba(138, 43, 226, 0.04) 50%,
-    transparent 70%
-  );
-}
-
-/* Scrollbary mobilne */
+/* Ukrywanie pasków przewijania w karuzelach mobilnych */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }

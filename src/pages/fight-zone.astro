@@ -1,0 +1,308 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SeasonalBanner from "../components/SeasonalBanner.astro";
+import Navbar from "../components/Navbar.astro";
+import ScheduleBoard from "../components/ScheduleBoard.astro";
+import Contact from "../components/Contact.astro";
+import { FIGHT_DISCIPLINES, FIGHT_AGE_GROUPS } from "../data/classes";
+---
+
+<Layout
+  title="Fight Zone & KSW Sokół Jarosław • Boks, Kickboxing, MMA, Ju-Jitsu, Krav Maga | V3 Klub"
+  description="Sekcja sportów walki w V3 Klub Jarosław prowadzona z KSW Sokół. Pełnowymiarowy ring, mata zapaśnicza oraz treningi Boksu, Kickboxingu, MMA, SSW Cobra Ju-Jitsu i Krav Magi."
+>
+  <SeasonalBanner />
+  <Navbar />
+
+  <main>
+    <!-- Nagłówek podstrony Fight Zone -->
+    <section class="relative overflow-hidden border-b border-white/10 bg-v3-dark bg-v3-grid py-12 sm:py-16 lg:py-20">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
+        <nav
+          aria-label="Ścieżka nawigacji"
+          class="flex items-center gap-2 text-xs font-semibold text-zinc-400 mb-4"
+        >
+          <a href="/" class="hover:text-v3-red transition-colors">
+            Strona główna
+          </a>
+          <span>/</span>
+          <span class="text-zinc-200">Fight Zone</span>
+        </nav>
+
+        <div class="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+          <div class="max-w-3xl">
+            <div class="inline-flex items-center gap-2 rounded-full border border-v3-red/30 bg-v3-red/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-v3-red">
+              <span>FIGHT ZONE &amp; KSW SOKÓŁ JAROSŁAW</span>
+            </div>
+
+            <h1 class="mt-3 font-display text-5xl sm:text-6xl lg:text-7xl font-black uppercase leading-none tracking-tight text-white">
+              Strefa Sportów <span class="text-v3-red">Walki</span>
+            </h1>
+
+            <p class="mt-4 text-sm sm:text-base leading-relaxed text-zinc-300">
+              Profesjonalna mata zapaśnicza, pełnowymiarowy ring bokserski oraz
+              strefa ciężkich worków treningowych. Szkolenie prowadzone pod
+              okiem mistrzów Polski, licencjonowanych trenerów PZKB oraz
+              czynnych zawodników sceny zawodowej.
+            </p>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-3 shrink-0">
+            <a
+              href="#grafik-strefy"
+              class="inline-flex items-center justify-center rounded-2xl bg-v3-red px-5 py-3.5 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-white transition hover:bg-v3-red-hover"
+            >
+              Grafik treningów walk ↓
+            </a>
+            <a
+              href="/trenerzy?strefa=fight"
+              class="group inline-flex items-center gap-2 rounded-2xl border border-white/15 bg-v3-surface px-5 py-3.5 text-xs sm:text-sm font-bold uppercase tracking-wider text-zinc-100 transition hover:border-v3-red/50 hover:text-v3-red"
+            >
+              <span>Kadra Fight Zone</span>
+              <svg
+                class="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2.2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M7 17L17 7M7 7h10v10"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Czyste panele 6 Dyscyplin (bez szumu pod zdjęciem) -->
+    <section class="border-b border-white/10 bg-v3-dark py-14 sm:py-16 lg:py-20">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mb-10 sm:mb-12">
+          <span class="text-xs font-bold uppercase tracking-widest text-v3-red">
+            Dyscypliny w V3
+          </span>
+          <h2 class="mt-2 font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold uppercase leading-none tracking-tight text-white">
+            Wybierz Swój <span class="text-v3-red">Styl Walki</span>
+          </h2>
+          <p class="mt-2.5 text-sm sm:text-base text-zinc-300 max-w-2xl leading-relaxed">
+            Niezależnie od tego, czy zaczynasz całkowicie od zera, budujesz
+            kondycję, czy przygotowujesz się do startów w zawodach.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {FIGHT_DISCIPLINES.map((item, index) => {
+            const num = String(index + 1).padStart(2, "0");
+            return (
+              <article
+                class={`group relative flex flex-col justify-between overflow-hidden rounded-3xl border bg-v3-surface transition-all duration-300 ${
+                  item.featured
+                    ? "border-v3-lime/50 hover:border-v3-lime"
+                    : "border-white/10 hover:border-v3-red/50"
+                }`}
+              >
+                <div>
+                  {item.image && (
+                    <div class="relative h-52 w-full overflow-hidden bg-v3-card">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        width="600"
+                        height="400"
+                        loading="lazy"
+                        decoding="async"
+                        class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                      />
+                      <div class="absolute inset-0 bg-linear-to-t from-v3-surface via-v3-surface/20 to-transparent" />
+                      <span
+                        class={`absolute top-3.5 left-3.5 rounded-lg border px-3 py-1 text-xs font-extrabold uppercase tracking-wider backdrop-blur-md bg-black/75 ${item.accentColor}`}
+                      >
+                        {item.subtitle}
+                      </span>
+                      <span class="absolute bottom-2 right-5 font-display text-4xl font-black text-white/15 select-none">
+                        {num}
+                      </span>
+                    </div>
+                  )}
+
+                  <div class="p-6">
+                    <h3 class="font-display text-3xl font-extrabold uppercase leading-tight tracking-tight text-white group-hover:text-v3-red transition-colors">
+                      {item.title}
+                    </h3>
+
+                    <p class="mt-3 text-sm leading-relaxed text-zinc-300">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+
+                <div class="px-6 pb-6 pt-2">
+                  <button
+                    type="button"
+                    data-jump-category={item.filterCategory}
+                    class="jump-to-schedule-btn group/btn cursor-pointer flex w-full items-center justify-between rounded-2xl border border-white/10 bg-v3-card pl-4 pr-3 py-2.5 text-xs font-extrabold uppercase tracking-wider text-zinc-100 transition hover:border-v3-red hover:bg-v3-red hover:text-white"
+                  >
+                    <span>Sprawdź w grafiku</span>
+                    <span class="flex h-7 w-7 items-center justify-center rounded-xl bg-white/10 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5">
+                      <svg
+                        class="h-3.5 w-3.5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="2.5"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M7 17L17 7M7 7h10v10"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+
+    <!-- Podział na 6 Grup Wiekowych -->
+    <section class="border-b border-white/10 bg-v3-surface/40 py-14 sm:py-16 lg:py-20">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col justify-between gap-3 border-b border-white/10 pb-6 sm:flex-row sm:items-end mb-10">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-widest text-v3-red block mb-1">
+              Ścieżka Rozwoju Zawodnika
+            </span>
+            <h2 class="font-display text-4xl sm:text-5xl font-extrabold uppercase leading-none tracking-tight text-white">
+              Szkolenie dla <span class="text-v3-red">każdego wieku</span>
+            </h2>
+          </div>
+          <span class="text-xs font-bold uppercase tracking-wider text-zinc-400">
+            Bezpieczeństwo • Technika • Rozwój
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {FIGHT_AGE_GROUPS.map((group, idx) => {
+            const stepNum = String(idx + 1).padStart(2, "0");
+            return (
+              <div
+                class={`relative flex flex-col justify-between rounded-3xl border p-6 transition-all duration-300 ${
+                  group.pro
+                    ? "border-v3-red/50 bg-v3-surface"
+                    : "border-white/10 bg-v3-surface hover:border-v3-red/40"
+                }`}
+              >
+                <div>
+                  <div class="flex items-center justify-between gap-2 mb-3">
+                    <span class="rounded-lg border border-white/10 bg-v3-card px-2.5 py-1 text-xs font-bold uppercase tracking-wider text-zinc-300">
+                      {group.subtitle}
+                    </span>
+                    <span class="font-display text-2xl font-black text-white/15 select-none">
+                      {stepNum}
+                    </span>
+                  </div>
+
+                  <h3 class="font-display text-3xl sm:text-4xl font-extrabold uppercase leading-none tracking-tight text-v3-red">
+                    {group.name}
+                  </h3>
+
+                  <p class="mt-3 text-sm leading-relaxed text-zinc-300">
+                    {group.desc}
+                  </p>
+                </div>
+
+                <div class="mt-5 pt-4 border-t border-white/10 flex items-center justify-between gap-2">
+                  <span class="inline-flex items-center rounded-lg bg-v3-card border border-white/10 px-3 py-1.5 text-xs font-bold text-white">
+                    Wiek: {group.age}
+                  </span>
+                  <span class="inline-flex items-center rounded-lg bg-v3-red/15 border border-v3-red/30 px-3 py-1.5 text-xs font-bold text-v3-red">
+                    Czas: {group.duration}
+                  </span>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        <!-- Pierwszy trening – co zabrać? -->
+        <div class="mt-12 rounded-3xl border border-white/10 bg-v3-dark p-6 sm:p-8">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-5 border-b border-white/10">
+            <h3 class="font-display text-3xl sm:text-4xl font-extrabold uppercase leading-none tracking-tight text-white">
+              Pierwszy trening w Fight Zone —{" "}
+              <span class="text-v3-lime">co zabrać?</span>
+            </h3>
+            <span class="text-xs font-bold uppercase tracking-wider text-zinc-400">
+              Poradnik dla początkujących
+            </span>
+          </div>
+
+          <div class="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-3">
+            <div class="rounded-2xl border border-white/8 bg-v3-surface p-5">
+              <span class="text-xs font-extrabold uppercase tracking-wider text-v3-lime block">
+                01. Wygodny strój sportowy
+              </span>
+              <p class="mt-2 text-sm text-zinc-300 leading-relaxed">
+                Koszulka, spodenki lub legginsy bez zamków i metalowych
+                elementów oraz butelka wody.
+              </p>
+            </div>
+            <div class="rounded-2xl border border-white/8 bg-v3-surface p-5">
+              <span class="text-xs font-extrabold uppercase tracking-wider text-v3-lime block">
+                02. Ćwiczymy na macie
+              </span>
+              <p class="mt-2 text-sm text-zinc-300 leading-relaxed">
+                Na matę wchodzimy boso lub w czystym obuwiu
+                bokserskim/zapaśniczym przeznaczonym wyłącznie na salę.
+              </p>
+            </div>
+            <div class="rounded-2xl border border-white/8 bg-v3-surface p-5">
+              <span class="text-xs font-extrabold uppercase tracking-wider text-v3-lime block">
+                03. Sprzęt na start
+              </span>
+              <p class="mt-2 text-sm text-zinc-300 leading-relaxed">
+                Na pierwsze zajęcia lub piątkowy trening wprowadzający nie
+                musisz mieć własnych rękawic — sprzęt klubowy jest dostępny na
+                miejscu.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <ScheduleBoard
+      initialZone="fight"
+      lockedZone={true}
+      title="Grafik Fight Zone"
+      subtitle="Wybierz dyscyplinę poniżej, aby wyświetlić tylko jej dni i godziny treningowe."
+    />
+
+    <Contact />
+  </main>
+</Layout>
+
+<script>
+  document
+    .querySelectorAll<HTMLButtonElement>(".jump-to-schedule-btn")
+    .forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const cat = btn.dataset.jumpCategory;
+        const scheduleSection = document.getElementById("grafik-strefy");
+        const filterBtn = document.querySelector<HTMLButtonElement>(
+          `[data-filter-zone="fight"][data-filter-cat="${cat}"]`,
+        );
+
+        if (filterBtn) {
+          filterBtn.click();
+        }
+        scheduleSection?.scrollIntoView({ behavior: "smooth" });
+      });
+    });
+</script>

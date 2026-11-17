@@ -3,21 +3,13 @@ import Layout from "../layouts/Layout.astro";
 import SeasonalBanner from "../components/SeasonalBanner.astro";
 import Navbar from "../components/Navbar.astro";
 import Hero from "../components/Hero.astro";
-import FightZone from "../components/FightZone.astro";
-import GymFitness from "../components/GymFitness.astro";
-import WomenZone from "../components/WomenZone.astro";
-import TrainersSection from "../components/TrainersSection.astro";
+import ZonesOverview from "../components/ZonesOverview.astro";
 import Pricing from "../components/Pricing.astro";
-import Schedule from "../components/Schedule.astro";
 import AppCta from "../components/AppCta.astro";
-import Reviews from "../components/Reviews.astro";
-import SocialFeed from "../components/SocialFeed.astro";
 import Contact from "../components/Contact.astro";
 ---
 
-<Layout
-  title="V3 Klub Jarosław • Siłownia, Fitness, Fight Zone i Samoobsługa 5:00 – 24:00"
->
+<Layout title="V3 Klub Jarosław • Siłownia, Fitness, Fight Zone i Samoobsługa 5:00 – 24:00">
   <!-- Dynamiczny baner akcji okolicznościowych sterowany kalendarzem -->
   <SeasonalBanner />
 
@@ -28,34 +20,16 @@ import Contact from "../components/Contact.astro";
     <!-- 1. Ekran Powitalny / Hero -->
     <Hero />
 
-    <!-- 2. Fight Zone (KSW Sokół Jarosław) -->
-    <FightZone />
+    <!-- 2. Przegląd 3 Stref Klubu (kierujący na dedykowane podstrony) -->
+    <ZonesOverview />
 
-    <!-- 3. Siłownia & Fitness -->
-    <GymFitness />
-
-    <!-- 4. Dedykowana Strefa Kobiet -->
-    <WomenZone />
-
-    <!-- 5. Reprezentacyjna Kadra Trenerska V3 (Wariant A) -->
-    <TrainersSection />
-
-    <!-- 6. Cennik Członkostwa & Pakiety partnerskie -->
+    <!-- 3. Cennik Członkostwa & Pakiety partnerskie -->
     <Pricing />
 
-    <!-- 7. Grafik Zajęć -->
-    <Schedule />
-
-    <!-- 8. Aplikacja GymManager & Kod QR -->
+    <!-- 4. Aplikacja GymManager & Kod QR (Samoobsługa 5:00 - 24:00) -->
     <AppCta />
 
-    <!-- 9. Zweryfikowane Opinie Google Maps -->
-    <Reviews />
-
-    <!-- 10. Social Media Feed -->
-    <SocialFeed />
-
-    <!-- 11. Kontakt & Dojazd Google Maps -->
+    <!-- 5. Kontakt & Dojazd Google Maps -->
     <Contact />
   </main>
 </Layout>

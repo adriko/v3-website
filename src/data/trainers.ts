@@ -127,14 +127,14 @@ export const TRAINERS: Trainer[] = [
     name: "Zuzanna Janicka",
     role: "Trenerka Personalna • Instruktorka Pilates & Trening Sylwetkowy",
     zone: "gym",
-    tags: ["Pilates", "Booty Heaven", "Psychologia Sportu", "Strefa Kobiet"],
+    tags: ["Pilates", "Booty Project", "Psychologia Sportu", "Strefa Kobiet"],
     experience: "Opieka wellness i modelowanie sylwetki",
     description:
-      "W V3 prowadzi zajęcia Pilates oraz Booty Heaven – kameralne treningi personalne w małych grupach nastawione na pośladki i nogi. Studentka psychologii (rehabilitacja młodzieży), łącząca biomechanikę ćwiczeń z empatią i zrozumieniem potrzeb podopiecznych. Koordynuje także odrębną Strefę Kobiet.",
-    leadsClasses: "Pilates, Booty Heaven, Konsultacje Personalne",
+      "W V3 prowadzi zajęcia Pilates oraz treningi modelujące pośladki i nogi. Studentka psychologii (rehabilitacja młodzieży), łącząca biomechanikę ćwiczeń z empatią i zrozumieniem potrzeb podopiecznych. Koordynuje także odrębną Strefę Kobiet.",
+    leadsClasses: "Pilates, Booty Project, Konsultacje Personalne",
     specialLink: {
       label: "Odwiedź dedykowaną Strefę Kobiet Zuzy →",
-      href: "#strefa-kobiet",
+      href: "/fitness#strefa-kobiet",
     },
   },
 ];
