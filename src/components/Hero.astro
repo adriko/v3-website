@@ -5,7 +5,7 @@
   id="o-nas"
   class="relative overflow-hidden border-b border-white/10 bg-v3-dark"
 >
-  <!-- Pełnoekranowe zdjęcie tła po prawej stronie z prawidłowym kadrem neonu V3 -->
+  <!-- Pełnoekranowe zdjęcie tła po prawej stronie (Desktop) -->
   <div class="hidden lg:block absolute inset-y-0 right-0 w-3/5 pointer-events-none select-none pr-6">
     <img
       src="/images/v3-gym-brick.jpeg"
@@ -24,7 +24,7 @@
   <!-- Subtelna siatka architektoniczna -->
   <div class="absolute inset-0 bg-v3-grid pointer-events-none"></div>
 
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative pt-8 pb-10 sm:pt-14 sm:pb-14 lg:pt-20 lg:pb-16">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative pt-7 pb-10 sm:pt-14 sm:pb-14 lg:pt-20 lg:pb-16">
     <div class="max-w-xl lg:max-w-2xl">
       <!-- Kicker -->
       <div class="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 backdrop-blur-md">
@@ -41,29 +41,25 @@
         <span class="block text-v3-red">Fight Zone</span>
       </h1>
 
-      <!-- Zdjęcie na smartfonie / tablecie -->
-      <div class="lg:hidden mt-5 relative overflow-hidden rounded-2xl border border-white/10 bg-v3-surface shadow-2xl">
+      <!-- Nowoczesny kadr na smartfonie: pełna szerokość bez pudełka, płynne wtopienie góra-dół -->
+      <div class="lg:hidden -mx-4 sm:mx-0 mt-4 relative overflow-hidden sm:rounded-2xl">
         <img
           src="/images/v3-gym-brick.jpeg"
-          alt="Wnętrze V3 Klub Jarosław"
+          alt="Wnętrze V3 Klub Jarosław - logo na cegle"
           width="800"
           height="500"
           loading="eager"
           fetchpriority="high"
           decoding="async"
-          class="h-52 sm:h-72 w-full object-cover"
+          class="h-56 sm:h-72 w-full object-cover object-center"
         />
-        <div class="absolute inset-0 bg-linear-to-t from-v3-dark via-transparent to-transparent"></div>
-        <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between rounded-xl border border-white/10 bg-v3-dark/90 px-3.5 py-2 backdrop-blur-md">
-          <span class="text-xs font-bold uppercase tracking-wider text-v3-lime">
-            Dwa Piętra Treningu • Bodytone
-          </span>
-          <span class="text-xs font-semibold text-zinc-300">Jarosław</span>
-        </div>
+        <!-- Górne i dolne przejście w czerń tła (środek z logo w 100% wyraźny) -->
+        <div class="pointer-events-none absolute inset-x-0 top-0 h-10 bg-linear-to-b from-v3-dark to-transparent"></div>
+        <div class="pointer-events-none absolute inset-x-0 bottom-0 h-14 bg-linear-to-t from-v3-dark to-transparent"></div>
       </div>
 
-      <!-- Zwięzły opis najmocniejszych stron -->
-      <p class="mt-5 sm:mt-6 text-base sm:text-lg leading-relaxed text-zinc-300 max-w-xl">
+      <!-- Zwięzły opis -->
+      <p class="mt-3 sm:mt-6 text-sm sm:text-lg leading-relaxed text-zinc-300 max-w-xl">
         Dwupoziomowe centrum sportowe łączące park maszyn{" "}
         <strong class="font-semibold text-white">Bodytone</strong>, zajęcia
         grupowe, zamkniętą Strefę Kobiet oraz sekcję sportów walki z
@@ -72,8 +68,8 @@
         w telefonie.
       </p>
 
-      <!-- Przyciski CTA -->
-      <div class="mt-7 flex flex-col sm:flex-row sm:items-center gap-3">
+      <!-- Przyciski CTA (wszystkie w jednej linii na mobile i PC) -->
+      <div class="mt-6 sm:mt-7 flex flex-col sm:flex-row sm:items-center gap-3">
         <a
           href="/#cennik"
           class="group inline-flex w-full sm:w-auto items-center justify-between sm:justify-center gap-3 rounded-2xl bg-v3-lime pl-6 pr-3.5 py-3.5 text-sm font-extrabold uppercase tracking-wider text-black transition-all duration-200 hover:bg-white active:scale-[0.98]"
@@ -96,10 +92,10 @@
           </span>
         </a>
 
-        <div class="grid grid-cols-2 gap-3 sm:flex sm:items-center">
+        <div class="grid grid-cols-2 gap-2.5 sm:gap-3 sm:flex sm:items-center">
           <a
             href="/grafik"
-            class="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/5 px-5 py-4 text-sm font-bold uppercase tracking-wider text-white backdrop-blur-md transition hover:border-v3-lime/60 hover:bg-white/10 hover:text-v3-lime"
+            class="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/5 px-3.5 sm:px-5 py-4 text-xs sm:text-sm font-bold uppercase tracking-wider text-white whitespace-nowrap backdrop-blur-md transition hover:border-v3-lime/60 hover:bg-white/10 hover:text-v3-lime"
           >
             <svg
               class="h-4 w-4 text-v3-lime shrink-0"
@@ -119,7 +115,7 @@
 
           <a
             href="tel:+48788463717"
-            class="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/5 px-5 py-4 text-sm font-bold uppercase tracking-wider text-white backdrop-blur-md transition hover:border-white/35 hover:bg-white/10"
+            class="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/5 px-3.5 sm:px-5 py-4 text-xs sm:text-sm font-bold uppercase tracking-wider text-white whitespace-nowrap backdrop-blur-md transition hover:border-white/35 hover:bg-white/10"
           >
             <svg
               class="h-4 w-4 text-v3-lime shrink-0"
