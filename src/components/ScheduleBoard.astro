@@ -18,24 +18,24 @@ const {
 const fightCategories = [
   "Wszystkie",
   "Kickboxing",
+  "Kickboxing dla początkujących",
   "Boks",
   "MMA",
   "SSW Cobra Ju-Jitsu",
   "Samoobrona / Krav Maga",
-  "Trening wprowadzający",
 ];
 
 const fitnessCategories = [
   "Wszystkie",
-  "CROSS",
   "V3 Step Up!",
-  "Booty Project",
-  "Full Body Project",
   "Pilates",
   "Joga",
+  "Booty Project",
+  "Full Body Project",
+  "Zumba",
   "Zdrowy Kręgosłup",
   "Zdrowe Ciało",
-  "V3 Mobility",
+  "V3 Stretch & Flow",
 ];
 
 const daysFilter = [
@@ -294,8 +294,17 @@ const daysFilter = [
       ))}
     </div>
 
-    <!-- Dolna belka informacyjna (bez przestarzałej strzałki i font-mono) -->
-    <div class="mt-10 flex flex-col items-center justify-between gap-3 rounded-2xl border border-white/10 bg-v3-surface px-5 py-4 sm:flex-row text-center sm:text-left">
+    <!-- Adnotacja o zajęciach równoległych w Fitness -->
+    <p
+      id="sb-fitness-parallel-note"
+      class={`mt-4 text-xs text-zinc-400 ${initialZone === "fitness" ? "" : "hidden"}`}
+    >
+      * Zajęcia z tą samą godziną w danym dniu odbywają się równolegle na
+      osobnych salach.
+    </p>
+
+    <!-- Dolna belka informacyjna -->
+    <div class="mt-8 flex flex-col items-center justify-between gap-3 rounded-2xl border border-white/10 bg-v3-surface px-5 py-4 sm:flex-row text-center sm:text-left">
       <div class="flex items-center gap-2.5">
         <span class="h-2 w-2 rounded-full bg-v3-lime animate-pulse shrink-0"></span>
         <span class="text-xs sm:text-sm text-zinc-300">
@@ -332,6 +341,7 @@ const daysFilter = [
   const gridFitness = document.getElementById("sb-grid-fitness");
   const filtersFight = document.getElementById("sb-filters-fight");
   const filtersFitness = document.getElementById("sb-filters-fitness");
+  const parallelNote = document.getElementById("sb-fitness-parallel-note");
   const titleAccent = document.getElementById("sb-title-accent");
   const emptyState = document.getElementById("sb-empty-state");
   const resetBtn = document.getElementById("sb-reset-filters");
@@ -397,7 +407,7 @@ const daysFilter = [
           countBadge.textContent =
             currentZone === "fight"
               ? `${visibleCount} ${visibleCount === 1 ? "trening" : visibleCount < 5 ? "treningi" : "treningów"}`
-              : `${visibleCount} zajęcia`;
+              : `${visibleCount} ${visibleCount === 5 ? "zajęć" : "zajęcia"}`;
         } else {
           countBadge.textContent = `${visibleCount} w tym dniu`;
         }
@@ -431,6 +441,7 @@ const daysFilter = [
       gridFitness.classList.add("hidden");
       filtersFight.classList.remove("hidden");
       filtersFitness.classList.add("hidden");
+      parallelNote?.classList.add("hidden");
       titleAccent.className = "text-v3-red";
     } else {
       if (tabFight && tabFitness) {
@@ -443,6 +454,7 @@ const daysFilter = [
       gridFight.classList.add("hidden");
       filtersFitness.classList.remove("hidden");
       filtersFight.classList.add("hidden");
+      parallelNote?.classList.remove("hidden");
       titleAccent.className = "text-v3-lime";
     }
     renderFilteredSchedule();

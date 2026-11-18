@@ -86,14 +86,14 @@ export const TRAINERS: Trainer[] = [
     zone: "gym",
     tags: [
       "Trening Motoryczny",
-      "CROSS",
+      "Przygotowanie Fizyczne",
       "Sportowcy Zawodowi",
       "Powrót po Urazach",
     ],
     experience: "Specjalista motoryki sportowej",
     description:
       "Specjalizuje się w przygotowaniu motorycznym sportowców zawodowych (piłkarze, siatkarze, zawodnicy sportów walki) oraz amatorów. Prowadzi treningi siłowe, wspiera powrót do pełnej sprawności przy bólach stawów i kręgosłupa. Pracuje również z młodzieżą, seniorami oraz kobietami w ciąży.",
-    leadsClasses: "CROSS w czwartki (w cenie każdego karnetu!)",
+    leadsClasses: "Treningi Personalne & Przygotowanie Motoryczne",
   },
   {
     id: "wiktoria-trojniak",
@@ -104,12 +104,12 @@ export const TRAINERS: Trainer[] = [
       "Trening Siłowy",
       "Praktyka w Berlinie",
       "Zdrowy Kręgosłup",
-      "Rehabilitacja Ruchowa",
+      "V3 Stretch&Flow",
     ],
     experience: "Wieloletnie doświadczenie międzynarodowe",
     description:
       "Doświadczenie zawodowe zdobywała m.in. w Berlinie, gdzie przez lata pracowała jako trenerka personalna. Specjalizuje się w treningu siłowym i funkcjonalnym. Skutecznie pomaga osobom wracającym do sprawności po operacjach i kontuzjach, łącząc profesjonalizm z ogromną dawką motywującej energii.",
-    leadsClasses: "V3 Step Up!, Zdrowy Kręgosłup, Booty & Full Body Project",
+    leadsClasses: "V3 Step Up!, Zdrowy Kręgosłup, Zdrowe Ciało, Stretch&Flow",
   },
   {
     id: "grzegorz-ficek",
