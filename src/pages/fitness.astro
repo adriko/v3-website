@@ -30,14 +30,32 @@ const gymFeatures = [
 
 <Layout
   title="Siłownia Bodytone, Zajęcia Fitness & Strefa Kobiet | V3 Klub Jarosław"
-  description="Nowoczesna siłownia Bodytone, wolne ciężary, 9 rodzajów zajęć grupowych (Pilates, Joga, Booty Project, Step Up, CROSS w cenie karnetu) oraz dedykowana Strefa Kobiet w Jarosławiu."
+  description="Nowoczesna siłownia Bodytone, wolne ciężary, 9 rodzajów zajęć grupowych (Pilates, Joga, Booty Project, Full Body Project, V3 Step Up!, Zumba, Zdrowy Kręgosłup) oraz dedykowana Strefa Kobiet w Jarosławiu."
 >
   <SeasonalBanner />
   <Navbar />
 
   <main>
     <!-- Nagłówek podstrony Siłownia & Fitness -->
-    <section class="relative overflow-hidden border-b border-white/10 bg-v3-dark bg-v3-grid py-12 sm:py-16 lg:py-20">
+    <section class="relative overflow-hidden border-b border-white/10 bg-v3-dark py-12 sm:py-16 lg:py-20">
+      <!-- Subtelne zdjęcie strefy wolnych ciężarów w tle (wyłącznie Desktop) -->
+      <div class="hidden lg:block absolute inset-y-0 right-0 w-3/5 pointer-events-none select-none">
+        <img
+          src="/images/silownia3.jpg"
+          alt="Strefa wolnych ciężarów i hantli w V3 Klub Jarosław"
+          width="1200"
+          height="900"
+          loading="eager"
+          decoding="async"
+          class="h-full w-full object-cover object-center opacity-35"
+        />
+        <div class="absolute inset-0 bg-linear-to-r from-v3-dark via-v3-dark/75 to-transparent"></div>
+        <div class="absolute inset-0 bg-linear-to-t from-v3-dark via-transparent to-v3-dark/60"></div>
+      </div>
+
+      <!-- Architektoniczna siatka -->
+      <div class="absolute inset-0 bg-v3-grid pointer-events-none"></div>
+
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
         <nav
           aria-label="Ścieżka nawigacji"
@@ -52,7 +70,7 @@ const gymFeatures = [
 
         <div class="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
           <div class="max-w-3xl">
-            <div class="inline-flex items-center gap-2 rounded-full border border-v3-lime/30 bg-v3-lime/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-v3-lime">
+            <div class="inline-flex items-center gap-2 rounded-full border border-v3-lime/30 bg-v3-lime/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-v3-lime backdrop-blur-md">
               <span>Dwa Piętra Treningu • Bodytone</span>
             </div>
 
@@ -76,7 +94,7 @@ const gymFeatures = [
             </a>
             <a
               href="#strefa-kobiet"
-              class="inline-flex items-center justify-center rounded-2xl border border-pink-500/40 bg-pink-500/10 px-5 py-3.5 text-xs sm:text-sm font-bold uppercase tracking-wider text-pink-400 transition hover:bg-pink-500 hover:text-white"
+              class="inline-flex items-center justify-center rounded-2xl border border-pink-500/40 bg-pink-500/15 px-5 py-3.5 text-xs sm:text-sm font-bold uppercase tracking-wider text-pink-400 backdrop-blur-md transition hover:bg-pink-500 hover:text-white"
             >
               Strefa Kobiet ↓
             </a>

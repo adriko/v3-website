@@ -16,7 +16,25 @@ import { FIGHT_DISCIPLINES, FIGHT_AGE_GROUPS } from "../data/classes";
 
   <main>
     <!-- Nagłówek podstrony Fight Zone -->
-    <section class="relative overflow-hidden border-b border-white/10 bg-v3-dark bg-v3-grid py-12 sm:py-16 lg:py-20">
+    <section class="relative overflow-hidden border-b border-white/10 bg-v3-dark py-12 sm:py-16 lg:py-20">
+      <!-- Subtelne zdjęcie ringu w tle (wyłącznie Desktop) -->
+      <div class="hidden lg:block absolute inset-y-0 right-0 w-3/5 pointer-events-none select-none">
+        <img
+          src="/images/boks2.jpg"
+          alt="Ring bokserski w strefie Fight Zone V3 Klub"
+          width="1200"
+          height="900"
+          loading="eager"
+          decoding="async"
+          class="h-full w-full object-cover object-center opacity-35"
+        />
+        <div class="absolute inset-0 bg-linear-to-r from-v3-dark via-v3-dark/75 to-transparent"></div>
+        <div class="absolute inset-0 bg-linear-to-t from-v3-dark via-transparent to-v3-dark/60"></div>
+      </div>
+
+      <!-- Architektoniczna siatka -->
+      <div class="absolute inset-0 bg-v3-grid pointer-events-none"></div>
+
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
         <nav
           aria-label="Ścieżka nawigacji"
@@ -31,7 +49,7 @@ import { FIGHT_DISCIPLINES, FIGHT_AGE_GROUPS } from "../data/classes";
 
         <div class="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
           <div class="max-w-3xl">
-            <div class="inline-flex items-center gap-2 rounded-full border border-v3-red/30 bg-v3-red/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-v3-red">
+            <div class="inline-flex items-center gap-2 rounded-full border border-v3-red/30 bg-v3-red/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-v3-red backdrop-blur-md">
               <span>FIGHT ZONE &amp; KSW SOKÓŁ JAROSŁAW</span>
             </div>
 
@@ -56,7 +74,7 @@ import { FIGHT_DISCIPLINES, FIGHT_AGE_GROUPS } from "../data/classes";
             </a>
             <a
               href="/trenerzy?strefa=fight"
-              class="group inline-flex items-center gap-2 rounded-2xl border border-white/15 bg-v3-surface px-5 py-3.5 text-xs sm:text-sm font-bold uppercase tracking-wider text-zinc-100 transition hover:border-v3-red/50 hover:text-v3-red"
+              class="group inline-flex items-center gap-2 rounded-2xl border border-white/15 bg-v3-surface/85 px-5 py-3.5 text-xs sm:text-sm font-bold uppercase tracking-wider text-zinc-100 backdrop-blur-md transition hover:border-v3-red/50 hover:text-v3-red"
             >
               <span>Kadra Fight Zone</span>
               <svg
@@ -267,9 +285,9 @@ import { FIGHT_DISCIPLINES, FIGHT_AGE_GROUPS } from "../data/classes";
                 03. Sprzęt na start
               </span>
               <p class="mt-2 text-sm text-zinc-300 leading-relaxed">
-                Na pierwsze zajęcia lub piątkowy trening wprowadzający nie
-                musisz mieć własnych rękawic — sprzęt klubowy jest dostępny na
-                miejscu.
+                Na pierwsze zajęcia lub czwartkowy trening dla początkujących
+                nie musisz mieć własnych rękawic — sprzęt klubowy jest dostępny
+                na miejscu.
               </p>
             </div>
           </div>
