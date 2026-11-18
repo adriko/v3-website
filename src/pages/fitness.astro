@@ -38,16 +38,16 @@ const gymFeatures = [
   <main>
     <!-- Nagłówek podstrony Siłownia & Fitness -->
     <section class="relative overflow-hidden border-b border-white/10 bg-v3-dark py-12 sm:py-16 lg:py-20">
-      <!-- Subtelne zdjęcie strefy wolnych ciężarów w tle (wyłącznie Desktop) -->
-      <div class="hidden lg:block absolute inset-y-0 right-0 w-3/5 pointer-events-none select-none">
+      <!-- Subtelne zdjęcie sali siłowni (gym1.jpg z odcięciem białych ramek via scale-125) -->
+      <div class="hidden lg:block absolute inset-y-0 right-0 w-3/5 overflow-hidden pointer-events-none select-none">
         <img
-          src="/images/silownia3.jpg"
-          alt="Strefa wolnych ciężarów i hantli w V3 Klub Jarosław"
+          src="/images/gym1.jpg"
+          alt="Strefa maszyn Bodytone i wolnych ciężarów Tiguar w V3 Klub Jarosław"
           width="1200"
           height="900"
           loading="eager"
           decoding="async"
-          class="h-full w-full object-cover object-center opacity-35"
+          class="h-full w-full object-cover object-center scale-125 opacity-40"
         />
         <div class="absolute inset-0 bg-linear-to-r from-v3-dark via-v3-dark/75 to-transparent"></div>
         <div class="absolute inset-0 bg-linear-to-t from-v3-dark via-transparent to-v3-dark/60"></div>
@@ -129,7 +129,7 @@ const gymFeatures = [
       </div>
     </section>
 
-    <!-- Czyste panele 9 Zajęć Fitness (bez szumu pod zdjęciem) -->
+    <!-- Czyste panele 9 Zajęć Fitness -->
     <section class="border-b border-white/10 bg-v3-dark py-14 sm:py-16 lg:py-20">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col justify-between gap-4 md:flex-row md:items-end mb-10 sm:mb-12">
