@@ -24,25 +24,25 @@
   <!-- Subtelna siatka architektoniczna -->
   <div class="absolute inset-0 bg-v3-grid pointer-events-none"></div>
 
-  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative pt-5 pb-10 sm:pt-14 sm:pb-14 lg:pt-20 lg:pb-16">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative pt-3.5 pb-10 sm:pt-14 sm:pb-14 lg:pt-20 lg:pb-16">
     <div class="max-w-xl lg:max-w-2xl flex flex-col">
-      <!-- 1. Kicker -->
+      <!-- 1. Kicker (bez dublowania ulicy z górnego paska) -->
       <div class="order-1 self-start inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 backdrop-blur-md">
         <span class="h-2 w-2 rounded-full bg-v3-lime"></span>
-        <span class="text-xs font-bold uppercase tracking-wider text-zinc-200">
-          ul. Poniatowskiego 24 • Jarosław
+        <span class="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-zinc-200">
+          Centrum Sportowe • Jarosław
         </span>
       </div>
 
       <!-- 2. Nagłówek H1 -->
-      <h1 class="order-2 mt-3 sm:mt-5 font-display text-5xl sm:text-7xl lg:text-8xl font-black uppercase leading-[0.88] tracking-tight">
+      <h1 class="order-2 mt-2.5 sm:mt-5 font-display text-5xl sm:text-7xl lg:text-8xl font-black uppercase leading-[0.88] tracking-tight">
         <span class="block text-white">Siłownia</span>
         <span class="block text-v3-lime">Fitness</span>
         <span class="block text-v3-red">Fight Zone</span>
       </h1>
 
-      <!-- 3. Kadr na smartfonie: pełna szerokość, kompaktowa wysokość, płynne wtopienie góra-dół -->
-      <div class="order-3 lg:hidden -mx-4 sm:mx-0 mt-3.5 relative overflow-hidden sm:rounded-2xl">
+      <!-- 3. Kadr na smartfonie: pełna szerokość, płynne wtopienie góra-dół -->
+      <div class="order-3 lg:hidden -mx-4 sm:mx-0 mt-3 relative overflow-hidden sm:rounded-2xl">
         <img
           src="/images/v3-gym-brick.jpeg"
           alt="Wnętrze V3 Klub Jarosław - logo na cegle"
@@ -51,14 +51,14 @@
           loading="eager"
           fetchpriority="high"
           decoding="async"
-          class="h-44 sm:h-72 w-full object-cover object-center"
+          class="h-40 sm:h-72 w-full object-cover object-center"
         />
         <div class="pointer-events-none absolute inset-x-0 top-0 h-8 bg-linear-to-b from-v3-dark to-transparent"></div>
         <div class="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-linear-to-t from-v3-dark to-transparent"></div>
       </div>
 
-      <!-- 4. Przyciski CTA (na mobile od razu pod zdjęciem, na PC pod opisem) -->
-      <div class="order-4 lg:order-5 mt-4 sm:mt-7 flex flex-col sm:flex-row sm:items-center gap-2.5 sm:gap-3">
+      <!-- 4. Przyciski CTA -->
+      <div class="order-4 lg:order-5 mt-3.5 sm:mt-7 flex flex-col sm:flex-row sm:items-center gap-2.5 sm:gap-3">
         <a
           href="/#cennik"
           class="group inline-flex w-full sm:w-auto items-center justify-between sm:justify-center gap-3 rounded-2xl bg-v3-lime pl-6 pr-3.5 py-3 sm:py-3.5 text-sm font-extrabold uppercase tracking-wider text-black transition-all duration-200 hover:bg-white active:scale-[0.98]"
@@ -84,7 +84,7 @@
         <div class="grid grid-cols-2 gap-2.5 sm:gap-3 sm:flex sm:items-center">
           <a
             href="/grafik"
-            class="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/5 px-3.5 sm:px-5 py-3.5 sm:py-4 text-xs sm:text-sm font-bold uppercase tracking-wider text-white whitespace-nowrap backdrop-blur-md transition hover:border-v3-lime/60 hover:bg-white/10 hover:text-v3-lime"
+            class="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/5 px-3.5 sm:px-5 py-3 sm:py-4 text-xs sm:text-sm font-bold uppercase tracking-wider text-white whitespace-nowrap backdrop-blur-md transition hover:border-v3-lime/60 hover:bg-white/10 hover:text-v3-lime"
           >
             <svg
               class="h-4 w-4 text-v3-lime shrink-0"
@@ -104,7 +104,7 @@
 
           <a
             href="tel:+48788463717"
-            class="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/5 px-3.5 sm:px-5 py-3.5 sm:py-4 text-xs sm:text-sm font-bold uppercase tracking-wider text-white whitespace-nowrap backdrop-blur-md transition hover:border-white/35 hover:bg-white/10"
+            class="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/5 px-3.5 sm:px-5 py-3 sm:py-4 text-xs sm:text-sm font-bold uppercase tracking-wider text-white whitespace-nowrap backdrop-blur-md transition hover:border-white/35 hover:bg-white/10"
           >
             <svg
               class="h-4 w-4 text-v3-lime shrink-0"
@@ -125,18 +125,20 @@
       </div>
 
       <!-- 5. 4 kluczowe przewagi klubu V3 -->
-      <div class="order-5 lg:order-6 mt-4 sm:mt-9 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 rounded-2xl border border-white/10 bg-v3-surface/80 p-3.5 backdrop-blur-md sm:rounded-none sm:border-0 sm:border-t sm:border-white/10 sm:bg-transparent sm:p-0 sm:pt-6 sm:backdrop-blur-none">
+      <div class="order-5 lg:order-6 mt-3.5 sm:mt-9 grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4 rounded-2xl border border-white/10 bg-v3-surface/80 p-3 backdrop-blur-md sm:rounded-none sm:border-0 sm:border-t sm:border-white/10 sm:bg-transparent sm:p-0 sm:pt-6 sm:backdrop-blur-none">
         <div>
           <span class="block font-display text-xl sm:text-3xl font-extrabold uppercase leading-none text-v3-lime">
             5:00 – 24:00
           </span>
-          <span class="mt-1 block text-xs text-zinc-400">Samoobsługa QR</span>
+          <span class="mt-1 block text-[11px] sm:text-xs text-zinc-400">
+            Samoobsługa QR
+          </span>
         </div>
         <div>
           <span class="block font-display text-xl sm:text-3xl font-extrabold uppercase leading-none text-white">
             2 PIĘTRA
           </span>
-          <span class="mt-1 block text-xs text-zinc-400">
+          <span class="mt-1 block text-[11px] sm:text-xs text-zinc-400">
             Siłownia &amp; Fight Zone
           </span>
         </div>
@@ -144,7 +146,7 @@
           <span class="block font-display text-xl sm:text-3xl font-extrabold uppercase leading-none text-pink-400">
             PINK ZONE
           </span>
-          <span class="mt-1 block text-xs text-zinc-400">
+          <span class="mt-1 block text-[11px] sm:text-xs text-zinc-400">
             Odrębna Strefa Kobiet
           </span>
         </div>
@@ -152,7 +154,7 @@
           <span class="block font-display text-xl sm:text-3xl font-extrabold uppercase leading-none text-white">
             KARTY VIP
           </span>
-          <span class="mt-1 block text-xs text-zinc-400">
+          <span class="mt-1 block text-[11px] sm:text-xs text-zinc-400">
             MultiSport • Medicover
           </span>
         </div>
